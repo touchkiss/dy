@@ -6,15 +6,15 @@ import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.methods.*;
 import org.apache.http.config.SocketConfig;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
+import org.apache.http.protocol.HttpCoreContext;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +48,21 @@ public class HttpUtil {
 //    static {
 //        PROXY = new HttpHost("192.168.8.200", 8087);
 //    }
+
+    public static String getRedirectUrl(String url) {
+        HttpGet httpget = new HttpGet(url);
+        HttpContext httpContext = new BasicHttpContext();
+        try {
+            CloseableHttpResponse response = getHttpClient().execute(httpget, httpContext);
+            HttpHost targetHost = (HttpHost) httpContext.getAttribute(HttpCoreContext.HTTP_TARGET_HOST);
+            HttpUriRequest realRequest = (HttpUriRequest) httpContext.getAttribute(HttpCoreContext.HTTP_REQUEST);
+            return targetHost.toURI() + realRequest.getURI();
+
+        } catch (Exception e) {
+
+        }
+        return url;
+    }
 
     public static CloseableHttpClient getHttpClient() {
         return HttpClients.custom()
