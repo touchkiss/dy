@@ -43,7 +43,7 @@ public class HttpUtil {
             .setSoTimeout(DEFAULT_SOCKET_TIMEOUT)
             .setTcpNoDelay(true)
             .build();
-    private static HttpHost PROXY = null;
+    private static final HttpHost PROXY = null;
 
 //    static {
 //        PROXY = new HttpHost("192.168.8.200", 8087);

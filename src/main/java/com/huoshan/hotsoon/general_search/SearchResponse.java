@@ -13,12 +13,7 @@ import java.util.List;
  */
 @lombok.NoArgsConstructor
 @lombok.Data
-public class SearchResponse {
-
-    private Integer status_code;
-    private ExtraBean extra;
-    private java.util.List<DataBean> data;
-
+public class SearchResponse extends BaseResponse<List<SearchResponse.DataBean>>{
     @lombok.NoArgsConstructor
     @lombok.Data
     public static class DataBean {

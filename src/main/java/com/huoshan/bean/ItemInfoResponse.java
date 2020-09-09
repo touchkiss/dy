@@ -5,8 +5,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * Created on 2020/09/09 11:37
- *
+ * <p>
  * 根据视频itemid获取加密的userid
+ *
  * @author Touchkiss
  */
 @NoArgsConstructor

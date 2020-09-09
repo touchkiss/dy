@@ -13,9 +13,9 @@ public class GsonUtil {
     private final static Gson GSON = new Gson();
 
     public static <T> T fromJson(String json, Class<T> clazz) {
-        try{
+        try {
             return GSON.fromJson(json, clazz);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

@@ -13,23 +13,19 @@ import java.util.List;
  */
 @lombok.NoArgsConstructor
 @lombok.Data
-public class PublishedListResponse {
-
-    private ExtraBean extra;
-    private int status_code;
-    private java.util.List<DataBeanX> data;
+public class PublishedListResponse extends BaseResponse<List<PublishedListResponse.DataBeanX>>{
 
     @lombok.NoArgsConstructor
     @lombok.Data
-    public static class DataBeanX{
+    public static class DataBeanX {
         private DataBean data;
         private String rid;
-//        private List<Object>tags;
+        //        private List<Object>tags;
         private Integer type;
 
         @lombok.Data
         @lombok.NoArgsConstructor
-        public static class DataBean{
+        public static class DataBean {
             private boolean allow_comment;
             private boolean allow_dislike;
             private boolean allow_display_comments;
@@ -78,9 +74,10 @@ public class PublishedListResponse {
             private VideoInfo video;
             private String weibo_share_title;
             private List<AtUser> at_users;
+
             @NoArgsConstructor
             @Data
-            public static class MiscInfoBean{
+            public static class MiscInfoBean {
 
                 /**
                  * ocr_location :

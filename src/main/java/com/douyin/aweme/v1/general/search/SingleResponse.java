@@ -227,7 +227,7 @@ public class SingleResponse {
                  * nickname : 苹果大连
                  * gender : 1
                  * signature : 分享 苹果全线产品 （iPhone iPad MacBook iMac) 使用技巧 创作不易 尽量1~2天 19点更新
-                 我爱大连，从未离开！
+                 * 我爱大连，从未离开！
                  * avatar_larger : {"uri":"1080x1080/3147500013670b5ccdd93","url_list":["https://p3-dy-ipv6.byteimg.com/aweme/1080x1080/3147500013670b5ccdd93.webp?from=2563711402","https://p26-dy.byteimg.com/aweme/1080x1080/3147500013670b5ccdd93.webp?from=2563711402","https://p29-dy.byteimg.com/aweme/1080x1080/3147500013670b5ccdd93.webp?from=2563711402","https://p3-dy-ipv6.byteimg.com/aweme/1080x1080/3147500013670b5ccdd93.jpeg?from=2563711402"],"width":720,"height":720}
                  * avatar_thumb : {"uri":"100x100/3147500013670b5ccdd93","url_list":["https://p3-dy-ipv6.byteimg.com/aweme/100x100/3147500013670b5ccdd93.webp?from=2563711402","https://p9-dy.byteimg.com/aweme/100x100/3147500013670b5ccdd93.webp?from=2563711402","https://p29-dy.byteimg.com/aweme/100x100/3147500013670b5ccdd93.webp?from=2563711402","https://p3-dy-ipv6.byteimg.com/aweme/100x100/3147500013670b5ccdd93.jpeg?from=2563711402"],"width":720,"height":720}
                  * avatar_medium : {"uri":"720x720/3147500013670b5ccdd93","url_list":["https://p3-dy-ipv6.byteimg.com/aweme/720x720/3147500013670b5ccdd93.webp?from=2563711402","https://p6-dy-ipv6.byteimg.com/aweme/720x720/3147500013670b5ccdd93.webp?from=2563711402","https://p26-dy.byteimg.com/aweme/720x720/3147500013670b5ccdd93.webp?from=2563711402","https://p3-dy-ipv6.byteimg.com/aweme/720x720/3147500013670b5ccdd93.jpeg?from=2563711402"],"width":720,"height":720}

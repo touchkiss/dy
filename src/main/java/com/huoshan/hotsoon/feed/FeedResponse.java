@@ -1,7 +1,9 @@
 package com.huoshan.hotsoon.feed;
 
 import com.douyin.webcast.ranklist.hot.ListResponse;
-import com.huoshan.bean.ExtraBean;
+import com.huoshan.bean.BaseResponse;
+
+import java.util.List;
 
 /**
  * Created on 2020/09/07 17:30
@@ -11,12 +13,5 @@ import com.huoshan.bean.ExtraBean;
  */
 @lombok.NoArgsConstructor
 @lombok.Data
-public class FeedResponse {
-
-
-    private ExtraBean extra;
-    private int status_code;
-    private java.util.List<ListResponse.DataBeanX> data;
-
-
+public class FeedResponse extends BaseResponse<List<ListResponse.DataBeanX>> {
 }
