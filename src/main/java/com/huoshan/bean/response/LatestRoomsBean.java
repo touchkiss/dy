@@ -1,4 +1,4 @@
-package com.huoshan.bean;
+package com.huoshan.bean.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -100,17 +100,6 @@ public class LatestRoomsBean {
     @NoArgsConstructor
     @Data
     public static class StreamUrlBean {
-        /**
-         * candidate_resolution : []
-         * default_resolution : FULL_HD1
-         * extra : {"anchor_interact_profile":0,"audience_interact_profile":0,"default_bitrate":800,"fps":15,"height":1280,"max_bitrate":1333,"min_bitrate":512,"width":720}
-         * flv_pull_url : {}
-         * id : 107339638649389522
-         * id_str : 107339638649389522
-         * provider : 1
-         * resolution_name : {"FULL_HD1":"超清","HD1":"高清","SD1":"标清","SD2":"标清"}
-         * rtmp_pull_url : http://pull-flv-f6.douyincdn.com/stagereplay/stream-107339638649389522.flv
-         */
 
         private String default_resolution;
         private ExtraBean extra;

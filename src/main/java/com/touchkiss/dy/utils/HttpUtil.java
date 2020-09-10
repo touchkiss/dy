@@ -20,8 +20,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -160,5 +162,27 @@ public class HttpUtil {
     public static String inputStream2String(InputStream in, String charset) throws IOException {
         return new BufferedReader(new InputStreamReader(in, charset))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
+    }
+
+    public static String toQueryString(Object obj) {
+        Class<?> aClass = obj.getClass();
+        List<Field> fields = new ArrayList<>(Arrays.asList(aClass.getDeclaredFields()));
+        for (; ; ) {
+            if (aClass.getSuperclass().getName().equals("java.lang.Object")) {
+                break;
+            } else {
+                aClass = aClass.getSuperclass();
+                fields.addAll(Arrays.asList(aClass.getDeclaredFields()));
+            }
+        }
+        return fields.stream().map(field -> {
+            field.setAccessible(true);
+            try {
+                return field.getName() + "=" + (field.get(obj) == null ? "" : field.get(obj).toString());
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }).collect(Collectors.joining("&"));
     }
 }

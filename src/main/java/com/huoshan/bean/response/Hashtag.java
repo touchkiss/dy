@@ -1,4 +1,4 @@
-package com.huoshan.bean;
+package com.huoshan.bean.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,14 +16,14 @@ public class Hashtag {
 
     private DescH5Bean desc_h5;
     private String entrance_desc;
-    private int fav_cnt;
-    private long id;
+    private Integer fav_cnt;
+    private Long id;
     private String id_string;
-    private boolean is_visible;
+    private Boolean is_visible;
     private String share_h5_url;
-    private int status;
+    private Integer status;
     private String title;
-    private int video_cnt;
+    private Integer video_cnt;
     private List<OrdersBean> orders;
 
     @NoArgsConstructor
@@ -35,9 +35,9 @@ public class Hashtag {
          * width : 750
          */
 
-        private int height;
+        private Integer height;
         private String url;
-        private int width;
+        private Integer width;
     }
 
     @NoArgsConstructor

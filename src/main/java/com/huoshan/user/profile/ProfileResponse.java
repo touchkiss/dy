@@ -1,7 +1,7 @@
 package com.huoshan.user.profile;
 
-import com.huoshan.bean.Author;
-import com.huoshan.bean.BaseResponse;
+import com.huoshan.bean.response.Author;
+import com.huoshan.bean.response.BaseResponse;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

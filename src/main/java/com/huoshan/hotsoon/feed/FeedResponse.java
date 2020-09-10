@@ -1,7 +1,7 @@
 package com.huoshan.hotsoon.feed;
 
 import com.douyin.webcast.ranklist.hot.ListResponse;
-import com.huoshan.bean.BaseResponse;
+import com.huoshan.bean.response.BaseResponse;
 
 import java.util.List;
 

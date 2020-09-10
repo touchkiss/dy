@@ -1,4 +1,4 @@
-package com.huoshan.bean;
+package com.huoshan.bean.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,14 +16,14 @@ public class Song {
     private String author;
     private CoverBean cover_large;
     private CoverBean cover_thumb;
-    private int duration;
-    private long id;
+    private Integer duration;
+    private Long id;
     private CoverBean play_url;
     private String share_description;
     private String share_title;
     private String share_url;
-    private int source_platform;
-    private int status;
+    private Integer source_platform;
+    private Integer status;
     private String title;
-    private int video_cnt;
+    private Integer video_cnt;
 }

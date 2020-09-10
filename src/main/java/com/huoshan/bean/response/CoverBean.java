@@ -1,4 +1,4 @@
-package com.huoshan.bean;
+package com.huoshan.bean.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

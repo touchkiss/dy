@@ -1,4 +1,4 @@
-package com.huoshan.bean;
+package com.huoshan.bean.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,20 +23,20 @@ public class ItemCommentsResponse extends BaseResponse<ItemCommentsResponse.Data
         @Data
         public static class CommentsBean {
 
-            private int status;
+            private Integer status;
             private String text;
-            private int digg_count;
-            private int create_time;
-            private int reply_id;
+            private Integer digg_count;
+            private Integer create_time;
+            private Integer reply_id;
             private Author user;
-            private long item_id;
-            private int user_digg;
-            private long id;
-            private int reply_count;
-            private long owner_id;
-            private int type;
+            private Long item_id;
+            private Integer user_digg;
+            private Long id;
+            private Integer reply_count;
+            private Long owner_id;
+            private Integer type;
             private Object media_list;
-            private int comment_flash_count;
+            private Integer comment_flash_count;
         }
     }
 }
