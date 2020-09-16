@@ -6,9 +6,9 @@ import com.huoshan.bean.response.Author;
 import com.huoshan.bean.response.FollowersListResponse;
 import com.huoshan.bean.response.ItemCommentsResponse;
 import com.huoshan.bean.response.ItemInfoResponse;
-import com.huoshan.hotsoon.general_search.SearchResponse;
-import com.huoshan.hotsoon.item.profile.PublishedListResponse;
-import com.huoshan.user.profile.ProfileResponse;
+import com.huoshan.bean.response.SearchResponse;
+import com.huoshan.bean.response.PublishedListResponse;
+import com.huoshan.bean.response.ProfileResponse;
 import com.touchkiss.dy.utils.GsonUtil;
 import com.touchkiss.dy.utils.HttpUtil;
 import org.apache.http.Header;
@@ -222,8 +222,9 @@ public class SearchTest {
                 followersListRequest.setLast_update_time(now);
                 followersListRequest.setTs(now/1000);
                 followersListRequest.set_rticket(now);
+                setBaseRequestInfo(followersListRequest);
                 String url = "https://hotsoon-lq.snssdk.com/hotsoon/interact/relation/_followers/?"+HttpUtil.toQueryString(followersListRequest);
-                String gorgon = HttpUtil.post("http://192.168.8.193:8888/urlAndHeaders", HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, new HashMap() {{
+                String gorgon = HttpUtil.post("http://192.168.8.216:8888/urlAndHeaders", HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, new HashMap() {{
                     put("url", url);
                 }}, headers);
 //                System.out.println(gorgon);
@@ -281,5 +282,10 @@ public class SearchTest {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void feedCity(){
+
     }
 }

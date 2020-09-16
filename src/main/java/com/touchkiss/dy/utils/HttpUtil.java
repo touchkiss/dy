@@ -16,10 +16,10 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpCoreContext;
 
-import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.Inflater;
 
 /**
  * Created on 2020/03/18 17:27
@@ -45,10 +47,10 @@ public class HttpUtil {
             .setSoTimeout(DEFAULT_SOCKET_TIMEOUT)
             .setTcpNoDelay(true)
             .build();
-    private static final HttpHost PROXY = null;
+    private static HttpHost PROXY = null;
 
 //    static {
-//        PROXY = new HttpHost("192.168.8.200", 8087);
+//        PROXY = new HttpHost("192.168.8.67", 8087);
 //    }
 
     public static String getRedirectUrl(String url) {
@@ -160,8 +162,71 @@ public class HttpUtil {
     }
 
     public static String inputStream2String(InputStream in, String charset) throws IOException {
-        return new BufferedReader(new InputStreamReader(in, charset))
-                .lines().collect(Collectors.joining(System.lineSeparator()));
+//        return CharStreams.toString(new InputStreamReader(in, charset));
+//        return new BufferedReader(new InputStreamReader(in, charset))
+//                .lines().collect(Collectors.joining(System.lineSeparator()));
+        ByteArrayOutputStream result = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = in.read(buffer)) != -1) {
+            result.write(buffer, 0, length);
+        }
+        String str = result.toString(charset);
+        return str;
+    }
+
+    /**
+     * @param inputByte 待解压缩的字节数组
+     * @return 解压缩后的字节数组
+     * @throws IOException
+     */
+    public static byte[] unDeflate(byte[] inputByte) {
+        int len = 0;
+        Inflater infl = new Inflater();
+        infl.setInput(inputByte);
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] outByte = new byte[1024];
+        try {
+            while (!infl.finished()) {
+                // 解压缩并将解压缩后的内容输出到字节输出流bos中
+                len = infl.inflate(outByte);
+                if (len == 0) {
+                    break;
+                }
+                bos.write(outByte, 0, len);
+            }
+            infl.end();
+        } catch (Exception e) {
+            //
+            e.printStackTrace();
+        } finally {
+            try {
+                bos.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return bos.toByteArray();
+    }
+
+    public static byte[] unGzip(byte[] bytes) {
+        if (bytes == null || bytes.length == 0) {
+            return null;
+        }
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ByteArrayInputStream in = new ByteArrayInputStream(bytes);
+        try {
+            GZIPInputStream ungzip = new GZIPInputStream(in);
+            byte[] buffer = new byte[256];
+            int n;
+            while ((n = ungzip.read(buffer)) >= 0) {
+                out.write(buffer, 0, n);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return out.toByteArray();
     }
 
     public static String toQueryString(Object obj) {

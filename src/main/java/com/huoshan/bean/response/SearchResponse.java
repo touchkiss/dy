@@ -1,7 +1,5 @@
-package com.huoshan.hotsoon.general_search;
+package com.huoshan.bean.response;
 
-import com.huoshan.bean.response.BaseResponse;
-import com.huoshan.bean.response.ItemInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +7,7 @@ import java.util.List;
 
 /**
  * Created on 2020/09/08 17:17
+ * 火山搜索列表
  *
  * @author Touchkiss
  */

@@ -1,4 +1,4 @@
-package com.huoshan.user.profile;
+package com.huoshan.bean.response;
 
 import com.huoshan.bean.response.Author;
 import com.huoshan.bean.response.BaseResponse;
