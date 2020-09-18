@@ -1,8 +1,5 @@
-package com.douyin.aweme.v1.general.search;
+package com.douyin.aweme.v1;
 
-import com.douyin.aweme.v1.aweme.post.AwemeInfo;
-import com.douyin.aweme.v1.aweme.post.BaseResponse;
-import com.douyin.aweme.v1.user.profile.UserInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,10 +12,10 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class SingleResponse extends BaseResponse {
+public class GeneralSearchResponse extends BaseResponse {
     private String qc;
-    private int cursor;
-    private int has_more;
+    private Long cursor;
+    private Long has_more;
     private AdInfoBean ad_info;
     private Object guide_search_words;
     private String backtrace;
@@ -32,7 +29,7 @@ public class SingleResponse extends BaseResponse {
     @NoArgsConstructor
     @Data
     public static class DataBean {
-        private int type;
+        private Long type;
         private AwemeInfo aweme_info;
         private DynamicPatchBean dynamic_patch;
         private List<CommentListBean> comment_list;
@@ -47,8 +44,8 @@ public class SingleResponse extends BaseResponse {
              * schema : aweme://lynxview/?channel=fe_lynx_main_search_card&bundle=related-search%2Ftemplate.js&group=fe_lynx_main_search_card&card_version=2&dynamic=1
              */
 
-            private int height;
-            private int origin_type;
+            private Long height;
+            private Long origin_type;
             private String raw_data;
             private String schema;
         }
@@ -77,12 +74,12 @@ public class SingleResponse extends BaseResponse {
             private String cid;
             private String text;
             private String aweme_id;
-            private int create_time;
-            private int digg_count;
-            private int status;
+            private Long create_time;
+            private Long digg_count;
+            private Long status;
             private UserInfo user;
             private String reply_id;
-            private int user_digged;
+            private Long user_digged;
             private Object reply_comment;
             private String reply_to_reply_id;
             private String reply_to_username;

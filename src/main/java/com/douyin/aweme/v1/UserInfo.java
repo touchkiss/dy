@@ -1,4 +1,4 @@
-package com.douyin.aweme.v1.user.profile;
+package com.douyin.aweme.v1;
 
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
@@ -11,41 +11,41 @@ import java.util.List;
 public class UserInfo {
 
     private Object ad_cover_url;
-    private int apple_account;
-    private int authority_status;
+    private Long apple_account;
+    private Long authority_status;
     private CoverBean avatar_168x168;
     private CoverBean avatar_300x300;
     private CoverBean avatar_larger;
     private CoverBean avatar_medium;
     private CoverBean avatar_thumb;
-    private int aweme_count;
+    private Long aweme_count;
     private String birthday;
-    private int birthday_hide_level;
+    private Long birthday_hide_level;
     private Object cha_list;
     private String city;
-    private int comment_filter_status;
-    private int comment_setting;
+    private Long comment_filter_status;
+    private Long comment_setting;
     private CommerceInfoBean commerce_info;
     private CommerceUserInfoBean commerce_user_info;
-    private int commerce_user_level;
+    private Long commerce_user_level;
     private String country;
     private List<CoverBean> cover_url;
     private String custom_verify;
     private String district;
     //        动态数量
-    private int dongtai_count;
-    private int download_setting;
-    private int duet_setting;
+    private Long dongtai_count;
+    private Long download_setting;
+    private Long duet_setting;
     private String enterprise_user_info;
     private String enterprise_verify_reason;
-    private int favoriting_count;
-    private int follow_status;
-    private int follower_count;
-    private int follower_status;
+    private Long favoriting_count;
+    private Long follow_status;
+    private Long follower_count;
+    private Long follower_status;
     private List<FollowersDetailBean> followers_detail;
-    private int following_count;
-    private int forward_count;
-    private int gender;
+    private Long following_count;
+    private Long forward_count;
+    private Long gender;
     private GeneralPermissionBean general_permission;
     private boolean has_unread_story;
     private boolean hide_location;
@@ -66,39 +66,39 @@ public class UserInfo {
     private String location;
     private boolean message_chat_entry;
     //        全平台粉丝数
-    private int mplatform_followers_count;
+    private Long mplatform_followers_count;
     private String nickname;
     private OriginalMusicianBean original_musician;
     private boolean prevent_download;
     private ProfileStoryBean profile_story;
-    private int profile_tab_type;
+    private Long profile_tab_type;
     private String province;
     private RFansGroupInfoBean r_fans_group_info;
     private String recommend_reason_relation;
-    private int recommend_user_reason_source;
+    private Long recommend_user_reason_source;
     private Object relative_users;
     private String region;
-    private int room_id;
+    private Long room_id;
     private String school_name;
     private String sec_uid;
-    private int secret;
+    private Long secret;
     private ShareInfoBean share_info;
     private String shop_micro_app;
     private String short_id;
     private boolean show_favorite_list;
     private String signature;
     private String signature_language;
-    private int stitch_setting;
-    private int story_count;
-    private int sync_to_toutiao;
+    private Long stitch_setting;
+    private Long story_count;
+    private Long sync_to_toutiao;
     private TabSettingsBean tab_settings;
-    private int total_favorited;
+    private Long total_favorited;
     private String twitter_id;
     private String twitter_name;
     private String uid;
     private String unique_id;
     private UrgeDetailBean urge_detail;
-    private int verification_type;
+    private Long verification_type;
     private String verify_info;
     private CoverBean video_cover;
     private CoverBean video_icon;
@@ -120,9 +120,9 @@ public class UserInfo {
          * digg_count : 0
          */
 
-        private int music_count;
-        private int music_used_count;
-        private int digg_count;
+        private Long music_count;
+        private Long music_used_count;
+        private Long digg_count;
     }
 
     @NoArgsConstructor
@@ -132,7 +132,7 @@ public class UserInfo {
          * following_follower_list_toast : 1
          */
 
-        private int following_follower_list_toast;
+        private Long following_follower_list_toast;
     }
 
     @NoArgsConstructor
@@ -142,7 +142,7 @@ public class UserInfo {
          * user_urged : 0
          */
 
-        private int user_urged;
+        private Long user_urged;
     }
 
     @NoArgsConstructor
@@ -169,7 +169,7 @@ public class UserInfo {
          * ad_revenue_rits : null
          */
 
-        private int star_atlas;
+        private Long star_atlas;
         private boolean show_star_atlas_cooperation;
         private boolean has_ads_entry;
         private Object ad_revenue_rits;
@@ -191,7 +191,7 @@ public class UserInfo {
         private String share_title;
         private CoverBean share_qrcode_url;
         private CoverBean share_image_url;
-        private int bool_persist;
+        private Long bool_persist;
         private String share_url;
         private String share_weibo_desc;
         private String share_desc;
@@ -206,7 +206,7 @@ public class UserInfo {
          */
 
         private Object unread_story_ids;
-        private int ttl_story_status;
+        private Long ttl_story_status;
     }
 
     @NoArgsConstructor
@@ -244,7 +244,7 @@ public class UserInfo {
         private String app_name;
         private String name;
         private String icon;
-        private int fans_count;
+        private Long fans_count;
         private String open_url;
         private String apple_id;
         private String download_url;

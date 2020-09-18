@@ -1,7 +1,7 @@
-package com.douyin.aweme.v2.comment.list;
+package com.douyin.aweme.v2;
 
-import com.douyin.aweme.v1.aweme.post.BaseResponse;
-import com.douyin.aweme.v1.user.profile.UserInfo;
+import com.douyin.aweme.v1.BaseResponse;
+import com.douyin.aweme.v1.UserInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,12 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class CommentListResponse extends BaseResponse {
-    private int cursor;
-    private int has_more;
-    private int reply_style;
-    private int total;
-    private int hotsoon_filtered_count;
-    private int hotsoon_has_more;
+    private Long cursor;
+    private Long has_more;
+    private Long reply_style;
+    private Long total;
+    private Long hotsoon_filtered_count;
+    private Long hotsoon_has_more;
     private String hotsoon_text;
     private List<CommentsBean> comments;
 
@@ -30,17 +30,17 @@ public class CommentListResponse extends BaseResponse {
         private String cid;
         private String text;
         private String aweme_id;
-        private int create_time;
-        private int digg_count;
-        private int status;
+        private Long create_time;
+        private Long digg_count;
+        private Long status;
         private UserInfo user;
         private String reply_id;
-        private int user_digged;
+        private Long user_digged;
         private Object reply_comment;
-        private int reply_comment_total;
+        private Long reply_comment_total;
         private String reply_to_reply_id;
         private boolean is_author_digged;
-        private int stick_position;
+        private Long stick_position;
         private boolean user_buried;
         private Object label_list;
         private List<?> text_extra;

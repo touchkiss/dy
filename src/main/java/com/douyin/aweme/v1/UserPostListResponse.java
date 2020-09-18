@@ -1,4 +1,4 @@
-package com.douyin.aweme.v1.aweme.post;
+package com.douyin.aweme.v1;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +15,6 @@ import java.util.List;
 public class UserPostListResponse extends BaseResponse {
     private long min_cursor;
     private long max_cursor;
-    private int has_more;
+    private Long has_more;
     private List<AwemeInfo> aweme_list;
 }

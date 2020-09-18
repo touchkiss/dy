@@ -1,6 +1,5 @@
-package com.douyin.aweme.v1.user.profile;
+package com.douyin.aweme.v1;
 
-import com.douyin.aweme.v1.aweme.post.BaseResponse;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +10,6 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class UserProfile extends BaseResponse {
+public class UserProfileResponse extends BaseResponse {
     private UserInfo user;
 }

@@ -1,6 +1,5 @@
-package com.douyin.aweme.v1.aweme.post;
+package com.douyin.aweme.v1;
 
-import com.douyin.aweme.v1.user.profile.UserProfile;
 import com.huoshan.bean.response.ExtraBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 public class BaseResponse {
-    private int status_code;
+    private Long status_code;
     private ExtraBean extra;
     private LogPbBean log_pb;
     @NoArgsConstructor

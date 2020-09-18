@@ -1,7 +1,7 @@
 package com.douyin.webcast.ranklist.hot;
 
-import com.douyin.aweme.v1.aweme.post.BaseResponse;
-import com.douyin.aweme.v1.user.profile.UserInfo;
+import com.douyin.aweme.v1.BaseResponse;
+import com.douyin.aweme.v1.UserInfo;
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class ListResponse extends BaseResponse {
     @Data
     public static class DataBeanX {
         private String top_image_url;
-        private int updated_at;
+        private Long updated_at;
         private List<RanksBean> ranks;
 
         @NoArgsConstructor
@@ -32,9 +32,9 @@ public class ListResponse extends BaseResponse {
 
             private String gap_description;
             private String label;
-            private int rank;
+            private Long rank;
             private RoomBean room;
-            private int score;
+            private Long score;
             private UserInfo user;
 
             @NoArgsConstructor
@@ -56,13 +56,13 @@ public class ListResponse extends BaseResponse {
                 private long id;
                 private String id_str;
                 private String title;
-                private int user_count;
+                private Long user_count;
 
                 @NoArgsConstructor
                 @Data
                 public static class ContentLabelBean extends CoverBean {
                     private String avg_color;
-                    private int image_type;
+                    private Long image_type;
                     private boolean is_animated;
                     private String open_web_url;
                 }

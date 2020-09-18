@@ -1,7 +1,6 @@
-package com.douyin.aweme.v1.aweme.post;
+package com.douyin.aweme.v1;
 
-import com.douyin.aweme.v1.general.search.SingleResponse;
-import com.douyin.aweme.v1.user.profile.UserInfo;
+import com.douyin.aweme.v1.UserInfo;
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,25 +15,25 @@ public class AwemeInfo {
     private long author_user_id;
     private AwemeControlBean aweme_control;
     private String aweme_id;
-    private int aweme_type;
-    private int bodydance_score;
+    private Long aweme_type;
+    private Long bodydance_score;
     private List<ChaListBean> cha_list;
     private Object challenge_position;
-    private boolean cmt_swt;
-    private int collect_stat;
+    private Boolean  cmt_swt;
+    private Long collect_stat;
     private Object comment_list;
     private Object commerce_config_data;
     private CommerceInfoBean commerce_info;
     private Object cover_labels;
-    private int create_time;
+    private Long create_time;
     private String desc;
     private String desc_language;
     private DescendantsBean descendants;
     private String distance;
-    private int distribute_type;
-    private int duration;
-    private boolean have_dashboard;
-    private boolean has_vs_entry;
+    private Long distribute_type;
+    private Long duration;
+    private Boolean  have_dashboard;
+    private Boolean  has_vs_entry;
     private HotListBean hot_list;
     private Object hybrid_label;
     private List<?> geofencing;
@@ -42,50 +41,50 @@ public class AwemeInfo {
     private String group_id;
     private Object image_infos;
     private Object interaction_stickers;
-    private boolean is_fantasy;
-    private int is_hash_tag;
-    private boolean is_pgcshow;
-    private int is_preview;
-    private boolean is_relieve;
-    private int is_story;
-    private int is_top;
-    private boolean is_vr;
-    private int item_comment_settings;
-    private int item_duet;
-    private int item_react;
-    private int item_stitch;
+    private Boolean  is_fantasy;
+    private Long is_hash_tag;
+    private Boolean  is_pgcshow;
+    private Long is_preview;
+    private Boolean  is_relieve;
+    private Long is_story;
+    private Long is_top;
+    private Boolean  is_vr;
+    private Long item_comment_settings;
+    private Long item_duet;
+    private Long item_react;
+    private Long item_stitch;
     private CoverBean label_top;
     private Object label_top_text;
     private Object long_video;
     private String misc_info;
     private MusicBean music;
-    private boolean need_vs_entry;
+    private Boolean  need_vs_entry;
     private Object nickname_position;
     private Object origin_comment_ids;
-    private boolean prevent_download;
+    private Boolean  prevent_download;
     private List<?> promotions;
     private PoiPatchInfoBean poi_patch_info;
     private Object position;
-    private int rate;
+    private Long rate;
     private String region;
-    private boolean report_action;
+    private Boolean  report_action;
     private RiskInfosBean risk_infos;
     private ShareInfoBeanX share_info;
     private String share_url;
     private String sort_label;
     private StatisticsBean statistics;
     private StatusBean status;
-    private int story_ttl;
+    private Long story_ttl;
     private List<TextExtraBean> text_extra;
     private Object uniqid_position;
-    private int user_digged;
+    private Long user_digged;
     private VideoBean video;
     private VideoControlBean video_control;
     private List<?> video_labels;
     private List<?> video_text;
-    private int vr_type;
-    private boolean with_promotional_music;
-    private boolean without_watermark;
+    private Long vr_type;
+    private Boolean  with_promotional_music;
+    private Boolean  without_watermark;
     private XiguaTaskBean xigua_task;
 
     @NoArgsConstructor
@@ -108,50 +107,50 @@ public class AwemeInfo {
         private CoverBean cover_thumb;
         private CoverBean play_url;
         private String schema_url;
-        private int source_platform;
-        private int start_time;
-        private int end_time;
-        private int duration;
+        private Long source_platform;
+        private Long start_time;
+        private Long end_time;
+        private Long duration;
         private String extra;
-        private int user_count;
+        private Long user_count;
         private Object position;
-        private int collect_stat;
-        private int status;
+        private Long collect_stat;
+        private Long status;
         private String offline_desc;
         private String owner_id;
         private String owner_nickname;
-        private boolean is_original;
+        private Boolean  is_original;
         private String mid;
-        private int binded_challenge_id;
-        private boolean redirect;
-        private boolean is_restricted;
-        private boolean author_deleted;
-        private boolean is_del_video;
-        private boolean is_video_self_see;
+        private Long binded_challenge_id;
+        private Boolean  redirect;
+        private Boolean  is_restricted;
+        private Boolean  author_deleted;
+        private Boolean  is_del_video;
+        private Boolean  is_video_self_see;
         private String owner_handle;
         private Object author_position;
-        private boolean prevent_download;
+        private Boolean  prevent_download;
         private CoverBean strong_beat_url;
         private Object unshelve_countries;
-        private int prevent_item_download_status;
+        private Long prevent_item_download_status;
         private String sec_uid;
         private CoverBean avatar_thumb;
         private CoverBean avatar_medium;
         private CoverBean avatar_large;
-        private int preview_start_time;
-        private int preview_end_time;
-        private boolean is_commerce_music;
-        private boolean is_original_sound;
-        private int audition_duration;
-        private int shoot_duration;
-        private int reason_type;
+        private Long preview_start_time;
+        private Long preview_end_time;
+        private Boolean  is_commerce_music;
+        private Boolean  is_original_sound;
+        private Long audition_duration;
+        private Long shoot_duration;
+        private Long reason_type;
         private Object lyric_short_position;
-        private boolean mute_share;
+        private Boolean  mute_share;
         private Object tag_list;
-        private boolean dmv_auto_show;
-        private boolean is_pgc;
-        private boolean is_matched_metadata;
-        private boolean is_audio_url_with_cookie;
+        private Boolean  dmv_auto_show;
+        private Boolean  is_pgc;
+        private Boolean  is_matched_metadata;
+        private Boolean  is_audio_url_with_cookie;
         private Object music_chart_ranks;
         private List<?> external_song_info;
         private List<?> artists;
@@ -162,26 +161,26 @@ public class AwemeInfo {
     public static class VideoBean {
         private PlayAddrBean play_addr;
         private CoverBean cover;
-        private int height;
-        private int width;
+        private Long height;
+        private Long width;
         private CoverBean dynamic_cover;
         private CoverBean origin_cover;
         private String ratio;
         private PlayAddrBean download_addr;
-        private boolean has_watermark;
+        private Boolean  has_watermark;
         private PlayAddrBean play_addr_lowbr;
-        private int duration;
+        private Long duration;
         private PlayAddrBean download_suffix_logo_addr;
-        private boolean has_download_suffix_logo_addr;
-        private int is_h265;
-        private int cdn_url_expired;
+        private Boolean  has_download_suffix_logo_addr;
+        private Long is_h265;
+        private Long cdn_url_expired;
         private CoverBean animated_cover;
-        private boolean need_set_token;
-        private boolean is_callback;
+        private Boolean  need_set_token;
+        private Boolean  is_callback;
         private Object tags;
-        private boolean use_static_cover;
+        private Boolean  use_static_cover;
         private Object big_thumbs;
-        private int is_bytevc1;
+        private Long is_bytevc1;
         private List<BitRateBean> bit_rate;
 
         @NoArgsConstructor
@@ -198,7 +197,7 @@ public class AwemeInfo {
              */
 
             private String url_key;
-            private int data_size;
+            private Long data_size;
             private String file_cs;
         }
 
@@ -215,11 +214,11 @@ public class AwemeInfo {
              */
 
             private String gear_name;
-            private int quality_type;
-            private int bit_rate;
+            private Long quality_type;
+            private Long bit_rate;
             private PlayAddrBean play_addr;
-            private int is_h265;
-            private int is_bytevc1;
+            private Long is_h265;
+            private Long is_bytevc1;
         }
     }
 
@@ -240,15 +239,15 @@ public class AwemeInfo {
          */
 
         private String aweme_id;
-        private int comment_count;
-        private int digg_count;
-        private int download_count;
-        private int play_count;
-        private int share_count;
-        private int forward_count;
-        private int lose_count;
-        private int lose_comment_count;
-        private int whatsapp_share_count;
+        private Long comment_count;
+        private Long digg_count;
+        private Long download_count;
+        private Long play_count;
+        private Long share_count;
+        private Long forward_count;
+        private Long lose_count;
+        private Long lose_comment_count;
+        private Long whatsapp_share_count;
     }
 
     @NoArgsConstructor
@@ -274,21 +273,21 @@ public class AwemeInfo {
          */
 
         private String aweme_id;
-        private boolean is_delete;
-        private boolean allow_share;
-        private boolean allow_comment;
-        private boolean is_private;
-        private boolean with_goods;
-        private int private_status;
-        private boolean with_fusion_goods;
-        private boolean in_reviewing;
-        private int reviewed;
-        private boolean self_see;
-        private boolean is_prohibited;
-        private int download_status;
+        private Boolean  is_delete;
+        private Boolean  allow_share;
+        private Boolean  allow_comment;
+        private Boolean  is_private;
+        private Boolean  with_goods;
+        private Long private_status;
+        private Boolean  with_fusion_goods;
+        private Boolean  in_reviewing;
+        private Long reviewed;
+        private Boolean  self_see;
+        private Boolean  is_prohibited;
+        private Long download_status;
         private ReviewResultBean review_result;
-        private int dont_share_status;
-        private int video_hide_search;
+        private Long dont_share_status;
+        private Long video_hide_search;
 
         @NoArgsConstructor
         @Data
@@ -297,7 +296,7 @@ public class AwemeInfo {
              * review_status : 0
              */
 
-            private int review_status;
+            private Long review_status;
         }
     }
 
@@ -323,7 +322,7 @@ public class AwemeInfo {
         private String share_weibo_desc;
         private String share_desc;
         private String share_title;
-        private int bool_persist;
+        private Long bool_persist;
         private String share_title_myself;
         private String share_title_other;
         private String share_link_desc;
@@ -344,10 +343,10 @@ public class AwemeInfo {
          * content :
          */
 
-        private boolean vote;
-        private boolean warn;
-        private boolean risk_sink;
-        private int type;
+        private Boolean  vote;
+        private Boolean  warn;
+        private Boolean  risk_sink;
+        private Long type;
         private String content;
     }
 
@@ -370,7 +369,7 @@ public class AwemeInfo {
          * is_xigua_task : false
          */
 
-        private boolean is_xigua_task;
+        private Boolean  is_xigua_task;
     }
 
     @NoArgsConstructor
@@ -390,17 +389,17 @@ public class AwemeInfo {
          * allow_stitch : true
          */
 
-        private boolean allow_download;
-        private int share_type;
-        private int show_progress_bar;
-        private int draft_progress_bar;
-        private boolean allow_duet;
-        private boolean allow_react;
-        private int prevent_download_type;
-        private boolean allow_dynamic_wallpaper;
-        private int timer_status;
-        private boolean allow_music;
-        private boolean allow_stitch;
+        private Boolean  allow_download;
+        private Long share_type;
+        private Long show_progress_bar;
+        private Long draft_progress_bar;
+        private Boolean  allow_duet;
+        private Boolean  allow_react;
+        private Long prevent_download_type;
+        private Boolean  allow_dynamic_wallpaper;
+        private Long timer_status;
+        private Boolean  allow_music;
+        private Boolean  allow_stitch;
     }
 
     @NoArgsConstructor
@@ -420,7 +419,7 @@ public class AwemeInfo {
          * item_patch_poi_prompt_mark : 0
          */
 
-        private int item_patch_poi_prompt_mark;
+        private Long item_patch_poi_prompt_mark;
     }
 
     @NoArgsConstructor
@@ -454,15 +453,15 @@ public class AwemeInfo {
         private String desc;
         private String schema;
         private AuthorBeanX author;
-        private int user_count;
+        private Long user_count;
         private ShareInfoBeanX share_info;
-        private int type;
-        private int sub_type;
-        private boolean is_pgcshow;
-        private int collect_stat;
-        private int is_challenge;
-        private int view_count;
-        private boolean is_commerce;
+        private Long type;
+        private Long sub_type;
+        private Boolean  is_pgcshow;
+        private Long collect_stat;
+        private Long is_challenge;
+        private Long view_count;
+        private Boolean  is_commerce;
         private String hashtag_profile;
         private Object cha_attrs;
         private Object banner_list;
@@ -515,7 +514,7 @@ public class AwemeInfo {
              * is_live : false
              */
 
-            private boolean is_live;
+            private Boolean  is_live;
         }
     }
 
@@ -533,13 +532,13 @@ public class AwemeInfo {
          * is_commerce : false
          */
 
-        private int start;
-        private int end;
+        private Long start;
+        private Long end;
         private String user_id;
-        private int type;
+        private Long type;
         private String sec_uid;
         private String hashtag_name;
         private String hashtag_id;
-        private boolean is_commerce;
+        private Boolean  is_commerce;
     }
 }

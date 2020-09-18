@@ -1,6 +1,5 @@
-package com.douyin.aweme.v1.hot.search;
+package com.douyin.aweme.v1;
 
-import com.douyin.aweme.v1.aweme.post.BaseResponse;
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class ListResponse extends BaseResponse {
+public class HotSearchResponse extends BaseResponse {
     private DataBean data;
     private Object ad_search_list;
     private CoverBean banner_dark;
@@ -66,17 +65,17 @@ public class ListResponse extends BaseResponse {
              */
 
             private String challenge_id;
-            private int word_type;
+            private Long word_type;
             private Object related_words;
             private String sentence_id;
             private String word;
-            private int label;
-            private int hot_value;
+            private Long label;
+            private Long hot_value;
             private CoverBean word_cover;
-            private int position;
-            private int video_count;
+            private Long position;
+            private Long video_count;
             private String group_id;
-            private int event_time;
+            private Long event_time;
             private boolean can_extend_detail;
         }
 
@@ -94,13 +93,13 @@ public class ListResponse extends BaseResponse {
              * word_cover : {"uri":"tos-cn-p-0015/76b16ce435404dedbbd4377961a79601_1598581102","url_list":["https://p9-dy.byteimg.com/img/tos-cn-p-0015/76b16ce435404dedbbd4377961a79601_1598581102~noop.jpeg?from=3218412987","https://p6-dy-ipv6.byteimg.com/img/tos-cn-p-0015/76b16ce435404dedbbd4377961a79601_1598581102~noop.jpeg?from=3218412987","https://p29-dy.byteimg.com/img/tos-cn-p-0015/76b16ce435404dedbbd4377961a79601_1598581102~noop.jpeg?from=3218412987"]}
              */
 
-            private int video_count;
+            private Long video_count;
             private String group_id;
-            private int word_type;
+            private Long word_type;
             private String sentence_id;
             private Object related_words;
             private String word;
-            private int label;
+            private Long label;
             private CoverBean word_cover;
         }
     }

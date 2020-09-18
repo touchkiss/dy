@@ -11,6 +11,7 @@ import org.apache.http.config.SocketConfig;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
@@ -37,6 +38,7 @@ import java.util.zip.Inflater;
  * @author Touchkiss
  */
 public class HttpUtil {
+    static CloseableHttpClient httpClient;
     public final static int DEFAULT_CONNECT_TIMEOUT = 10 * 1000;
     public final static int DEFAULT_SOCKET_TIMEOUT = 10 * 1000;
     public final static String DEFAULT_CHARSET = "utf-8";
@@ -49,15 +51,22 @@ public class HttpUtil {
             .build();
     private static HttpHost PROXY = null;
 
-//    static {
+    static {
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+        System.setProperty("org.apache.commons.logging.simplelog.showdatetime", "true");
+        System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.commons.httpclient", "stdout");
 //        PROXY = new HttpHost("192.168.8.67", 8087);
-//    }
+        PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
+        cm.setMaxTotal(300);
+        cm.setDefaultMaxPerRoute(100);
+        httpClient = HttpClients.custom().setConnectionManager(cm).build();
+    }
 
     public static String getRedirectUrl(String url) {
         HttpGet httpget = new HttpGet(url);
         HttpContext httpContext = new BasicHttpContext();
         try {
-            CloseableHttpResponse response = getHttpClient().execute(httpget, httpContext);
+            CloseableHttpResponse response = httpClient.execute(httpget, httpContext);
             HttpHost targetHost = (HttpHost) httpContext.getAttribute(HttpCoreContext.HTTP_TARGET_HOST);
             HttpUriRequest realRequest = (HttpUriRequest) httpContext.getAttribute(HttpCoreContext.HTTP_REQUEST);
             return targetHost.toURI() + realRequest.getURI();
@@ -125,7 +134,7 @@ public class HttpUtil {
             httpPost.setEntity(formEntity);
         }
         configAndHeaders(connectTimeout, socketTimeout, headers, httpPost);
-        return response(charset, getHttpClient().execute(httpPost));
+        return response(charset, httpClient.execute(httpPost));
     }
 
     public static CloseableHttpResponse postResponse(String url, int connectTimeout, int socketTimeout, String charset, Map params, List<Header> headers) throws IOException {
@@ -137,7 +146,7 @@ public class HttpUtil {
             httpPost.setEntity(formEntity);
         }
         configAndHeaders(connectTimeout, socketTimeout, headers, httpPost);
-        return getHttpClient().execute(httpPost);
+        return httpClient.execute(httpPost);
     }
 
     private static void configAndHeaders(int connectTimeout, int socketTimeout, List<Header> headers, HttpRequestBase request) {
@@ -158,7 +167,7 @@ public class HttpUtil {
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(new StringEntity(body, Charset.forName(charset)));
         configAndHeaders(connectTimeout, socketTimeout, headers, httpPost);
-        return response(charset, getHttpClient().execute(httpPost));
+        return response(charset, httpClient.execute(httpPost));
     }
 
     public static String inputStream2String(InputStream in, String charset) throws IOException {
@@ -173,60 +182,6 @@ public class HttpUtil {
         }
         String str = result.toString(charset);
         return str;
-    }
-
-    /**
-     * @param inputByte 待解压缩的字节数组
-     * @return 解压缩后的字节数组
-     * @throws IOException
-     */
-    public static byte[] unDeflate(byte[] inputByte) {
-        int len = 0;
-        Inflater infl = new Inflater();
-        infl.setInput(inputByte);
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] outByte = new byte[1024];
-        try {
-            while (!infl.finished()) {
-                // 解压缩并将解压缩后的内容输出到字节输出流bos中
-                len = infl.inflate(outByte);
-                if (len == 0) {
-                    break;
-                }
-                bos.write(outByte, 0, len);
-            }
-            infl.end();
-        } catch (Exception e) {
-            //
-            e.printStackTrace();
-        } finally {
-            try {
-                bos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return bos.toByteArray();
-    }
-
-    public static byte[] unGzip(byte[] bytes) {
-        if (bytes == null || bytes.length == 0) {
-            return null;
-        }
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        ByteArrayInputStream in = new ByteArrayInputStream(bytes);
-        try {
-            GZIPInputStream ungzip = new GZIPInputStream(in);
-            byte[] buffer = new byte[256];
-            int n;
-            while ((n = ungzip.read(buffer)) >= 0) {
-                out.write(buffer, 0, n);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return out.toByteArray();
     }
 
     public static String toQueryString(Object obj) {
