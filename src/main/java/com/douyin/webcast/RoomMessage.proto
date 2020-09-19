@@ -1,0 +1,90 @@
+syntax = "proto3";
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "RoomMessageSerializer";
+message RoomMessage{
+  message MessageInfo{
+    /**
+    WebcastGiftMessage 送礼物的消息
+     */
+    string messageType = 1;
+    message MessageBody{
+      message TimeInfo{
+        string messageType = 1;
+        int64 id1 = 2;
+        int64 id2 = 3;
+        int64 now_time = 4;
+        int32 id3 = 6;
+        /**
+        当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
+         */
+        string msg = 7;
+        message GiftSendMessage{
+          string str1 = 1;
+          string name = 2;
+          message SizeInfo{
+            string color = 1;
+            int32 bold = 4;
+          }
+          SizeInfo size = 3;
+          message Gift{
+            int32 id = 1;
+            SizeInfo size = 2;
+
+          }
+        }
+      }
+      TimeInfo timeInfo = 1;
+      message Msg{
+//        int32 id = 1;
+        message UserInfo{
+          int64 str1 = 1;
+          //          用户id，短数字类型
+          int64 id = 2;
+          string name = 3;
+          int32 gender=4;
+          message CoverInfo{
+            repeated string url_list = 1;
+            string uri = 2;
+            int32 height = 3;
+            int32 width = 4;
+            string avg_color=5;
+            int32 image_type = 6;
+            message ColorInfo{
+              string text = 1;
+              string color = 2;
+              int32 type = 3;
+            }
+            ColorInfo colorInfo = 8;
+
+          }
+          CoverInfo headimg = 9;
+          message U_Obj22{
+            int32 o1 = 1;
+            int32 o2 = 2;
+            int32 o3 = 3;
+          }
+          U_Obj22 u_obj = 22;
+          message U_Obj23{
+            string str19 = 19;
+            string str20 = 20;
+          }
+          U_Obj23 u_obj23 = 23;
+          string id_str = 38;
+          //          加密的用户id，访问其它接口时的必备参数
+          string sec_uid = 46;
+          int32 authorization_info=54;
+        }
+//        UserInfo user=2;
+//        string msg=3;
+//        UserInfo.CoverInfo cover1=9;
+      }
+      Msg msg=2;
+    }
+    MessageBody messageBody = 2;
+  }
+  repeated MessageInfo body = 1;
+  string cursor = 2;
+  int64 time = 3;
+  int64 fetch_time = 4;
+  string internal_ext = 5;
+}

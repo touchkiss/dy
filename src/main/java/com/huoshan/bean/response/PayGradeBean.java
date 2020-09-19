@@ -23,10 +23,12 @@ public class PayGradeBean {
     private Integer next_diamond;
     private CoverBean next_icon;
     private String next_name;
+    private String next_privileges;
     private Integer now_diamond;
     private Integer pay_diamond_bak;
     private CoverBean profile_dialog_bg;
     private CoverBean profile_dialog_bg_back;
+    private int score;
     private Integer screen_chat_type;
     private Integer this_grade_max_diamond;
     private Integer this_grade_min_diamond;

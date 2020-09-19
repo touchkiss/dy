@@ -1,7 +1,6 @@
 package com.huoshan.bean.response;
 
-import com.douyin.webcast.ranklist.hot.ListResponse;
-import com.huoshan.bean.response.BaseResponse;
+import com.douyin.webcast.ListResponse;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.douyin.webcast.ranklist.hot;
+package com.douyin.webcast;
 
 import com.douyin.aweme.v1.BaseResponse;
 import com.douyin.aweme.v1.UserInfo;
@@ -51,21 +51,13 @@ public class ListResponse extends BaseResponse {
                  */
 
                 private String challenge_info;
-                private ContentLabelBean content_label;
-                private ContentLabelBean cover;
+                private CoverBean content_label;
+                private CoverBean cover;
                 private long id;
                 private String id_str;
                 private String title;
                 private Long user_count;
 
-                @NoArgsConstructor
-                @Data
-                public static class ContentLabelBean extends CoverBean {
-                    private String avg_color;
-                    private Long image_type;
-                    private boolean is_animated;
-                    private String open_web_url;
-                }
             }
         }
     }

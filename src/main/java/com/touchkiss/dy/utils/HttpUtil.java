@@ -170,6 +170,13 @@ public class HttpUtil {
         return response(charset, httpClient.execute(httpPost));
     }
 
+    public static CloseableHttpResponse postResponse(String url, int connectTimeout, int socketTimeout, String charset, String body, List<Header> headers) throws IOException {
+        HttpPost httpPost = new HttpPost(url);
+        httpPost.setEntity(new StringEntity(body, Charset.forName(charset)));
+        configAndHeaders(connectTimeout, socketTimeout, headers, httpPost);
+        return httpClient.execute(httpPost);
+    }
+
     public static String inputStream2String(InputStream in, String charset) throws IOException {
 //        return CharStreams.toString(new InputStreamReader(in, charset));
 //        return new BufferedReader(new InputStreamReader(in, charset))
