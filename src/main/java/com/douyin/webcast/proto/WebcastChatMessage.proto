@@ -1,0 +1,19 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "WebcastChatMessageSerializer";
+import "TimeInfo.proto";
+import "UserInfo.proto";
+import "CoverInfo.proto";
+message WebcastChatMessage{
+  message WebcastChatMessageBody{
+    com.douyin.webcast.proto.TimeInfo timeInfo=1;
+    com.douyin.webcast.proto.UserInfo userInfo=2;
+    string msg=3;
+    message Cover{
+      com.douyin.webcast.proto.CoverInfo coverInfo=1;
+    }
+    Cover cover=9;
+  }
+    WebcastChatMessageBody body=1;
+}

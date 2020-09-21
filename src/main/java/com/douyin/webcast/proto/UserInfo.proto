@@ -1,0 +1,23 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "UserInfoSerializer";
+import "CoverInfo.proto";
+message UserInfo{
+  int64 str1 = 1;
+  //          用户id，短数字类型
+  int64 id = 2;
+  string name = 3;
+  int32 gender = 4;
+  com.douyin.webcast.proto.CoverInfo headimg = 9;
+  message U_Obj22{
+    int32 o1 = 1;
+    int32 o2 = 2;
+    int32 o3 = 3;
+  }
+  U_Obj22 u_obj = 22;
+  string id_str = 38;
+  //          加密的用户id，访问其它接口时的必备参数
+  string sec_uid = 46;
+  int32 authorization_info = 54;
+}

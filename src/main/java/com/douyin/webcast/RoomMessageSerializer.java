@@ -15,31 +15,31 @@ public final class RoomMessageSerializer {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface RoomMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RoomMessage)
+      // @@protoc_insertion_point(interface_extends:com.douyin.webcast.proto.RoomMessage)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
-    java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo> 
+    java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1> 
         getBodyList();
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
-    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo getBody(int index);
+    com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 getBody(int index);
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
     int getBodyCount();
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
-    java.util.List<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder> 
+    java.util.List<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder> 
         getBodyOrBuilderList();
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
-    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder getBodyOrBuilder(
+    com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder getBodyOrBuilder(
         int index);
 
     /**
@@ -79,11 +79,11 @@ public final class RoomMessageSerializer {
         getInternalExtBytes();
   }
   /**
-   * Protobuf type {@code RoomMessage}
+   * Protobuf type {@code com.douyin.webcast.proto.RoomMessage}
    */
   public static final class RoomMessage extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RoomMessage)
+      // @@protoc_insertion_point(message_implements:com.douyin.webcast.proto.RoomMessage)
       RoomMessageOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use RoomMessage.newBuilder() to construct.
@@ -129,11 +129,11 @@ public final class RoomMessageSerializer {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                body_ = new java.util.ArrayList<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo>();
+                body_ = new java.util.ArrayList<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1>();
                 mutable_bitField0_ |= 0x00000001;
               }
               body_.add(
-                  input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.parser(), extensionRegistry));
+                  input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.parser(), extensionRegistry));
               break;
             }
             case 18: {
@@ -182,19 +182,19 @@ public final class RoomMessageSerializer {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_descriptor;
+      return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_fieldAccessorTable
+      return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.douyin.webcast.RoomMessageSerializer.RoomMessage.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.Builder.class);
     }
 
-    public interface MessageInfoOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo)
+    public interface RoomMessage_Obj1OrBuilder extends
+        // @@protoc_insertion_point(interface_extends:com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -220,33 +220,109 @@ public final class RoomMessageSerializer {
           getMessageTypeBytes();
 
       /**
-       * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-       * @return Whether the messageBody field is set.
+       * <pre>
+       *    message MessageBody{
+       *      message TimeInfo{
+       *        string messageType = 1;
+       *        int64 id1 = 2;
+       *        int64 id2 = 3;
+       *        int64 now_time = 4;
+       *        int32 id3 = 6;
+       *        /&#42;*
+       *        当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
+       *         *&#47;
+       *        string msg = 7;
+       *        message GiftSendMessage{
+       *          string str1 = 1;
+       *          string name = 2;
+       *          message SizeInfo{
+       *            string color = 1;
+       *            int32 bold = 4;
+       *          }
+       *          SizeInfo size = 3;
+       *          message Gift{
+       *            int32 id = 1;
+       *            SizeInfo size = 2;
+       *          }
+       *        }
+       *        int32 timeInfo_11 = 11;
+       *      }
+       *      TimeInfo timeInfo = 1;
+       *      message UserInfo{
+       *        int64 str1 = 1;
+       *        //          用户id，短数字类型
+       *        int64 id = 2;
+       *        string name = 3;
+       *        int32 gender = 4;
+       *        message CoverInfo{
+       *          repeated string url_list = 1;
+       *          string uri = 2;
+       *          int32 height = 3;
+       *          int32 width = 4;
+       *          string avg_color = 5;
+       *          int32 image_type = 6;
+       *          message ColorInfo{
+       *            string text = 1;
+       *            string color = 2;
+       *            int32 type = 3;
+       *          }
+       *          ColorInfo colorInfo = 8;
+       *        }
+       *        CoverInfo headimg = 9;
+       *        message U_Obj22{
+       *          int32 o1 = 1;
+       *          int32 o2 = 2;
+       *          int32 o3 = 3;
+       *        }
+       *        U_Obj22 u_obj = 22;
+       *        message U_Obj23{
+       *          string str19 = 19;
+       *          string str20 = 20;
+       *        }
+       *        U_Obj23 u_obj23 = 23;
+       *        string id_str = 38;
+       *        //          加密的用户id，访问其它接口时的必备参数
+       *        string sec_uid = 46;
+       *        int32 authorization_info = 54;
+       *      }
+       *      UserInfo user_2=2;
+       *      string msg_3=3;
+       *      MessageBody_Obj_18 messageBody_9=9;
+       * //      int32 messageBody_13 = 13;
+       * //      message MessageBody_Obj_14{
+       * //        string str_1 = 1;
+       * //        int32 int_2 = 2;
+       * //        int32 int_3 = 3;
+       * //      }
+       * //      MessageBody_Obj_14 messageBody_14 = 14;
+       * //      int32 messageBody_17 = 17;
+       *      message MessageBody_Obj_18{
+       *        UserInfo.CoverInfo coverinfo_1 = 1;
+       *      }
+       * //      MessageBody_Obj_18 messageBody_18 = 18;
+       * //      string messageBody_19 = 19;
+       *    }
+       *    MessageBody messageBody = 2;
+       * </pre>
+       *
+       * <code>int64 messageInfo_3 = 3;</code>
+       * @return The messageInfo3.
        */
-      boolean hasMessageBody();
-      /**
-       * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-       * @return The messageBody.
-       */
-      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody getMessageBody();
-      /**
-       * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-       */
-      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder getMessageBodyOrBuilder();
+      long getMessageInfo3();
     }
     /**
-     * Protobuf type {@code RoomMessage.MessageInfo}
+     * Protobuf type {@code com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1}
      */
-    public static final class MessageInfo extends
+    public static final class RoomMessage_Obj1 extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo)
-        MessageInfoOrBuilder {
+        // @@protoc_insertion_point(message_implements:com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1)
+        RoomMessage_Obj1OrBuilder {
     private static final long serialVersionUID = 0L;
-      // Use MessageInfo.newBuilder() to construct.
-      private MessageInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // Use RoomMessage_Obj1.newBuilder() to construct.
+      private RoomMessage_Obj1(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
       }
-      private MessageInfo() {
+      private RoomMessage_Obj1() {
         messageType_ = "";
       }
 
@@ -254,7 +330,7 @@ public final class RoomMessageSerializer {
       @SuppressWarnings({"unused"})
       protected java.lang.Object newInstance(
           UnusedPrivateParameter unused) {
-        return new MessageInfo();
+        return new RoomMessage_Obj1();
       }
 
       @java.lang.Override
@@ -262,7 +338,7 @@ public final class RoomMessageSerializer {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MessageInfo(
+      private RoomMessage_Obj1(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -286,17 +362,9 @@ public final class RoomMessageSerializer {
                 messageType_ = s;
                 break;
               }
-              case 18: {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder subBuilder = null;
-                if (messageBody_ != null) {
-                  subBuilder = messageBody_.toBuilder();
-                }
-                messageBody_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(messageBody_);
-                  messageBody_ = subBuilder.buildPartial();
-                }
+              case 24: {
 
+                messageInfo3_ = input.readInt64();
                 break;
               }
               default: {
@@ -320,9861 +388,15 @@ public final class RoomMessageSerializer {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_descriptor;
+        return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_fieldAccessorTable
+        return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder.class);
-      }
-
-      public interface MessageBodyOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody)
-          com.google.protobuf.MessageOrBuilder {
-
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-         * @return Whether the timeInfo field is set.
-         */
-        boolean hasTimeInfo();
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-         * @return The timeInfo.
-         */
-        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo getTimeInfo();
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-         */
-        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder getTimeInfoOrBuilder();
-
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-         * @return Whether the msg field is set.
-         */
-        boolean hasMsg();
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-         * @return The msg.
-         */
-        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg getMsg();
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-         */
-        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder getMsgOrBuilder();
-      }
-      /**
-       * Protobuf type {@code RoomMessage.MessageInfo.MessageBody}
-       */
-      public static final class MessageBody extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody)
-          MessageBodyOrBuilder {
-      private static final long serialVersionUID = 0L;
-        // Use MessageBody.newBuilder() to construct.
-        private MessageBody(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-          super(builder);
-        }
-        private MessageBody() {
-        }
-
-        @java.lang.Override
-        @SuppressWarnings({"unused"})
-        protected java.lang.Object newInstance(
-            UnusedPrivateParameter unused) {
-          return new MessageBody();
-        }
-
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-          return this.unknownFields;
-        }
-        private MessageBody(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder subBuilder = null;
-                  if (timeInfo_ != null) {
-                    subBuilder = timeInfo_.toBuilder();
-                  }
-                  timeInfo_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom(timeInfo_);
-                    timeInfo_ = subBuilder.buildPartial();
-                  }
-
-                  break;
-                }
-                case 18: {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder subBuilder = null;
-                  if (msg_ != null) {
-                    subBuilder = msg_.toBuilder();
-                  }
-                  msg_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom(msg_);
-                    msg_ = subBuilder.buildPartial();
-                  }
-
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder.class);
-        }
-
-        public interface TimeInfoOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.TimeInfo)
-            com.google.protobuf.MessageOrBuilder {
-
-          /**
-           * <code>string messageType = 1;</code>
-           * @return The messageType.
-           */
-          java.lang.String getMessageType();
-          /**
-           * <code>string messageType = 1;</code>
-           * @return The bytes for messageType.
-           */
-          com.google.protobuf.ByteString
-              getMessageTypeBytes();
-
-          /**
-           * <code>int64 id1 = 2;</code>
-           * @return The id1.
-           */
-          long getId1();
-
-          /**
-           * <code>int64 id2 = 3;</code>
-           * @return The id2.
-           */
-          long getId2();
-
-          /**
-           * <code>int64 now_time = 4;</code>
-           * @return The nowTime.
-           */
-          long getNowTime();
-
-          /**
-           * <code>int32 id3 = 6;</code>
-           * @return The id3.
-           */
-          int getId3();
-
-          /**
-           * <pre>
-           **
-           *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-           * </pre>
-           *
-           * <code>string msg = 7;</code>
-           * @return The msg.
-           */
-          java.lang.String getMsg();
-          /**
-           * <pre>
-           **
-           *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-           * </pre>
-           *
-           * <code>string msg = 7;</code>
-           * @return The bytes for msg.
-           */
-          com.google.protobuf.ByteString
-              getMsgBytes();
-        }
-        /**
-         * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo}
-         */
-        public static final class TimeInfo extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo)
-            TimeInfoOrBuilder {
-        private static final long serialVersionUID = 0L;
-          // Use TimeInfo.newBuilder() to construct.
-          private TimeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
-          }
-          private TimeInfo() {
-            messageType_ = "";
-            msg_ = "";
-          }
-
-          @java.lang.Override
-          @SuppressWarnings({"unused"})
-          protected java.lang.Object newInstance(
-              UnusedPrivateParameter unused) {
-            return new TimeInfo();
-          }
-
-          @java.lang.Override
-          public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-            return this.unknownFields;
-          }
-          private TimeInfo(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-              throw new java.lang.NullPointerException();
-            }
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-              boolean done = false;
-              while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                  case 0:
-                    done = true;
-                    break;
-                  case 10: {
-                    java.lang.String s = input.readStringRequireUtf8();
-
-                    messageType_ = s;
-                    break;
-                  }
-                  case 16: {
-
-                    id1_ = input.readInt64();
-                    break;
-                  }
-                  case 24: {
-
-                    id2_ = input.readInt64();
-                    break;
-                  }
-                  case 32: {
-
-                    nowTime_ = input.readInt64();
-                    break;
-                  }
-                  case 48: {
-
-                    id3_ = input.readInt32();
-                    break;
-                  }
-                  case 58: {
-                    java.lang.String s = input.readStringRequireUtf8();
-
-                    msg_ = s;
-                    break;
-                  }
-                  default: {
-                    if (!parseUnknownField(
-                        input, unknownFields, extensionRegistry, tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                }
-              }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-              throw new com.google.protobuf.InvalidProtocolBufferException(
-                  e).setUnfinishedMessage(this);
-            } finally {
-              this.unknownFields = unknownFields.build();
-              makeExtensionsImmutable();
-            }
-          }
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor;
-          }
-
-          @java.lang.Override
-          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder.class);
-          }
-
-          public interface GiftSendMessageOrBuilder extends
-              // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)
-              com.google.protobuf.MessageOrBuilder {
-
-            /**
-             * <code>string str1 = 1;</code>
-             * @return The str1.
-             */
-            java.lang.String getStr1();
-            /**
-             * <code>string str1 = 1;</code>
-             * @return The bytes for str1.
-             */
-            com.google.protobuf.ByteString
-                getStr1Bytes();
-
-            /**
-             * <code>string name = 2;</code>
-             * @return The name.
-             */
-            java.lang.String getName();
-            /**
-             * <code>string name = 2;</code>
-             * @return The bytes for name.
-             */
-            com.google.protobuf.ByteString
-                getNameBytes();
-
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-             * @return Whether the size field is set.
-             */
-            boolean hasSize();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-             * @return The size.
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getSize();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder getSizeOrBuilder();
-          }
-          /**
-           * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage}
-           */
-          public static final class GiftSendMessage extends
-              com.google.protobuf.GeneratedMessageV3 implements
-              // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)
-              GiftSendMessageOrBuilder {
-          private static final long serialVersionUID = 0L;
-            // Use GiftSendMessage.newBuilder() to construct.
-            private GiftSendMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-              super(builder);
-            }
-            private GiftSendMessage() {
-              str1_ = "";
-              name_ = "";
-            }
-
-            @java.lang.Override
-            @SuppressWarnings({"unused"})
-            protected java.lang.Object newInstance(
-                UnusedPrivateParameter unused) {
-              return new GiftSendMessage();
-            }
-
-            @java.lang.Override
-            public final com.google.protobuf.UnknownFieldSet
-            getUnknownFields() {
-              return this.unknownFields;
-            }
-            private GiftSendMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              this();
-              if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-              }
-              com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                  com.google.protobuf.UnknownFieldSet.newBuilder();
-              try {
-                boolean done = false;
-                while (!done) {
-                  int tag = input.readTag();
-                  switch (tag) {
-                    case 0:
-                      done = true;
-                      break;
-                    case 10: {
-                      java.lang.String s = input.readStringRequireUtf8();
-
-                      str1_ = s;
-                      break;
-                    }
-                    case 18: {
-                      java.lang.String s = input.readStringRequireUtf8();
-
-                      name_ = s;
-                      break;
-                    }
-                    case 26: {
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder subBuilder = null;
-                      if (size_ != null) {
-                        subBuilder = size_.toBuilder();
-                      }
-                      size_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.parser(), extensionRegistry);
-                      if (subBuilder != null) {
-                        subBuilder.mergeFrom(size_);
-                        size_ = subBuilder.buildPartial();
-                      }
-
-                      break;
-                    }
-                    default: {
-                      if (!parseUnknownField(
-                          input, unknownFields, extensionRegistry, tag)) {
-                        done = true;
-                      }
-                      break;
-                    }
-                  }
-                }
-              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-              } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-              } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-              }
-            }
-            public static final com.google.protobuf.Descriptors.Descriptor
-                getDescriptor() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor;
-            }
-
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                internalGetFieldAccessorTable() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_fieldAccessorTable
-                  .ensureFieldAccessorsInitialized(
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Builder.class);
-            }
-
-            public interface SizeInfoOrBuilder extends
-                // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)
-                com.google.protobuf.MessageOrBuilder {
-
-              /**
-               * <code>string color = 1;</code>
-               * @return The color.
-               */
-              java.lang.String getColor();
-              /**
-               * <code>string color = 1;</code>
-               * @return The bytes for color.
-               */
-              com.google.protobuf.ByteString
-                  getColorBytes();
-
-              /**
-               * <code>int32 bold = 4;</code>
-               * @return The bold.
-               */
-              int getBold();
-            }
-            /**
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo}
-             */
-            public static final class SizeInfo extends
-                com.google.protobuf.GeneratedMessageV3 implements
-                // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)
-                SizeInfoOrBuilder {
-            private static final long serialVersionUID = 0L;
-              // Use SizeInfo.newBuilder() to construct.
-              private SizeInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-                super(builder);
-              }
-              private SizeInfo() {
-                color_ = "";
-              }
-
-              @java.lang.Override
-              @SuppressWarnings({"unused"})
-              protected java.lang.Object newInstance(
-                  UnusedPrivateParameter unused) {
-                return new SizeInfo();
-              }
-
-              @java.lang.Override
-              public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-                return this.unknownFields;
-              }
-              private SizeInfo(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                this();
-                if (extensionRegistry == null) {
-                  throw new java.lang.NullPointerException();
-                }
-                com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-                try {
-                  boolean done = false;
-                  while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                      case 0:
-                        done = true;
-                        break;
-                      case 10: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        color_ = s;
-                        break;
-                      }
-                      case 32: {
-
-                        bold_ = input.readInt32();
-                        break;
-                      }
-                      default: {
-                        if (!parseUnknownField(
-                            input, unknownFields, extensionRegistry, tag)) {
-                          done = true;
-                        }
-                        break;
-                      }
-                    }
-                  }
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  throw e.setUnfinishedMessage(this);
-                } catch (java.io.IOException e) {
-                  throw new com.google.protobuf.InvalidProtocolBufferException(
-                      e).setUnfinishedMessage(this);
-                } finally {
-                  this.unknownFields = unknownFields.build();
-                  makeExtensionsImmutable();
-                }
-              }
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder.class);
-              }
-
-              public static final int COLOR_FIELD_NUMBER = 1;
-              private volatile java.lang.Object color_;
-              /**
-               * <code>string color = 1;</code>
-               * @return The color.
-               */
-              @java.lang.Override
-              public java.lang.String getColor() {
-                java.lang.Object ref = color_;
-                if (ref instanceof java.lang.String) {
-                  return (java.lang.String) ref;
-                } else {
-                  com.google.protobuf.ByteString bs = 
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  color_ = s;
-                  return s;
-                }
-              }
-              /**
-               * <code>string color = 1;</code>
-               * @return The bytes for color.
-               */
-              @java.lang.Override
-              public com.google.protobuf.ByteString
-                  getColorBytes() {
-                java.lang.Object ref = color_;
-                if (ref instanceof java.lang.String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  color_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-
-              public static final int BOLD_FIELD_NUMBER = 4;
-              private int bold_;
-              /**
-               * <code>int32 bold = 4;</code>
-               * @return The bold.
-               */
-              @java.lang.Override
-              public int getBold() {
-                return bold_;
-              }
-
-              private byte memoizedIsInitialized = -1;
-              @java.lang.Override
-              public final boolean isInitialized() {
-                byte isInitialized = memoizedIsInitialized;
-                if (isInitialized == 1) return true;
-                if (isInitialized == 0) return false;
-
-                memoizedIsInitialized = 1;
-                return true;
-              }
-
-              @java.lang.Override
-              public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                  throws java.io.IOException {
-                if (!getColorBytes().isEmpty()) {
-                  com.google.protobuf.GeneratedMessageV3.writeString(output, 1, color_);
-                }
-                if (bold_ != 0) {
-                  output.writeInt32(4, bold_);
-                }
-                unknownFields.writeTo(output);
-              }
-
-              @java.lang.Override
-              public int getSerializedSize() {
-                int size = memoizedSize;
-                if (size != -1) return size;
-
-                size = 0;
-                if (!getColorBytes().isEmpty()) {
-                  size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, color_);
-                }
-                if (bold_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(4, bold_);
-                }
-                size += unknownFields.getSerializedSize();
-                memoizedSize = size;
-                return size;
-              }
-
-              @java.lang.Override
-              public boolean equals(final java.lang.Object obj) {
-                if (obj == this) {
-                 return true;
-                }
-                if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)) {
-                  return super.equals(obj);
-                }
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo) obj;
-
-                if (!getColor()
-                    .equals(other.getColor())) return false;
-                if (getBold()
-                    != other.getBold()) return false;
-                if (!unknownFields.equals(other.unknownFields)) return false;
-                return true;
-              }
-
-              @java.lang.Override
-              public int hashCode() {
-                if (memoizedHashCode != 0) {
-                  return memoizedHashCode;
-                }
-                int hash = 41;
-                hash = (19 * hash) + getDescriptor().hashCode();
-                hash = (37 * hash) + COLOR_FIELD_NUMBER;
-                hash = (53 * hash) + getColor().hashCode();
-                hash = (37 * hash) + BOLD_FIELD_NUMBER;
-                hash = (53 * hash) + getBold();
-                hash = (29 * hash) + unknownFields.hashCode();
-                memoizedHashCode = hash;
-                return hash;
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  java.nio.ByteBuffer data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  java.nio.ByteBuffer data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  com.google.protobuf.ByteString data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  com.google.protobuf.ByteString data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(byte[] data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  byte[] data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseDelimitedFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseDelimitedFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  com.google.protobuf.CodedInputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parseFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-
-              @java.lang.Override
-              public Builder newBuilderForType() { return newBuilder(); }
-              public static Builder newBuilder() {
-                return DEFAULT_INSTANCE.toBuilder();
-              }
-              public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo prototype) {
-                return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-              }
-              @java.lang.Override
-              public Builder toBuilder() {
-                return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-              }
-
-              @java.lang.Override
-              protected Builder newBuilderForType(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                Builder builder = new Builder(parent);
-                return builder;
-              }
-              /**
-               * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo}
-               */
-              public static final class Builder extends
-                  com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                  // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder {
-                public static final com.google.protobuf.Descriptors.Descriptor
-                    getDescriptor() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_descriptor;
-                }
-
-                @java.lang.Override
-                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                    internalGetFieldAccessorTable() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_fieldAccessorTable
-                      .ensureFieldAccessorsInitialized(
-                          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder.class);
-                }
-
-                // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.newBuilder()
-                private Builder() {
-                  maybeForceBuilderInitialization();
-                }
-
-                private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                  super(parent);
-                  maybeForceBuilderInitialization();
-                }
-                private void maybeForceBuilderInitialization() {
-                  if (com.google.protobuf.GeneratedMessageV3
-                          .alwaysUseFieldBuilders) {
-                  }
-                }
-                @java.lang.Override
-                public Builder clear() {
-                  super.clear();
-                  color_ = "";
-
-                  bold_ = 0;
-
-                  return this;
-                }
-
-                @java.lang.Override
-                public com.google.protobuf.Descriptors.Descriptor
-                    getDescriptorForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_descriptor;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getDefaultInstanceForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance();
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo build() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo result = buildPartial();
-                  if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                  }
-                  return result;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo buildPartial() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo(this);
-                  result.color_ = color_;
-                  result.bold_ = bold_;
-                  onBuilt();
-                  return result;
-                }
-
-                @java.lang.Override
-                public Builder clone() {
-                  return super.clone();
-                }
-                @java.lang.Override
-                public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.setField(field, value);
-                }
-                @java.lang.Override
-                public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                  return super.clearField(field);
-                }
-                @java.lang.Override
-                public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                  return super.clearOneof(oneof);
-                }
-                @java.lang.Override
-                public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                  return super.setRepeatedField(field, index, value);
-                }
-                @java.lang.Override
-                public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.addRepeatedField(field, value);
-                }
-                @java.lang.Override
-                public Builder mergeFrom(com.google.protobuf.Message other) {
-                  if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo) {
-                    return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)other);
-                  } else {
-                    super.mergeFrom(other);
-                    return this;
-                  }
-                }
-
-                public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo other) {
-                  if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance()) return this;
-                  if (!other.getColor().isEmpty()) {
-                    color_ = other.color_;
-                    onChanged();
-                  }
-                  if (other.getBold() != 0) {
-                    setBold(other.getBold());
-                  }
-                  this.mergeUnknownFields(other.unknownFields);
-                  onChanged();
-                  return this;
-                }
-
-                @java.lang.Override
-                public final boolean isInitialized() {
-                  return true;
-                }
-
-                @java.lang.Override
-                public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo parsedMessage = null;
-                  try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                  } finally {
-                    if (parsedMessage != null) {
-                      mergeFrom(parsedMessage);
-                    }
-                  }
-                  return this;
-                }
-
-                private java.lang.Object color_ = "";
-                /**
-                 * <code>string color = 1;</code>
-                 * @return The color.
-                 */
-                public java.lang.String getColor() {
-                  java.lang.Object ref = color_;
-                  if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    color_ = s;
-                    return s;
-                  } else {
-                    return (java.lang.String) ref;
-                  }
-                }
-                /**
-                 * <code>string color = 1;</code>
-                 * @return The bytes for color.
-                 */
-                public com.google.protobuf.ByteString
-                    getColorBytes() {
-                  java.lang.Object ref = color_;
-                  if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    color_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-                /**
-                 * <code>string color = 1;</code>
-                 * @param value The color to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setColor(
-                    java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                  color_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string color = 1;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearColor() {
-                  
-                  color_ = getDefaultInstance().getColor();
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string color = 1;</code>
-                 * @param value The bytes for color to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setColorBytes(
-                    com.google.protobuf.ByteString value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                  
-                  color_ = value;
-                  onChanged();
-                  return this;
-                }
-
-                private int bold_ ;
-                /**
-                 * <code>int32 bold = 4;</code>
-                 * @return The bold.
-                 */
-                @java.lang.Override
-                public int getBold() {
-                  return bold_;
-                }
-                /**
-                 * <code>int32 bold = 4;</code>
-                 * @param value The bold to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setBold(int value) {
-                  
-                  bold_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 bold = 4;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearBold() {
-                  
-                  bold_ = 0;
-                  onChanged();
-                  return this;
-                }
-                @java.lang.Override
-                public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.setUnknownFields(unknownFields);
-                }
-
-                @java.lang.Override
-                public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.mergeUnknownFields(unknownFields);
-                }
-
-
-                // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)
-              }
-
-              // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo)
-              private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo DEFAULT_INSTANCE;
-              static {
-                DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo();
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getDefaultInstance() {
-                return DEFAULT_INSTANCE;
-              }
-
-              private static final com.google.protobuf.Parser<SizeInfo>
-                  PARSER = new com.google.protobuf.AbstractParser<SizeInfo>() {
-                @java.lang.Override
-                public SizeInfo parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return new SizeInfo(input, extensionRegistry);
-                }
-              };
-
-              public static com.google.protobuf.Parser<SizeInfo> parser() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Parser<SizeInfo> getParserForType() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getDefaultInstanceForType() {
-                return DEFAULT_INSTANCE;
-              }
-
-            }
-
-            public interface GiftOrBuilder extends
-                // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)
-                com.google.protobuf.MessageOrBuilder {
-
-              /**
-               * <code>int32 id = 1;</code>
-               * @return The id.
-               */
-              int getId();
-
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-               * @return Whether the size field is set.
-               */
-              boolean hasSize();
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-               * @return The size.
-               */
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getSize();
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-               */
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder getSizeOrBuilder();
-            }
-            /**
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift}
-             */
-            public static final class Gift extends
-                com.google.protobuf.GeneratedMessageV3 implements
-                // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)
-                GiftOrBuilder {
-            private static final long serialVersionUID = 0L;
-              // Use Gift.newBuilder() to construct.
-              private Gift(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-                super(builder);
-              }
-              private Gift() {
-              }
-
-              @java.lang.Override
-              @SuppressWarnings({"unused"})
-              protected java.lang.Object newInstance(
-                  UnusedPrivateParameter unused) {
-                return new Gift();
-              }
-
-              @java.lang.Override
-              public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-                return this.unknownFields;
-              }
-              private Gift(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                this();
-                if (extensionRegistry == null) {
-                  throw new java.lang.NullPointerException();
-                }
-                com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-                try {
-                  boolean done = false;
-                  while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                      case 0:
-                        done = true;
-                        break;
-                      case 8: {
-
-                        id_ = input.readInt32();
-                        break;
-                      }
-                      case 18: {
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder subBuilder = null;
-                        if (size_ != null) {
-                          subBuilder = size_.toBuilder();
-                        }
-                        size_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.parser(), extensionRegistry);
-                        if (subBuilder != null) {
-                          subBuilder.mergeFrom(size_);
-                          size_ = subBuilder.buildPartial();
-                        }
-
-                        break;
-                      }
-                      default: {
-                        if (!parseUnknownField(
-                            input, unknownFields, extensionRegistry, tag)) {
-                          done = true;
-                        }
-                        break;
-                      }
-                    }
-                  }
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  throw e.setUnfinishedMessage(this);
-                } catch (java.io.IOException e) {
-                  throw new com.google.protobuf.InvalidProtocolBufferException(
-                      e).setUnfinishedMessage(this);
-                } finally {
-                  this.unknownFields = unknownFields.build();
-                  makeExtensionsImmutable();
-                }
-              }
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.Builder.class);
-              }
-
-              public static final int ID_FIELD_NUMBER = 1;
-              private int id_;
-              /**
-               * <code>int32 id = 1;</code>
-               * @return The id.
-               */
-              @java.lang.Override
-              public int getId() {
-                return id_;
-              }
-
-              public static final int SIZE_FIELD_NUMBER = 2;
-              private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size_;
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-               * @return Whether the size field is set.
-               */
-              @java.lang.Override
-              public boolean hasSize() {
-                return size_ != null;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-               * @return The size.
-               */
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getSize() {
-                return size_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance() : size_;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-               */
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder getSizeOrBuilder() {
-                return getSize();
-              }
-
-              private byte memoizedIsInitialized = -1;
-              @java.lang.Override
-              public final boolean isInitialized() {
-                byte isInitialized = memoizedIsInitialized;
-                if (isInitialized == 1) return true;
-                if (isInitialized == 0) return false;
-
-                memoizedIsInitialized = 1;
-                return true;
-              }
-
-              @java.lang.Override
-              public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                  throws java.io.IOException {
-                if (id_ != 0) {
-                  output.writeInt32(1, id_);
-                }
-                if (size_ != null) {
-                  output.writeMessage(2, getSize());
-                }
-                unknownFields.writeTo(output);
-              }
-
-              @java.lang.Override
-              public int getSerializedSize() {
-                int size = memoizedSize;
-                if (size != -1) return size;
-
-                size = 0;
-                if (id_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(1, id_);
-                }
-                if (size_ != null) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(2, getSize());
-                }
-                size += unknownFields.getSerializedSize();
-                memoizedSize = size;
-                return size;
-              }
-
-              @java.lang.Override
-              public boolean equals(final java.lang.Object obj) {
-                if (obj == this) {
-                 return true;
-                }
-                if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)) {
-                  return super.equals(obj);
-                }
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift) obj;
-
-                if (getId()
-                    != other.getId()) return false;
-                if (hasSize() != other.hasSize()) return false;
-                if (hasSize()) {
-                  if (!getSize()
-                      .equals(other.getSize())) return false;
-                }
-                if (!unknownFields.equals(other.unknownFields)) return false;
-                return true;
-              }
-
-              @java.lang.Override
-              public int hashCode() {
-                if (memoizedHashCode != 0) {
-                  return memoizedHashCode;
-                }
-                int hash = 41;
-                hash = (19 * hash) + getDescriptor().hashCode();
-                hash = (37 * hash) + ID_FIELD_NUMBER;
-                hash = (53 * hash) + getId();
-                if (hasSize()) {
-                  hash = (37 * hash) + SIZE_FIELD_NUMBER;
-                  hash = (53 * hash) + getSize().hashCode();
-                }
-                hash = (29 * hash) + unknownFields.hashCode();
-                memoizedHashCode = hash;
-                return hash;
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  java.nio.ByteBuffer data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  java.nio.ByteBuffer data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  com.google.protobuf.ByteString data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  com.google.protobuf.ByteString data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(byte[] data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  byte[] data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseDelimitedFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseDelimitedFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  com.google.protobuf.CodedInputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parseFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-
-              @java.lang.Override
-              public Builder newBuilderForType() { return newBuilder(); }
-              public static Builder newBuilder() {
-                return DEFAULT_INSTANCE.toBuilder();
-              }
-              public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift prototype) {
-                return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-              }
-              @java.lang.Override
-              public Builder toBuilder() {
-                return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-              }
-
-              @java.lang.Override
-              protected Builder newBuilderForType(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                Builder builder = new Builder(parent);
-                return builder;
-              }
-              /**
-               * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift}
-               */
-              public static final class Builder extends
-                  com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                  // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.GiftOrBuilder {
-                public static final com.google.protobuf.Descriptors.Descriptor
-                    getDescriptor() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_descriptor;
-                }
-
-                @java.lang.Override
-                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                    internalGetFieldAccessorTable() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_fieldAccessorTable
-                      .ensureFieldAccessorsInitialized(
-                          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.Builder.class);
-                }
-
-                // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.newBuilder()
-                private Builder() {
-                  maybeForceBuilderInitialization();
-                }
-
-                private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                  super(parent);
-                  maybeForceBuilderInitialization();
-                }
-                private void maybeForceBuilderInitialization() {
-                  if (com.google.protobuf.GeneratedMessageV3
-                          .alwaysUseFieldBuilders) {
-                  }
-                }
-                @java.lang.Override
-                public Builder clear() {
-                  super.clear();
-                  id_ = 0;
-
-                  if (sizeBuilder_ == null) {
-                    size_ = null;
-                  } else {
-                    size_ = null;
-                    sizeBuilder_ = null;
-                  }
-                  return this;
-                }
-
-                @java.lang.Override
-                public com.google.protobuf.Descriptors.Descriptor
-                    getDescriptorForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_descriptor;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift getDefaultInstanceForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.getDefaultInstance();
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift build() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift result = buildPartial();
-                  if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                  }
-                  return result;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift buildPartial() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift(this);
-                  result.id_ = id_;
-                  if (sizeBuilder_ == null) {
-                    result.size_ = size_;
-                  } else {
-                    result.size_ = sizeBuilder_.build();
-                  }
-                  onBuilt();
-                  return result;
-                }
-
-                @java.lang.Override
-                public Builder clone() {
-                  return super.clone();
-                }
-                @java.lang.Override
-                public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.setField(field, value);
-                }
-                @java.lang.Override
-                public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                  return super.clearField(field);
-                }
-                @java.lang.Override
-                public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                  return super.clearOneof(oneof);
-                }
-                @java.lang.Override
-                public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                  return super.setRepeatedField(field, index, value);
-                }
-                @java.lang.Override
-                public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.addRepeatedField(field, value);
-                }
-                @java.lang.Override
-                public Builder mergeFrom(com.google.protobuf.Message other) {
-                  if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift) {
-                    return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)other);
-                  } else {
-                    super.mergeFrom(other);
-                    return this;
-                  }
-                }
-
-                public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift other) {
-                  if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift.getDefaultInstance()) return this;
-                  if (other.getId() != 0) {
-                    setId(other.getId());
-                  }
-                  if (other.hasSize()) {
-                    mergeSize(other.getSize());
-                  }
-                  this.mergeUnknownFields(other.unknownFields);
-                  onChanged();
-                  return this;
-                }
-
-                @java.lang.Override
-                public final boolean isInitialized() {
-                  return true;
-                }
-
-                @java.lang.Override
-                public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift parsedMessage = null;
-                  try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                  } finally {
-                    if (parsedMessage != null) {
-                      mergeFrom(parsedMessage);
-                    }
-                  }
-                  return this;
-                }
-
-                private int id_ ;
-                /**
-                 * <code>int32 id = 1;</code>
-                 * @return The id.
-                 */
-                @java.lang.Override
-                public int getId() {
-                  return id_;
-                }
-                /**
-                 * <code>int32 id = 1;</code>
-                 * @param value The id to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setId(int value) {
-                  
-                  id_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 id = 1;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearId() {
-                  
-                  id_ = 0;
-                  onChanged();
-                  return this;
-                }
-
-                private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size_;
-                private com.google.protobuf.SingleFieldBuilderV3<
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder> sizeBuilder_;
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 * @return Whether the size field is set.
-                 */
-                public boolean hasSize() {
-                  return sizeBuilder_ != null || size_ != null;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 * @return The size.
-                 */
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getSize() {
-                  if (sizeBuilder_ == null) {
-                    return size_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance() : size_;
-                  } else {
-                    return sizeBuilder_.getMessage();
-                  }
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                public Builder setSize(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo value) {
-                  if (sizeBuilder_ == null) {
-                    if (value == null) {
-                      throw new NullPointerException();
-                    }
-                    size_ = value;
-                    onChanged();
-                  } else {
-                    sizeBuilder_.setMessage(value);
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                public Builder setSize(
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder builderForValue) {
-                  if (sizeBuilder_ == null) {
-                    size_ = builderForValue.build();
-                    onChanged();
-                  } else {
-                    sizeBuilder_.setMessage(builderForValue.build());
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                public Builder mergeSize(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo value) {
-                  if (sizeBuilder_ == null) {
-                    if (size_ != null) {
-                      size_ =
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.newBuilder(size_).mergeFrom(value).buildPartial();
-                    } else {
-                      size_ = value;
-                    }
-                    onChanged();
-                  } else {
-                    sizeBuilder_.mergeFrom(value);
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                public Builder clearSize() {
-                  if (sizeBuilder_ == null) {
-                    size_ = null;
-                    onChanged();
-                  } else {
-                    size_ = null;
-                    sizeBuilder_ = null;
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder getSizeBuilder() {
-                  
-                  onChanged();
-                  return getSizeFieldBuilder().getBuilder();
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder getSizeOrBuilder() {
-                  if (sizeBuilder_ != null) {
-                    return sizeBuilder_.getMessageOrBuilder();
-                  } else {
-                    return size_ == null ?
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance() : size_;
-                  }
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 2;</code>
-                 */
-                private com.google.protobuf.SingleFieldBuilderV3<
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder> 
-                    getSizeFieldBuilder() {
-                  if (sizeBuilder_ == null) {
-                    sizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder>(
-                            getSize(),
-                            getParentForChildren(),
-                            isClean());
-                    size_ = null;
-                  }
-                  return sizeBuilder_;
-                }
-                @java.lang.Override
-                public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.setUnknownFields(unknownFields);
-                }
-
-                @java.lang.Override
-                public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.mergeUnknownFields(unknownFields);
-                }
-
-
-                // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)
-              }
-
-              // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift)
-              private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift DEFAULT_INSTANCE;
-              static {
-                DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift();
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift getDefaultInstance() {
-                return DEFAULT_INSTANCE;
-              }
-
-              private static final com.google.protobuf.Parser<Gift>
-                  PARSER = new com.google.protobuf.AbstractParser<Gift>() {
-                @java.lang.Override
-                public Gift parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return new Gift(input, extensionRegistry);
-                }
-              };
-
-              public static com.google.protobuf.Parser<Gift> parser() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Parser<Gift> getParserForType() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Gift getDefaultInstanceForType() {
-                return DEFAULT_INSTANCE;
-              }
-
-            }
-
-            public static final int STR1_FIELD_NUMBER = 1;
-            private volatile java.lang.Object str1_;
-            /**
-             * <code>string str1 = 1;</code>
-             * @return The str1.
-             */
-            @java.lang.Override
-            public java.lang.String getStr1() {
-              java.lang.Object ref = str1_;
-              if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-              } else {
-                com.google.protobuf.ByteString bs = 
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                str1_ = s;
-                return s;
-              }
-            }
-            /**
-             * <code>string str1 = 1;</code>
-             * @return The bytes for str1.
-             */
-            @java.lang.Override
-            public com.google.protobuf.ByteString
-                getStr1Bytes() {
-              java.lang.Object ref = str1_;
-              if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                str1_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-
-            public static final int NAME_FIELD_NUMBER = 2;
-            private volatile java.lang.Object name_;
-            /**
-             * <code>string name = 2;</code>
-             * @return The name.
-             */
-            @java.lang.Override
-            public java.lang.String getName() {
-              java.lang.Object ref = name_;
-              if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-              } else {
-                com.google.protobuf.ByteString bs = 
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                name_ = s;
-                return s;
-              }
-            }
-            /**
-             * <code>string name = 2;</code>
-             * @return The bytes for name.
-             */
-            @java.lang.Override
-            public com.google.protobuf.ByteString
-                getNameBytes() {
-              java.lang.Object ref = name_;
-              if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                name_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-
-            public static final int SIZE_FIELD_NUMBER = 3;
-            private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size_;
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-             * @return Whether the size field is set.
-             */
-            @java.lang.Override
-            public boolean hasSize() {
-              return size_ != null;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-             * @return The size.
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getSize() {
-              return size_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance() : size_;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder getSizeOrBuilder() {
-              return getSize();
-            }
-
-            private byte memoizedIsInitialized = -1;
-            @java.lang.Override
-            public final boolean isInitialized() {
-              byte isInitialized = memoizedIsInitialized;
-              if (isInitialized == 1) return true;
-              if (isInitialized == 0) return false;
-
-              memoizedIsInitialized = 1;
-              return true;
-            }
-
-            @java.lang.Override
-            public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                throws java.io.IOException {
-              if (!getStr1Bytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, str1_);
-              }
-              if (!getNameBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
-              }
-              if (size_ != null) {
-                output.writeMessage(3, getSize());
-              }
-              unknownFields.writeTo(output);
-            }
-
-            @java.lang.Override
-            public int getSerializedSize() {
-              int size = memoizedSize;
-              if (size != -1) return size;
-
-              size = 0;
-              if (!getStr1Bytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, str1_);
-              }
-              if (!getNameBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
-              }
-              if (size_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeMessageSize(3, getSize());
-              }
-              size += unknownFields.getSerializedSize();
-              memoizedSize = size;
-              return size;
-            }
-
-            @java.lang.Override
-            public boolean equals(final java.lang.Object obj) {
-              if (obj == this) {
-               return true;
-              }
-              if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)) {
-                return super.equals(obj);
-              }
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage) obj;
-
-              if (!getStr1()
-                  .equals(other.getStr1())) return false;
-              if (!getName()
-                  .equals(other.getName())) return false;
-              if (hasSize() != other.hasSize()) return false;
-              if (hasSize()) {
-                if (!getSize()
-                    .equals(other.getSize())) return false;
-              }
-              if (!unknownFields.equals(other.unknownFields)) return false;
-              return true;
-            }
-
-            @java.lang.Override
-            public int hashCode() {
-              if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-              }
-              int hash = 41;
-              hash = (19 * hash) + getDescriptor().hashCode();
-              hash = (37 * hash) + STR1_FIELD_NUMBER;
-              hash = (53 * hash) + getStr1().hashCode();
-              hash = (37 * hash) + NAME_FIELD_NUMBER;
-              hash = (53 * hash) + getName().hashCode();
-              if (hasSize()) {
-                hash = (37 * hash) + SIZE_FIELD_NUMBER;
-                hash = (53 * hash) + getSize().hashCode();
-              }
-              hash = (29 * hash) + unknownFields.hashCode();
-              memoizedHashCode = hash;
-              return hash;
-            }
-
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseDelimitedWithIOException(PARSER, input);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input, extensionRegistry);
-            }
-
-            @java.lang.Override
-            public Builder newBuilderForType() { return newBuilder(); }
-            public static Builder newBuilder() {
-              return DEFAULT_INSTANCE.toBuilder();
-            }
-            public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage prototype) {
-              return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-            }
-            @java.lang.Override
-            public Builder toBuilder() {
-              return this == DEFAULT_INSTANCE
-                  ? new Builder() : new Builder().mergeFrom(this);
-            }
-
-            @java.lang.Override
-            protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-              Builder builder = new Builder(parent);
-              return builder;
-            }
-            /**
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage}
-             */
-            public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessageOrBuilder {
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.Builder.class);
-              }
-
-              // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.newBuilder()
-              private Builder() {
-                maybeForceBuilderInitialization();
-              }
-
-              private Builder(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-              }
-              private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-              }
-              @java.lang.Override
-              public Builder clear() {
-                super.clear();
-                str1_ = "";
-
-                name_ = "";
-
-                if (sizeBuilder_ == null) {
-                  size_ = null;
-                } else {
-                  size_ = null;
-                  sizeBuilder_ = null;
-                }
-                return this;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Descriptors.Descriptor
-                  getDescriptorForType() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage getDefaultInstanceForType() {
-                return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.getDefaultInstance();
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage build() {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                  throw newUninitializedMessageException(result);
-                }
-                return result;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage buildPartial() {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage(this);
-                result.str1_ = str1_;
-                result.name_ = name_;
-                if (sizeBuilder_ == null) {
-                  result.size_ = size_;
-                } else {
-                  result.size_ = sizeBuilder_.build();
-                }
-                onBuilt();
-                return result;
-              }
-
-              @java.lang.Override
-              public Builder clone() {
-                return super.clone();
-              }
-              @java.lang.Override
-              public Builder setField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field,
-                  java.lang.Object value) {
-                return super.setField(field, value);
-              }
-              @java.lang.Override
-              public Builder clearField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return super.clearField(field);
-              }
-              @java.lang.Override
-              public Builder clearOneof(
-                  com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return super.clearOneof(oneof);
-              }
-              @java.lang.Override
-              public Builder setRepeatedField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field,
-                  int index, java.lang.Object value) {
-                return super.setRepeatedField(field, index, value);
-              }
-              @java.lang.Override
-              public Builder addRepeatedField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field,
-                  java.lang.Object value) {
-                return super.addRepeatedField(field, value);
-              }
-              @java.lang.Override
-              public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage) {
-                  return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)other);
-                } else {
-                  super.mergeFrom(other);
-                  return this;
-                }
-              }
-
-              public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage other) {
-                if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.getDefaultInstance()) return this;
-                if (!other.getStr1().isEmpty()) {
-                  str1_ = other.str1_;
-                  onChanged();
-                }
-                if (!other.getName().isEmpty()) {
-                  name_ = other.name_;
-                  onChanged();
-                }
-                if (other.hasSize()) {
-                  mergeSize(other.getSize());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-              }
-
-              @java.lang.Override
-              public final boolean isInitialized() {
-                return true;
-              }
-
-              @java.lang.Override
-              public Builder mergeFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage parsedMessage = null;
-                try {
-                  parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage) e.getUnfinishedMessage();
-                  throw e.unwrapIOException();
-                } finally {
-                  if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                  }
-                }
-                return this;
-              }
-
-              private java.lang.Object str1_ = "";
-              /**
-               * <code>string str1 = 1;</code>
-               * @return The str1.
-               */
-              public java.lang.String getStr1() {
-                java.lang.Object ref = str1_;
-                if (!(ref instanceof java.lang.String)) {
-                  com.google.protobuf.ByteString bs =
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  str1_ = s;
-                  return s;
-                } else {
-                  return (java.lang.String) ref;
-                }
-              }
-              /**
-               * <code>string str1 = 1;</code>
-               * @return The bytes for str1.
-               */
-              public com.google.protobuf.ByteString
-                  getStr1Bytes() {
-                java.lang.Object ref = str1_;
-                if (ref instanceof String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  str1_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-              /**
-               * <code>string str1 = 1;</code>
-               * @param value The str1 to set.
-               * @return This builder for chaining.
-               */
-              public Builder setStr1(
-                  java.lang.String value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                str1_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string str1 = 1;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearStr1() {
-                
-                str1_ = getDefaultInstance().getStr1();
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string str1 = 1;</code>
-               * @param value The bytes for str1 to set.
-               * @return This builder for chaining.
-               */
-              public Builder setStr1Bytes(
-                  com.google.protobuf.ByteString value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                
-                str1_ = value;
-                onChanged();
-                return this;
-              }
-
-              private java.lang.Object name_ = "";
-              /**
-               * <code>string name = 2;</code>
-               * @return The name.
-               */
-              public java.lang.String getName() {
-                java.lang.Object ref = name_;
-                if (!(ref instanceof java.lang.String)) {
-                  com.google.protobuf.ByteString bs =
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  name_ = s;
-                  return s;
-                } else {
-                  return (java.lang.String) ref;
-                }
-              }
-              /**
-               * <code>string name = 2;</code>
-               * @return The bytes for name.
-               */
-              public com.google.protobuf.ByteString
-                  getNameBytes() {
-                java.lang.Object ref = name_;
-                if (ref instanceof String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  name_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-              /**
-               * <code>string name = 2;</code>
-               * @param value The name to set.
-               * @return This builder for chaining.
-               */
-              public Builder setName(
-                  java.lang.String value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                name_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string name = 2;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearName() {
-                
-                name_ = getDefaultInstance().getName();
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string name = 2;</code>
-               * @param value The bytes for name to set.
-               * @return This builder for chaining.
-               */
-              public Builder setNameBytes(
-                  com.google.protobuf.ByteString value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                
-                name_ = value;
-                onChanged();
-                return this;
-              }
-
-              private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size_;
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder> sizeBuilder_;
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               * @return Whether the size field is set.
-               */
-              public boolean hasSize() {
-                return sizeBuilder_ != null || size_ != null;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               * @return The size.
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo getSize() {
-                if (sizeBuilder_ == null) {
-                  return size_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance() : size_;
-                } else {
-                  return sizeBuilder_.getMessage();
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              public Builder setSize(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo value) {
-                if (sizeBuilder_ == null) {
-                  if (value == null) {
-                    throw new NullPointerException();
-                  }
-                  size_ = value;
-                  onChanged();
-                } else {
-                  sizeBuilder_.setMessage(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              public Builder setSize(
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder builderForValue) {
-                if (sizeBuilder_ == null) {
-                  size_ = builderForValue.build();
-                  onChanged();
-                } else {
-                  sizeBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              public Builder mergeSize(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo value) {
-                if (sizeBuilder_ == null) {
-                  if (size_ != null) {
-                    size_ =
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.newBuilder(size_).mergeFrom(value).buildPartial();
-                  } else {
-                    size_ = value;
-                  }
-                  onChanged();
-                } else {
-                  sizeBuilder_.mergeFrom(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              public Builder clearSize() {
-                if (sizeBuilder_ == null) {
-                  size_ = null;
-                  onChanged();
-                } else {
-                  size_ = null;
-                  sizeBuilder_ = null;
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder getSizeBuilder() {
-                
-                onChanged();
-                return getSizeFieldBuilder().getBuilder();
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder getSizeOrBuilder() {
-                if (sizeBuilder_ != null) {
-                  return sizeBuilder_.getMessageOrBuilder();
-                } else {
-                  return size_ == null ?
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.getDefaultInstance() : size_;
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo size = 3;</code>
-               */
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder> 
-                  getSizeFieldBuilder() {
-                if (sizeBuilder_ == null) {
-                  sizeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage.SizeInfoOrBuilder>(
-                          getSize(),
-                          getParentForChildren(),
-                          isClean());
-                  size_ = null;
-                }
-                return sizeBuilder_;
-              }
-              @java.lang.Override
-              public final Builder setUnknownFields(
-                  final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFields(unknownFields);
-              }
-
-              @java.lang.Override
-              public final Builder mergeUnknownFields(
-                  final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-              }
-
-
-              // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)
-            }
-
-            // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage)
-            private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage DEFAULT_INSTANCE;
-            static {
-              DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage();
-            }
-
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage getDefaultInstance() {
-              return DEFAULT_INSTANCE;
-            }
-
-            private static final com.google.protobuf.Parser<GiftSendMessage>
-                PARSER = new com.google.protobuf.AbstractParser<GiftSendMessage>() {
-              @java.lang.Override
-              public GiftSendMessage parsePartialFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return new GiftSendMessage(input, extensionRegistry);
-              }
-            };
-
-            public static com.google.protobuf.Parser<GiftSendMessage> parser() {
-              return PARSER;
-            }
-
-            @java.lang.Override
-            public com.google.protobuf.Parser<GiftSendMessage> getParserForType() {
-              return PARSER;
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.GiftSendMessage getDefaultInstanceForType() {
-              return DEFAULT_INSTANCE;
-            }
-
-          }
-
-          public static final int MESSAGETYPE_FIELD_NUMBER = 1;
-          private volatile java.lang.Object messageType_;
-          /**
-           * <code>string messageType = 1;</code>
-           * @return The messageType.
-           */
-          @java.lang.Override
-          public java.lang.String getMessageType() {
-            java.lang.Object ref = messageType_;
-            if (ref instanceof java.lang.String) {
-              return (java.lang.String) ref;
-            } else {
-              com.google.protobuf.ByteString bs = 
-                  (com.google.protobuf.ByteString) ref;
-              java.lang.String s = bs.toStringUtf8();
-              messageType_ = s;
-              return s;
-            }
-          }
-          /**
-           * <code>string messageType = 1;</code>
-           * @return The bytes for messageType.
-           */
-          @java.lang.Override
-          public com.google.protobuf.ByteString
-              getMessageTypeBytes() {
-            java.lang.Object ref = messageType_;
-            if (ref instanceof java.lang.String) {
-              com.google.protobuf.ByteString b = 
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                      (java.lang.String) ref);
-              messageType_ = b;
-              return b;
-            } else {
-              return (com.google.protobuf.ByteString) ref;
-            }
-          }
-
-          public static final int ID1_FIELD_NUMBER = 2;
-          private long id1_;
-          /**
-           * <code>int64 id1 = 2;</code>
-           * @return The id1.
-           */
-          @java.lang.Override
-          public long getId1() {
-            return id1_;
-          }
-
-          public static final int ID2_FIELD_NUMBER = 3;
-          private long id2_;
-          /**
-           * <code>int64 id2 = 3;</code>
-           * @return The id2.
-           */
-          @java.lang.Override
-          public long getId2() {
-            return id2_;
-          }
-
-          public static final int NOW_TIME_FIELD_NUMBER = 4;
-          private long nowTime_;
-          /**
-           * <code>int64 now_time = 4;</code>
-           * @return The nowTime.
-           */
-          @java.lang.Override
-          public long getNowTime() {
-            return nowTime_;
-          }
-
-          public static final int ID3_FIELD_NUMBER = 6;
-          private int id3_;
-          /**
-           * <code>int32 id3 = 6;</code>
-           * @return The id3.
-           */
-          @java.lang.Override
-          public int getId3() {
-            return id3_;
-          }
-
-          public static final int MSG_FIELD_NUMBER = 7;
-          private volatile java.lang.Object msg_;
-          /**
-           * <pre>
-           **
-           *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-           * </pre>
-           *
-           * <code>string msg = 7;</code>
-           * @return The msg.
-           */
-          @java.lang.Override
-          public java.lang.String getMsg() {
-            java.lang.Object ref = msg_;
-            if (ref instanceof java.lang.String) {
-              return (java.lang.String) ref;
-            } else {
-              com.google.protobuf.ByteString bs = 
-                  (com.google.protobuf.ByteString) ref;
-              java.lang.String s = bs.toStringUtf8();
-              msg_ = s;
-              return s;
-            }
-          }
-          /**
-           * <pre>
-           **
-           *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-           * </pre>
-           *
-           * <code>string msg = 7;</code>
-           * @return The bytes for msg.
-           */
-          @java.lang.Override
-          public com.google.protobuf.ByteString
-              getMsgBytes() {
-            java.lang.Object ref = msg_;
-            if (ref instanceof java.lang.String) {
-              com.google.protobuf.ByteString b = 
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                      (java.lang.String) ref);
-              msg_ = b;
-              return b;
-            } else {
-              return (com.google.protobuf.ByteString) ref;
-            }
-          }
-
-          private byte memoizedIsInitialized = -1;
-          @java.lang.Override
-          public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-          }
-
-          @java.lang.Override
-          public void writeTo(com.google.protobuf.CodedOutputStream output)
-                              throws java.io.IOException {
-            if (!getMessageTypeBytes().isEmpty()) {
-              com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageType_);
-            }
-            if (id1_ != 0L) {
-              output.writeInt64(2, id1_);
-            }
-            if (id2_ != 0L) {
-              output.writeInt64(3, id2_);
-            }
-            if (nowTime_ != 0L) {
-              output.writeInt64(4, nowTime_);
-            }
-            if (id3_ != 0) {
-              output.writeInt32(6, id3_);
-            }
-            if (!getMsgBytes().isEmpty()) {
-              com.google.protobuf.GeneratedMessageV3.writeString(output, 7, msg_);
-            }
-            unknownFields.writeTo(output);
-          }
-
-          @java.lang.Override
-          public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getMessageTypeBytes().isEmpty()) {
-              size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageType_);
-            }
-            if (id1_ != 0L) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(2, id1_);
-            }
-            if (id2_ != 0L) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(3, id2_);
-            }
-            if (nowTime_ != 0L) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(4, nowTime_);
-            }
-            if (id3_ != 0) {
-              size += com.google.protobuf.CodedOutputStream
-                .computeInt32Size(6, id3_);
-            }
-            if (!getMsgBytes().isEmpty()) {
-              size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, msg_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-          }
-
-          @java.lang.Override
-          public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-             return true;
-            }
-            if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo)) {
-              return super.equals(obj);
-            }
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo) obj;
-
-            if (!getMessageType()
-                .equals(other.getMessageType())) return false;
-            if (getId1()
-                != other.getId1()) return false;
-            if (getId2()
-                != other.getId2()) return false;
-            if (getNowTime()
-                != other.getNowTime()) return false;
-            if (getId3()
-                != other.getId3()) return false;
-            if (!getMsg()
-                .equals(other.getMsg())) return false;
-            if (!unknownFields.equals(other.unknownFields)) return false;
-            return true;
-          }
-
-          @java.lang.Override
-          public int hashCode() {
-            if (memoizedHashCode != 0) {
-              return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
-            hash = (53 * hash) + getMessageType().hashCode();
-            hash = (37 * hash) + ID1_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getId1());
-            hash = (37 * hash) + ID2_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getId2());
-            hash = (37 * hash) + NOW_TIME_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getNowTime());
-            hash = (37 * hash) + ID3_FIELD_NUMBER;
-            hash = (53 * hash) + getId3();
-            hash = (37 * hash) + MSG_FIELD_NUMBER;
-            hash = (53 * hash) + getMsg().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-          }
-
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              java.nio.ByteBuffer data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              java.nio.ByteBuffer data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              com.google.protobuf.ByteString data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              com.google.protobuf.ByteString data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(byte[] data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              byte[] data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseDelimitedFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseDelimitedFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              com.google.protobuf.CodedInputStream input)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parseFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-          }
-
-          @java.lang.Override
-          public Builder newBuilderForType() { return newBuilder(); }
-          public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-          }
-          public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-          }
-          @java.lang.Override
-          public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-          }
-
-          @java.lang.Override
-          protected Builder newBuilderForType(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-          }
-          /**
-           * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.TimeInfo}
-           */
-          public static final class Builder extends
-              com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-              // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.TimeInfo)
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-                getDescriptor() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor;
-            }
-
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                internalGetFieldAccessorTable() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_fieldAccessorTable
-                  .ensureFieldAccessorsInitialized(
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder.class);
-            }
-
-            // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.newBuilder()
-            private Builder() {
-              maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-              super(parent);
-              maybeForceBuilderInitialization();
-            }
-            private void maybeForceBuilderInitialization() {
-              if (com.google.protobuf.GeneratedMessageV3
-                      .alwaysUseFieldBuilders) {
-              }
-            }
-            @java.lang.Override
-            public Builder clear() {
-              super.clear();
-              messageType_ = "";
-
-              id1_ = 0L;
-
-              id2_ = 0L;
-
-              nowTime_ = 0L;
-
-              id3_ = 0;
-
-              msg_ = "";
-
-              return this;
-            }
-
-            @java.lang.Override
-            public com.google.protobuf.Descriptors.Descriptor
-                getDescriptorForType() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor;
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo getDefaultInstanceForType() {
-              return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.getDefaultInstance();
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo build() {
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo result = buildPartial();
-              if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-              }
-              return result;
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo buildPartial() {
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo(this);
-              result.messageType_ = messageType_;
-              result.id1_ = id1_;
-              result.id2_ = id2_;
-              result.nowTime_ = nowTime_;
-              result.id3_ = id3_;
-              result.msg_ = msg_;
-              onBuilt();
-              return result;
-            }
-
-            @java.lang.Override
-            public Builder clone() {
-              return super.clone();
-            }
-            @java.lang.Override
-            public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-              return super.setField(field, value);
-            }
-            @java.lang.Override
-            public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-              return super.clearField(field);
-            }
-            @java.lang.Override
-            public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-              return super.clearOneof(oneof);
-            }
-            @java.lang.Override
-            public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-              return super.setRepeatedField(field, index, value);
-            }
-            @java.lang.Override
-            public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-              return super.addRepeatedField(field, value);
-            }
-            @java.lang.Override
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-              if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo) {
-                return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo)other);
-              } else {
-                super.mergeFrom(other);
-                return this;
-              }
-            }
-
-            public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo other) {
-              if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.getDefaultInstance()) return this;
-              if (!other.getMessageType().isEmpty()) {
-                messageType_ = other.messageType_;
-                onChanged();
-              }
-              if (other.getId1() != 0L) {
-                setId1(other.getId1());
-              }
-              if (other.getId2() != 0L) {
-                setId2(other.getId2());
-              }
-              if (other.getNowTime() != 0L) {
-                setNowTime(other.getNowTime());
-              }
-              if (other.getId3() != 0) {
-                setId3(other.getId3());
-              }
-              if (!other.getMsg().isEmpty()) {
-                msg_ = other.msg_;
-                onChanged();
-              }
-              this.mergeUnknownFields(other.unknownFields);
-              onChanged();
-              return this;
-            }
-
-            @java.lang.Override
-            public final boolean isInitialized() {
-              return true;
-            }
-
-            @java.lang.Override
-            public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo parsedMessage = null;
-              try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-              } finally {
-                if (parsedMessage != null) {
-                  mergeFrom(parsedMessage);
-                }
-              }
-              return this;
-            }
-
-            private java.lang.Object messageType_ = "";
-            /**
-             * <code>string messageType = 1;</code>
-             * @return The messageType.
-             */
-            public java.lang.String getMessageType() {
-              java.lang.Object ref = messageType_;
-              if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                messageType_ = s;
-                return s;
-              } else {
-                return (java.lang.String) ref;
-              }
-            }
-            /**
-             * <code>string messageType = 1;</code>
-             * @return The bytes for messageType.
-             */
-            public com.google.protobuf.ByteString
-                getMessageTypeBytes() {
-              java.lang.Object ref = messageType_;
-              if (ref instanceof String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                messageType_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-            /**
-             * <code>string messageType = 1;</code>
-             * @param value The messageType to set.
-             * @return This builder for chaining.
-             */
-            public Builder setMessageType(
-                java.lang.String value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  
-              messageType_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>string messageType = 1;</code>
-             * @return This builder for chaining.
-             */
-            public Builder clearMessageType() {
-              
-              messageType_ = getDefaultInstance().getMessageType();
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>string messageType = 1;</code>
-             * @param value The bytes for messageType to set.
-             * @return This builder for chaining.
-             */
-            public Builder setMessageTypeBytes(
-                com.google.protobuf.ByteString value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-              
-              messageType_ = value;
-              onChanged();
-              return this;
-            }
-
-            private long id1_ ;
-            /**
-             * <code>int64 id1 = 2;</code>
-             * @return The id1.
-             */
-            @java.lang.Override
-            public long getId1() {
-              return id1_;
-            }
-            /**
-             * <code>int64 id1 = 2;</code>
-             * @param value The id1 to set.
-             * @return This builder for chaining.
-             */
-            public Builder setId1(long value) {
-              
-              id1_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>int64 id1 = 2;</code>
-             * @return This builder for chaining.
-             */
-            public Builder clearId1() {
-              
-              id1_ = 0L;
-              onChanged();
-              return this;
-            }
-
-            private long id2_ ;
-            /**
-             * <code>int64 id2 = 3;</code>
-             * @return The id2.
-             */
-            @java.lang.Override
-            public long getId2() {
-              return id2_;
-            }
-            /**
-             * <code>int64 id2 = 3;</code>
-             * @param value The id2 to set.
-             * @return This builder for chaining.
-             */
-            public Builder setId2(long value) {
-              
-              id2_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>int64 id2 = 3;</code>
-             * @return This builder for chaining.
-             */
-            public Builder clearId2() {
-              
-              id2_ = 0L;
-              onChanged();
-              return this;
-            }
-
-            private long nowTime_ ;
-            /**
-             * <code>int64 now_time = 4;</code>
-             * @return The nowTime.
-             */
-            @java.lang.Override
-            public long getNowTime() {
-              return nowTime_;
-            }
-            /**
-             * <code>int64 now_time = 4;</code>
-             * @param value The nowTime to set.
-             * @return This builder for chaining.
-             */
-            public Builder setNowTime(long value) {
-              
-              nowTime_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>int64 now_time = 4;</code>
-             * @return This builder for chaining.
-             */
-            public Builder clearNowTime() {
-              
-              nowTime_ = 0L;
-              onChanged();
-              return this;
-            }
-
-            private int id3_ ;
-            /**
-             * <code>int32 id3 = 6;</code>
-             * @return The id3.
-             */
-            @java.lang.Override
-            public int getId3() {
-              return id3_;
-            }
-            /**
-             * <code>int32 id3 = 6;</code>
-             * @param value The id3 to set.
-             * @return This builder for chaining.
-             */
-            public Builder setId3(int value) {
-              
-              id3_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <code>int32 id3 = 6;</code>
-             * @return This builder for chaining.
-             */
-            public Builder clearId3() {
-              
-              id3_ = 0;
-              onChanged();
-              return this;
-            }
-
-            private java.lang.Object msg_ = "";
-            /**
-             * <pre>
-             **
-             *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-             * </pre>
-             *
-             * <code>string msg = 7;</code>
-             * @return The msg.
-             */
-            public java.lang.String getMsg() {
-              java.lang.Object ref = msg_;
-              if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                msg_ = s;
-                return s;
-              } else {
-                return (java.lang.String) ref;
-              }
-            }
-            /**
-             * <pre>
-             **
-             *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-             * </pre>
-             *
-             * <code>string msg = 7;</code>
-             * @return The bytes for msg.
-             */
-            public com.google.protobuf.ByteString
-                getMsgBytes() {
-              java.lang.Object ref = msg_;
-              if (ref instanceof String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                msg_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-            /**
-             * <pre>
-             **
-             *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-             * </pre>
-             *
-             * <code>string msg = 7;</code>
-             * @param value The msg to set.
-             * @return This builder for chaining.
-             */
-            public Builder setMsg(
-                java.lang.String value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  
-              msg_ = value;
-              onChanged();
-              return this;
-            }
-            /**
-             * <pre>
-             **
-             *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-             * </pre>
-             *
-             * <code>string msg = 7;</code>
-             * @return This builder for chaining.
-             */
-            public Builder clearMsg() {
-              
-              msg_ = getDefaultInstance().getMsg();
-              onChanged();
-              return this;
-            }
-            /**
-             * <pre>
-             **
-             *当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
-             * </pre>
-             *
-             * <code>string msg = 7;</code>
-             * @param value The bytes for msg to set.
-             * @return This builder for chaining.
-             */
-            public Builder setMsgBytes(
-                com.google.protobuf.ByteString value) {
-              if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-              
-              msg_ = value;
-              onChanged();
-              return this;
-            }
-            @java.lang.Override
-            public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-              return super.setUnknownFields(unknownFields);
-            }
-
-            @java.lang.Override
-            public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-              return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo)
-          }
-
-          // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.TimeInfo)
-          private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo DEFAULT_INSTANCE;
-          static {
-            DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo();
-          }
-
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-          }
-
-          private static final com.google.protobuf.Parser<TimeInfo>
-              PARSER = new com.google.protobuf.AbstractParser<TimeInfo>() {
-            @java.lang.Override
-            public TimeInfo parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return new TimeInfo(input, extensionRegistry);
-            }
-          };
-
-          public static com.google.protobuf.Parser<TimeInfo> parser() {
-            return PARSER;
-          }
-
-          @java.lang.Override
-          public com.google.protobuf.Parser<TimeInfo> getParserForType() {
-            return PARSER;
-          }
-
-          @java.lang.Override
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-          }
-
-        }
-
-        public interface MsgOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.Msg)
-            com.google.protobuf.MessageOrBuilder {
-        }
-        /**
-         * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg}
-         */
-        public static final class Msg extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.Msg)
-            MsgOrBuilder {
-        private static final long serialVersionUID = 0L;
-          // Use Msg.newBuilder() to construct.
-          private Msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
-          }
-          private Msg() {
-          }
-
-          @java.lang.Override
-          @SuppressWarnings({"unused"})
-          protected java.lang.Object newInstance(
-              UnusedPrivateParameter unused) {
-            return new Msg();
-          }
-
-          @java.lang.Override
-          public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-            return this.unknownFields;
-          }
-          private Msg(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-              throw new java.lang.NullPointerException();
-            }
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-              boolean done = false;
-              while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                  case 0:
-                    done = true;
-                    break;
-                  default: {
-                    if (!parseUnknownField(
-                        input, unknownFields, extensionRegistry, tag)) {
-                      done = true;
-                    }
-                    break;
-                  }
-                }
-              }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-              throw new com.google.protobuf.InvalidProtocolBufferException(
-                  e).setUnfinishedMessage(this);
-            } finally {
-              this.unknownFields = unknownFields.build();
-              makeExtensionsImmutable();
-            }
-          }
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor;
-          }
-
-          @java.lang.Override
-          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder.class);
-          }
-
-          public interface UserInfoOrBuilder extends
-              // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)
-              com.google.protobuf.MessageOrBuilder {
-
-            /**
-             * <code>int64 str1 = 1;</code>
-             * @return The str1.
-             */
-            long getStr1();
-
-            /**
-             * <pre>
-             *          用户id，短数字类型
-             * </pre>
-             *
-             * <code>int64 id = 2;</code>
-             * @return The id.
-             */
-            long getId();
-
-            /**
-             * <code>string name = 3;</code>
-             * @return The name.
-             */
-            java.lang.String getName();
-            /**
-             * <code>string name = 3;</code>
-             * @return The bytes for name.
-             */
-            com.google.protobuf.ByteString
-                getNameBytes();
-
-            /**
-             * <code>int32 gender = 4;</code>
-             * @return The gender.
-             */
-            int getGender();
-
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-             * @return Whether the headimg field is set.
-             */
-            boolean hasHeadimg();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-             * @return The headimg.
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo getHeadimg();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder getHeadimgOrBuilder();
-
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-             * @return Whether the uObj field is set.
-             */
-            boolean hasUObj();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-             * @return The uObj.
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 getUObj();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder getUObjOrBuilder();
-
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-             * @return Whether the uObj23 field is set.
-             */
-            boolean hasUObj23();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-             * @return The uObj23.
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 getUObj23();
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-             */
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder getUObj23OrBuilder();
-
-            /**
-             * <code>string id_str = 38;</code>
-             * @return The idStr.
-             */
-            java.lang.String getIdStr();
-            /**
-             * <code>string id_str = 38;</code>
-             * @return The bytes for idStr.
-             */
-            com.google.protobuf.ByteString
-                getIdStrBytes();
-
-            /**
-             * <pre>
-             *          加密的用户id，访问其它接口时的必备参数
-             * </pre>
-             *
-             * <code>string sec_uid = 46;</code>
-             * @return The secUid.
-             */
-            java.lang.String getSecUid();
-            /**
-             * <pre>
-             *          加密的用户id，访问其它接口时的必备参数
-             * </pre>
-             *
-             * <code>string sec_uid = 46;</code>
-             * @return The bytes for secUid.
-             */
-            com.google.protobuf.ByteString
-                getSecUidBytes();
-
-            /**
-             * <code>int32 authorization_info = 54;</code>
-             * @return The authorizationInfo.
-             */
-            int getAuthorizationInfo();
-          }
-          /**
-           * <pre>
-           *        int32 id = 1;
-           * </pre>
-           *
-           * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo}
-           */
-          public static final class UserInfo extends
-              com.google.protobuf.GeneratedMessageV3 implements
-              // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)
-              UserInfoOrBuilder {
-          private static final long serialVersionUID = 0L;
-            // Use UserInfo.newBuilder() to construct.
-            private UserInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-              super(builder);
-            }
-            private UserInfo() {
-              name_ = "";
-              idStr_ = "";
-              secUid_ = "";
-            }
-
-            @java.lang.Override
-            @SuppressWarnings({"unused"})
-            protected java.lang.Object newInstance(
-                UnusedPrivateParameter unused) {
-              return new UserInfo();
-            }
-
-            @java.lang.Override
-            public final com.google.protobuf.UnknownFieldSet
-            getUnknownFields() {
-              return this.unknownFields;
-            }
-            private UserInfo(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              this();
-              if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-              }
-              com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                  com.google.protobuf.UnknownFieldSet.newBuilder();
-              try {
-                boolean done = false;
-                while (!done) {
-                  int tag = input.readTag();
-                  switch (tag) {
-                    case 0:
-                      done = true;
-                      break;
-                    case 8: {
-
-                      str1_ = input.readInt64();
-                      break;
-                    }
-                    case 16: {
-
-                      id_ = input.readInt64();
-                      break;
-                    }
-                    case 26: {
-                      java.lang.String s = input.readStringRequireUtf8();
-
-                      name_ = s;
-                      break;
-                    }
-                    case 32: {
-
-                      gender_ = input.readInt32();
-                      break;
-                    }
-                    case 74: {
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder subBuilder = null;
-                      if (headimg_ != null) {
-                        subBuilder = headimg_.toBuilder();
-                      }
-                      headimg_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.parser(), extensionRegistry);
-                      if (subBuilder != null) {
-                        subBuilder.mergeFrom(headimg_);
-                        headimg_ = subBuilder.buildPartial();
-                      }
-
-                      break;
-                    }
-                    case 178: {
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder subBuilder = null;
-                      if (uObj_ != null) {
-                        subBuilder = uObj_.toBuilder();
-                      }
-                      uObj_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.parser(), extensionRegistry);
-                      if (subBuilder != null) {
-                        subBuilder.mergeFrom(uObj_);
-                        uObj_ = subBuilder.buildPartial();
-                      }
-
-                      break;
-                    }
-                    case 186: {
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder subBuilder = null;
-                      if (uObj23_ != null) {
-                        subBuilder = uObj23_.toBuilder();
-                      }
-                      uObj23_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.parser(), extensionRegistry);
-                      if (subBuilder != null) {
-                        subBuilder.mergeFrom(uObj23_);
-                        uObj23_ = subBuilder.buildPartial();
-                      }
-
-                      break;
-                    }
-                    case 306: {
-                      java.lang.String s = input.readStringRequireUtf8();
-
-                      idStr_ = s;
-                      break;
-                    }
-                    case 370: {
-                      java.lang.String s = input.readStringRequireUtf8();
-
-                      secUid_ = s;
-                      break;
-                    }
-                    case 432: {
-
-                      authorizationInfo_ = input.readInt32();
-                      break;
-                    }
-                    default: {
-                      if (!parseUnknownField(
-                          input, unknownFields, extensionRegistry, tag)) {
-                        done = true;
-                      }
-                      break;
-                    }
-                  }
-                }
-              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-              } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-              } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-              }
-            }
-            public static final com.google.protobuf.Descriptors.Descriptor
-                getDescriptor() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor;
-            }
-
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                internalGetFieldAccessorTable() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_fieldAccessorTable
-                  .ensureFieldAccessorsInitialized(
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.Builder.class);
-            }
-
-            public interface CoverInfoOrBuilder extends
-                // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)
-                com.google.protobuf.MessageOrBuilder {
-
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @return A list containing the urlList.
-               */
-              java.util.List<java.lang.String>
-                  getUrlListList();
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @return The count of urlList.
-               */
-              int getUrlListCount();
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @param index The index of the element to return.
-               * @return The urlList at the given index.
-               */
-              java.lang.String getUrlList(int index);
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @param index The index of the value to return.
-               * @return The bytes of the urlList at the given index.
-               */
-              com.google.protobuf.ByteString
-                  getUrlListBytes(int index);
-
-              /**
-               * <code>string uri = 2;</code>
-               * @return The uri.
-               */
-              java.lang.String getUri();
-              /**
-               * <code>string uri = 2;</code>
-               * @return The bytes for uri.
-               */
-              com.google.protobuf.ByteString
-                  getUriBytes();
-
-              /**
-               * <code>int32 height = 3;</code>
-               * @return The height.
-               */
-              int getHeight();
-
-              /**
-               * <code>int32 width = 4;</code>
-               * @return The width.
-               */
-              int getWidth();
-
-              /**
-               * <code>string avg_color = 5;</code>
-               * @return The avgColor.
-               */
-              java.lang.String getAvgColor();
-              /**
-               * <code>string avg_color = 5;</code>
-               * @return The bytes for avgColor.
-               */
-              com.google.protobuf.ByteString
-                  getAvgColorBytes();
-
-              /**
-               * <code>int32 image_type = 6;</code>
-               * @return The imageType.
-               */
-              int getImageType();
-
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-               * @return Whether the colorInfo field is set.
-               */
-              boolean hasColorInfo();
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-               * @return The colorInfo.
-               */
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo getColorInfo();
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-               */
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder getColorInfoOrBuilder();
-            }
-            /**
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo}
-             */
-            public static final class CoverInfo extends
-                com.google.protobuf.GeneratedMessageV3 implements
-                // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)
-                CoverInfoOrBuilder {
-            private static final long serialVersionUID = 0L;
-              // Use CoverInfo.newBuilder() to construct.
-              private CoverInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-                super(builder);
-              }
-              private CoverInfo() {
-                urlList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                uri_ = "";
-                avgColor_ = "";
-              }
-
-              @java.lang.Override
-              @SuppressWarnings({"unused"})
-              protected java.lang.Object newInstance(
-                  UnusedPrivateParameter unused) {
-                return new CoverInfo();
-              }
-
-              @java.lang.Override
-              public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-                return this.unknownFields;
-              }
-              private CoverInfo(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                this();
-                if (extensionRegistry == null) {
-                  throw new java.lang.NullPointerException();
-                }
-                int mutable_bitField0_ = 0;
-                com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-                try {
-                  boolean done = false;
-                  while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                      case 0:
-                        done = true;
-                        break;
-                      case 10: {
-                        java.lang.String s = input.readStringRequireUtf8();
-                        if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                          urlList_ = new com.google.protobuf.LazyStringArrayList();
-                          mutable_bitField0_ |= 0x00000001;
-                        }
-                        urlList_.add(s);
-                        break;
-                      }
-                      case 18: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        uri_ = s;
-                        break;
-                      }
-                      case 24: {
-
-                        height_ = input.readInt32();
-                        break;
-                      }
-                      case 32: {
-
-                        width_ = input.readInt32();
-                        break;
-                      }
-                      case 42: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        avgColor_ = s;
-                        break;
-                      }
-                      case 48: {
-
-                        imageType_ = input.readInt32();
-                        break;
-                      }
-                      case 66: {
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder subBuilder = null;
-                        if (colorInfo_ != null) {
-                          subBuilder = colorInfo_.toBuilder();
-                        }
-                        colorInfo_ = input.readMessage(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.parser(), extensionRegistry);
-                        if (subBuilder != null) {
-                          subBuilder.mergeFrom(colorInfo_);
-                          colorInfo_ = subBuilder.buildPartial();
-                        }
-
-                        break;
-                      }
-                      default: {
-                        if (!parseUnknownField(
-                            input, unknownFields, extensionRegistry, tag)) {
-                          done = true;
-                        }
-                        break;
-                      }
-                    }
-                  }
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  throw e.setUnfinishedMessage(this);
-                } catch (java.io.IOException e) {
-                  throw new com.google.protobuf.InvalidProtocolBufferException(
-                      e).setUnfinishedMessage(this);
-                } finally {
-                  if (((mutable_bitField0_ & 0x00000001) != 0)) {
-                    urlList_ = urlList_.getUnmodifiableView();
-                  }
-                  this.unknownFields = unknownFields.build();
-                  makeExtensionsImmutable();
-                }
-              }
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder.class);
-              }
-
-              public interface ColorInfoOrBuilder extends
-                  // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)
-                  com.google.protobuf.MessageOrBuilder {
-
-                /**
-                 * <code>string text = 1;</code>
-                 * @return The text.
-                 */
-                java.lang.String getText();
-                /**
-                 * <code>string text = 1;</code>
-                 * @return The bytes for text.
-                 */
-                com.google.protobuf.ByteString
-                    getTextBytes();
-
-                /**
-                 * <code>string color = 2;</code>
-                 * @return The color.
-                 */
-                java.lang.String getColor();
-                /**
-                 * <code>string color = 2;</code>
-                 * @return The bytes for color.
-                 */
-                com.google.protobuf.ByteString
-                    getColorBytes();
-
-                /**
-                 * <code>int32 type = 3;</code>
-                 * @return The type.
-                 */
-                int getType();
-              }
-              /**
-               * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo}
-               */
-              public static final class ColorInfo extends
-                  com.google.protobuf.GeneratedMessageV3 implements
-                  // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)
-                  ColorInfoOrBuilder {
-              private static final long serialVersionUID = 0L;
-                // Use ColorInfo.newBuilder() to construct.
-                private ColorInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-                  super(builder);
-                }
-                private ColorInfo() {
-                  text_ = "";
-                  color_ = "";
-                }
-
-                @java.lang.Override
-                @SuppressWarnings({"unused"})
-                protected java.lang.Object newInstance(
-                    UnusedPrivateParameter unused) {
-                  return new ColorInfo();
-                }
-
-                @java.lang.Override
-                public final com.google.protobuf.UnknownFieldSet
-                getUnknownFields() {
-                  return this.unknownFields;
-                }
-                private ColorInfo(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  this();
-                  if (extensionRegistry == null) {
-                    throw new java.lang.NullPointerException();
-                  }
-                  com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                      com.google.protobuf.UnknownFieldSet.newBuilder();
-                  try {
-                    boolean done = false;
-                    while (!done) {
-                      int tag = input.readTag();
-                      switch (tag) {
-                        case 0:
-                          done = true;
-                          break;
-                        case 10: {
-                          java.lang.String s = input.readStringRequireUtf8();
-
-                          text_ = s;
-                          break;
-                        }
-                        case 18: {
-                          java.lang.String s = input.readStringRequireUtf8();
-
-                          color_ = s;
-                          break;
-                        }
-                        case 24: {
-
-                          type_ = input.readInt32();
-                          break;
-                        }
-                        default: {
-                          if (!parseUnknownField(
-                              input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                          }
-                          break;
-                        }
-                      }
-                    }
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    throw e.setUnfinishedMessage(this);
-                  } catch (java.io.IOException e) {
-                    throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-                  } finally {
-                    this.unknownFields = unknownFields.build();
-                    makeExtensionsImmutable();
-                  }
-                }
-                public static final com.google.protobuf.Descriptors.Descriptor
-                    getDescriptor() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_descriptor;
-                }
-
-                @java.lang.Override
-                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                    internalGetFieldAccessorTable() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_fieldAccessorTable
-                      .ensureFieldAccessorsInitialized(
-                          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder.class);
-                }
-
-                public static final int TEXT_FIELD_NUMBER = 1;
-                private volatile java.lang.Object text_;
-                /**
-                 * <code>string text = 1;</code>
-                 * @return The text.
-                 */
-                @java.lang.Override
-                public java.lang.String getText() {
-                  java.lang.Object ref = text_;
-                  if (ref instanceof java.lang.String) {
-                    return (java.lang.String) ref;
-                  } else {
-                    com.google.protobuf.ByteString bs = 
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    text_ = s;
-                    return s;
-                  }
-                }
-                /**
-                 * <code>string text = 1;</code>
-                 * @return The bytes for text.
-                 */
-                @java.lang.Override
-                public com.google.protobuf.ByteString
-                    getTextBytes() {
-                  java.lang.Object ref = text_;
-                  if (ref instanceof java.lang.String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    text_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-
-                public static final int COLOR_FIELD_NUMBER = 2;
-                private volatile java.lang.Object color_;
-                /**
-                 * <code>string color = 2;</code>
-                 * @return The color.
-                 */
-                @java.lang.Override
-                public java.lang.String getColor() {
-                  java.lang.Object ref = color_;
-                  if (ref instanceof java.lang.String) {
-                    return (java.lang.String) ref;
-                  } else {
-                    com.google.protobuf.ByteString bs = 
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    color_ = s;
-                    return s;
-                  }
-                }
-                /**
-                 * <code>string color = 2;</code>
-                 * @return The bytes for color.
-                 */
-                @java.lang.Override
-                public com.google.protobuf.ByteString
-                    getColorBytes() {
-                  java.lang.Object ref = color_;
-                  if (ref instanceof java.lang.String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    color_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-
-                public static final int TYPE_FIELD_NUMBER = 3;
-                private int type_;
-                /**
-                 * <code>int32 type = 3;</code>
-                 * @return The type.
-                 */
-                @java.lang.Override
-                public int getType() {
-                  return type_;
-                }
-
-                private byte memoizedIsInitialized = -1;
-                @java.lang.Override
-                public final boolean isInitialized() {
-                  byte isInitialized = memoizedIsInitialized;
-                  if (isInitialized == 1) return true;
-                  if (isInitialized == 0) return false;
-
-                  memoizedIsInitialized = 1;
-                  return true;
-                }
-
-                @java.lang.Override
-                public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                    throws java.io.IOException {
-                  if (!getTextBytes().isEmpty()) {
-                    com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_);
-                  }
-                  if (!getColorBytes().isEmpty()) {
-                    com.google.protobuf.GeneratedMessageV3.writeString(output, 2, color_);
-                  }
-                  if (type_ != 0) {
-                    output.writeInt32(3, type_);
-                  }
-                  unknownFields.writeTo(output);
-                }
-
-                @java.lang.Override
-                public int getSerializedSize() {
-                  int size = memoizedSize;
-                  if (size != -1) return size;
-
-                  size = 0;
-                  if (!getTextBytes().isEmpty()) {
-                    size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, text_);
-                  }
-                  if (!getColorBytes().isEmpty()) {
-                    size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, color_);
-                  }
-                  if (type_ != 0) {
-                    size += com.google.protobuf.CodedOutputStream
-                      .computeInt32Size(3, type_);
-                  }
-                  size += unknownFields.getSerializedSize();
-                  memoizedSize = size;
-                  return size;
-                }
-
-                @java.lang.Override
-                public boolean equals(final java.lang.Object obj) {
-                  if (obj == this) {
-                   return true;
-                  }
-                  if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)) {
-                    return super.equals(obj);
-                  }
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo) obj;
-
-                  if (!getText()
-                      .equals(other.getText())) return false;
-                  if (!getColor()
-                      .equals(other.getColor())) return false;
-                  if (getType()
-                      != other.getType()) return false;
-                  if (!unknownFields.equals(other.unknownFields)) return false;
-                  return true;
-                }
-
-                @java.lang.Override
-                public int hashCode() {
-                  if (memoizedHashCode != 0) {
-                    return memoizedHashCode;
-                  }
-                  int hash = 41;
-                  hash = (19 * hash) + getDescriptor().hashCode();
-                  hash = (37 * hash) + TEXT_FIELD_NUMBER;
-                  hash = (53 * hash) + getText().hashCode();
-                  hash = (37 * hash) + COLOR_FIELD_NUMBER;
-                  hash = (53 * hash) + getColor().hashCode();
-                  hash = (37 * hash) + TYPE_FIELD_NUMBER;
-                  hash = (53 * hash) + getType();
-                  hash = (29 * hash) + unknownFields.hashCode();
-                  memoizedHashCode = hash;
-                  return hash;
-                }
-
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    java.nio.ByteBuffer data)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return PARSER.parseFrom(data);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    java.nio.ByteBuffer data,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return PARSER.parseFrom(data, extensionRegistry);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    com.google.protobuf.ByteString data)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return PARSER.parseFrom(data);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    com.google.protobuf.ByteString data,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return PARSER.parseFrom(data, extensionRegistry);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(byte[] data)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return PARSER.parseFrom(data);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    byte[] data,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return PARSER.parseFrom(data, extensionRegistry);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(java.io.InputStream input)
-                    throws java.io.IOException {
-                  return com.google.protobuf.GeneratedMessageV3
-                      .parseWithIOException(PARSER, input);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    java.io.InputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  return com.google.protobuf.GeneratedMessageV3
-                      .parseWithIOException(PARSER, input, extensionRegistry);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseDelimitedFrom(java.io.InputStream input)
-                    throws java.io.IOException {
-                  return com.google.protobuf.GeneratedMessageV3
-                      .parseDelimitedWithIOException(PARSER, input);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseDelimitedFrom(
-                    java.io.InputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  return com.google.protobuf.GeneratedMessageV3
-                      .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    com.google.protobuf.CodedInputStream input)
-                    throws java.io.IOException {
-                  return com.google.protobuf.GeneratedMessageV3
-                      .parseWithIOException(PARSER, input);
-                }
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parseFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  return com.google.protobuf.GeneratedMessageV3
-                      .parseWithIOException(PARSER, input, extensionRegistry);
-                }
-
-                @java.lang.Override
-                public Builder newBuilderForType() { return newBuilder(); }
-                public static Builder newBuilder() {
-                  return DEFAULT_INSTANCE.toBuilder();
-                }
-                public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo prototype) {
-                  return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-                }
-                @java.lang.Override
-                public Builder toBuilder() {
-                  return this == DEFAULT_INSTANCE
-                      ? new Builder() : new Builder().mergeFrom(this);
-                }
-
-                @java.lang.Override
-                protected Builder newBuilderForType(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                  Builder builder = new Builder(parent);
-                  return builder;
-                }
-                /**
-                 * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo}
-                 */
-                public static final class Builder extends
-                    com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                    // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder {
-                  public static final com.google.protobuf.Descriptors.Descriptor
-                      getDescriptor() {
-                    return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_descriptor;
-                  }
-
-                  @java.lang.Override
-                  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                      internalGetFieldAccessorTable() {
-                    return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder.class);
-                  }
-
-                  // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.newBuilder()
-                  private Builder() {
-                    maybeForceBuilderInitialization();
-                  }
-
-                  private Builder(
-                      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                    super(parent);
-                    maybeForceBuilderInitialization();
-                  }
-                  private void maybeForceBuilderInitialization() {
-                    if (com.google.protobuf.GeneratedMessageV3
-                            .alwaysUseFieldBuilders) {
-                    }
-                  }
-                  @java.lang.Override
-                  public Builder clear() {
-                    super.clear();
-                    text_ = "";
-
-                    color_ = "";
-
-                    type_ = 0;
-
-                    return this;
-                  }
-
-                  @java.lang.Override
-                  public com.google.protobuf.Descriptors.Descriptor
-                      getDescriptorForType() {
-                    return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_descriptor;
-                  }
-
-                  @java.lang.Override
-                  public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo getDefaultInstanceForType() {
-                    return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.getDefaultInstance();
-                  }
-
-                  @java.lang.Override
-                  public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo build() {
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo result = buildPartial();
-                    if (!result.isInitialized()) {
-                      throw newUninitializedMessageException(result);
-                    }
-                    return result;
-                  }
-
-                  @java.lang.Override
-                  public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo buildPartial() {
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo(this);
-                    result.text_ = text_;
-                    result.color_ = color_;
-                    result.type_ = type_;
-                    onBuilt();
-                    return result;
-                  }
-
-                  @java.lang.Override
-                  public Builder clone() {
-                    return super.clone();
-                  }
-                  @java.lang.Override
-                  public Builder setField(
-                      com.google.protobuf.Descriptors.FieldDescriptor field,
-                      java.lang.Object value) {
-                    return super.setField(field, value);
-                  }
-                  @java.lang.Override
-                  public Builder clearField(
-                      com.google.protobuf.Descriptors.FieldDescriptor field) {
-                    return super.clearField(field);
-                  }
-                  @java.lang.Override
-                  public Builder clearOneof(
-                      com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                    return super.clearOneof(oneof);
-                  }
-                  @java.lang.Override
-                  public Builder setRepeatedField(
-                      com.google.protobuf.Descriptors.FieldDescriptor field,
-                      int index, java.lang.Object value) {
-                    return super.setRepeatedField(field, index, value);
-                  }
-                  @java.lang.Override
-                  public Builder addRepeatedField(
-                      com.google.protobuf.Descriptors.FieldDescriptor field,
-                      java.lang.Object value) {
-                    return super.addRepeatedField(field, value);
-                  }
-                  @java.lang.Override
-                  public Builder mergeFrom(com.google.protobuf.Message other) {
-                    if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo) {
-                      return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)other);
-                    } else {
-                      super.mergeFrom(other);
-                      return this;
-                    }
-                  }
-
-                  public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo other) {
-                    if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.getDefaultInstance()) return this;
-                    if (!other.getText().isEmpty()) {
-                      text_ = other.text_;
-                      onChanged();
-                    }
-                    if (!other.getColor().isEmpty()) {
-                      color_ = other.color_;
-                      onChanged();
-                    }
-                    if (other.getType() != 0) {
-                      setType(other.getType());
-                    }
-                    this.mergeUnknownFields(other.unknownFields);
-                    onChanged();
-                    return this;
-                  }
-
-                  @java.lang.Override
-                  public final boolean isInitialized() {
-                    return true;
-                  }
-
-                  @java.lang.Override
-                  public Builder mergeFrom(
-                      com.google.protobuf.CodedInputStream input,
-                      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                      throws java.io.IOException {
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo parsedMessage = null;
-                    try {
-                      parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                      parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo) e.getUnfinishedMessage();
-                      throw e.unwrapIOException();
-                    } finally {
-                      if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                      }
-                    }
-                    return this;
-                  }
-
-                  private java.lang.Object text_ = "";
-                  /**
-                   * <code>string text = 1;</code>
-                   * @return The text.
-                   */
-                  public java.lang.String getText() {
-                    java.lang.Object ref = text_;
-                    if (!(ref instanceof java.lang.String)) {
-                      com.google.protobuf.ByteString bs =
-                          (com.google.protobuf.ByteString) ref;
-                      java.lang.String s = bs.toStringUtf8();
-                      text_ = s;
-                      return s;
-                    } else {
-                      return (java.lang.String) ref;
-                    }
-                  }
-                  /**
-                   * <code>string text = 1;</code>
-                   * @return The bytes for text.
-                   */
-                  public com.google.protobuf.ByteString
-                      getTextBytes() {
-                    java.lang.Object ref = text_;
-                    if (ref instanceof String) {
-                      com.google.protobuf.ByteString b = 
-                          com.google.protobuf.ByteString.copyFromUtf8(
-                              (java.lang.String) ref);
-                      text_ = b;
-                      return b;
-                    } else {
-                      return (com.google.protobuf.ByteString) ref;
-                    }
-                  }
-                  /**
-                   * <code>string text = 1;</code>
-                   * @param value The text to set.
-                   * @return This builder for chaining.
-                   */
-                  public Builder setText(
-                      java.lang.String value) {
-                    if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                    text_ = value;
-                    onChanged();
-                    return this;
-                  }
-                  /**
-                   * <code>string text = 1;</code>
-                   * @return This builder for chaining.
-                   */
-                  public Builder clearText() {
-                    
-                    text_ = getDefaultInstance().getText();
-                    onChanged();
-                    return this;
-                  }
-                  /**
-                   * <code>string text = 1;</code>
-                   * @param value The bytes for text to set.
-                   * @return This builder for chaining.
-                   */
-                  public Builder setTextBytes(
-                      com.google.protobuf.ByteString value) {
-                    if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                    
-                    text_ = value;
-                    onChanged();
-                    return this;
-                  }
-
-                  private java.lang.Object color_ = "";
-                  /**
-                   * <code>string color = 2;</code>
-                   * @return The color.
-                   */
-                  public java.lang.String getColor() {
-                    java.lang.Object ref = color_;
-                    if (!(ref instanceof java.lang.String)) {
-                      com.google.protobuf.ByteString bs =
-                          (com.google.protobuf.ByteString) ref;
-                      java.lang.String s = bs.toStringUtf8();
-                      color_ = s;
-                      return s;
-                    } else {
-                      return (java.lang.String) ref;
-                    }
-                  }
-                  /**
-                   * <code>string color = 2;</code>
-                   * @return The bytes for color.
-                   */
-                  public com.google.protobuf.ByteString
-                      getColorBytes() {
-                    java.lang.Object ref = color_;
-                    if (ref instanceof String) {
-                      com.google.protobuf.ByteString b = 
-                          com.google.protobuf.ByteString.copyFromUtf8(
-                              (java.lang.String) ref);
-                      color_ = b;
-                      return b;
-                    } else {
-                      return (com.google.protobuf.ByteString) ref;
-                    }
-                  }
-                  /**
-                   * <code>string color = 2;</code>
-                   * @param value The color to set.
-                   * @return This builder for chaining.
-                   */
-                  public Builder setColor(
-                      java.lang.String value) {
-                    if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                    color_ = value;
-                    onChanged();
-                    return this;
-                  }
-                  /**
-                   * <code>string color = 2;</code>
-                   * @return This builder for chaining.
-                   */
-                  public Builder clearColor() {
-                    
-                    color_ = getDefaultInstance().getColor();
-                    onChanged();
-                    return this;
-                  }
-                  /**
-                   * <code>string color = 2;</code>
-                   * @param value The bytes for color to set.
-                   * @return This builder for chaining.
-                   */
-                  public Builder setColorBytes(
-                      com.google.protobuf.ByteString value) {
-                    if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                    
-                    color_ = value;
-                    onChanged();
-                    return this;
-                  }
-
-                  private int type_ ;
-                  /**
-                   * <code>int32 type = 3;</code>
-                   * @return The type.
-                   */
-                  @java.lang.Override
-                  public int getType() {
-                    return type_;
-                  }
-                  /**
-                   * <code>int32 type = 3;</code>
-                   * @param value The type to set.
-                   * @return This builder for chaining.
-                   */
-                  public Builder setType(int value) {
-                    
-                    type_ = value;
-                    onChanged();
-                    return this;
-                  }
-                  /**
-                   * <code>int32 type = 3;</code>
-                   * @return This builder for chaining.
-                   */
-                  public Builder clearType() {
-                    
-                    type_ = 0;
-                    onChanged();
-                    return this;
-                  }
-                  @java.lang.Override
-                  public final Builder setUnknownFields(
-                      final com.google.protobuf.UnknownFieldSet unknownFields) {
-                    return super.setUnknownFields(unknownFields);
-                  }
-
-                  @java.lang.Override
-                  public final Builder mergeUnknownFields(
-                      final com.google.protobuf.UnknownFieldSet unknownFields) {
-                    return super.mergeUnknownFields(unknownFields);
-                  }
-
-
-                  // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)
-                }
-
-                // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo)
-                private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo DEFAULT_INSTANCE;
-                static {
-                  DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo();
-                }
-
-                public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo getDefaultInstance() {
-                  return DEFAULT_INSTANCE;
-                }
-
-                private static final com.google.protobuf.Parser<ColorInfo>
-                    PARSER = new com.google.protobuf.AbstractParser<ColorInfo>() {
-                  @java.lang.Override
-                  public ColorInfo parsePartialFrom(
-                      com.google.protobuf.CodedInputStream input,
-                      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                      throws com.google.protobuf.InvalidProtocolBufferException {
-                    return new ColorInfo(input, extensionRegistry);
-                  }
-                };
-
-                public static com.google.protobuf.Parser<ColorInfo> parser() {
-                  return PARSER;
-                }
-
-                @java.lang.Override
-                public com.google.protobuf.Parser<ColorInfo> getParserForType() {
-                  return PARSER;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo getDefaultInstanceForType() {
-                  return DEFAULT_INSTANCE;
-                }
-
-              }
-
-              public static final int URL_LIST_FIELD_NUMBER = 1;
-              private com.google.protobuf.LazyStringList urlList_;
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @return A list containing the urlList.
-               */
-              public com.google.protobuf.ProtocolStringList
-                  getUrlListList() {
-                return urlList_;
-              }
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @return The count of urlList.
-               */
-              public int getUrlListCount() {
-                return urlList_.size();
-              }
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @param index The index of the element to return.
-               * @return The urlList at the given index.
-               */
-              public java.lang.String getUrlList(int index) {
-                return urlList_.get(index);
-              }
-              /**
-               * <code>repeated string url_list = 1;</code>
-               * @param index The index of the value to return.
-               * @return The bytes of the urlList at the given index.
-               */
-              public com.google.protobuf.ByteString
-                  getUrlListBytes(int index) {
-                return urlList_.getByteString(index);
-              }
-
-              public static final int URI_FIELD_NUMBER = 2;
-              private volatile java.lang.Object uri_;
-              /**
-               * <code>string uri = 2;</code>
-               * @return The uri.
-               */
-              @java.lang.Override
-              public java.lang.String getUri() {
-                java.lang.Object ref = uri_;
-                if (ref instanceof java.lang.String) {
-                  return (java.lang.String) ref;
-                } else {
-                  com.google.protobuf.ByteString bs = 
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  uri_ = s;
-                  return s;
-                }
-              }
-              /**
-               * <code>string uri = 2;</code>
-               * @return The bytes for uri.
-               */
-              @java.lang.Override
-              public com.google.protobuf.ByteString
-                  getUriBytes() {
-                java.lang.Object ref = uri_;
-                if (ref instanceof java.lang.String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  uri_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-
-              public static final int HEIGHT_FIELD_NUMBER = 3;
-              private int height_;
-              /**
-               * <code>int32 height = 3;</code>
-               * @return The height.
-               */
-              @java.lang.Override
-              public int getHeight() {
-                return height_;
-              }
-
-              public static final int WIDTH_FIELD_NUMBER = 4;
-              private int width_;
-              /**
-               * <code>int32 width = 4;</code>
-               * @return The width.
-               */
-              @java.lang.Override
-              public int getWidth() {
-                return width_;
-              }
-
-              public static final int AVG_COLOR_FIELD_NUMBER = 5;
-              private volatile java.lang.Object avgColor_;
-              /**
-               * <code>string avg_color = 5;</code>
-               * @return The avgColor.
-               */
-              @java.lang.Override
-              public java.lang.String getAvgColor() {
-                java.lang.Object ref = avgColor_;
-                if (ref instanceof java.lang.String) {
-                  return (java.lang.String) ref;
-                } else {
-                  com.google.protobuf.ByteString bs = 
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  avgColor_ = s;
-                  return s;
-                }
-              }
-              /**
-               * <code>string avg_color = 5;</code>
-               * @return The bytes for avgColor.
-               */
-              @java.lang.Override
-              public com.google.protobuf.ByteString
-                  getAvgColorBytes() {
-                java.lang.Object ref = avgColor_;
-                if (ref instanceof java.lang.String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  avgColor_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-
-              public static final int IMAGE_TYPE_FIELD_NUMBER = 6;
-              private int imageType_;
-              /**
-               * <code>int32 image_type = 6;</code>
-               * @return The imageType.
-               */
-              @java.lang.Override
-              public int getImageType() {
-                return imageType_;
-              }
-
-              public static final int COLORINFO_FIELD_NUMBER = 8;
-              private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo_;
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-               * @return Whether the colorInfo field is set.
-               */
-              @java.lang.Override
-              public boolean hasColorInfo() {
-                return colorInfo_ != null;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-               * @return The colorInfo.
-               */
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo getColorInfo() {
-                return colorInfo_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.getDefaultInstance() : colorInfo_;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-               */
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder getColorInfoOrBuilder() {
-                return getColorInfo();
-              }
-
-              private byte memoizedIsInitialized = -1;
-              @java.lang.Override
-              public final boolean isInitialized() {
-                byte isInitialized = memoizedIsInitialized;
-                if (isInitialized == 1) return true;
-                if (isInitialized == 0) return false;
-
-                memoizedIsInitialized = 1;
-                return true;
-              }
-
-              @java.lang.Override
-              public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                  throws java.io.IOException {
-                for (int i = 0; i < urlList_.size(); i++) {
-                  com.google.protobuf.GeneratedMessageV3.writeString(output, 1, urlList_.getRaw(i));
-                }
-                if (!getUriBytes().isEmpty()) {
-                  com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uri_);
-                }
-                if (height_ != 0) {
-                  output.writeInt32(3, height_);
-                }
-                if (width_ != 0) {
-                  output.writeInt32(4, width_);
-                }
-                if (!getAvgColorBytes().isEmpty()) {
-                  com.google.protobuf.GeneratedMessageV3.writeString(output, 5, avgColor_);
-                }
-                if (imageType_ != 0) {
-                  output.writeInt32(6, imageType_);
-                }
-                if (colorInfo_ != null) {
-                  output.writeMessage(8, getColorInfo());
-                }
-                unknownFields.writeTo(output);
-              }
-
-              @java.lang.Override
-              public int getSerializedSize() {
-                int size = memoizedSize;
-                if (size != -1) return size;
-
-                size = 0;
-                {
-                  int dataSize = 0;
-                  for (int i = 0; i < urlList_.size(); i++) {
-                    dataSize += computeStringSizeNoTag(urlList_.getRaw(i));
-                  }
-                  size += dataSize;
-                  size += 1 * getUrlListList().size();
-                }
-                if (!getUriBytes().isEmpty()) {
-                  size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uri_);
-                }
-                if (height_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(3, height_);
-                }
-                if (width_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(4, width_);
-                }
-                if (!getAvgColorBytes().isEmpty()) {
-                  size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, avgColor_);
-                }
-                if (imageType_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(6, imageType_);
-                }
-                if (colorInfo_ != null) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(8, getColorInfo());
-                }
-                size += unknownFields.getSerializedSize();
-                memoizedSize = size;
-                return size;
-              }
-
-              @java.lang.Override
-              public boolean equals(final java.lang.Object obj) {
-                if (obj == this) {
-                 return true;
-                }
-                if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)) {
-                  return super.equals(obj);
-                }
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo) obj;
-
-                if (!getUrlListList()
-                    .equals(other.getUrlListList())) return false;
-                if (!getUri()
-                    .equals(other.getUri())) return false;
-                if (getHeight()
-                    != other.getHeight()) return false;
-                if (getWidth()
-                    != other.getWidth()) return false;
-                if (!getAvgColor()
-                    .equals(other.getAvgColor())) return false;
-                if (getImageType()
-                    != other.getImageType()) return false;
-                if (hasColorInfo() != other.hasColorInfo()) return false;
-                if (hasColorInfo()) {
-                  if (!getColorInfo()
-                      .equals(other.getColorInfo())) return false;
-                }
-                if (!unknownFields.equals(other.unknownFields)) return false;
-                return true;
-              }
-
-              @java.lang.Override
-              public int hashCode() {
-                if (memoizedHashCode != 0) {
-                  return memoizedHashCode;
-                }
-                int hash = 41;
-                hash = (19 * hash) + getDescriptor().hashCode();
-                if (getUrlListCount() > 0) {
-                  hash = (37 * hash) + URL_LIST_FIELD_NUMBER;
-                  hash = (53 * hash) + getUrlListList().hashCode();
-                }
-                hash = (37 * hash) + URI_FIELD_NUMBER;
-                hash = (53 * hash) + getUri().hashCode();
-                hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
-                hash = (53 * hash) + getHeight();
-                hash = (37 * hash) + WIDTH_FIELD_NUMBER;
-                hash = (53 * hash) + getWidth();
-                hash = (37 * hash) + AVG_COLOR_FIELD_NUMBER;
-                hash = (53 * hash) + getAvgColor().hashCode();
-                hash = (37 * hash) + IMAGE_TYPE_FIELD_NUMBER;
-                hash = (53 * hash) + getImageType();
-                if (hasColorInfo()) {
-                  hash = (37 * hash) + COLORINFO_FIELD_NUMBER;
-                  hash = (53 * hash) + getColorInfo().hashCode();
-                }
-                hash = (29 * hash) + unknownFields.hashCode();
-                memoizedHashCode = hash;
-                return hash;
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  java.nio.ByteBuffer data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  java.nio.ByteBuffer data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  com.google.protobuf.ByteString data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  com.google.protobuf.ByteString data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(byte[] data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  byte[] data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseDelimitedFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseDelimitedFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  com.google.protobuf.CodedInputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parseFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-
-              @java.lang.Override
-              public Builder newBuilderForType() { return newBuilder(); }
-              public static Builder newBuilder() {
-                return DEFAULT_INSTANCE.toBuilder();
-              }
-              public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo prototype) {
-                return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-              }
-              @java.lang.Override
-              public Builder toBuilder() {
-                return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-              }
-
-              @java.lang.Override
-              protected Builder newBuilderForType(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                Builder builder = new Builder(parent);
-                return builder;
-              }
-              /**
-               * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo}
-               */
-              public static final class Builder extends
-                  com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                  // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder {
-                public static final com.google.protobuf.Descriptors.Descriptor
-                    getDescriptor() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor;
-                }
-
-                @java.lang.Override
-                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                    internalGetFieldAccessorTable() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_fieldAccessorTable
-                      .ensureFieldAccessorsInitialized(
-                          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder.class);
-                }
-
-                // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.newBuilder()
-                private Builder() {
-                  maybeForceBuilderInitialization();
-                }
-
-                private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                  super(parent);
-                  maybeForceBuilderInitialization();
-                }
-                private void maybeForceBuilderInitialization() {
-                  if (com.google.protobuf.GeneratedMessageV3
-                          .alwaysUseFieldBuilders) {
-                  }
-                }
-                @java.lang.Override
-                public Builder clear() {
-                  super.clear();
-                  urlList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                  bitField0_ = (bitField0_ & ~0x00000001);
-                  uri_ = "";
-
-                  height_ = 0;
-
-                  width_ = 0;
-
-                  avgColor_ = "";
-
-                  imageType_ = 0;
-
-                  if (colorInfoBuilder_ == null) {
-                    colorInfo_ = null;
-                  } else {
-                    colorInfo_ = null;
-                    colorInfoBuilder_ = null;
-                  }
-                  return this;
-                }
-
-                @java.lang.Override
-                public com.google.protobuf.Descriptors.Descriptor
-                    getDescriptorForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo getDefaultInstanceForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.getDefaultInstance();
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo build() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo result = buildPartial();
-                  if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                  }
-                  return result;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo buildPartial() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo(this);
-                  int from_bitField0_ = bitField0_;
-                  if (((bitField0_ & 0x00000001) != 0)) {
-                    urlList_ = urlList_.getUnmodifiableView();
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                  }
-                  result.urlList_ = urlList_;
-                  result.uri_ = uri_;
-                  result.height_ = height_;
-                  result.width_ = width_;
-                  result.avgColor_ = avgColor_;
-                  result.imageType_ = imageType_;
-                  if (colorInfoBuilder_ == null) {
-                    result.colorInfo_ = colorInfo_;
-                  } else {
-                    result.colorInfo_ = colorInfoBuilder_.build();
-                  }
-                  onBuilt();
-                  return result;
-                }
-
-                @java.lang.Override
-                public Builder clone() {
-                  return super.clone();
-                }
-                @java.lang.Override
-                public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.setField(field, value);
-                }
-                @java.lang.Override
-                public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                  return super.clearField(field);
-                }
-                @java.lang.Override
-                public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                  return super.clearOneof(oneof);
-                }
-                @java.lang.Override
-                public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                  return super.setRepeatedField(field, index, value);
-                }
-                @java.lang.Override
-                public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.addRepeatedField(field, value);
-                }
-                @java.lang.Override
-                public Builder mergeFrom(com.google.protobuf.Message other) {
-                  if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo) {
-                    return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)other);
-                  } else {
-                    super.mergeFrom(other);
-                    return this;
-                  }
-                }
-
-                public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo other) {
-                  if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.getDefaultInstance()) return this;
-                  if (!other.urlList_.isEmpty()) {
-                    if (urlList_.isEmpty()) {
-                      urlList_ = other.urlList_;
-                      bitField0_ = (bitField0_ & ~0x00000001);
-                    } else {
-                      ensureUrlListIsMutable();
-                      urlList_.addAll(other.urlList_);
-                    }
-                    onChanged();
-                  }
-                  if (!other.getUri().isEmpty()) {
-                    uri_ = other.uri_;
-                    onChanged();
-                  }
-                  if (other.getHeight() != 0) {
-                    setHeight(other.getHeight());
-                  }
-                  if (other.getWidth() != 0) {
-                    setWidth(other.getWidth());
-                  }
-                  if (!other.getAvgColor().isEmpty()) {
-                    avgColor_ = other.avgColor_;
-                    onChanged();
-                  }
-                  if (other.getImageType() != 0) {
-                    setImageType(other.getImageType());
-                  }
-                  if (other.hasColorInfo()) {
-                    mergeColorInfo(other.getColorInfo());
-                  }
-                  this.mergeUnknownFields(other.unknownFields);
-                  onChanged();
-                  return this;
-                }
-
-                @java.lang.Override
-                public final boolean isInitialized() {
-                  return true;
-                }
-
-                @java.lang.Override
-                public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo parsedMessage = null;
-                  try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                  } finally {
-                    if (parsedMessage != null) {
-                      mergeFrom(parsedMessage);
-                    }
-                  }
-                  return this;
-                }
-                private int bitField0_;
-
-                private com.google.protobuf.LazyStringList urlList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                private void ensureUrlListIsMutable() {
-                  if (!((bitField0_ & 0x00000001) != 0)) {
-                    urlList_ = new com.google.protobuf.LazyStringArrayList(urlList_);
-                    bitField0_ |= 0x00000001;
-                   }
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @return A list containing the urlList.
-                 */
-                public com.google.protobuf.ProtocolStringList
-                    getUrlListList() {
-                  return urlList_.getUnmodifiableView();
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @return The count of urlList.
-                 */
-                public int getUrlListCount() {
-                  return urlList_.size();
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @param index The index of the element to return.
-                 * @return The urlList at the given index.
-                 */
-                public java.lang.String getUrlList(int index) {
-                  return urlList_.get(index);
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @param index The index of the value to return.
-                 * @return The bytes of the urlList at the given index.
-                 */
-                public com.google.protobuf.ByteString
-                    getUrlListBytes(int index) {
-                  return urlList_.getByteString(index);
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @param index The index to set the value at.
-                 * @param value The urlList to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setUrlList(
-                    int index, java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrlListIsMutable();
-                  urlList_.set(index, value);
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @param value The urlList to add.
-                 * @return This builder for chaining.
-                 */
-                public Builder addUrlList(
-                    java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrlListIsMutable();
-                  urlList_.add(value);
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @param values The urlList to add.
-                 * @return This builder for chaining.
-                 */
-                public Builder addAllUrlList(
-                    java.lang.Iterable<java.lang.String> values) {
-                  ensureUrlListIsMutable();
-                  com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                      values, urlList_);
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearUrlList() {
-                  urlList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                  bitField0_ = (bitField0_ & ~0x00000001);
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>repeated string url_list = 1;</code>
-                 * @param value The bytes of the urlList to add.
-                 * @return This builder for chaining.
-                 */
-                public Builder addUrlListBytes(
-                    com.google.protobuf.ByteString value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                  ensureUrlListIsMutable();
-                  urlList_.add(value);
-                  onChanged();
-                  return this;
-                }
-
-                private java.lang.Object uri_ = "";
-                /**
-                 * <code>string uri = 2;</code>
-                 * @return The uri.
-                 */
-                public java.lang.String getUri() {
-                  java.lang.Object ref = uri_;
-                  if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    uri_ = s;
-                    return s;
-                  } else {
-                    return (java.lang.String) ref;
-                  }
-                }
-                /**
-                 * <code>string uri = 2;</code>
-                 * @return The bytes for uri.
-                 */
-                public com.google.protobuf.ByteString
-                    getUriBytes() {
-                  java.lang.Object ref = uri_;
-                  if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    uri_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-                /**
-                 * <code>string uri = 2;</code>
-                 * @param value The uri to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setUri(
-                    java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                  uri_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string uri = 2;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearUri() {
-                  
-                  uri_ = getDefaultInstance().getUri();
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string uri = 2;</code>
-                 * @param value The bytes for uri to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setUriBytes(
-                    com.google.protobuf.ByteString value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                  
-                  uri_ = value;
-                  onChanged();
-                  return this;
-                }
-
-                private int height_ ;
-                /**
-                 * <code>int32 height = 3;</code>
-                 * @return The height.
-                 */
-                @java.lang.Override
-                public int getHeight() {
-                  return height_;
-                }
-                /**
-                 * <code>int32 height = 3;</code>
-                 * @param value The height to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setHeight(int value) {
-                  
-                  height_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 height = 3;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearHeight() {
-                  
-                  height_ = 0;
-                  onChanged();
-                  return this;
-                }
-
-                private int width_ ;
-                /**
-                 * <code>int32 width = 4;</code>
-                 * @return The width.
-                 */
-                @java.lang.Override
-                public int getWidth() {
-                  return width_;
-                }
-                /**
-                 * <code>int32 width = 4;</code>
-                 * @param value The width to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setWidth(int value) {
-                  
-                  width_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 width = 4;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearWidth() {
-                  
-                  width_ = 0;
-                  onChanged();
-                  return this;
-                }
-
-                private java.lang.Object avgColor_ = "";
-                /**
-                 * <code>string avg_color = 5;</code>
-                 * @return The avgColor.
-                 */
-                public java.lang.String getAvgColor() {
-                  java.lang.Object ref = avgColor_;
-                  if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    avgColor_ = s;
-                    return s;
-                  } else {
-                    return (java.lang.String) ref;
-                  }
-                }
-                /**
-                 * <code>string avg_color = 5;</code>
-                 * @return The bytes for avgColor.
-                 */
-                public com.google.protobuf.ByteString
-                    getAvgColorBytes() {
-                  java.lang.Object ref = avgColor_;
-                  if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    avgColor_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-                /**
-                 * <code>string avg_color = 5;</code>
-                 * @param value The avgColor to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setAvgColor(
-                    java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                  avgColor_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string avg_color = 5;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearAvgColor() {
-                  
-                  avgColor_ = getDefaultInstance().getAvgColor();
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string avg_color = 5;</code>
-                 * @param value The bytes for avgColor to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setAvgColorBytes(
-                    com.google.protobuf.ByteString value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                  
-                  avgColor_ = value;
-                  onChanged();
-                  return this;
-                }
-
-                private int imageType_ ;
-                /**
-                 * <code>int32 image_type = 6;</code>
-                 * @return The imageType.
-                 */
-                @java.lang.Override
-                public int getImageType() {
-                  return imageType_;
-                }
-                /**
-                 * <code>int32 image_type = 6;</code>
-                 * @param value The imageType to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setImageType(int value) {
-                  
-                  imageType_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 image_type = 6;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearImageType() {
-                  
-                  imageType_ = 0;
-                  onChanged();
-                  return this;
-                }
-
-                private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo_;
-                private com.google.protobuf.SingleFieldBuilderV3<
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder> colorInfoBuilder_;
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 * @return Whether the colorInfo field is set.
-                 */
-                public boolean hasColorInfo() {
-                  return colorInfoBuilder_ != null || colorInfo_ != null;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 * @return The colorInfo.
-                 */
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo getColorInfo() {
-                  if (colorInfoBuilder_ == null) {
-                    return colorInfo_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.getDefaultInstance() : colorInfo_;
-                  } else {
-                    return colorInfoBuilder_.getMessage();
-                  }
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                public Builder setColorInfo(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo value) {
-                  if (colorInfoBuilder_ == null) {
-                    if (value == null) {
-                      throw new NullPointerException();
-                    }
-                    colorInfo_ = value;
-                    onChanged();
-                  } else {
-                    colorInfoBuilder_.setMessage(value);
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                public Builder setColorInfo(
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder builderForValue) {
-                  if (colorInfoBuilder_ == null) {
-                    colorInfo_ = builderForValue.build();
-                    onChanged();
-                  } else {
-                    colorInfoBuilder_.setMessage(builderForValue.build());
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                public Builder mergeColorInfo(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo value) {
-                  if (colorInfoBuilder_ == null) {
-                    if (colorInfo_ != null) {
-                      colorInfo_ =
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.newBuilder(colorInfo_).mergeFrom(value).buildPartial();
-                    } else {
-                      colorInfo_ = value;
-                    }
-                    onChanged();
-                  } else {
-                    colorInfoBuilder_.mergeFrom(value);
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                public Builder clearColorInfo() {
-                  if (colorInfoBuilder_ == null) {
-                    colorInfo_ = null;
-                    onChanged();
-                  } else {
-                    colorInfo_ = null;
-                    colorInfoBuilder_ = null;
-                  }
-
-                  return this;
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder getColorInfoBuilder() {
-                  
-                  onChanged();
-                  return getColorInfoFieldBuilder().getBuilder();
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder getColorInfoOrBuilder() {
-                  if (colorInfoBuilder_ != null) {
-                    return colorInfoBuilder_.getMessageOrBuilder();
-                  } else {
-                    return colorInfo_ == null ?
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.getDefaultInstance() : colorInfo_;
-                  }
-                }
-                /**
-                 * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo colorInfo = 8;</code>
-                 */
-                private com.google.protobuf.SingleFieldBuilderV3<
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder> 
-                    getColorInfoFieldBuilder() {
-                  if (colorInfoBuilder_ == null) {
-                    colorInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.ColorInfoOrBuilder>(
-                            getColorInfo(),
-                            getParentForChildren(),
-                            isClean());
-                    colorInfo_ = null;
-                  }
-                  return colorInfoBuilder_;
-                }
-                @java.lang.Override
-                public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.setUnknownFields(unknownFields);
-                }
-
-                @java.lang.Override
-                public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.mergeUnknownFields(unknownFields);
-                }
-
-
-                // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)
-              }
-
-              // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo)
-              private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo DEFAULT_INSTANCE;
-              static {
-                DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo();
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo getDefaultInstance() {
-                return DEFAULT_INSTANCE;
-              }
-
-              private static final com.google.protobuf.Parser<CoverInfo>
-                  PARSER = new com.google.protobuf.AbstractParser<CoverInfo>() {
-                @java.lang.Override
-                public CoverInfo parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return new CoverInfo(input, extensionRegistry);
-                }
-              };
-
-              public static com.google.protobuf.Parser<CoverInfo> parser() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Parser<CoverInfo> getParserForType() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo getDefaultInstanceForType() {
-                return DEFAULT_INSTANCE;
-              }
-
-            }
-
-            public interface U_Obj22OrBuilder extends
-                // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)
-                com.google.protobuf.MessageOrBuilder {
-
-              /**
-               * <code>int32 o1 = 1;</code>
-               * @return The o1.
-               */
-              int getO1();
-
-              /**
-               * <code>int32 o2 = 2;</code>
-               * @return The o2.
-               */
-              int getO2();
-
-              /**
-               * <code>int32 o3 = 3;</code>
-               * @return The o3.
-               */
-              int getO3();
-            }
-            /**
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22}
-             */
-            public static final class U_Obj22 extends
-                com.google.protobuf.GeneratedMessageV3 implements
-                // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)
-                U_Obj22OrBuilder {
-            private static final long serialVersionUID = 0L;
-              // Use U_Obj22.newBuilder() to construct.
-              private U_Obj22(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-                super(builder);
-              }
-              private U_Obj22() {
-              }
-
-              @java.lang.Override
-              @SuppressWarnings({"unused"})
-              protected java.lang.Object newInstance(
-                  UnusedPrivateParameter unused) {
-                return new U_Obj22();
-              }
-
-              @java.lang.Override
-              public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-                return this.unknownFields;
-              }
-              private U_Obj22(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                this();
-                if (extensionRegistry == null) {
-                  throw new java.lang.NullPointerException();
-                }
-                com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-                try {
-                  boolean done = false;
-                  while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                      case 0:
-                        done = true;
-                        break;
-                      case 8: {
-
-                        o1_ = input.readInt32();
-                        break;
-                      }
-                      case 16: {
-
-                        o2_ = input.readInt32();
-                        break;
-                      }
-                      case 24: {
-
-                        o3_ = input.readInt32();
-                        break;
-                      }
-                      default: {
-                        if (!parseUnknownField(
-                            input, unknownFields, extensionRegistry, tag)) {
-                          done = true;
-                        }
-                        break;
-                      }
-                    }
-                  }
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  throw e.setUnfinishedMessage(this);
-                } catch (java.io.IOException e) {
-                  throw new com.google.protobuf.InvalidProtocolBufferException(
-                      e).setUnfinishedMessage(this);
-                } finally {
-                  this.unknownFields = unknownFields.build();
-                  makeExtensionsImmutable();
-                }
-              }
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder.class);
-              }
-
-              public static final int O1_FIELD_NUMBER = 1;
-              private int o1_;
-              /**
-               * <code>int32 o1 = 1;</code>
-               * @return The o1.
-               */
-              @java.lang.Override
-              public int getO1() {
-                return o1_;
-              }
-
-              public static final int O2_FIELD_NUMBER = 2;
-              private int o2_;
-              /**
-               * <code>int32 o2 = 2;</code>
-               * @return The o2.
-               */
-              @java.lang.Override
-              public int getO2() {
-                return o2_;
-              }
-
-              public static final int O3_FIELD_NUMBER = 3;
-              private int o3_;
-              /**
-               * <code>int32 o3 = 3;</code>
-               * @return The o3.
-               */
-              @java.lang.Override
-              public int getO3() {
-                return o3_;
-              }
-
-              private byte memoizedIsInitialized = -1;
-              @java.lang.Override
-              public final boolean isInitialized() {
-                byte isInitialized = memoizedIsInitialized;
-                if (isInitialized == 1) return true;
-                if (isInitialized == 0) return false;
-
-                memoizedIsInitialized = 1;
-                return true;
-              }
-
-              @java.lang.Override
-              public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                  throws java.io.IOException {
-                if (o1_ != 0) {
-                  output.writeInt32(1, o1_);
-                }
-                if (o2_ != 0) {
-                  output.writeInt32(2, o2_);
-                }
-                if (o3_ != 0) {
-                  output.writeInt32(3, o3_);
-                }
-                unknownFields.writeTo(output);
-              }
-
-              @java.lang.Override
-              public int getSerializedSize() {
-                int size = memoizedSize;
-                if (size != -1) return size;
-
-                size = 0;
-                if (o1_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(1, o1_);
-                }
-                if (o2_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(2, o2_);
-                }
-                if (o3_ != 0) {
-                  size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(3, o3_);
-                }
-                size += unknownFields.getSerializedSize();
-                memoizedSize = size;
-                return size;
-              }
-
-              @java.lang.Override
-              public boolean equals(final java.lang.Object obj) {
-                if (obj == this) {
-                 return true;
-                }
-                if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)) {
-                  return super.equals(obj);
-                }
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22) obj;
-
-                if (getO1()
-                    != other.getO1()) return false;
-                if (getO2()
-                    != other.getO2()) return false;
-                if (getO3()
-                    != other.getO3()) return false;
-                if (!unknownFields.equals(other.unknownFields)) return false;
-                return true;
-              }
-
-              @java.lang.Override
-              public int hashCode() {
-                if (memoizedHashCode != 0) {
-                  return memoizedHashCode;
-                }
-                int hash = 41;
-                hash = (19 * hash) + getDescriptor().hashCode();
-                hash = (37 * hash) + O1_FIELD_NUMBER;
-                hash = (53 * hash) + getO1();
-                hash = (37 * hash) + O2_FIELD_NUMBER;
-                hash = (53 * hash) + getO2();
-                hash = (37 * hash) + O3_FIELD_NUMBER;
-                hash = (53 * hash) + getO3();
-                hash = (29 * hash) + unknownFields.hashCode();
-                memoizedHashCode = hash;
-                return hash;
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  java.nio.ByteBuffer data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  java.nio.ByteBuffer data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  com.google.protobuf.ByteString data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  com.google.protobuf.ByteString data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(byte[] data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  byte[] data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseDelimitedFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseDelimitedFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  com.google.protobuf.CodedInputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parseFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-
-              @java.lang.Override
-              public Builder newBuilderForType() { return newBuilder(); }
-              public static Builder newBuilder() {
-                return DEFAULT_INSTANCE.toBuilder();
-              }
-              public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 prototype) {
-                return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-              }
-              @java.lang.Override
-              public Builder toBuilder() {
-                return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-              }
-
-              @java.lang.Override
-              protected Builder newBuilderForType(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                Builder builder = new Builder(parent);
-                return builder;
-              }
-              /**
-               * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22}
-               */
-              public static final class Builder extends
-                  com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                  // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder {
-                public static final com.google.protobuf.Descriptors.Descriptor
-                    getDescriptor() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_descriptor;
-                }
-
-                @java.lang.Override
-                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                    internalGetFieldAccessorTable() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_fieldAccessorTable
-                      .ensureFieldAccessorsInitialized(
-                          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder.class);
-                }
-
-                // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.newBuilder()
-                private Builder() {
-                  maybeForceBuilderInitialization();
-                }
-
-                private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                  super(parent);
-                  maybeForceBuilderInitialization();
-                }
-                private void maybeForceBuilderInitialization() {
-                  if (com.google.protobuf.GeneratedMessageV3
-                          .alwaysUseFieldBuilders) {
-                  }
-                }
-                @java.lang.Override
-                public Builder clear() {
-                  super.clear();
-                  o1_ = 0;
-
-                  o2_ = 0;
-
-                  o3_ = 0;
-
-                  return this;
-                }
-
-                @java.lang.Override
-                public com.google.protobuf.Descriptors.Descriptor
-                    getDescriptorForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_descriptor;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 getDefaultInstanceForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.getDefaultInstance();
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 build() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 result = buildPartial();
-                  if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                  }
-                  return result;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 buildPartial() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22(this);
-                  result.o1_ = o1_;
-                  result.o2_ = o2_;
-                  result.o3_ = o3_;
-                  onBuilt();
-                  return result;
-                }
-
-                @java.lang.Override
-                public Builder clone() {
-                  return super.clone();
-                }
-                @java.lang.Override
-                public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.setField(field, value);
-                }
-                @java.lang.Override
-                public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                  return super.clearField(field);
-                }
-                @java.lang.Override
-                public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                  return super.clearOneof(oneof);
-                }
-                @java.lang.Override
-                public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                  return super.setRepeatedField(field, index, value);
-                }
-                @java.lang.Override
-                public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.addRepeatedField(field, value);
-                }
-                @java.lang.Override
-                public Builder mergeFrom(com.google.protobuf.Message other) {
-                  if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22) {
-                    return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)other);
-                  } else {
-                    super.mergeFrom(other);
-                    return this;
-                  }
-                }
-
-                public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 other) {
-                  if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.getDefaultInstance()) return this;
-                  if (other.getO1() != 0) {
-                    setO1(other.getO1());
-                  }
-                  if (other.getO2() != 0) {
-                    setO2(other.getO2());
-                  }
-                  if (other.getO3() != 0) {
-                    setO3(other.getO3());
-                  }
-                  this.mergeUnknownFields(other.unknownFields);
-                  onChanged();
-                  return this;
-                }
-
-                @java.lang.Override
-                public final boolean isInitialized() {
-                  return true;
-                }
-
-                @java.lang.Override
-                public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 parsedMessage = null;
-                  try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                  } finally {
-                    if (parsedMessage != null) {
-                      mergeFrom(parsedMessage);
-                    }
-                  }
-                  return this;
-                }
-
-                private int o1_ ;
-                /**
-                 * <code>int32 o1 = 1;</code>
-                 * @return The o1.
-                 */
-                @java.lang.Override
-                public int getO1() {
-                  return o1_;
-                }
-                /**
-                 * <code>int32 o1 = 1;</code>
-                 * @param value The o1 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setO1(int value) {
-                  
-                  o1_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 o1 = 1;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearO1() {
-                  
-                  o1_ = 0;
-                  onChanged();
-                  return this;
-                }
-
-                private int o2_ ;
-                /**
-                 * <code>int32 o2 = 2;</code>
-                 * @return The o2.
-                 */
-                @java.lang.Override
-                public int getO2() {
-                  return o2_;
-                }
-                /**
-                 * <code>int32 o2 = 2;</code>
-                 * @param value The o2 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setO2(int value) {
-                  
-                  o2_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 o2 = 2;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearO2() {
-                  
-                  o2_ = 0;
-                  onChanged();
-                  return this;
-                }
-
-                private int o3_ ;
-                /**
-                 * <code>int32 o3 = 3;</code>
-                 * @return The o3.
-                 */
-                @java.lang.Override
-                public int getO3() {
-                  return o3_;
-                }
-                /**
-                 * <code>int32 o3 = 3;</code>
-                 * @param value The o3 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setO3(int value) {
-                  
-                  o3_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>int32 o3 = 3;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearO3() {
-                  
-                  o3_ = 0;
-                  onChanged();
-                  return this;
-                }
-                @java.lang.Override
-                public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.setUnknownFields(unknownFields);
-                }
-
-                @java.lang.Override
-                public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.mergeUnknownFields(unknownFields);
-                }
-
-
-                // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)
-              }
-
-              // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22)
-              private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 DEFAULT_INSTANCE;
-              static {
-                DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22();
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 getDefaultInstance() {
-                return DEFAULT_INSTANCE;
-              }
-
-              private static final com.google.protobuf.Parser<U_Obj22>
-                  PARSER = new com.google.protobuf.AbstractParser<U_Obj22>() {
-                @java.lang.Override
-                public U_Obj22 parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return new U_Obj22(input, extensionRegistry);
-                }
-              };
-
-              public static com.google.protobuf.Parser<U_Obj22> parser() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Parser<U_Obj22> getParserForType() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 getDefaultInstanceForType() {
-                return DEFAULT_INSTANCE;
-              }
-
-            }
-
-            public interface U_Obj23OrBuilder extends
-                // @@protoc_insertion_point(interface_extends:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)
-                com.google.protobuf.MessageOrBuilder {
-
-              /**
-               * <code>string str19 = 19;</code>
-               * @return The str19.
-               */
-              java.lang.String getStr19();
-              /**
-               * <code>string str19 = 19;</code>
-               * @return The bytes for str19.
-               */
-              com.google.protobuf.ByteString
-                  getStr19Bytes();
-
-              /**
-               * <code>string str20 = 20;</code>
-               * @return The str20.
-               */
-              java.lang.String getStr20();
-              /**
-               * <code>string str20 = 20;</code>
-               * @return The bytes for str20.
-               */
-              com.google.protobuf.ByteString
-                  getStr20Bytes();
-            }
-            /**
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23}
-             */
-            public static final class U_Obj23 extends
-                com.google.protobuf.GeneratedMessageV3 implements
-                // @@protoc_insertion_point(message_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)
-                U_Obj23OrBuilder {
-            private static final long serialVersionUID = 0L;
-              // Use U_Obj23.newBuilder() to construct.
-              private U_Obj23(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-                super(builder);
-              }
-              private U_Obj23() {
-                str19_ = "";
-                str20_ = "";
-              }
-
-              @java.lang.Override
-              @SuppressWarnings({"unused"})
-              protected java.lang.Object newInstance(
-                  UnusedPrivateParameter unused) {
-                return new U_Obj23();
-              }
-
-              @java.lang.Override
-              public final com.google.protobuf.UnknownFieldSet
-              getUnknownFields() {
-                return this.unknownFields;
-              }
-              private U_Obj23(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                this();
-                if (extensionRegistry == null) {
-                  throw new java.lang.NullPointerException();
-                }
-                com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-                try {
-                  boolean done = false;
-                  while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                      case 0:
-                        done = true;
-                        break;
-                      case 154: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        str19_ = s;
-                        break;
-                      }
-                      case 162: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        str20_ = s;
-                        break;
-                      }
-                      default: {
-                        if (!parseUnknownField(
-                            input, unknownFields, extensionRegistry, tag)) {
-                          done = true;
-                        }
-                        break;
-                      }
-                    }
-                  }
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  throw e.setUnfinishedMessage(this);
-                } catch (java.io.IOException e) {
-                  throw new com.google.protobuf.InvalidProtocolBufferException(
-                      e).setUnfinishedMessage(this);
-                } finally {
-                  this.unknownFields = unknownFields.build();
-                  makeExtensionsImmutable();
-                }
-              }
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder.class);
-              }
-
-              public static final int STR19_FIELD_NUMBER = 19;
-              private volatile java.lang.Object str19_;
-              /**
-               * <code>string str19 = 19;</code>
-               * @return The str19.
-               */
-              @java.lang.Override
-              public java.lang.String getStr19() {
-                java.lang.Object ref = str19_;
-                if (ref instanceof java.lang.String) {
-                  return (java.lang.String) ref;
-                } else {
-                  com.google.protobuf.ByteString bs = 
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  str19_ = s;
-                  return s;
-                }
-              }
-              /**
-               * <code>string str19 = 19;</code>
-               * @return The bytes for str19.
-               */
-              @java.lang.Override
-              public com.google.protobuf.ByteString
-                  getStr19Bytes() {
-                java.lang.Object ref = str19_;
-                if (ref instanceof java.lang.String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  str19_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-
-              public static final int STR20_FIELD_NUMBER = 20;
-              private volatile java.lang.Object str20_;
-              /**
-               * <code>string str20 = 20;</code>
-               * @return The str20.
-               */
-              @java.lang.Override
-              public java.lang.String getStr20() {
-                java.lang.Object ref = str20_;
-                if (ref instanceof java.lang.String) {
-                  return (java.lang.String) ref;
-                } else {
-                  com.google.protobuf.ByteString bs = 
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  str20_ = s;
-                  return s;
-                }
-              }
-              /**
-               * <code>string str20 = 20;</code>
-               * @return The bytes for str20.
-               */
-              @java.lang.Override
-              public com.google.protobuf.ByteString
-                  getStr20Bytes() {
-                java.lang.Object ref = str20_;
-                if (ref instanceof java.lang.String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  str20_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-
-              private byte memoizedIsInitialized = -1;
-              @java.lang.Override
-              public final boolean isInitialized() {
-                byte isInitialized = memoizedIsInitialized;
-                if (isInitialized == 1) return true;
-                if (isInitialized == 0) return false;
-
-                memoizedIsInitialized = 1;
-                return true;
-              }
-
-              @java.lang.Override
-              public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                  throws java.io.IOException {
-                if (!getStr19Bytes().isEmpty()) {
-                  com.google.protobuf.GeneratedMessageV3.writeString(output, 19, str19_);
-                }
-                if (!getStr20Bytes().isEmpty()) {
-                  com.google.protobuf.GeneratedMessageV3.writeString(output, 20, str20_);
-                }
-                unknownFields.writeTo(output);
-              }
-
-              @java.lang.Override
-              public int getSerializedSize() {
-                int size = memoizedSize;
-                if (size != -1) return size;
-
-                size = 0;
-                if (!getStr19Bytes().isEmpty()) {
-                  size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, str19_);
-                }
-                if (!getStr20Bytes().isEmpty()) {
-                  size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, str20_);
-                }
-                size += unknownFields.getSerializedSize();
-                memoizedSize = size;
-                return size;
-              }
-
-              @java.lang.Override
-              public boolean equals(final java.lang.Object obj) {
-                if (obj == this) {
-                 return true;
-                }
-                if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)) {
-                  return super.equals(obj);
-                }
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23) obj;
-
-                if (!getStr19()
-                    .equals(other.getStr19())) return false;
-                if (!getStr20()
-                    .equals(other.getStr20())) return false;
-                if (!unknownFields.equals(other.unknownFields)) return false;
-                return true;
-              }
-
-              @java.lang.Override
-              public int hashCode() {
-                if (memoizedHashCode != 0) {
-                  return memoizedHashCode;
-                }
-                int hash = 41;
-                hash = (19 * hash) + getDescriptor().hashCode();
-                hash = (37 * hash) + STR19_FIELD_NUMBER;
-                hash = (53 * hash) + getStr19().hashCode();
-                hash = (37 * hash) + STR20_FIELD_NUMBER;
-                hash = (53 * hash) + getStr20().hashCode();
-                hash = (29 * hash) + unknownFields.hashCode();
-                memoizedHashCode = hash;
-                return hash;
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  java.nio.ByteBuffer data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  java.nio.ByteBuffer data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  com.google.protobuf.ByteString data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  com.google.protobuf.ByteString data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(byte[] data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  byte[] data,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return PARSER.parseFrom(data, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseDelimitedFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseDelimitedFrom(
-                  java.io.InputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  com.google.protobuf.CodedInputStream input)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-              }
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parseFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-              }
-
-              @java.lang.Override
-              public Builder newBuilderForType() { return newBuilder(); }
-              public static Builder newBuilder() {
-                return DEFAULT_INSTANCE.toBuilder();
-              }
-              public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 prototype) {
-                return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-              }
-              @java.lang.Override
-              public Builder toBuilder() {
-                return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-              }
-
-              @java.lang.Override
-              protected Builder newBuilderForType(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                Builder builder = new Builder(parent);
-                return builder;
-              }
-              /**
-               * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23}
-               */
-              public static final class Builder extends
-                  com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                  // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder {
-                public static final com.google.protobuf.Descriptors.Descriptor
-                    getDescriptor() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_descriptor;
-                }
-
-                @java.lang.Override
-                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                    internalGetFieldAccessorTable() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_fieldAccessorTable
-                      .ensureFieldAccessorsInitialized(
-                          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder.class);
-                }
-
-                // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.newBuilder()
-                private Builder() {
-                  maybeForceBuilderInitialization();
-                }
-
-                private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                  super(parent);
-                  maybeForceBuilderInitialization();
-                }
-                private void maybeForceBuilderInitialization() {
-                  if (com.google.protobuf.GeneratedMessageV3
-                          .alwaysUseFieldBuilders) {
-                  }
-                }
-                @java.lang.Override
-                public Builder clear() {
-                  super.clear();
-                  str19_ = "";
-
-                  str20_ = "";
-
-                  return this;
-                }
-
-                @java.lang.Override
-                public com.google.protobuf.Descriptors.Descriptor
-                    getDescriptorForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_descriptor;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 getDefaultInstanceForType() {
-                  return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.getDefaultInstance();
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 build() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 result = buildPartial();
-                  if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                  }
-                  return result;
-                }
-
-                @java.lang.Override
-                public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 buildPartial() {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23(this);
-                  result.str19_ = str19_;
-                  result.str20_ = str20_;
-                  onBuilt();
-                  return result;
-                }
-
-                @java.lang.Override
-                public Builder clone() {
-                  return super.clone();
-                }
-                @java.lang.Override
-                public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.setField(field, value);
-                }
-                @java.lang.Override
-                public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                  return super.clearField(field);
-                }
-                @java.lang.Override
-                public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                  return super.clearOneof(oneof);
-                }
-                @java.lang.Override
-                public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                  return super.setRepeatedField(field, index, value);
-                }
-                @java.lang.Override
-                public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                  return super.addRepeatedField(field, value);
-                }
-                @java.lang.Override
-                public Builder mergeFrom(com.google.protobuf.Message other) {
-                  if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23) {
-                    return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)other);
-                  } else {
-                    super.mergeFrom(other);
-                    return this;
-                  }
-                }
-
-                public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 other) {
-                  if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.getDefaultInstance()) return this;
-                  if (!other.getStr19().isEmpty()) {
-                    str19_ = other.str19_;
-                    onChanged();
-                  }
-                  if (!other.getStr20().isEmpty()) {
-                    str20_ = other.str20_;
-                    onChanged();
-                  }
-                  this.mergeUnknownFields(other.unknownFields);
-                  onChanged();
-                  return this;
-                }
-
-                @java.lang.Override
-                public final boolean isInitialized() {
-                  return true;
-                }
-
-                @java.lang.Override
-                public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 parsedMessage = null;
-                  try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                  } finally {
-                    if (parsedMessage != null) {
-                      mergeFrom(parsedMessage);
-                    }
-                  }
-                  return this;
-                }
-
-                private java.lang.Object str19_ = "";
-                /**
-                 * <code>string str19 = 19;</code>
-                 * @return The str19.
-                 */
-                public java.lang.String getStr19() {
-                  java.lang.Object ref = str19_;
-                  if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    str19_ = s;
-                    return s;
-                  } else {
-                    return (java.lang.String) ref;
-                  }
-                }
-                /**
-                 * <code>string str19 = 19;</code>
-                 * @return The bytes for str19.
-                 */
-                public com.google.protobuf.ByteString
-                    getStr19Bytes() {
-                  java.lang.Object ref = str19_;
-                  if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    str19_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-                /**
-                 * <code>string str19 = 19;</code>
-                 * @param value The str19 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setStr19(
-                    java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                  str19_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string str19 = 19;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearStr19() {
-                  
-                  str19_ = getDefaultInstance().getStr19();
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string str19 = 19;</code>
-                 * @param value The bytes for str19 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setStr19Bytes(
-                    com.google.protobuf.ByteString value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                  
-                  str19_ = value;
-                  onChanged();
-                  return this;
-                }
-
-                private java.lang.Object str20_ = "";
-                /**
-                 * <code>string str20 = 20;</code>
-                 * @return The str20.
-                 */
-                public java.lang.String getStr20() {
-                  java.lang.Object ref = str20_;
-                  if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    str20_ = s;
-                    return s;
-                  } else {
-                    return (java.lang.String) ref;
-                  }
-                }
-                /**
-                 * <code>string str20 = 20;</code>
-                 * @return The bytes for str20.
-                 */
-                public com.google.protobuf.ByteString
-                    getStr20Bytes() {
-                  java.lang.Object ref = str20_;
-                  if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = 
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-                    str20_ = b;
-                    return b;
-                  } else {
-                    return (com.google.protobuf.ByteString) ref;
-                  }
-                }
-                /**
-                 * <code>string str20 = 20;</code>
-                 * @param value The str20 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setStr20(
-                    java.lang.String value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                  str20_ = value;
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string str20 = 20;</code>
-                 * @return This builder for chaining.
-                 */
-                public Builder clearStr20() {
-                  
-                  str20_ = getDefaultInstance().getStr20();
-                  onChanged();
-                  return this;
-                }
-                /**
-                 * <code>string str20 = 20;</code>
-                 * @param value The bytes for str20 to set.
-                 * @return This builder for chaining.
-                 */
-                public Builder setStr20Bytes(
-                    com.google.protobuf.ByteString value) {
-                  if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                  
-                  str20_ = value;
-                  onChanged();
-                  return this;
-                }
-                @java.lang.Override
-                public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.setUnknownFields(unknownFields);
-                }
-
-                @java.lang.Override
-                public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                  return super.mergeUnknownFields(unknownFields);
-                }
-
-
-                // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)
-              }
-
-              // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23)
-              private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 DEFAULT_INSTANCE;
-              static {
-                DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23();
-              }
-
-              public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 getDefaultInstance() {
-                return DEFAULT_INSTANCE;
-              }
-
-              private static final com.google.protobuf.Parser<U_Obj23>
-                  PARSER = new com.google.protobuf.AbstractParser<U_Obj23>() {
-                @java.lang.Override
-                public U_Obj23 parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                  return new U_Obj23(input, extensionRegistry);
-                }
-              };
-
-              public static com.google.protobuf.Parser<U_Obj23> parser() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Parser<U_Obj23> getParserForType() {
-                return PARSER;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 getDefaultInstanceForType() {
-                return DEFAULT_INSTANCE;
-              }
-
-            }
-
-            public static final int STR1_FIELD_NUMBER = 1;
-            private long str1_;
-            /**
-             * <code>int64 str1 = 1;</code>
-             * @return The str1.
-             */
-            @java.lang.Override
-            public long getStr1() {
-              return str1_;
-            }
-
-            public static final int ID_FIELD_NUMBER = 2;
-            private long id_;
-            /**
-             * <pre>
-             *          用户id，短数字类型
-             * </pre>
-             *
-             * <code>int64 id = 2;</code>
-             * @return The id.
-             */
-            @java.lang.Override
-            public long getId() {
-              return id_;
-            }
-
-            public static final int NAME_FIELD_NUMBER = 3;
-            private volatile java.lang.Object name_;
-            /**
-             * <code>string name = 3;</code>
-             * @return The name.
-             */
-            @java.lang.Override
-            public java.lang.String getName() {
-              java.lang.Object ref = name_;
-              if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-              } else {
-                com.google.protobuf.ByteString bs = 
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                name_ = s;
-                return s;
-              }
-            }
-            /**
-             * <code>string name = 3;</code>
-             * @return The bytes for name.
-             */
-            @java.lang.Override
-            public com.google.protobuf.ByteString
-                getNameBytes() {
-              java.lang.Object ref = name_;
-              if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                name_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-
-            public static final int GENDER_FIELD_NUMBER = 4;
-            private int gender_;
-            /**
-             * <code>int32 gender = 4;</code>
-             * @return The gender.
-             */
-            @java.lang.Override
-            public int getGender() {
-              return gender_;
-            }
-
-            public static final int HEADIMG_FIELD_NUMBER = 9;
-            private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg_;
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-             * @return Whether the headimg field is set.
-             */
-            @java.lang.Override
-            public boolean hasHeadimg() {
-              return headimg_ != null;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-             * @return The headimg.
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo getHeadimg() {
-              return headimg_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.getDefaultInstance() : headimg_;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder getHeadimgOrBuilder() {
-              return getHeadimg();
-            }
-
-            public static final int U_OBJ_FIELD_NUMBER = 22;
-            private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 uObj_;
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-             * @return Whether the uObj field is set.
-             */
-            @java.lang.Override
-            public boolean hasUObj() {
-              return uObj_ != null;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-             * @return The uObj.
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 getUObj() {
-              return uObj_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.getDefaultInstance() : uObj_;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder getUObjOrBuilder() {
-              return getUObj();
-            }
-
-            public static final int U_OBJ23_FIELD_NUMBER = 23;
-            private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 uObj23_;
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-             * @return Whether the uObj23 field is set.
-             */
-            @java.lang.Override
-            public boolean hasUObj23() {
-              return uObj23_ != null;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-             * @return The uObj23.
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 getUObj23() {
-              return uObj23_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.getDefaultInstance() : uObj23_;
-            }
-            /**
-             * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-             */
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder getUObj23OrBuilder() {
-              return getUObj23();
-            }
-
-            public static final int ID_STR_FIELD_NUMBER = 38;
-            private volatile java.lang.Object idStr_;
-            /**
-             * <code>string id_str = 38;</code>
-             * @return The idStr.
-             */
-            @java.lang.Override
-            public java.lang.String getIdStr() {
-              java.lang.Object ref = idStr_;
-              if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-              } else {
-                com.google.protobuf.ByteString bs = 
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                idStr_ = s;
-                return s;
-              }
-            }
-            /**
-             * <code>string id_str = 38;</code>
-             * @return The bytes for idStr.
-             */
-            @java.lang.Override
-            public com.google.protobuf.ByteString
-                getIdStrBytes() {
-              java.lang.Object ref = idStr_;
-              if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                idStr_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-
-            public static final int SEC_UID_FIELD_NUMBER = 46;
-            private volatile java.lang.Object secUid_;
-            /**
-             * <pre>
-             *          加密的用户id，访问其它接口时的必备参数
-             * </pre>
-             *
-             * <code>string sec_uid = 46;</code>
-             * @return The secUid.
-             */
-            @java.lang.Override
-            public java.lang.String getSecUid() {
-              java.lang.Object ref = secUid_;
-              if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-              } else {
-                com.google.protobuf.ByteString bs = 
-                    (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                secUid_ = s;
-                return s;
-              }
-            }
-            /**
-             * <pre>
-             *          加密的用户id，访问其它接口时的必备参数
-             * </pre>
-             *
-             * <code>string sec_uid = 46;</code>
-             * @return The bytes for secUid.
-             */
-            @java.lang.Override
-            public com.google.protobuf.ByteString
-                getSecUidBytes() {
-              java.lang.Object ref = secUid_;
-              if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = 
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-                secUid_ = b;
-                return b;
-              } else {
-                return (com.google.protobuf.ByteString) ref;
-              }
-            }
-
-            public static final int AUTHORIZATION_INFO_FIELD_NUMBER = 54;
-            private int authorizationInfo_;
-            /**
-             * <code>int32 authorization_info = 54;</code>
-             * @return The authorizationInfo.
-             */
-            @java.lang.Override
-            public int getAuthorizationInfo() {
-              return authorizationInfo_;
-            }
-
-            private byte memoizedIsInitialized = -1;
-            @java.lang.Override
-            public final boolean isInitialized() {
-              byte isInitialized = memoizedIsInitialized;
-              if (isInitialized == 1) return true;
-              if (isInitialized == 0) return false;
-
-              memoizedIsInitialized = 1;
-              return true;
-            }
-
-            @java.lang.Override
-            public void writeTo(com.google.protobuf.CodedOutputStream output)
-                                throws java.io.IOException {
-              if (str1_ != 0L) {
-                output.writeInt64(1, str1_);
-              }
-              if (id_ != 0L) {
-                output.writeInt64(2, id_);
-              }
-              if (!getNameBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
-              }
-              if (gender_ != 0) {
-                output.writeInt32(4, gender_);
-              }
-              if (headimg_ != null) {
-                output.writeMessage(9, getHeadimg());
-              }
-              if (uObj_ != null) {
-                output.writeMessage(22, getUObj());
-              }
-              if (uObj23_ != null) {
-                output.writeMessage(23, getUObj23());
-              }
-              if (!getIdStrBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 38, idStr_);
-              }
-              if (!getSecUidBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 46, secUid_);
-              }
-              if (authorizationInfo_ != 0) {
-                output.writeInt32(54, authorizationInfo_);
-              }
-              unknownFields.writeTo(output);
-            }
-
-            @java.lang.Override
-            public int getSerializedSize() {
-              int size = memoizedSize;
-              if (size != -1) return size;
-
-              size = 0;
-              if (str1_ != 0L) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeInt64Size(1, str1_);
-              }
-              if (id_ != 0L) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeInt64Size(2, id_);
-              }
-              if (!getNameBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
-              }
-              if (gender_ != 0) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeInt32Size(4, gender_);
-              }
-              if (headimg_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeMessageSize(9, getHeadimg());
-              }
-              if (uObj_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeMessageSize(22, getUObj());
-              }
-              if (uObj23_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeMessageSize(23, getUObj23());
-              }
-              if (!getIdStrBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(38, idStr_);
-              }
-              if (!getSecUidBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(46, secUid_);
-              }
-              if (authorizationInfo_ != 0) {
-                size += com.google.protobuf.CodedOutputStream
-                  .computeInt32Size(54, authorizationInfo_);
-              }
-              size += unknownFields.getSerializedSize();
-              memoizedSize = size;
-              return size;
-            }
-
-            @java.lang.Override
-            public boolean equals(final java.lang.Object obj) {
-              if (obj == this) {
-               return true;
-              }
-              if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)) {
-                return super.equals(obj);
-              }
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo) obj;
-
-              if (getStr1()
-                  != other.getStr1()) return false;
-              if (getId()
-                  != other.getId()) return false;
-              if (!getName()
-                  .equals(other.getName())) return false;
-              if (getGender()
-                  != other.getGender()) return false;
-              if (hasHeadimg() != other.hasHeadimg()) return false;
-              if (hasHeadimg()) {
-                if (!getHeadimg()
-                    .equals(other.getHeadimg())) return false;
-              }
-              if (hasUObj() != other.hasUObj()) return false;
-              if (hasUObj()) {
-                if (!getUObj()
-                    .equals(other.getUObj())) return false;
-              }
-              if (hasUObj23() != other.hasUObj23()) return false;
-              if (hasUObj23()) {
-                if (!getUObj23()
-                    .equals(other.getUObj23())) return false;
-              }
-              if (!getIdStr()
-                  .equals(other.getIdStr())) return false;
-              if (!getSecUid()
-                  .equals(other.getSecUid())) return false;
-              if (getAuthorizationInfo()
-                  != other.getAuthorizationInfo()) return false;
-              if (!unknownFields.equals(other.unknownFields)) return false;
-              return true;
-            }
-
-            @java.lang.Override
-            public int hashCode() {
-              if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-              }
-              int hash = 41;
-              hash = (19 * hash) + getDescriptor().hashCode();
-              hash = (37 * hash) + STR1_FIELD_NUMBER;
-              hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                  getStr1());
-              hash = (37 * hash) + ID_FIELD_NUMBER;
-              hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                  getId());
-              hash = (37 * hash) + NAME_FIELD_NUMBER;
-              hash = (53 * hash) + getName().hashCode();
-              hash = (37 * hash) + GENDER_FIELD_NUMBER;
-              hash = (53 * hash) + getGender();
-              if (hasHeadimg()) {
-                hash = (37 * hash) + HEADIMG_FIELD_NUMBER;
-                hash = (53 * hash) + getHeadimg().hashCode();
-              }
-              if (hasUObj()) {
-                hash = (37 * hash) + U_OBJ_FIELD_NUMBER;
-                hash = (53 * hash) + getUObj().hashCode();
-              }
-              if (hasUObj23()) {
-                hash = (37 * hash) + U_OBJ23_FIELD_NUMBER;
-                hash = (53 * hash) + getUObj23().hashCode();
-              }
-              hash = (37 * hash) + ID_STR_FIELD_NUMBER;
-              hash = (53 * hash) + getIdStr().hashCode();
-              hash = (37 * hash) + SEC_UID_FIELD_NUMBER;
-              hash = (53 * hash) + getSecUid().hashCode();
-              hash = (37 * hash) + AUTHORIZATION_INFO_FIELD_NUMBER;
-              hash = (53 * hash) + getAuthorizationInfo();
-              hash = (29 * hash) + unknownFields.hashCode();
-              memoizedHashCode = hash;
-              return hash;
-            }
-
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return PARSER.parseFrom(data, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseDelimitedWithIOException(PARSER, input);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input);
-            }
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageV3
-                  .parseWithIOException(PARSER, input, extensionRegistry);
-            }
-
-            @java.lang.Override
-            public Builder newBuilderForType() { return newBuilder(); }
-            public static Builder newBuilder() {
-              return DEFAULT_INSTANCE.toBuilder();
-            }
-            public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo prototype) {
-              return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-            }
-            @java.lang.Override
-            public Builder toBuilder() {
-              return this == DEFAULT_INSTANCE
-                  ? new Builder() : new Builder().mergeFrom(this);
-            }
-
-            @java.lang.Override
-            protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-              Builder builder = new Builder(parent);
-              return builder;
-            }
-            /**
-             * <pre>
-             *        int32 id = 1;
-             * </pre>
-             *
-             * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg.UserInfo}
-             */
-            public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfoOrBuilder {
-              public static final com.google.protobuf.Descriptors.Descriptor
-                  getDescriptor() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor;
-              }
-
-              @java.lang.Override
-              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                  internalGetFieldAccessorTable() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.Builder.class);
-              }
-
-              // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.newBuilder()
-              private Builder() {
-                maybeForceBuilderInitialization();
-              }
-
-              private Builder(
-                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-              }
-              private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-              }
-              @java.lang.Override
-              public Builder clear() {
-                super.clear();
-                str1_ = 0L;
-
-                id_ = 0L;
-
-                name_ = "";
-
-                gender_ = 0;
-
-                if (headimgBuilder_ == null) {
-                  headimg_ = null;
-                } else {
-                  headimg_ = null;
-                  headimgBuilder_ = null;
-                }
-                if (uObjBuilder_ == null) {
-                  uObj_ = null;
-                } else {
-                  uObj_ = null;
-                  uObjBuilder_ = null;
-                }
-                if (uObj23Builder_ == null) {
-                  uObj23_ = null;
-                } else {
-                  uObj23_ = null;
-                  uObj23Builder_ = null;
-                }
-                idStr_ = "";
-
-                secUid_ = "";
-
-                authorizationInfo_ = 0;
-
-                return this;
-              }
-
-              @java.lang.Override
-              public com.google.protobuf.Descriptors.Descriptor
-                  getDescriptorForType() {
-                return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo getDefaultInstanceForType() {
-                return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.getDefaultInstance();
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo build() {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo result = buildPartial();
-                if (!result.isInitialized()) {
-                  throw newUninitializedMessageException(result);
-                }
-                return result;
-              }
-
-              @java.lang.Override
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo buildPartial() {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo(this);
-                result.str1_ = str1_;
-                result.id_ = id_;
-                result.name_ = name_;
-                result.gender_ = gender_;
-                if (headimgBuilder_ == null) {
-                  result.headimg_ = headimg_;
-                } else {
-                  result.headimg_ = headimgBuilder_.build();
-                }
-                if (uObjBuilder_ == null) {
-                  result.uObj_ = uObj_;
-                } else {
-                  result.uObj_ = uObjBuilder_.build();
-                }
-                if (uObj23Builder_ == null) {
-                  result.uObj23_ = uObj23_;
-                } else {
-                  result.uObj23_ = uObj23Builder_.build();
-                }
-                result.idStr_ = idStr_;
-                result.secUid_ = secUid_;
-                result.authorizationInfo_ = authorizationInfo_;
-                onBuilt();
-                return result;
-              }
-
-              @java.lang.Override
-              public Builder clone() {
-                return super.clone();
-              }
-              @java.lang.Override
-              public Builder setField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field,
-                  java.lang.Object value) {
-                return super.setField(field, value);
-              }
-              @java.lang.Override
-              public Builder clearField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return super.clearField(field);
-              }
-              @java.lang.Override
-              public Builder clearOneof(
-                  com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return super.clearOneof(oneof);
-              }
-              @java.lang.Override
-              public Builder setRepeatedField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field,
-                  int index, java.lang.Object value) {
-                return super.setRepeatedField(field, index, value);
-              }
-              @java.lang.Override
-              public Builder addRepeatedField(
-                  com.google.protobuf.Descriptors.FieldDescriptor field,
-                  java.lang.Object value) {
-                return super.addRepeatedField(field, value);
-              }
-              @java.lang.Override
-              public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo) {
-                  return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)other);
-                } else {
-                  super.mergeFrom(other);
-                  return this;
-                }
-              }
-
-              public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo other) {
-                if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.getDefaultInstance()) return this;
-                if (other.getStr1() != 0L) {
-                  setStr1(other.getStr1());
-                }
-                if (other.getId() != 0L) {
-                  setId(other.getId());
-                }
-                if (!other.getName().isEmpty()) {
-                  name_ = other.name_;
-                  onChanged();
-                }
-                if (other.getGender() != 0) {
-                  setGender(other.getGender());
-                }
-                if (other.hasHeadimg()) {
-                  mergeHeadimg(other.getHeadimg());
-                }
-                if (other.hasUObj()) {
-                  mergeUObj(other.getUObj());
-                }
-                if (other.hasUObj23()) {
-                  mergeUObj23(other.getUObj23());
-                }
-                if (!other.getIdStr().isEmpty()) {
-                  idStr_ = other.idStr_;
-                  onChanged();
-                }
-                if (!other.getSecUid().isEmpty()) {
-                  secUid_ = other.secUid_;
-                  onChanged();
-                }
-                if (other.getAuthorizationInfo() != 0) {
-                  setAuthorizationInfo(other.getAuthorizationInfo());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-              }
-
-              @java.lang.Override
-              public final boolean isInitialized() {
-                return true;
-              }
-
-              @java.lang.Override
-              public Builder mergeFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws java.io.IOException {
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo parsedMessage = null;
-                try {
-                  parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                  parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo) e.getUnfinishedMessage();
-                  throw e.unwrapIOException();
-                } finally {
-                  if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                  }
-                }
-                return this;
-              }
-
-              private long str1_ ;
-              /**
-               * <code>int64 str1 = 1;</code>
-               * @return The str1.
-               */
-              @java.lang.Override
-              public long getStr1() {
-                return str1_;
-              }
-              /**
-               * <code>int64 str1 = 1;</code>
-               * @param value The str1 to set.
-               * @return This builder for chaining.
-               */
-              public Builder setStr1(long value) {
-                
-                str1_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>int64 str1 = 1;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearStr1() {
-                
-                str1_ = 0L;
-                onChanged();
-                return this;
-              }
-
-              private long id_ ;
-              /**
-               * <pre>
-               *          用户id，短数字类型
-               * </pre>
-               *
-               * <code>int64 id = 2;</code>
-               * @return The id.
-               */
-              @java.lang.Override
-              public long getId() {
-                return id_;
-              }
-              /**
-               * <pre>
-               *          用户id，短数字类型
-               * </pre>
-               *
-               * <code>int64 id = 2;</code>
-               * @param value The id to set.
-               * @return This builder for chaining.
-               */
-              public Builder setId(long value) {
-                
-                id_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <pre>
-               *          用户id，短数字类型
-               * </pre>
-               *
-               * <code>int64 id = 2;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearId() {
-                
-                id_ = 0L;
-                onChanged();
-                return this;
-              }
-
-              private java.lang.Object name_ = "";
-              /**
-               * <code>string name = 3;</code>
-               * @return The name.
-               */
-              public java.lang.String getName() {
-                java.lang.Object ref = name_;
-                if (!(ref instanceof java.lang.String)) {
-                  com.google.protobuf.ByteString bs =
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  name_ = s;
-                  return s;
-                } else {
-                  return (java.lang.String) ref;
-                }
-              }
-              /**
-               * <code>string name = 3;</code>
-               * @return The bytes for name.
-               */
-              public com.google.protobuf.ByteString
-                  getNameBytes() {
-                java.lang.Object ref = name_;
-                if (ref instanceof String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  name_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-              /**
-               * <code>string name = 3;</code>
-               * @param value The name to set.
-               * @return This builder for chaining.
-               */
-              public Builder setName(
-                  java.lang.String value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                name_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string name = 3;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearName() {
-                
-                name_ = getDefaultInstance().getName();
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string name = 3;</code>
-               * @param value The bytes for name to set.
-               * @return This builder for chaining.
-               */
-              public Builder setNameBytes(
-                  com.google.protobuf.ByteString value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                
-                name_ = value;
-                onChanged();
-                return this;
-              }
-
-              private int gender_ ;
-              /**
-               * <code>int32 gender = 4;</code>
-               * @return The gender.
-               */
-              @java.lang.Override
-              public int getGender() {
-                return gender_;
-              }
-              /**
-               * <code>int32 gender = 4;</code>
-               * @param value The gender to set.
-               * @return This builder for chaining.
-               */
-              public Builder setGender(int value) {
-                
-                gender_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>int32 gender = 4;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearGender() {
-                
-                gender_ = 0;
-                onChanged();
-                return this;
-              }
-
-              private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg_;
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder> headimgBuilder_;
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               * @return Whether the headimg field is set.
-               */
-              public boolean hasHeadimg() {
-                return headimgBuilder_ != null || headimg_ != null;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               * @return The headimg.
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo getHeadimg() {
-                if (headimgBuilder_ == null) {
-                  return headimg_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.getDefaultInstance() : headimg_;
-                } else {
-                  return headimgBuilder_.getMessage();
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              public Builder setHeadimg(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo value) {
-                if (headimgBuilder_ == null) {
-                  if (value == null) {
-                    throw new NullPointerException();
-                  }
-                  headimg_ = value;
-                  onChanged();
-                } else {
-                  headimgBuilder_.setMessage(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              public Builder setHeadimg(
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder builderForValue) {
-                if (headimgBuilder_ == null) {
-                  headimg_ = builderForValue.build();
-                  onChanged();
-                } else {
-                  headimgBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              public Builder mergeHeadimg(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo value) {
-                if (headimgBuilder_ == null) {
-                  if (headimg_ != null) {
-                    headimg_ =
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.newBuilder(headimg_).mergeFrom(value).buildPartial();
-                  } else {
-                    headimg_ = value;
-                  }
-                  onChanged();
-                } else {
-                  headimgBuilder_.mergeFrom(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              public Builder clearHeadimg() {
-                if (headimgBuilder_ == null) {
-                  headimg_ = null;
-                  onChanged();
-                } else {
-                  headimg_ = null;
-                  headimgBuilder_ = null;
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder getHeadimgBuilder() {
-                
-                onChanged();
-                return getHeadimgFieldBuilder().getBuilder();
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder getHeadimgOrBuilder() {
-                if (headimgBuilder_ != null) {
-                  return headimgBuilder_.getMessageOrBuilder();
-                } else {
-                  return headimg_ == null ?
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.getDefaultInstance() : headimg_;
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo headimg = 9;</code>
-               */
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder> 
-                  getHeadimgFieldBuilder() {
-                if (headimgBuilder_ == null) {
-                  headimgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.CoverInfoOrBuilder>(
-                          getHeadimg(),
-                          getParentForChildren(),
-                          isClean());
-                  headimg_ = null;
-                }
-                return headimgBuilder_;
-              }
-
-              private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 uObj_;
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder> uObjBuilder_;
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               * @return Whether the uObj field is set.
-               */
-              public boolean hasUObj() {
-                return uObjBuilder_ != null || uObj_ != null;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               * @return The uObj.
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 getUObj() {
-                if (uObjBuilder_ == null) {
-                  return uObj_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.getDefaultInstance() : uObj_;
-                } else {
-                  return uObjBuilder_.getMessage();
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              public Builder setUObj(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 value) {
-                if (uObjBuilder_ == null) {
-                  if (value == null) {
-                    throw new NullPointerException();
-                  }
-                  uObj_ = value;
-                  onChanged();
-                } else {
-                  uObjBuilder_.setMessage(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              public Builder setUObj(
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder builderForValue) {
-                if (uObjBuilder_ == null) {
-                  uObj_ = builderForValue.build();
-                  onChanged();
-                } else {
-                  uObjBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              public Builder mergeUObj(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 value) {
-                if (uObjBuilder_ == null) {
-                  if (uObj_ != null) {
-                    uObj_ =
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.newBuilder(uObj_).mergeFrom(value).buildPartial();
-                  } else {
-                    uObj_ = value;
-                  }
-                  onChanged();
-                } else {
-                  uObjBuilder_.mergeFrom(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              public Builder clearUObj() {
-                if (uObjBuilder_ == null) {
-                  uObj_ = null;
-                  onChanged();
-                } else {
-                  uObj_ = null;
-                  uObjBuilder_ = null;
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder getUObjBuilder() {
-                
-                onChanged();
-                return getUObjFieldBuilder().getBuilder();
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder getUObjOrBuilder() {
-                if (uObjBuilder_ != null) {
-                  return uObjBuilder_.getMessageOrBuilder();
-                } else {
-                  return uObj_ == null ?
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.getDefaultInstance() : uObj_;
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22 u_obj = 22;</code>
-               */
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder> 
-                  getUObjFieldBuilder() {
-                if (uObjBuilder_ == null) {
-                  uObjBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj22OrBuilder>(
-                          getUObj(),
-                          getParentForChildren(),
-                          isClean());
-                  uObj_ = null;
-                }
-                return uObjBuilder_;
-              }
-
-              private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 uObj23_;
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder> uObj23Builder_;
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               * @return Whether the uObj23 field is set.
-               */
-              public boolean hasUObj23() {
-                return uObj23Builder_ != null || uObj23_ != null;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               * @return The uObj23.
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 getUObj23() {
-                if (uObj23Builder_ == null) {
-                  return uObj23_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.getDefaultInstance() : uObj23_;
-                } else {
-                  return uObj23Builder_.getMessage();
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              public Builder setUObj23(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 value) {
-                if (uObj23Builder_ == null) {
-                  if (value == null) {
-                    throw new NullPointerException();
-                  }
-                  uObj23_ = value;
-                  onChanged();
-                } else {
-                  uObj23Builder_.setMessage(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              public Builder setUObj23(
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder builderForValue) {
-                if (uObj23Builder_ == null) {
-                  uObj23_ = builderForValue.build();
-                  onChanged();
-                } else {
-                  uObj23Builder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              public Builder mergeUObj23(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 value) {
-                if (uObj23Builder_ == null) {
-                  if (uObj23_ != null) {
-                    uObj23_ =
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.newBuilder(uObj23_).mergeFrom(value).buildPartial();
-                  } else {
-                    uObj23_ = value;
-                  }
-                  onChanged();
-                } else {
-                  uObj23Builder_.mergeFrom(value);
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              public Builder clearUObj23() {
-                if (uObj23Builder_ == null) {
-                  uObj23_ = null;
-                  onChanged();
-                } else {
-                  uObj23_ = null;
-                  uObj23Builder_ = null;
-                }
-
-                return this;
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder getUObj23Builder() {
-                
-                onChanged();
-                return getUObj23FieldBuilder().getBuilder();
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder getUObj23OrBuilder() {
-                if (uObj23Builder_ != null) {
-                  return uObj23Builder_.getMessageOrBuilder();
-                } else {
-                  return uObj23_ == null ?
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.getDefaultInstance() : uObj23_;
-                }
-              }
-              /**
-               * <code>.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23 u_obj23 = 23;</code>
-               */
-              private com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder> 
-                  getUObj23FieldBuilder() {
-                if (uObj23Builder_ == null) {
-                  uObj23Builder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo.U_Obj23OrBuilder>(
-                          getUObj23(),
-                          getParentForChildren(),
-                          isClean());
-                  uObj23_ = null;
-                }
-                return uObj23Builder_;
-              }
-
-              private java.lang.Object idStr_ = "";
-              /**
-               * <code>string id_str = 38;</code>
-               * @return The idStr.
-               */
-              public java.lang.String getIdStr() {
-                java.lang.Object ref = idStr_;
-                if (!(ref instanceof java.lang.String)) {
-                  com.google.protobuf.ByteString bs =
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  idStr_ = s;
-                  return s;
-                } else {
-                  return (java.lang.String) ref;
-                }
-              }
-              /**
-               * <code>string id_str = 38;</code>
-               * @return The bytes for idStr.
-               */
-              public com.google.protobuf.ByteString
-                  getIdStrBytes() {
-                java.lang.Object ref = idStr_;
-                if (ref instanceof String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  idStr_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-              /**
-               * <code>string id_str = 38;</code>
-               * @param value The idStr to set.
-               * @return This builder for chaining.
-               */
-              public Builder setIdStr(
-                  java.lang.String value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                idStr_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string id_str = 38;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearIdStr() {
-                
-                idStr_ = getDefaultInstance().getIdStr();
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>string id_str = 38;</code>
-               * @param value The bytes for idStr to set.
-               * @return This builder for chaining.
-               */
-              public Builder setIdStrBytes(
-                  com.google.protobuf.ByteString value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                
-                idStr_ = value;
-                onChanged();
-                return this;
-              }
-
-              private java.lang.Object secUid_ = "";
-              /**
-               * <pre>
-               *          加密的用户id，访问其它接口时的必备参数
-               * </pre>
-               *
-               * <code>string sec_uid = 46;</code>
-               * @return The secUid.
-               */
-              public java.lang.String getSecUid() {
-                java.lang.Object ref = secUid_;
-                if (!(ref instanceof java.lang.String)) {
-                  com.google.protobuf.ByteString bs =
-                      (com.google.protobuf.ByteString) ref;
-                  java.lang.String s = bs.toStringUtf8();
-                  secUid_ = s;
-                  return s;
-                } else {
-                  return (java.lang.String) ref;
-                }
-              }
-              /**
-               * <pre>
-               *          加密的用户id，访问其它接口时的必备参数
-               * </pre>
-               *
-               * <code>string sec_uid = 46;</code>
-               * @return The bytes for secUid.
-               */
-              public com.google.protobuf.ByteString
-                  getSecUidBytes() {
-                java.lang.Object ref = secUid_;
-                if (ref instanceof String) {
-                  com.google.protobuf.ByteString b = 
-                      com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-                  secUid_ = b;
-                  return b;
-                } else {
-                  return (com.google.protobuf.ByteString) ref;
-                }
-              }
-              /**
-               * <pre>
-               *          加密的用户id，访问其它接口时的必备参数
-               * </pre>
-               *
-               * <code>string sec_uid = 46;</code>
-               * @param value The secUid to set.
-               * @return This builder for chaining.
-               */
-              public Builder setSecUid(
-                  java.lang.String value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  
-                secUid_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <pre>
-               *          加密的用户id，访问其它接口时的必备参数
-               * </pre>
-               *
-               * <code>string sec_uid = 46;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearSecUid() {
-                
-                secUid_ = getDefaultInstance().getSecUid();
-                onChanged();
-                return this;
-              }
-              /**
-               * <pre>
-               *          加密的用户id，访问其它接口时的必备参数
-               * </pre>
-               *
-               * <code>string sec_uid = 46;</code>
-               * @param value The bytes for secUid to set.
-               * @return This builder for chaining.
-               */
-              public Builder setSecUidBytes(
-                  com.google.protobuf.ByteString value) {
-                if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-                
-                secUid_ = value;
-                onChanged();
-                return this;
-              }
-
-              private int authorizationInfo_ ;
-              /**
-               * <code>int32 authorization_info = 54;</code>
-               * @return The authorizationInfo.
-               */
-              @java.lang.Override
-              public int getAuthorizationInfo() {
-                return authorizationInfo_;
-              }
-              /**
-               * <code>int32 authorization_info = 54;</code>
-               * @param value The authorizationInfo to set.
-               * @return This builder for chaining.
-               */
-              public Builder setAuthorizationInfo(int value) {
-                
-                authorizationInfo_ = value;
-                onChanged();
-                return this;
-              }
-              /**
-               * <code>int32 authorization_info = 54;</code>
-               * @return This builder for chaining.
-               */
-              public Builder clearAuthorizationInfo() {
-                
-                authorizationInfo_ = 0;
-                onChanged();
-                return this;
-              }
-              @java.lang.Override
-              public final Builder setUnknownFields(
-                  final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFields(unknownFields);
-              }
-
-              @java.lang.Override
-              public final Builder mergeUnknownFields(
-                  final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-              }
-
-
-              // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)
-            }
-
-            // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.Msg.UserInfo)
-            private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo DEFAULT_INSTANCE;
-            static {
-              DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo();
-            }
-
-            public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo getDefaultInstance() {
-              return DEFAULT_INSTANCE;
-            }
-
-            private static final com.google.protobuf.Parser<UserInfo>
-                PARSER = new com.google.protobuf.AbstractParser<UserInfo>() {
-              @java.lang.Override
-              public UserInfo parsePartialFrom(
-                  com.google.protobuf.CodedInputStream input,
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-                return new UserInfo(input, extensionRegistry);
-              }
-            };
-
-            public static com.google.protobuf.Parser<UserInfo> parser() {
-              return PARSER;
-            }
-
-            @java.lang.Override
-            public com.google.protobuf.Parser<UserInfo> getParserForType() {
-              return PARSER;
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.UserInfo getDefaultInstanceForType() {
-              return DEFAULT_INSTANCE;
-            }
-
-          }
-
-          private byte memoizedIsInitialized = -1;
-          @java.lang.Override
-          public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-          }
-
-          @java.lang.Override
-          public void writeTo(com.google.protobuf.CodedOutputStream output)
-                              throws java.io.IOException {
-            unknownFields.writeTo(output);
-          }
-
-          @java.lang.Override
-          public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-          }
-
-          @java.lang.Override
-          public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-             return true;
-            }
-            if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg)) {
-              return super.equals(obj);
-            }
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg) obj;
-
-            if (!unknownFields.equals(other.unknownFields)) return false;
-            return true;
-          }
-
-          @java.lang.Override
-          public int hashCode() {
-            if (memoizedHashCode != 0) {
-              return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-          }
-
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              java.nio.ByteBuffer data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              java.nio.ByteBuffer data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              com.google.protobuf.ByteString data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              com.google.protobuf.ByteString data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(byte[] data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              byte[] data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseDelimitedFrom(java.io.InputStream input)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseDelimitedFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              com.google.protobuf.CodedInputStream input)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-          }
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parseFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-          }
-
-          @java.lang.Override
-          public Builder newBuilderForType() { return newBuilder(); }
-          public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-          }
-          public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-          }
-          @java.lang.Override
-          public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-          }
-
-          @java.lang.Override
-          protected Builder newBuilderForType(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-          }
-          /**
-           * Protobuf type {@code RoomMessage.MessageInfo.MessageBody.Msg}
-           */
-          public static final class Builder extends
-              com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-              // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody.Msg)
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-                getDescriptor() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor;
-            }
-
-            @java.lang.Override
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-                internalGetFieldAccessorTable() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_fieldAccessorTable
-                  .ensureFieldAccessorsInitialized(
-                      com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder.class);
-            }
-
-            // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.newBuilder()
-            private Builder() {
-              maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-              super(parent);
-              maybeForceBuilderInitialization();
-            }
-            private void maybeForceBuilderInitialization() {
-              if (com.google.protobuf.GeneratedMessageV3
-                      .alwaysUseFieldBuilders) {
-              }
-            }
-            @java.lang.Override
-            public Builder clear() {
-              super.clear();
-              return this;
-            }
-
-            @java.lang.Override
-            public com.google.protobuf.Descriptors.Descriptor
-                getDescriptorForType() {
-              return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor;
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg getDefaultInstanceForType() {
-              return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.getDefaultInstance();
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg build() {
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg result = buildPartial();
-              if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-              }
-              return result;
-            }
-
-            @java.lang.Override
-            public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg buildPartial() {
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg(this);
-              onBuilt();
-              return result;
-            }
-
-            @java.lang.Override
-            public Builder clone() {
-              return super.clone();
-            }
-            @java.lang.Override
-            public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-              return super.setField(field, value);
-            }
-            @java.lang.Override
-            public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-              return super.clearField(field);
-            }
-            @java.lang.Override
-            public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-              return super.clearOneof(oneof);
-            }
-            @java.lang.Override
-            public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-              return super.setRepeatedField(field, index, value);
-            }
-            @java.lang.Override
-            public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-              return super.addRepeatedField(field, value);
-            }
-            @java.lang.Override
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-              if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg) {
-                return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg)other);
-              } else {
-                super.mergeFrom(other);
-                return this;
-              }
-            }
-
-            public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg other) {
-              if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.getDefaultInstance()) return this;
-              this.mergeUnknownFields(other.unknownFields);
-              onChanged();
-              return this;
-            }
-
-            @java.lang.Override
-            public final boolean isInitialized() {
-              return true;
-            }
-
-            @java.lang.Override
-            public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg parsedMessage = null;
-              try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-              } finally {
-                if (parsedMessage != null) {
-                  mergeFrom(parsedMessage);
-                }
-              }
-              return this;
-            }
-            @java.lang.Override
-            public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-              return super.setUnknownFields(unknownFields);
-            }
-
-            @java.lang.Override
-            public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-              return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody.Msg)
-          }
-
-          // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody.Msg)
-          private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg DEFAULT_INSTANCE;
-          static {
-            DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg();
-          }
-
-          public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-          }
-
-          private static final com.google.protobuf.Parser<Msg>
-              PARSER = new com.google.protobuf.AbstractParser<Msg>() {
-            @java.lang.Override
-            public Msg parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-              return new Msg(input, extensionRegistry);
-            }
-          };
-
-          public static com.google.protobuf.Parser<Msg> parser() {
-            return PARSER;
-          }
-
-          @java.lang.Override
-          public com.google.protobuf.Parser<Msg> getParserForType() {
-            return PARSER;
-          }
-
-          @java.lang.Override
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-          }
-
-        }
-
-        public static final int TIMEINFO_FIELD_NUMBER = 1;
-        private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo_;
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-         * @return Whether the timeInfo field is set.
-         */
-        @java.lang.Override
-        public boolean hasTimeInfo() {
-          return timeInfo_ != null;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-         * @return The timeInfo.
-         */
-        @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo getTimeInfo() {
-          return timeInfo_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.getDefaultInstance() : timeInfo_;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-         */
-        @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder getTimeInfoOrBuilder() {
-          return getTimeInfo();
-        }
-
-        public static final int MSG_FIELD_NUMBER = 2;
-        private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg msg_;
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-         * @return Whether the msg field is set.
-         */
-        @java.lang.Override
-        public boolean hasMsg() {
-          return msg_ != null;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-         * @return The msg.
-         */
-        @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg getMsg() {
-          return msg_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.getDefaultInstance() : msg_;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-         */
-        @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder getMsgOrBuilder() {
-          return getMsg();
-        }
-
-        private byte memoizedIsInitialized = -1;
-        @java.lang.Override
-        public final boolean isInitialized() {
-          byte isInitialized = memoizedIsInitialized;
-          if (isInitialized == 1) return true;
-          if (isInitialized == 0) return false;
-
-          memoizedIsInitialized = 1;
-          return true;
-        }
-
-        @java.lang.Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                            throws java.io.IOException {
-          if (timeInfo_ != null) {
-            output.writeMessage(1, getTimeInfo());
-          }
-          if (msg_ != null) {
-            output.writeMessage(2, getMsg());
-          }
-          unknownFields.writeTo(output);
-        }
-
-        @java.lang.Override
-        public int getSerializedSize() {
-          int size = memoizedSize;
-          if (size != -1) return size;
-
-          size = 0;
-          if (timeInfo_ != null) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeMessageSize(1, getTimeInfo());
-          }
-          if (msg_ != null) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeMessageSize(2, getMsg());
-          }
-          size += unknownFields.getSerializedSize();
-          memoizedSize = size;
-          return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-          if (obj == this) {
-           return true;
-          }
-          if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody)) {
-            return super.equals(obj);
-          }
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody) obj;
-
-          if (hasTimeInfo() != other.hasTimeInfo()) return false;
-          if (hasTimeInfo()) {
-            if (!getTimeInfo()
-                .equals(other.getTimeInfo())) return false;
-          }
-          if (hasMsg() != other.hasMsg()) return false;
-          if (hasMsg()) {
-            if (!getMsg()
-                .equals(other.getMsg())) return false;
-          }
-          if (!unknownFields.equals(other.unknownFields)) return false;
-          return true;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-          if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-          }
-          int hash = 41;
-          hash = (19 * hash) + getDescriptor().hashCode();
-          if (hasTimeInfo()) {
-            hash = (37 * hash) + TIMEINFO_FIELD_NUMBER;
-            hash = (53 * hash) + getTimeInfo().hashCode();
-          }
-          if (hasMsg()) {
-            hash = (37 * hash) + MSG_FIELD_NUMBER;
-            hash = (53 * hash) + getMsg().hashCode();
-          }
-          hash = (29 * hash) + unknownFields.hashCode();
-          memoizedHashCode = hash;
-          return hash;
-        }
-
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-        }
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        @java.lang.Override
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-          return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody prototype) {
-          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        @java.lang.Override
-        public Builder toBuilder() {
-          return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          Builder builder = new Builder(parent);
-          return builder;
-        }
-        /**
-         * Protobuf type {@code RoomMessage.MessageInfo.MessageBody}
-         */
-        public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo.MessageBody)
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder {
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_descriptor;
-          }
-
-          @java.lang.Override
-          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder.class);
-          }
-
-          // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.newBuilder()
-          private Builder() {
-            maybeForceBuilderInitialization();
-          }
-
-          private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-          }
-          @java.lang.Override
-          public Builder clear() {
-            super.clear();
-            if (timeInfoBuilder_ == null) {
-              timeInfo_ = null;
-            } else {
-              timeInfo_ = null;
-              timeInfoBuilder_ = null;
-            }
-            if (msgBuilder_ == null) {
-              msg_ = null;
-            } else {
-              msg_ = null;
-              msgBuilder_ = null;
-            }
-            return this;
-          }
-
-          @java.lang.Override
-          public com.google.protobuf.Descriptors.Descriptor
-              getDescriptorForType() {
-            return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_MessageBody_descriptor;
-          }
-
-          @java.lang.Override
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody getDefaultInstanceForType() {
-            return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.getDefaultInstance();
-          }
-
-          @java.lang.Override
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody build() {
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody result = buildPartial();
-            if (!result.isInitialized()) {
-              throw newUninitializedMessageException(result);
-            }
-            return result;
-          }
-
-          @java.lang.Override
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody buildPartial() {
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody(this);
-            if (timeInfoBuilder_ == null) {
-              result.timeInfo_ = timeInfo_;
-            } else {
-              result.timeInfo_ = timeInfoBuilder_.build();
-            }
-            if (msgBuilder_ == null) {
-              result.msg_ = msg_;
-            } else {
-              result.msg_ = msgBuilder_.build();
-            }
-            onBuilt();
-            return result;
-          }
-
-          @java.lang.Override
-          public Builder clone() {
-            return super.clone();
-          }
-          @java.lang.Override
-          public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-            return super.setField(field, value);
-          }
-          @java.lang.Override
-          public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return super.clearField(field);
-          }
-          @java.lang.Override
-          public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return super.clearOneof(oneof);
-          }
-          @java.lang.Override
-          public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, java.lang.Object value) {
-            return super.setRepeatedField(field, index, value);
-          }
-          @java.lang.Override
-          public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              java.lang.Object value) {
-            return super.addRepeatedField(field, value);
-          }
-          @java.lang.Override
-          public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody) {
-              return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody)other);
-            } else {
-              super.mergeFrom(other);
-              return this;
-            }
-          }
-
-          public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody other) {
-            if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.getDefaultInstance()) return this;
-            if (other.hasTimeInfo()) {
-              mergeTimeInfo(other.getTimeInfo());
-            }
-            if (other.hasMsg()) {
-              mergeMsg(other.getMsg());
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-          }
-
-          @java.lang.Override
-          public final boolean isInitialized() {
-            return true;
-          }
-
-          @java.lang.Override
-          public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody parsedMessage = null;
-            try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody) e.getUnfinishedMessage();
-              throw e.unwrapIOException();
-            } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
-            return this;
-          }
-
-          private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo_;
-          private com.google.protobuf.SingleFieldBuilderV3<
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder> timeInfoBuilder_;
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           * @return Whether the timeInfo field is set.
-           */
-          public boolean hasTimeInfo() {
-            return timeInfoBuilder_ != null || timeInfo_ != null;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           * @return The timeInfo.
-           */
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo getTimeInfo() {
-            if (timeInfoBuilder_ == null) {
-              return timeInfo_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.getDefaultInstance() : timeInfo_;
-            } else {
-              return timeInfoBuilder_.getMessage();
-            }
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          public Builder setTimeInfo(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo value) {
-            if (timeInfoBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              timeInfo_ = value;
-              onChanged();
-            } else {
-              timeInfoBuilder_.setMessage(value);
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          public Builder setTimeInfo(
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder builderForValue) {
-            if (timeInfoBuilder_ == null) {
-              timeInfo_ = builderForValue.build();
-              onChanged();
-            } else {
-              timeInfoBuilder_.setMessage(builderForValue.build());
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          public Builder mergeTimeInfo(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo value) {
-            if (timeInfoBuilder_ == null) {
-              if (timeInfo_ != null) {
-                timeInfo_ =
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.newBuilder(timeInfo_).mergeFrom(value).buildPartial();
-              } else {
-                timeInfo_ = value;
-              }
-              onChanged();
-            } else {
-              timeInfoBuilder_.mergeFrom(value);
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          public Builder clearTimeInfo() {
-            if (timeInfoBuilder_ == null) {
-              timeInfo_ = null;
-              onChanged();
-            } else {
-              timeInfo_ = null;
-              timeInfoBuilder_ = null;
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder getTimeInfoBuilder() {
-            
-            onChanged();
-            return getTimeInfoFieldBuilder().getBuilder();
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder getTimeInfoOrBuilder() {
-            if (timeInfoBuilder_ != null) {
-              return timeInfoBuilder_.getMessageOrBuilder();
-            } else {
-              return timeInfo_ == null ?
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.getDefaultInstance() : timeInfo_;
-            }
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.TimeInfo timeInfo = 1;</code>
-           */
-          private com.google.protobuf.SingleFieldBuilderV3<
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder> 
-              getTimeInfoFieldBuilder() {
-            if (timeInfoBuilder_ == null) {
-              timeInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.TimeInfoOrBuilder>(
-                      getTimeInfo(),
-                      getParentForChildren(),
-                      isClean());
-              timeInfo_ = null;
-            }
-            return timeInfoBuilder_;
-          }
-
-          private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg msg_;
-          private com.google.protobuf.SingleFieldBuilderV3<
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder> msgBuilder_;
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           * @return Whether the msg field is set.
-           */
-          public boolean hasMsg() {
-            return msgBuilder_ != null || msg_ != null;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           * @return The msg.
-           */
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg getMsg() {
-            if (msgBuilder_ == null) {
-              return msg_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.getDefaultInstance() : msg_;
-            } else {
-              return msgBuilder_.getMessage();
-            }
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          public Builder setMsg(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg value) {
-            if (msgBuilder_ == null) {
-              if (value == null) {
-                throw new NullPointerException();
-              }
-              msg_ = value;
-              onChanged();
-            } else {
-              msgBuilder_.setMessage(value);
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          public Builder setMsg(
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder builderForValue) {
-            if (msgBuilder_ == null) {
-              msg_ = builderForValue.build();
-              onChanged();
-            } else {
-              msgBuilder_.setMessage(builderForValue.build());
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          public Builder mergeMsg(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg value) {
-            if (msgBuilder_ == null) {
-              if (msg_ != null) {
-                msg_ =
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.newBuilder(msg_).mergeFrom(value).buildPartial();
-              } else {
-                msg_ = value;
-              }
-              onChanged();
-            } else {
-              msgBuilder_.mergeFrom(value);
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          public Builder clearMsg() {
-            if (msgBuilder_ == null) {
-              msg_ = null;
-              onChanged();
-            } else {
-              msg_ = null;
-              msgBuilder_ = null;
-            }
-
-            return this;
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder getMsgBuilder() {
-            
-            onChanged();
-            return getMsgFieldBuilder().getBuilder();
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder getMsgOrBuilder() {
-            if (msgBuilder_ != null) {
-              return msgBuilder_.getMessageOrBuilder();
-            } else {
-              return msg_ == null ?
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.getDefaultInstance() : msg_;
-            }
-          }
-          /**
-           * <code>.RoomMessage.MessageInfo.MessageBody.Msg msg = 2;</code>
-           */
-          private com.google.protobuf.SingleFieldBuilderV3<
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder> 
-              getMsgFieldBuilder() {
-            if (msgBuilder_ == null) {
-              msgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Msg.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.MsgOrBuilder>(
-                      getMsg(),
-                      getParentForChildren(),
-                      isClean());
-              msg_ = null;
-            }
-            return msgBuilder_;
-          }
-          @java.lang.Override
-          public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFields(unknownFields);
-          }
-
-          @java.lang.Override
-          public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-          }
-
-
-          // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo.MessageBody)
-        }
-
-        // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo.MessageBody)
-        private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody DEFAULT_INSTANCE;
-        static {
-          DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody();
-        }
-
-        public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody getDefaultInstance() {
-          return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<MessageBody>
-            PARSER = new com.google.protobuf.AbstractParser<MessageBody>() {
-          @java.lang.Override
-          public MessageBody parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return new MessageBody(input, extensionRegistry);
-          }
-        };
-
-        public static com.google.protobuf.Parser<MessageBody> parser() {
-          return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<MessageBody> getParserForType() {
-          return PARSER;
-        }
-
-        @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody getDefaultInstanceForType() {
-          return DEFAULT_INSTANCE;
-        }
-
+                com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder.class);
       }
 
       public static final int MESSAGETYPE_FIELD_NUMBER = 1;
@@ -10225,30 +447,100 @@ public final class RoomMessageSerializer {
         }
       }
 
-      public static final int MESSAGEBODY_FIELD_NUMBER = 2;
-      private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody messageBody_;
+      public static final int MESSAGEINFO_3_FIELD_NUMBER = 3;
+      private long messageInfo3_;
       /**
-       * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-       * @return Whether the messageBody field is set.
+       * <pre>
+       *    message MessageBody{
+       *      message TimeInfo{
+       *        string messageType = 1;
+       *        int64 id1 = 2;
+       *        int64 id2 = 3;
+       *        int64 now_time = 4;
+       *        int32 id3 = 6;
+       *        /&#42;*
+       *        当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
+       *         *&#47;
+       *        string msg = 7;
+       *        message GiftSendMessage{
+       *          string str1 = 1;
+       *          string name = 2;
+       *          message SizeInfo{
+       *            string color = 1;
+       *            int32 bold = 4;
+       *          }
+       *          SizeInfo size = 3;
+       *          message Gift{
+       *            int32 id = 1;
+       *            SizeInfo size = 2;
+       *          }
+       *        }
+       *        int32 timeInfo_11 = 11;
+       *      }
+       *      TimeInfo timeInfo = 1;
+       *      message UserInfo{
+       *        int64 str1 = 1;
+       *        //          用户id，短数字类型
+       *        int64 id = 2;
+       *        string name = 3;
+       *        int32 gender = 4;
+       *        message CoverInfo{
+       *          repeated string url_list = 1;
+       *          string uri = 2;
+       *          int32 height = 3;
+       *          int32 width = 4;
+       *          string avg_color = 5;
+       *          int32 image_type = 6;
+       *          message ColorInfo{
+       *            string text = 1;
+       *            string color = 2;
+       *            int32 type = 3;
+       *          }
+       *          ColorInfo colorInfo = 8;
+       *        }
+       *        CoverInfo headimg = 9;
+       *        message U_Obj22{
+       *          int32 o1 = 1;
+       *          int32 o2 = 2;
+       *          int32 o3 = 3;
+       *        }
+       *        U_Obj22 u_obj = 22;
+       *        message U_Obj23{
+       *          string str19 = 19;
+       *          string str20 = 20;
+       *        }
+       *        U_Obj23 u_obj23 = 23;
+       *        string id_str = 38;
+       *        //          加密的用户id，访问其它接口时的必备参数
+       *        string sec_uid = 46;
+       *        int32 authorization_info = 54;
+       *      }
+       *      UserInfo user_2=2;
+       *      string msg_3=3;
+       *      MessageBody_Obj_18 messageBody_9=9;
+       * //      int32 messageBody_13 = 13;
+       * //      message MessageBody_Obj_14{
+       * //        string str_1 = 1;
+       * //        int32 int_2 = 2;
+       * //        int32 int_3 = 3;
+       * //      }
+       * //      MessageBody_Obj_14 messageBody_14 = 14;
+       * //      int32 messageBody_17 = 17;
+       *      message MessageBody_Obj_18{
+       *        UserInfo.CoverInfo coverinfo_1 = 1;
+       *      }
+       * //      MessageBody_Obj_18 messageBody_18 = 18;
+       * //      string messageBody_19 = 19;
+       *    }
+       *    MessageBody messageBody = 2;
+       * </pre>
+       *
+       * <code>int64 messageInfo_3 = 3;</code>
+       * @return The messageInfo3.
        */
       @java.lang.Override
-      public boolean hasMessageBody() {
-        return messageBody_ != null;
-      }
-      /**
-       * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-       * @return The messageBody.
-       */
-      @java.lang.Override
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody getMessageBody() {
-        return messageBody_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.getDefaultInstance() : messageBody_;
-      }
-      /**
-       * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-       */
-      @java.lang.Override
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder getMessageBodyOrBuilder() {
-        return getMessageBody();
+      public long getMessageInfo3() {
+        return messageInfo3_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -10268,8 +560,8 @@ public final class RoomMessageSerializer {
         if (!getMessageTypeBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageType_);
         }
-        if (messageBody_ != null) {
-          output.writeMessage(2, getMessageBody());
+        if (messageInfo3_ != 0L) {
+          output.writeInt64(3, messageInfo3_);
         }
         unknownFields.writeTo(output);
       }
@@ -10283,9 +575,9 @@ public final class RoomMessageSerializer {
         if (!getMessageTypeBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageType_);
         }
-        if (messageBody_ != null) {
+        if (messageInfo3_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, getMessageBody());
+            .computeInt64Size(3, messageInfo3_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -10297,18 +589,15 @@ public final class RoomMessageSerializer {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo)) {
+        if (!(obj instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1)) {
           return super.equals(obj);
         }
-        com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo) obj;
+        com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 other = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1) obj;
 
         if (!getMessageType()
             .equals(other.getMessageType())) return false;
-        if (hasMessageBody() != other.hasMessageBody()) return false;
-        if (hasMessageBody()) {
-          if (!getMessageBody()
-              .equals(other.getMessageBody())) return false;
-        }
+        if (getMessageInfo3()
+            != other.getMessageInfo3()) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -10322,78 +611,77 @@ public final class RoomMessageSerializer {
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
         hash = (53 * hash) + getMessageType().hashCode();
-        if (hasMessageBody()) {
-          hash = (37 * hash) + MESSAGEBODY_FIELD_NUMBER;
-          hash = (53 * hash) + getMessageBody().hashCode();
-        }
+        hash = (37 * hash) + MESSAGEINFO_3_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMessageInfo3());
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
 
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(byte[] data)
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(java.io.InputStream input)
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseDelimitedFrom(java.io.InputStream input)
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseDelimitedFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parseFrom(
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -10406,7 +694,7 @@ public final class RoomMessageSerializer {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo prototype) {
+      public static Builder newBuilder(com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -10422,26 +710,26 @@ public final class RoomMessageSerializer {
         return builder;
       }
       /**
-       * Protobuf type {@code RoomMessage.MessageInfo}
+       * Protobuf type {@code com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:RoomMessage.MessageInfo)
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1)
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_descriptor;
+          return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_fieldAccessorTable
+          return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder.class);
+                  com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder.class);
         }
 
-        // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.newBuilder()
+        // Construct using com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -10461,29 +749,25 @@ public final class RoomMessageSerializer {
           super.clear();
           messageType_ = "";
 
-          if (messageBodyBuilder_ == null) {
-            messageBody_ = null;
-          } else {
-            messageBody_ = null;
-            messageBodyBuilder_ = null;
-          }
+          messageInfo3_ = 0L;
+
           return this;
         }
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_MessageInfo_descriptor;
+          return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_descriptor;
         }
 
         @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo getDefaultInstanceForType() {
-          return com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.getDefaultInstance();
+        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 getDefaultInstanceForType() {
+          return com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.getDefaultInstance();
         }
 
         @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo build() {
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo result = buildPartial();
+        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 build() {
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -10491,14 +775,10 @@ public final class RoomMessageSerializer {
         }
 
         @java.lang.Override
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo buildPartial() {
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo(this);
+        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 buildPartial() {
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 result = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1(this);
           result.messageType_ = messageType_;
-          if (messageBodyBuilder_ == null) {
-            result.messageBody_ = messageBody_;
-          } else {
-            result.messageBody_ = messageBodyBuilder_.build();
-          }
+          result.messageInfo3_ = messageInfo3_;
           onBuilt();
           return result;
         }
@@ -10537,22 +817,22 @@ public final class RoomMessageSerializer {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo) {
-            return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo)other);
+          if (other instanceof com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1) {
+            return mergeFrom((com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo other) {
-          if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 other) {
+          if (other == com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.getDefaultInstance()) return this;
           if (!other.getMessageType().isEmpty()) {
             messageType_ = other.messageType_;
             onChanged();
           }
-          if (other.hasMessageBody()) {
-            mergeMessageBody(other.getMessageBody());
+          if (other.getMessageInfo3() != 0L) {
+            setMessageInfo3(other.getMessageInfo3());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -10569,11 +849,11 @@ public final class RoomMessageSerializer {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo parsedMessage = null;
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo) e.getUnfinishedMessage();
+            parsedMessage = (com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -10684,123 +964,290 @@ public final class RoomMessageSerializer {
           return this;
         }
 
-        private com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody messageBody_;
-        private com.google.protobuf.SingleFieldBuilderV3<
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder> messageBodyBuilder_;
+        private long messageInfo3_ ;
         /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         * @return Whether the messageBody field is set.
+         * <pre>
+         *    message MessageBody{
+         *      message TimeInfo{
+         *        string messageType = 1;
+         *        int64 id1 = 2;
+         *        int64 id2 = 3;
+         *        int64 now_time = 4;
+         *        int32 id3 = 6;
+         *        /&#42;*
+         *        当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
+         *         *&#47;
+         *        string msg = 7;
+         *        message GiftSendMessage{
+         *          string str1 = 1;
+         *          string name = 2;
+         *          message SizeInfo{
+         *            string color = 1;
+         *            int32 bold = 4;
+         *          }
+         *          SizeInfo size = 3;
+         *          message Gift{
+         *            int32 id = 1;
+         *            SizeInfo size = 2;
+         *          }
+         *        }
+         *        int32 timeInfo_11 = 11;
+         *      }
+         *      TimeInfo timeInfo = 1;
+         *      message UserInfo{
+         *        int64 str1 = 1;
+         *        //          用户id，短数字类型
+         *        int64 id = 2;
+         *        string name = 3;
+         *        int32 gender = 4;
+         *        message CoverInfo{
+         *          repeated string url_list = 1;
+         *          string uri = 2;
+         *          int32 height = 3;
+         *          int32 width = 4;
+         *          string avg_color = 5;
+         *          int32 image_type = 6;
+         *          message ColorInfo{
+         *            string text = 1;
+         *            string color = 2;
+         *            int32 type = 3;
+         *          }
+         *          ColorInfo colorInfo = 8;
+         *        }
+         *        CoverInfo headimg = 9;
+         *        message U_Obj22{
+         *          int32 o1 = 1;
+         *          int32 o2 = 2;
+         *          int32 o3 = 3;
+         *        }
+         *        U_Obj22 u_obj = 22;
+         *        message U_Obj23{
+         *          string str19 = 19;
+         *          string str20 = 20;
+         *        }
+         *        U_Obj23 u_obj23 = 23;
+         *        string id_str = 38;
+         *        //          加密的用户id，访问其它接口时的必备参数
+         *        string sec_uid = 46;
+         *        int32 authorization_info = 54;
+         *      }
+         *      UserInfo user_2=2;
+         *      string msg_3=3;
+         *      MessageBody_Obj_18 messageBody_9=9;
+         * //      int32 messageBody_13 = 13;
+         * //      message MessageBody_Obj_14{
+         * //        string str_1 = 1;
+         * //        int32 int_2 = 2;
+         * //        int32 int_3 = 3;
+         * //      }
+         * //      MessageBody_Obj_14 messageBody_14 = 14;
+         * //      int32 messageBody_17 = 17;
+         *      message MessageBody_Obj_18{
+         *        UserInfo.CoverInfo coverinfo_1 = 1;
+         *      }
+         * //      MessageBody_Obj_18 messageBody_18 = 18;
+         * //      string messageBody_19 = 19;
+         *    }
+         *    MessageBody messageBody = 2;
+         * </pre>
+         *
+         * <code>int64 messageInfo_3 = 3;</code>
+         * @return The messageInfo3.
          */
-        public boolean hasMessageBody() {
-          return messageBodyBuilder_ != null || messageBody_ != null;
+        @java.lang.Override
+        public long getMessageInfo3() {
+          return messageInfo3_;
         }
         /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         * @return The messageBody.
+         * <pre>
+         *    message MessageBody{
+         *      message TimeInfo{
+         *        string messageType = 1;
+         *        int64 id1 = 2;
+         *        int64 id2 = 3;
+         *        int64 now_time = 4;
+         *        int32 id3 = 6;
+         *        /&#42;*
+         *        当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
+         *         *&#47;
+         *        string msg = 7;
+         *        message GiftSendMessage{
+         *          string str1 = 1;
+         *          string name = 2;
+         *          message SizeInfo{
+         *            string color = 1;
+         *            int32 bold = 4;
+         *          }
+         *          SizeInfo size = 3;
+         *          message Gift{
+         *            int32 id = 1;
+         *            SizeInfo size = 2;
+         *          }
+         *        }
+         *        int32 timeInfo_11 = 11;
+         *      }
+         *      TimeInfo timeInfo = 1;
+         *      message UserInfo{
+         *        int64 str1 = 1;
+         *        //          用户id，短数字类型
+         *        int64 id = 2;
+         *        string name = 3;
+         *        int32 gender = 4;
+         *        message CoverInfo{
+         *          repeated string url_list = 1;
+         *          string uri = 2;
+         *          int32 height = 3;
+         *          int32 width = 4;
+         *          string avg_color = 5;
+         *          int32 image_type = 6;
+         *          message ColorInfo{
+         *            string text = 1;
+         *            string color = 2;
+         *            int32 type = 3;
+         *          }
+         *          ColorInfo colorInfo = 8;
+         *        }
+         *        CoverInfo headimg = 9;
+         *        message U_Obj22{
+         *          int32 o1 = 1;
+         *          int32 o2 = 2;
+         *          int32 o3 = 3;
+         *        }
+         *        U_Obj22 u_obj = 22;
+         *        message U_Obj23{
+         *          string str19 = 19;
+         *          string str20 = 20;
+         *        }
+         *        U_Obj23 u_obj23 = 23;
+         *        string id_str = 38;
+         *        //          加密的用户id，访问其它接口时的必备参数
+         *        string sec_uid = 46;
+         *        int32 authorization_info = 54;
+         *      }
+         *      UserInfo user_2=2;
+         *      string msg_3=3;
+         *      MessageBody_Obj_18 messageBody_9=9;
+         * //      int32 messageBody_13 = 13;
+         * //      message MessageBody_Obj_14{
+         * //        string str_1 = 1;
+         * //        int32 int_2 = 2;
+         * //        int32 int_3 = 3;
+         * //      }
+         * //      MessageBody_Obj_14 messageBody_14 = 14;
+         * //      int32 messageBody_17 = 17;
+         *      message MessageBody_Obj_18{
+         *        UserInfo.CoverInfo coverinfo_1 = 1;
+         *      }
+         * //      MessageBody_Obj_18 messageBody_18 = 18;
+         * //      string messageBody_19 = 19;
+         *    }
+         *    MessageBody messageBody = 2;
+         * </pre>
+         *
+         * <code>int64 messageInfo_3 = 3;</code>
+         * @param value The messageInfo3 to set.
+         * @return This builder for chaining.
          */
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody getMessageBody() {
-          if (messageBodyBuilder_ == null) {
-            return messageBody_ == null ? com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.getDefaultInstance() : messageBody_;
-          } else {
-            return messageBodyBuilder_.getMessage();
-          }
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         */
-        public Builder setMessageBody(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody value) {
-          if (messageBodyBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            messageBody_ = value;
-            onChanged();
-          } else {
-            messageBodyBuilder_.setMessage(value);
-          }
-
-          return this;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         */
-        public Builder setMessageBody(
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder builderForValue) {
-          if (messageBodyBuilder_ == null) {
-            messageBody_ = builderForValue.build();
-            onChanged();
-          } else {
-            messageBodyBuilder_.setMessage(builderForValue.build());
-          }
-
-          return this;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         */
-        public Builder mergeMessageBody(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody value) {
-          if (messageBodyBuilder_ == null) {
-            if (messageBody_ != null) {
-              messageBody_ =
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.newBuilder(messageBody_).mergeFrom(value).buildPartial();
-            } else {
-              messageBody_ = value;
-            }
-            onChanged();
-          } else {
-            messageBodyBuilder_.mergeFrom(value);
-          }
-
-          return this;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         */
-        public Builder clearMessageBody() {
-          if (messageBodyBuilder_ == null) {
-            messageBody_ = null;
-            onChanged();
-          } else {
-            messageBody_ = null;
-            messageBodyBuilder_ = null;
-          }
-
-          return this;
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         */
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder getMessageBodyBuilder() {
+        public Builder setMessageInfo3(long value) {
           
+          messageInfo3_ = value;
           onChanged();
-          return getMessageBodyFieldBuilder().getBuilder();
+          return this;
         }
         /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
+         * <pre>
+         *    message MessageBody{
+         *      message TimeInfo{
+         *        string messageType = 1;
+         *        int64 id1 = 2;
+         *        int64 id2 = 3;
+         *        int64 now_time = 4;
+         *        int32 id3 = 6;
+         *        /&#42;*
+         *        当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
+         *         *&#47;
+         *        string msg = 7;
+         *        message GiftSendMessage{
+         *          string str1 = 1;
+         *          string name = 2;
+         *          message SizeInfo{
+         *            string color = 1;
+         *            int32 bold = 4;
+         *          }
+         *          SizeInfo size = 3;
+         *          message Gift{
+         *            int32 id = 1;
+         *            SizeInfo size = 2;
+         *          }
+         *        }
+         *        int32 timeInfo_11 = 11;
+         *      }
+         *      TimeInfo timeInfo = 1;
+         *      message UserInfo{
+         *        int64 str1 = 1;
+         *        //          用户id，短数字类型
+         *        int64 id = 2;
+         *        string name = 3;
+         *        int32 gender = 4;
+         *        message CoverInfo{
+         *          repeated string url_list = 1;
+         *          string uri = 2;
+         *          int32 height = 3;
+         *          int32 width = 4;
+         *          string avg_color = 5;
+         *          int32 image_type = 6;
+         *          message ColorInfo{
+         *            string text = 1;
+         *            string color = 2;
+         *            int32 type = 3;
+         *          }
+         *          ColorInfo colorInfo = 8;
+         *        }
+         *        CoverInfo headimg = 9;
+         *        message U_Obj22{
+         *          int32 o1 = 1;
+         *          int32 o2 = 2;
+         *          int32 o3 = 3;
+         *        }
+         *        U_Obj22 u_obj = 22;
+         *        message U_Obj23{
+         *          string str19 = 19;
+         *          string str20 = 20;
+         *        }
+         *        U_Obj23 u_obj23 = 23;
+         *        string id_str = 38;
+         *        //          加密的用户id，访问其它接口时的必备参数
+         *        string sec_uid = 46;
+         *        int32 authorization_info = 54;
+         *      }
+         *      UserInfo user_2=2;
+         *      string msg_3=3;
+         *      MessageBody_Obj_18 messageBody_9=9;
+         * //      int32 messageBody_13 = 13;
+         * //      message MessageBody_Obj_14{
+         * //        string str_1 = 1;
+         * //        int32 int_2 = 2;
+         * //        int32 int_3 = 3;
+         * //      }
+         * //      MessageBody_Obj_14 messageBody_14 = 14;
+         * //      int32 messageBody_17 = 17;
+         *      message MessageBody_Obj_18{
+         *        UserInfo.CoverInfo coverinfo_1 = 1;
+         *      }
+         * //      MessageBody_Obj_18 messageBody_18 = 18;
+         * //      string messageBody_19 = 19;
+         *    }
+         *    MessageBody messageBody = 2;
+         * </pre>
+         *
+         * <code>int64 messageInfo_3 = 3;</code>
+         * @return This builder for chaining.
          */
-        public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder getMessageBodyOrBuilder() {
-          if (messageBodyBuilder_ != null) {
-            return messageBodyBuilder_.getMessageOrBuilder();
-          } else {
-            return messageBody_ == null ?
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.getDefaultInstance() : messageBody_;
-          }
-        }
-        /**
-         * <code>.RoomMessage.MessageInfo.MessageBody messageBody = 2;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilderV3<
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder> 
-            getMessageBodyFieldBuilder() {
-          if (messageBodyBuilder_ == null) {
-            messageBodyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBody.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.MessageBodyOrBuilder>(
-                    getMessageBody(),
-                    getParentForChildren(),
-                    isClean());
-            messageBody_ = null;
-          }
-          return messageBodyBuilder_;
+        public Builder clearMessageInfo3() {
+          
+          messageInfo3_ = 0L;
+          onChanged();
+          return this;
         }
         @java.lang.Override
         public final Builder setUnknownFields(
@@ -10815,82 +1262,82 @@ public final class RoomMessageSerializer {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:RoomMessage.MessageInfo)
+        // @@protoc_insertion_point(builder_scope:com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1)
       }
 
-      // @@protoc_insertion_point(class_scope:RoomMessage.MessageInfo)
-      private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1)
+      private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo();
+        DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1();
       }
 
-      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo getDefaultInstance() {
+      public static com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
-      private static final com.google.protobuf.Parser<MessageInfo>
-          PARSER = new com.google.protobuf.AbstractParser<MessageInfo>() {
+      private static final com.google.protobuf.Parser<RoomMessage_Obj1>
+          PARSER = new com.google.protobuf.AbstractParser<RoomMessage_Obj1>() {
         @java.lang.Override
-        public MessageInfo parsePartialFrom(
+        public RoomMessage_Obj1 parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MessageInfo(input, extensionRegistry);
+          return new RoomMessage_Obj1(input, extensionRegistry);
         }
       };
 
-      public static com.google.protobuf.Parser<MessageInfo> parser() {
+      public static com.google.protobuf.Parser<RoomMessage_Obj1> parser() {
         return PARSER;
       }
 
       @java.lang.Override
-      public com.google.protobuf.Parser<MessageInfo> getParserForType() {
+      public com.google.protobuf.Parser<RoomMessage_Obj1> getParserForType() {
         return PARSER;
       }
 
       @java.lang.Override
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo getDefaultInstanceForType() {
+      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public static final int BODY_FIELD_NUMBER = 1;
-    private java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo> body_;
+    private java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1> body_;
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo> getBodyList() {
+    public java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1> getBodyList() {
       return body_;
     }
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder> 
+    public java.util.List<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder> 
         getBodyOrBuilderList() {
       return body_;
     }
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
     @java.lang.Override
     public int getBodyCount() {
       return body_.size();
     }
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
     @java.lang.Override
-    public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo getBody(int index) {
+    public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 getBody(int index) {
       return body_.get(index);
     }
     /**
-     * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+     * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
      */
     @java.lang.Override
-    public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder getBodyOrBuilder(
+    public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder getBodyOrBuilder(
         int index) {
       return body_.get(index);
     }
@@ -11195,21 +1642,21 @@ public final class RoomMessageSerializer {
       return builder;
     }
     /**
-     * Protobuf type {@code RoomMessage}
+     * Protobuf type {@code com.douyin.webcast.proto.RoomMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RoomMessage)
+        // @@protoc_insertion_point(builder_implements:com.douyin.webcast.proto.RoomMessage)
         com.douyin.webcast.RoomMessageSerializer.RoomMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_descriptor;
+        return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_fieldAccessorTable
+        return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.douyin.webcast.RoomMessageSerializer.RoomMessage.class, com.douyin.webcast.RoomMessageSerializer.RoomMessage.Builder.class);
       }
@@ -11253,7 +1700,7 @@ public final class RoomMessageSerializer {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.douyin.webcast.RoomMessageSerializer.internal_static_RoomMessage_descriptor;
+        return com.douyin.webcast.RoomMessageSerializer.internal_static_com_douyin_webcast_proto_RoomMessage_descriptor;
       }
 
       @java.lang.Override
@@ -11405,22 +1852,22 @@ public final class RoomMessageSerializer {
       }
       private int bitField0_;
 
-      private java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo> body_ =
+      private java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1> body_ =
         java.util.Collections.emptyList();
       private void ensureBodyIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          body_ = new java.util.ArrayList<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo>(body_);
+          body_ = new java.util.ArrayList<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1>(body_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder> bodyBuilder_;
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder> bodyBuilder_;
 
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo> getBodyList() {
+      public java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1> getBodyList() {
         if (bodyBuilder_ == null) {
           return java.util.Collections.unmodifiableList(body_);
         } else {
@@ -11428,7 +1875,7 @@ public final class RoomMessageSerializer {
         }
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public int getBodyCount() {
         if (bodyBuilder_ == null) {
@@ -11438,9 +1885,9 @@ public final class RoomMessageSerializer {
         }
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo getBody(int index) {
+      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 getBody(int index) {
         if (bodyBuilder_ == null) {
           return body_.get(index);
         } else {
@@ -11448,10 +1895,10 @@ public final class RoomMessageSerializer {
         }
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder setBody(
-          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo value) {
+          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 value) {
         if (bodyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11465,10 +1912,10 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder setBody(
-          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder builderForValue) {
+          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder builderForValue) {
         if (bodyBuilder_ == null) {
           ensureBodyIsMutable();
           body_.set(index, builderForValue.build());
@@ -11479,9 +1926,9 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public Builder addBody(com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo value) {
+      public Builder addBody(com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 value) {
         if (bodyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11495,10 +1942,10 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder addBody(
-          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo value) {
+          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 value) {
         if (bodyBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -11512,10 +1959,10 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder addBody(
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder builderForValue) {
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder builderForValue) {
         if (bodyBuilder_ == null) {
           ensureBodyIsMutable();
           body_.add(builderForValue.build());
@@ -11526,10 +1973,10 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder addBody(
-          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder builderForValue) {
+          int index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder builderForValue) {
         if (bodyBuilder_ == null) {
           ensureBodyIsMutable();
           body_.add(index, builderForValue.build());
@@ -11540,10 +1987,10 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder addAllBody(
-          java.lang.Iterable<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo> values) {
+          java.lang.Iterable<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1> values) {
         if (bodyBuilder_ == null) {
           ensureBodyIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -11555,7 +2002,7 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder clearBody() {
         if (bodyBuilder_ == null) {
@@ -11568,7 +2015,7 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
       public Builder removeBody(int index) {
         if (bodyBuilder_ == null) {
@@ -11581,16 +2028,16 @@ public final class RoomMessageSerializer {
         return this;
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder getBodyBuilder(
+      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder getBodyBuilder(
           int index) {
         return getBodyFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder getBodyOrBuilder(
+      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder getBodyOrBuilder(
           int index) {
         if (bodyBuilder_ == null) {
           return body_.get(index);  } else {
@@ -11598,9 +2045,9 @@ public final class RoomMessageSerializer {
         }
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public java.util.List<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder> 
+      public java.util.List<? extends com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder> 
            getBodyOrBuilderList() {
         if (bodyBuilder_ != null) {
           return bodyBuilder_.getMessageOrBuilderList();
@@ -11609,33 +2056,33 @@ public final class RoomMessageSerializer {
         }
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder addBodyBuilder() {
+      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder addBodyBuilder() {
         return getBodyFieldBuilder().addBuilder(
-            com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.getDefaultInstance());
+            com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder addBodyBuilder(
+      public com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder addBodyBuilder(
           int index) {
         return getBodyFieldBuilder().addBuilder(
-            index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.getDefaultInstance());
+            index, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomMessage.MessageInfo body = 1;</code>
+       * <code>repeated .com.douyin.webcast.proto.RoomMessage.RoomMessage_Obj1 body = 1;</code>
        */
-      public java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder> 
+      public java.util.List<com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder> 
            getBodyBuilderList() {
         return getBodyFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder> 
+          com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder> 
           getBodyFieldBuilder() {
         if (bodyBuilder_ == null) {
           bodyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfo.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.MessageInfoOrBuilder>(
+              com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1.Builder, com.douyin.webcast.RoomMessageSerializer.RoomMessage.RoomMessage_Obj1OrBuilder>(
                   body_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -11871,10 +2318,10 @@ public final class RoomMessageSerializer {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RoomMessage)
+      // @@protoc_insertion_point(builder_scope:com.douyin.webcast.proto.RoomMessage)
     }
 
-    // @@protoc_insertion_point(class_scope:RoomMessage)
+    // @@protoc_insertion_point(class_scope:com.douyin.webcast.proto.RoomMessage)
     private static final com.douyin.webcast.RoomMessageSerializer.RoomMessage DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.douyin.webcast.RoomMessageSerializer.RoomMessage();
@@ -11912,70 +2359,15 @@ public final class RoomMessageSerializer {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_descriptor;
+    internal_static_com_douyin_webcast_proto_RoomMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_fieldAccessorTable;
+      internal_static_com_douyin_webcast_proto_RoomMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_descriptor;
+    internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_fieldAccessorTable;
+      internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11985,128 +2377,31 @@ public final class RoomMessageSerializer {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021RoomMessage.proto\"\261\013\n\013RoomMessage\022&\n\004b" +
-      "ody\030\001 \003(\0132\030.RoomMessage.MessageInfo\022\016\n\006c" +
-      "ursor\030\002 \001(\t\022\014\n\004time\030\003 \001(\003\022\022\n\nfetch_time\030" +
-      "\004 \001(\003\022\024\n\014internal_ext\030\005 \001(\t\032\261\n\n\013MessageI" +
-      "nfo\022\023\n\013messageType\030\001 \001(\t\0229\n\013messageBody\030" +
-      "\002 \001(\0132$.RoomMessage.MessageInfo.MessageB" +
-      "ody\032\321\t\n\013MessageBody\022?\n\010timeInfo\030\001 \001(\0132-." +
-      "RoomMessage.MessageInfo.MessageBody.Time" +
-      "Info\0225\n\003msg\030\002 \001(\0132(.RoomMessage.MessageI" +
-      "nfo.MessageBody.Msg\032\376\002\n\010TimeInfo\022\023\n\013mess" +
-      "ageType\030\001 \001(\t\022\013\n\003id1\030\002 \001(\003\022\013\n\003id2\030\003 \001(\003\022" +
-      "\020\n\010now_time\030\004 \001(\003\022\013\n\003id3\030\006 \001(\005\022\013\n\003msg\030\007 " +
-      "\001(\t\032\226\002\n\017GiftSendMessage\022\014\n\004str1\030\001 \001(\t\022\014\n" +
-      "\004name\030\002 \001(\t\022T\n\004size\030\003 \001(\0132F.RoomMessage." +
-      "MessageInfo.MessageBody.TimeInfo.GiftSen" +
-      "dMessage.SizeInfo\032\'\n\010SizeInfo\022\r\n\005color\030\001" +
-      " \001(\t\022\014\n\004bold\030\004 \001(\005\032h\n\004Gift\022\n\n\002id\030\001 \001(\005\022T" +
-      "\n\004size\030\002 \001(\0132F.RoomMessage.MessageInfo.M" +
-      "essageBody.TimeInfo.GiftSendMessage.Size" +
-      "Info\032\310\005\n\003Msg\032\300\005\n\010UserInfo\022\014\n\004str1\030\001 \001(\003\022" +
-      "\n\n\002id\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\016\n\006gender\030\004 \001(" +
-      "\005\022L\n\007headimg\030\t \001(\0132;.RoomMessage.Message" +
-      "Info.MessageBody.Msg.UserInfo.CoverInfo\022" +
-      "H\n\005u_obj\030\026 \001(\01329.RoomMessage.MessageInfo" +
-      ".MessageBody.Msg.UserInfo.U_Obj22\022J\n\007u_o" +
-      "bj23\030\027 \001(\01329.RoomMessage.MessageInfo.Mes" +
-      "sageBody.Msg.UserInfo.U_Obj23\022\016\n\006id_str\030" +
-      "& \001(\t\022\017\n\007sec_uid\030. \001(\t\022\032\n\022authorization_" +
-      "info\0306 \001(\005\032\202\002\n\tCoverInfo\022\020\n\010url_list\030\001 \003" +
-      "(\t\022\013\n\003uri\030\002 \001(\t\022\016\n\006height\030\003 \001(\005\022\r\n\005width" +
-      "\030\004 \001(\005\022\021\n\tavg_color\030\005 \001(\t\022\022\n\nimage_type\030" +
-      "\006 \001(\005\022X\n\tcolorInfo\030\010 \001(\0132E.RoomMessage.M" +
-      "essageInfo.MessageBody.Msg.UserInfo.Cove" +
-      "rInfo.ColorInfo\0326\n\tColorInfo\022\014\n\004text\030\001 \001" +
-      "(\t\022\r\n\005color\030\002 \001(\t\022\014\n\004type\030\003 \001(\005\032-\n\007U_Obj" +
-      "22\022\n\n\002o1\030\001 \001(\005\022\n\n\002o2\030\002 \001(\005\022\n\n\002o3\030\003 \001(\005\032\'" +
-      "\n\007U_Obj23\022\r\n\005str19\030\023 \001(\t\022\r\n\005str20\030\024 \001(\tB" +
-      "+\n\022com.douyin.webcastB\025RoomMessageSerial" +
-      "izerb\006proto3"
+      "\n\021RoomMessage.proto\022\030com.douyin.webcast." +
+      "proto\"\333\001\n\013RoomMessage\022D\n\004body\030\001 \003(\01326.co" +
+      "m.douyin.webcast.proto.RoomMessage.RoomM" +
+      "essage_Obj1\022\016\n\006cursor\030\002 \001(\t\022\014\n\004time\030\003 \001(" +
+      "\003\022\022\n\nfetch_time\030\004 \001(\003\022\024\n\014internal_ext\030\005 " +
+      "\001(\t\032>\n\020RoomMessage_Obj1\022\023\n\013messageType\030\001" +
+      " \001(\t\022\025\n\rmessageInfo_3\030\003 \001(\003B+\n\022com.douyi" +
+      "n.webcastB\025RoomMessageSerializerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_RoomMessage_descriptor =
+    internal_static_com_douyin_webcast_proto_RoomMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_RoomMessage_fieldAccessorTable = new
+    internal_static_com_douyin_webcast_proto_RoomMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_descriptor,
+        internal_static_com_douyin_webcast_proto_RoomMessage_descriptor,
         new java.lang.String[] { "Body", "Cursor", "Time", "FetchTime", "InternalExt", });
-    internal_static_RoomMessage_MessageInfo_descriptor =
-      internal_static_RoomMessage_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_fieldAccessorTable = new
+    internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_descriptor =
+      internal_static_com_douyin_webcast_proto_RoomMessage_descriptor.getNestedTypes().get(0);
+    internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_descriptor,
-        new java.lang.String[] { "MessageType", "MessageBody", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_descriptor =
-      internal_static_RoomMessage_MessageInfo_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_descriptor,
-        new java.lang.String[] { "TimeInfo", "Msg", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor,
-        new java.lang.String[] { "MessageType", "Id1", "Id2", "NowTime", "Id3", "Msg", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor,
-        new java.lang.String[] { "Str1", "Name", "Size", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_SizeInfo_descriptor,
-        new java.lang.String[] { "Color", "Bold", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_descriptor.getNestedTypes().get(1);
-    internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_TimeInfo_GiftSendMessage_Gift_descriptor,
-        new java.lang.String[] { "Id", "Size", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_descriptor.getNestedTypes().get(1);
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor,
-        new java.lang.String[] { });
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor,
-        new java.lang.String[] { "Str1", "Id", "Name", "Gender", "Headimg", "UObj", "UObj23", "IdStr", "SecUid", "AuthorizationInfo", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor,
-        new java.lang.String[] { "UrlList", "Uri", "Height", "Width", "AvgColor", "ImageType", "ColorInfo", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_descriptor.getNestedTypes().get(0);
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_CoverInfo_ColorInfo_descriptor,
-        new java.lang.String[] { "Text", "Color", "Type", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor.getNestedTypes().get(1);
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj22_descriptor,
-        new java.lang.String[] { "O1", "O2", "O3", });
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_descriptor =
-      internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_descriptor.getNestedTypes().get(2);
-    internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomMessage_MessageInfo_MessageBody_Msg_UserInfo_U_Obj23_descriptor,
-        new java.lang.String[] { "Str19", "Str20", });
+        internal_static_com_douyin_webcast_proto_RoomMessage_RoomMessage_Obj1_descriptor,
+        new java.lang.String[] { "MessageType", "MessageInfo3", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

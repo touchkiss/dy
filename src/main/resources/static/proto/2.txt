@@ -1,0 +1,99 @@
+1 {
+  1: "WebcastChatMessage"
+  2 {
+    1 {
+      1: "WebcastChatMessage"
+      2: 6874119955924798221
+      3: 6874074575916698371
+      6: 1
+      11: 31000
+    }
+    2 {
+      1: 60736328231
+      2: 1157627520
+      3: "@\347\216\262\345\247\220"
+      9 {
+        1: "https://p9-dy.byteimg.com/aweme/100x100/2f9650002d5651b022956.jpeg?from=4010531038"
+        1: "https://p26-dy.byteimg.com/aweme/100x100/2f9650002d5651b022956.jpeg?from=4010531038"
+        1: "https://p29-dy.byteimg.com/aweme/100x100/2f9650002d5651b022956.jpeg?from=4010531038"
+        2: "100x100/2f9650002d5651b022956"
+      }
+      21 {
+        1: "http://p1-webcast-dycdn.byteimg.com/img/webcast/aweme_honor_level_icon_new_4.png~tplv-obj.image"
+        1: "http://p3-webcast-dycdn.byteimg.com/img/webcast/aweme_honor_level_icon_new_4.png~tplv-obj.image"
+        2: "webcast/aweme_honor_level_icon_new_4.png"
+        3: 16
+        4: 32
+        6: 1
+      }
+      21 {
+        1: "http://p6-webcast-dycdn.byteimg.com/img/webcast/ranklist_fansclub_badge_TOP4_3.png~tplv-obj.image"
+        1: "http://p1-webcast-dycdn.byteimg.com/img/webcast/ranklist_fansclub_badge_TOP4_3.png~tplv-obj.image"
+        2: "webcast/ranklist_fansclub_badge_TOP4_3.png"
+        6: 7
+        8 {
+          1: "\345\250\230\345\256\266\344\272\272"
+          2: "#FFFFFF"
+          3: 3
+        }
+      }
+      22 {
+        1: 464
+        2: 184
+        3: 1
+      }
+      23 {
+        6: 4
+        19 {
+          1: "http://p1-webcast-dycdn.byteimg.com/img/webcast/aweme_honor_level_icon_new_4.png~tplv-obj.image"
+          1: "http://p3-webcast-dycdn.byteimg.com/img/webcast/aweme_honor_level_icon_new_4.png~tplv-obj.image"
+          2: "webcast/aweme_honor_level_icon_new_4.png"
+          3: 16
+          4: 32
+          6: 1
+        }
+        20 {
+          1: "http://p6-webcast-dycdn.byteimg.com/img/webcast/aweme_pay_grade_2x_1_4.png~tplv-obj.image"
+          1: "http://p3-webcast-dycdn.byteimg.com/img/webcast/aweme_pay_grade_2x_1_4.png~tplv-obj.image"
+          2: "webcast/aweme_pay_grade_2x_1_4.png"
+          3: 12
+          4: 12
+          6: 1
+        }
+      }
+      24 {
+        1 {
+          1: "\345\250\230\345\256\266\344\272\272"
+          2: 3
+          3: 1
+          4 {
+            1 {
+              1: 2
+              2 {
+                1: "http://p6-webcast-dycdn.byteimg.com/img/webcast/ranklist_fansclub_badge_TOP4_3.png~tplv-obj.image"
+                1: "http://p1-webcast-dycdn.byteimg.com/img/webcast/ranklist_fansclub_badge_TOP4_3.png~tplv-obj.image"
+                2: "webcast/ranklist_fansclub_badge_TOP4_3.png"
+              }
+            }
+            2: "\345\250\230\345\256\266\344\272\272"
+          }
+          6: 61325152231
+        }
+      }
+      32: ""
+      38: "1157627520"
+      46: "MS4wLjABAAAAY1qflbcLnzwz5pFWYmYb0KX6veCN_peGQM5iveuMF1o"
+      54: 3
+    }
+    3: "\347\246\273\345\251\232"
+    9 {
+      1 {
+        1: "http://p6-webcast-dycdn.byteimg.com/img/webcast/userlabel_regular_chat.png~tplv-obj.image"
+        1: "http://p3-webcast-dycdn.byteimg.com/img/webcast/userlabel_regular_chat.png~tplv-obj.image"
+        2: "webcast/userlabel_regular_chat.png"
+        5: "#7A6053"
+      }
+    }
+  }
+  3: 6874119955924798221
+}
