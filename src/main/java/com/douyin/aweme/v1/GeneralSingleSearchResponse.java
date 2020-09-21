@@ -12,7 +12,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class GeneralSearchResponse extends BaseResponse {
+public class GeneralSingleSearchResponse extends BaseResponse {
     private String qc;
     private Long cursor;
     private Long has_more;

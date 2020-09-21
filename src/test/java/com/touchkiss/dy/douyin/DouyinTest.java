@@ -2,6 +2,7 @@ package com.touchkiss.dy.douyin;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
+import com.douyin.aweme.v1.GeneralSingleSearchResponse;
 import com.douyin.aweme.v1.NearbyFeedResponse;
 import com.douyin.aweme.v1.AwemeInfo;
 import com.douyin.aweme.v1.UserProfileResponse;
@@ -20,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.*;
 
 /**
@@ -134,6 +136,42 @@ public class DouyinTest {
 //            for (AwemeInfo awemeInfo : nearbyFeedResponse.getAweme_list()) {
 //                System.out.println(awemeInfo.getDesc());
 //            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testGeneralSingleSearch(){
+        try {
+            long now = System.currentTimeMillis();
+            List<Header> headers = new ArrayList<>();
+            String keyword="国庆节";
+            int offset=0,count=20;
+            String body="keyword="+ URLEncoder.encode(keyword,"UTF-8") +"&offset="+offset+"&count="+count+"&is_pull_refresh=0&search_source=normal_search&hot_search=0&latitude=31.247221&longitude=121.492479&search_id=&query_correct_type=1&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&is_filter_search=0&sort_type=0&publish_time=0&disable_synthesis=0&multi_mod=0&single_filter_aladdin=0&client_width=480&client_height=853&dynamic_type=0&epidemic_card_type=0&enter_from=homepage_hot";
+            headers.add(new BasicHeader("X-SS-REQ-TICKET", String.valueOf(now)));
+            headers.add(new BasicHeader("X-SS-DP", "1128"));
+            headers.add(new BasicHeader("X-SS-STUB", MD5Util.MD5(body).toUpperCase()));
+            headers.add(new BasicHeader("x-tt-trace-id", "00-94a3a7110d99fa55f982b7da9ea50468-94a3a7110d99fa55-01"));
+            headers.add(new BasicHeader("Accept-Encoding", "gzip"));
+            headers.add(new BasicHeader("sdk-version", "1"));
+            headers.add(new BasicHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"));
+            headers.add(new BasicHeader("User-Agent", "com.ss.android.ugc.aweme/110301 (Linux; U; Android 4.4.4; zh_CN; PCRT00; Build/KTU84P; Cronet/TTNetVersion:b4d74d15 2020-04-23 QuicVersion:0144d358 2020-03-24)"));
+        headers.add(new BasicHeader("Cookie", "odin_tt=f5e3b3e5aef95c660d1c3e7bdc86dbdfb5eab65dbd4b0c2ab65c1d337c9a2c847b2574e088e031ef3b51506ff3325d8fcc9b6d864a34612a0c3dc94ff2b14f87; install_id=69980830055940; ttreq=1$0e2fdb6d7beec72990d442f1118f7bb13c1b87eb"));
+            headers.add(new BasicHeader("X-Khronos", String.valueOf(now / 1000)));
+            String url = "https://search-hl.amemv.com/aweme/v1/general/search/single/?version_name=11.3.0&ts="+(now/1000)+"&device_type=PCRT00&iid=69980830055940&app_type=normal&resolution=720*1280&aid=1128&app_name=aweme&_rticket="+now+"&device_platform=android&version_code=110300&dpi=240&openudid=1062042365927853&cdid=23083b87-0468-4aba-b87a-1b14297f826a&cpu_support64=false&ssmix=a&os_api=19&mcc_mnc=46000&device_id=2708807412624253&device_brand=OPPO&manifest_version_code=110301&os_version=4.4.4&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&host_abi=armeabi-v7a&update_version_code=11309900&ac=wifi&uuid=865746239395652&language=zh&channel=aweGW";
+            String gorgon = HttpUtil.post("http://192.168.8.229:8888/urlAndHeaders", HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, new HashMap() {{
+                put("url", url);
+            }}, headers);
+            headers.add(new BasicHeader("X-Gorgon", gorgon));
+            String response = HttpUtil.post(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT,HttpUtil.DEFAULT_CHARSET,body, headers);
+            System.out.println(response);
+            GeneralSingleSearchResponse generalSingleSearchResponse = GsonUtil.fromJson(response, GeneralSingleSearchResponse.class);
+            for (GeneralSingleSearchResponse.DataBean datum : generalSingleSearchResponse.getData()) {
+                if (datum.getAweme_info()!=null){
+                    System.out.println(datum.getAweme_info().getAuthor().getNickname());
+                }
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
