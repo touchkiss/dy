@@ -2,6 +2,7 @@ syntax = "proto3";
 package com.douyin.webcast.proto;
 option java_package = "com.douyin.webcast";
 option java_outer_classname = "TimeInfoSerializer";
+import "GiftInfo.proto";
 message TimeInfo{
   string messageType = 1;
   int64 id1 = 2;
@@ -12,5 +13,8 @@ message TimeInfo{
   //  当messageTpye=WebcastGiftMessage时，这里显示类似“用户6788522880187:送给主播 1个小心心”的送礼物消息
   //   */
   string msg = 7;
+  com.douyin.webcast.proto.GiftInfo giftInfo=8;
+  int32 int_9=9;
+  int32 int_10=10;
   int32 timeInfo_11 = 11;
 }

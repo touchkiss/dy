@@ -1,0 +1,24 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "WebcastMemberMessageSerializer";
+import "TimeInfo.proto";
+import "UserInfo.proto";
+import "ColorInfo.proto";
+import "GiftItem.proto";
+message WebcastMemberMessage{
+  message WebcastMemberMessageBody{
+    com.douyin.webcast.proto.TimeInfo timeInfo = 1;
+    com.douyin.webcast.proto.UserInfo userInfo = 2;
+    int32 int_3 = 3;
+    int32 int_10 = 10;
+    message LiveRoomEnterToast{
+      string type = 1;
+      string msg = 2;
+      com.douyin.webcast.proto.ColorInfo colorInfo_3 = 3;
+      com.douyin.webcast.proto.GiftItem details_4 = 4;
+    }
+    LiveRoomEnterToast liveRoomEnterToast = 18;
+  }
+  WebcastMemberMessageBody body = 1;
+}

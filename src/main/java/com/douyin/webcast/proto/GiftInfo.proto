@@ -1,0 +1,14 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "GiftInfoSerializer";
+import "ColorInfo.proto";
+import "GiftItem.proto";
+message GiftInfo{
+  //  "webcast_aweme_gift_send_message"
+  string msg_type = 1;
+  //  "{0:user} \351\200\201\345\207\272{1:gift} {2:string}"
+  string name = 2;
+  com.douyin.webcast.proto.ColorInfo color=3;
+  repeated com.douyin.webcast.proto.GiftItem gifts=4;
+}

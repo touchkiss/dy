@@ -2,6 +2,7 @@ syntax = "proto3";
 package com.douyin.webcast.proto;
 option java_package = "com.douyin.webcast";
 option java_outer_classname = "CoverInfoSerializer";
+import "ColorInfo.proto";
 message CoverInfo{
   repeated string url_list = 1;
   string uri = 2;
@@ -9,10 +10,5 @@ message CoverInfo{
   int32 width = 4;
   string avg_color = 5;
   int32 image_type = 6;
-  message ColorInfo{
-    string text = 1;
-    string color = 2;
-    int32 type = 3;
-  }
-  ColorInfo colorInfo = 8;
+  com.douyin.webcast.proto.ColorInfo colorInfo = 8;
 }

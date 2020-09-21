@@ -1,14 +1,13 @@
 package com.touchkiss.dy.douyin;
 
-import com.douyin.webcast.RoomMessageSerializer;
-import com.douyin.webcast.WebcastChatMessageSerializer;
-import com.douyin.webcast.WebcastGiftMessageSerializer;
+import com.douyin.webcast.*;
 import com.google.protobuf.UnknownFieldSet;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created on 2020/09/19 16:21
@@ -16,9 +15,14 @@ import java.io.IOException;
  * @author Touchkiss
  */
 public class ProtobufTest {
+
     @Test
-    public void testProtobuf() throws IOException {
-        RoomMessageSerializer.RoomMessage roomMessage = RoomMessageSerializer.RoomMessage.parseFrom(new FileInputStream(new File("D:\\software\\protoc-3.13.0-win64\\bin\\message.bin")));
+    void fetchLiveMsg() {
+
+    }
+
+    public void parseMessage(InputStream inputStream) throws IOException {
+        RoomMessageSerializer.RoomMessage roomMessage = RoomMessageSerializer.RoomMessage.parseFrom(inputStream);
         for (RoomMessageSerializer.RoomMessage.RoomMessage_Obj1 roomMessage_obj1 : roomMessage.getBodyList()) {
             UnknownFieldSet unknownFields = roomMessage_obj1.getUnknownFields();
             unknownFields.asMap().forEach((k, v) -> {
@@ -31,7 +35,28 @@ public class ProtobufTest {
                                 break;
                             case "WebcastGiftMessage":
                                 WebcastGiftMessageSerializer.WebcastGiftMessage webcastGiftMessage = WebcastGiftMessageSerializer.WebcastGiftMessage.parseFrom(v.toByteString(1));
-                                System.out.println(webcastGiftMessage.getBody().getUserInfo().getName());
+                                System.out.println(webcastGiftMessage.getBody().getUserInfo().getNickname());
+                                System.out.println(webcastGiftMessage.getBody().getTimeInfo().getMsg());
+                                System.out.println(webcastGiftMessage.getBody().getGiftCount());
+                                for (GiftItemSerializer.GiftItem giftItem : webcastGiftMessage.getBody().getTimeInfo().getGiftInfo().getGiftsList()) {
+                                    System.out.println(giftItem.getGiftName().getGiftNameInfo().getGiftName());
+                                }
+                                break;
+                            case "WebcastMemberMessage":
+                                WebcastMemberMessageSerializer.WebcastMemberMessage webcastMemberMessage = WebcastMemberMessageSerializer.WebcastMemberMessage.parseFrom(v.toByteString(1));
+                                System.out.println(webcastMemberMessage.getBody().getLiveRoomEnterToast().getDetails4().getFromUser().getUserinfo().getNickname() + "" + webcastMemberMessage.getBody().getLiveRoomEnterToast().getMsg());
+                                break;
+                            case "WebcastLikeMessage":
+                                WebcastLikeMessageSerializer.WebcastLikeMessage webcastLikeMessage = WebcastLikeMessageSerializer.WebcastLikeMessage.parseFrom(v.toByteString(1));
+                                System.out.println(webcastLikeMessage.getBody().getUserInfo().getNickname() + "给主播点了赞");
+                                break;
+                            case "WebcastSunDailyRankMessage":
+                                WebcastSunDailyRankMessageSerializer.WebcastSunDailyRankMessage webcastSunDailyRankMessage = WebcastSunDailyRankMessageSerializer.WebcastSunDailyRankMessage.parseFrom(v.toByteString(1));
+                                System.out.println(v.toByteString(1).toStringUtf8());
+                                System.out.println(webcastSunDailyRankMessage.getBody().getRankInHour());
+                                System.out.println(webcastSunDailyRankMessage.getBody().getGapWithLastOneInHourRank());
+                                System.out.println(webcastSunDailyRankMessage.getBody().getInfo19().getMsg());
+                                System.out.println(webcastSunDailyRankMessage.getBody().getInfo20().getMsg());
                             default:
                         }
                     } catch (Exception e) {
@@ -41,5 +66,10 @@ public class ProtobufTest {
             });
             System.out.println(roomMessage_obj1.getMessageType());
         }
+    }
+
+    @Test
+    public void testProtobuf() throws IOException {
+
     }
 }

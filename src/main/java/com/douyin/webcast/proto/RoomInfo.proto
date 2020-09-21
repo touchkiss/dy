@@ -1,0 +1,135 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "RoomInfoSerializer";
+import "CoverInfo.proto";
+import "UserInfo.proto";
+message RoomInfo{
+  message Time{
+    int64 timestamp = 5;
+  }
+  Time time = 1;
+  message RoomInfoDetails{
+    int64 roomId = 1;
+    string roomIdStr = 2;
+    int32 int_3 = 3;
+    int64 userid = 4;
+    string title = 5;
+    int32 int_6 = 6;
+    int64 time_7 = 7;
+    int32 int_8 = 8;
+    int64 time_9 = 9;
+    int64 time_13 = 13;
+    int32 int_14 = 14;
+    int32 int_16 = 16;
+    int32 int_17 = 17;
+    com.douyin.webcast.proto.CoverInfo coverInfo_20 = 20;
+    string flow_url = 23;
+    string str_24 = 24;
+    string str_25 = 25;
+    int64 flowId = 26;
+    string flowIdStr = 27;
+    message FlowInfo{
+      int64 flowId = 2;
+      string flowIdStr = 3;
+      message FlowInfoDetails{
+        string type = 1;
+        string name = 2;
+      }
+      repeated FlowInfoDetails flowDetails = 4;
+      string str_5 = 5;
+      message Obj6{
+        int32 int_1 = 1;
+        int32 int_2 = 2;
+        int32 int_3 = 3;
+        int32 int_4 = 4;
+        int32 int_5 = 5;
+        int32 int_6 = 6;
+      }
+      Obj6 obj6 = 6;
+      string flv_url = 8;
+      string m3u8_url = 11;
+      string codec_12 = 12;
+      string codec_13 = 13;
+      message LiveLevelInfo{
+        message LevelInfoObj1{
+          string desc = 1;
+          message Codec{
+            message CodecName{
+              string name = 1;
+              string type = 2;
+            }
+            CodecName obj1 = 1;
+            message CodecInfo{
+              string name = 1;
+              string type = 2;
+              string codec = 3;
+              string codec2 = 4;
+            }
+            CodecInfo obj2 = 2;
+          }
+          Codec obj1 = 2;
+        }
+        LevelInfoObj1 obj1 = 1;
+        message LevelDetails{
+          message LevelDetailsItem{
+            message RateInfo{
+              int32 width = 1;
+              int32 height = 2;
+              int32 avg_rate = 3;
+              int32 min_rate = 4;
+              int32 max_rate = 5;
+              int32 fps = 6;
+            }
+            RateInfo rateInfo = 2;
+          }
+          repeated LevelDetailsItem levelItems = 1;
+        }
+      }
+      LiveLevelInfo levelInfo = 17;
+    }
+    FlowInfo flowInfo = 28;
+    int32 int_31 = 31;
+    int32 int_32 = 32;
+    message UserInfoPack{
+      int32 int_1 = 1;
+      com.douyin.webcast.proto.UserInfo userinfo = 2;
+    }
+    repeated UserInfoPack userinfos = 35;
+    message Obj36{
+      int64 roomId = 1;
+      string roomIdStr = 2;
+      int32 int_3 = 3;
+      int32 int_5 = 5;
+      int32 int_6 = 6;
+      int32 int_7 = 7;
+    }
+    Obj36 obj36 = 36;
+    string str_38 = 38;
+    string str_39 = 39;
+    string str_40 = 40;
+    com.douyin.webcast.proto.CoverInfo cover_42 = 42;
+    Obj36 obj44 = 44;
+    string str_45 = 45;
+    com.douyin.webcast.proto.UserInfo userinfo46 = 46;
+    int32 int_48 = 48;
+    int32 int_49 = 49;
+    int64 timestamp_63 = 63;
+    string str_85 = 85;
+    com.douyin.webcast.proto.CoverInfo cover86 = 86;
+    string str_87 = 87;
+    int32 int_91 = 91;
+    int32 int_95 = 95;
+    string str_96 = 96;
+    int32 int_98 = 98;
+    int32 int_99 = 99;
+    int32 int_100 = 100;
+    string desc110 = 110;
+    int32 int_111 = 111;
+    message Obj124{
+      string str_2 = 2;
+    }
+    Obj124 obj124 = 124;
+  }
+  RoomInfoDetails roomInfoDetails = 2;
+}

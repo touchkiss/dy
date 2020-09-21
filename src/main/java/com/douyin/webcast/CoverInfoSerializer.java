@@ -86,19 +86,19 @@ public final class CoverInfoSerializer {
     int getImageType();
 
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+     * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
      * @return Whether the colorInfo field is set.
      */
     boolean hasColorInfo();
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+     * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
      * @return The colorInfo.
      */
-    com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo getColorInfo();
+    com.douyin.webcast.ColorInfoSerializer.ColorInfo getColorInfo();
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+     * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
      */
-    com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder getColorInfoOrBuilder();
+    com.douyin.webcast.ColorInfoSerializer.ColorInfoOrBuilder getColorInfoOrBuilder();
   }
   /**
    * Protobuf type {@code com.douyin.webcast.proto.CoverInfo}
@@ -186,11 +186,11 @@ public final class CoverInfoSerializer {
               break;
             }
             case 66: {
-              com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder subBuilder = null;
+              com.douyin.webcast.ColorInfoSerializer.ColorInfo.Builder subBuilder = null;
               if (colorInfo_ != null) {
                 subBuilder = colorInfo_.toBuilder();
               }
-              colorInfo_ = input.readMessage(com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.parser(), extensionRegistry);
+              colorInfo_ = input.readMessage(com.douyin.webcast.ColorInfoSerializer.ColorInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(colorInfo_);
                 colorInfo_ = subBuilder.buildPartial();
@@ -231,794 +231,6 @@ public final class CoverInfoSerializer {
       return com.douyin.webcast.CoverInfoSerializer.internal_static_com_douyin_webcast_proto_CoverInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.douyin.webcast.CoverInfoSerializer.CoverInfo.class, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder.class);
-    }
-
-    public interface ColorInfoOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.douyin.webcast.proto.CoverInfo.ColorInfo)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>string text = 1;</code>
-       * @return The text.
-       */
-      java.lang.String getText();
-      /**
-       * <code>string text = 1;</code>
-       * @return The bytes for text.
-       */
-      com.google.protobuf.ByteString
-          getTextBytes();
-
-      /**
-       * <code>string color = 2;</code>
-       * @return The color.
-       */
-      java.lang.String getColor();
-      /**
-       * <code>string color = 2;</code>
-       * @return The bytes for color.
-       */
-      com.google.protobuf.ByteString
-          getColorBytes();
-
-      /**
-       * <code>int32 type = 3;</code>
-       * @return The type.
-       */
-      int getType();
-    }
-    /**
-     * Protobuf type {@code com.douyin.webcast.proto.CoverInfo.ColorInfo}
-     */
-    public static final class ColorInfo extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.douyin.webcast.proto.CoverInfo.ColorInfo)
-        ColorInfoOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use ColorInfo.newBuilder() to construct.
-      private ColorInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private ColorInfo() {
-        text_ = "";
-        color_ = "";
-      }
-
-      @java.lang.Override
-      @SuppressWarnings({"unused"})
-      protected java.lang.Object newInstance(
-          UnusedPrivateParameter unused) {
-        return new ColorInfo();
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private ColorInfo(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                text_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                color_ = s;
-                break;
-              }
-              case 24: {
-
-                type_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.douyin.webcast.CoverInfoSerializer.internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.douyin.webcast.CoverInfoSerializer.internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.class, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder.class);
-      }
-
-      public static final int TEXT_FIELD_NUMBER = 1;
-      private volatile java.lang.Object text_;
-      /**
-       * <code>string text = 1;</code>
-       * @return The text.
-       */
-      @java.lang.Override
-      public java.lang.String getText() {
-        java.lang.Object ref = text_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          text_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @return The bytes for text.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getTextBytes() {
-        java.lang.Object ref = text_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          text_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int COLOR_FIELD_NUMBER = 2;
-      private volatile java.lang.Object color_;
-      /**
-       * <code>string color = 2;</code>
-       * @return The color.
-       */
-      @java.lang.Override
-      public java.lang.String getColor() {
-        java.lang.Object ref = color_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          color_ = s;
-          return s;
-        }
-      }
-      /**
-       * <code>string color = 2;</code>
-       * @return The bytes for color.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getColorBytes() {
-        java.lang.Object ref = color_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          color_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      public static final int TYPE_FIELD_NUMBER = 3;
-      private int type_;
-      /**
-       * <code>int32 type = 3;</code>
-       * @return The type.
-       */
-      @java.lang.Override
-      public int getType() {
-        return type_;
-      }
-
-      private byte memoizedIsInitialized = -1;
-      @java.lang.Override
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      @java.lang.Override
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (!getTextBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_);
-        }
-        if (!getColorBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, color_);
-        }
-        if (type_ != 0) {
-          output.writeInt32(3, type_);
-        }
-        unknownFields.writeTo(output);
-      }
-
-      @java.lang.Override
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getTextBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, text_);
-        }
-        if (!getColorBytes().isEmpty()) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, color_);
-        }
-        if (type_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, type_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo)) {
-          return super.equals(obj);
-        }
-        com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo other = (com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo) obj;
-
-        if (!getText()
-            .equals(other.getText())) return false;
-        if (!getColor()
-            .equals(other.getColor())) return false;
-        if (getType()
-            != other.getType()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
-        return true;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + TEXT_FIELD_NUMBER;
-        hash = (53 * hash) + getText().hashCode();
-        hash = (37 * hash) + COLOR_FIELD_NUMBER;
-        hash = (53 * hash) + getColor().hashCode();
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      @java.lang.Override
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      @java.lang.Override
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code com.douyin.webcast.proto.CoverInfo.ColorInfo}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.douyin.webcast.proto.CoverInfo.ColorInfo)
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.douyin.webcast.CoverInfoSerializer.internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_descriptor;
-        }
-
-        @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.douyin.webcast.CoverInfoSerializer.internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.class, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder.class);
-        }
-
-        // Construct using com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        @java.lang.Override
-        public Builder clear() {
-          super.clear();
-          text_ = "";
-
-          color_ = "";
-
-          type_ = 0;
-
-          return this;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.douyin.webcast.CoverInfoSerializer.internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_descriptor;
-        }
-
-        @java.lang.Override
-        public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo getDefaultInstanceForType() {
-          return com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.getDefaultInstance();
-        }
-
-        @java.lang.Override
-        public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo build() {
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        @java.lang.Override
-        public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo buildPartial() {
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo result = new com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo(this);
-          result.text_ = text_;
-          result.color_ = color_;
-          result.type_ = type_;
-          onBuilt();
-          return result;
-        }
-
-        @java.lang.Override
-        public Builder clone() {
-          return super.clone();
-        }
-        @java.lang.Override
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.setField(field, value);
-        }
-        @java.lang.Override
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return super.clearField(field);
-        }
-        @java.lang.Override
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return super.clearOneof(oneof);
-        }
-        @java.lang.Override
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return super.setRepeatedField(field, index, value);
-        }
-        @java.lang.Override
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return super.addRepeatedField(field, value);
-        }
-        @java.lang.Override
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo) {
-            return mergeFrom((com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo other) {
-          if (other == com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.getDefaultInstance()) return this;
-          if (!other.getText().isEmpty()) {
-            text_ = other.text_;
-            onChanged();
-          }
-          if (!other.getColor().isEmpty()) {
-            color_ = other.color_;
-            onChanged();
-          }
-          if (other.getType() != 0) {
-            setType(other.getType());
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        @java.lang.Override
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        @java.lang.Override
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private java.lang.Object text_ = "";
-        /**
-         * <code>string text = 1;</code>
-         * @return The text.
-         */
-        public java.lang.String getText() {
-          java.lang.Object ref = text_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            text_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @return The bytes for text.
-         */
-        public com.google.protobuf.ByteString
-            getTextBytes() {
-          java.lang.Object ref = text_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            text_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @param value The text to set.
-         * @return This builder for chaining.
-         */
-        public Builder setText(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          text_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearText() {
-          
-          text_ = getDefaultInstance().getText();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @param value The bytes for text to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTextBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          text_ = value;
-          onChanged();
-          return this;
-        }
-
-        private java.lang.Object color_ = "";
-        /**
-         * <code>string color = 2;</code>
-         * @return The color.
-         */
-        public java.lang.String getColor() {
-          java.lang.Object ref = color_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            color_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>string color = 2;</code>
-         * @return The bytes for color.
-         */
-        public com.google.protobuf.ByteString
-            getColorBytes() {
-          java.lang.Object ref = color_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            color_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>string color = 2;</code>
-         * @param value The color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColor(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
-          color_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string color = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearColor() {
-          
-          color_ = getDefaultInstance().getColor();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>string color = 2;</code>
-         * @param value The bytes for color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColorBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          color_ = value;
-          onChanged();
-          return this;
-        }
-
-        private int type_ ;
-        /**
-         * <code>int32 type = 3;</code>
-         * @return The type.
-         */
-        @java.lang.Override
-        public int getType() {
-          return type_;
-        }
-        /**
-         * <code>int32 type = 3;</code>
-         * @param value The type to set.
-         * @return This builder for chaining.
-         */
-        public Builder setType(int value) {
-          
-          type_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 type = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearType() {
-          
-          type_ = 0;
-          onChanged();
-          return this;
-        }
-        @java.lang.Override
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFields(unknownFields);
-        }
-
-        @java.lang.Override
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:com.douyin.webcast.proto.CoverInfo.ColorInfo)
-      }
-
-      // @@protoc_insertion_point(class_scope:com.douyin.webcast.proto.CoverInfo.ColorInfo)
-      private static final com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo();
-      }
-
-      public static com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<ColorInfo>
-          PARSER = new com.google.protobuf.AbstractParser<ColorInfo>() {
-        @java.lang.Override
-        public ColorInfo parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ColorInfo(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<ColorInfo> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<ColorInfo> getParserForType() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
     }
 
     public static final int URL_LIST_FIELD_NUMBER = 1;
@@ -1166,9 +378,9 @@ public final class CoverInfoSerializer {
     }
 
     public static final int COLORINFO_FIELD_NUMBER = 8;
-    private com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo colorInfo_;
+    private com.douyin.webcast.ColorInfoSerializer.ColorInfo colorInfo_;
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+     * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
      * @return Whether the colorInfo field is set.
      */
     @java.lang.Override
@@ -1176,18 +388,18 @@ public final class CoverInfoSerializer {
       return colorInfo_ != null;
     }
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+     * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
      * @return The colorInfo.
      */
     @java.lang.Override
-    public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo getColorInfo() {
-      return colorInfo_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.getDefaultInstance() : colorInfo_;
+    public com.douyin.webcast.ColorInfoSerializer.ColorInfo getColorInfo() {
+      return colorInfo_ == null ? com.douyin.webcast.ColorInfoSerializer.ColorInfo.getDefaultInstance() : colorInfo_;
     }
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+     * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
      */
     @java.lang.Override
-    public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder getColorInfoOrBuilder() {
+    public com.douyin.webcast.ColorInfoSerializer.ColorInfoOrBuilder getColorInfoOrBuilder() {
       return getColorInfo();
     }
 
@@ -1982,31 +1194,31 @@ public final class CoverInfoSerializer {
         return this;
       }
 
-      private com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo colorInfo_;
+      private com.douyin.webcast.ColorInfoSerializer.ColorInfo colorInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder> colorInfoBuilder_;
+          com.douyin.webcast.ColorInfoSerializer.ColorInfo, com.douyin.webcast.ColorInfoSerializer.ColorInfo.Builder, com.douyin.webcast.ColorInfoSerializer.ColorInfoOrBuilder> colorInfoBuilder_;
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        * @return Whether the colorInfo field is set.
        */
       public boolean hasColorInfo() {
         return colorInfoBuilder_ != null || colorInfo_ != null;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        * @return The colorInfo.
        */
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo getColorInfo() {
+      public com.douyin.webcast.ColorInfoSerializer.ColorInfo getColorInfo() {
         if (colorInfoBuilder_ == null) {
-          return colorInfo_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.getDefaultInstance() : colorInfo_;
+          return colorInfo_ == null ? com.douyin.webcast.ColorInfoSerializer.ColorInfo.getDefaultInstance() : colorInfo_;
         } else {
           return colorInfoBuilder_.getMessage();
         }
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
-      public Builder setColorInfo(com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo value) {
+      public Builder setColorInfo(com.douyin.webcast.ColorInfoSerializer.ColorInfo value) {
         if (colorInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2020,10 +1232,10 @@ public final class CoverInfoSerializer {
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
       public Builder setColorInfo(
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder builderForValue) {
+          com.douyin.webcast.ColorInfoSerializer.ColorInfo.Builder builderForValue) {
         if (colorInfoBuilder_ == null) {
           colorInfo_ = builderForValue.build();
           onChanged();
@@ -2034,13 +1246,13 @@ public final class CoverInfoSerializer {
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
-      public Builder mergeColorInfo(com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo value) {
+      public Builder mergeColorInfo(com.douyin.webcast.ColorInfoSerializer.ColorInfo value) {
         if (colorInfoBuilder_ == null) {
           if (colorInfo_ != null) {
             colorInfo_ =
-              com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.newBuilder(colorInfo_).mergeFrom(value).buildPartial();
+              com.douyin.webcast.ColorInfoSerializer.ColorInfo.newBuilder(colorInfo_).mergeFrom(value).buildPartial();
           } else {
             colorInfo_ = value;
           }
@@ -2052,7 +1264,7 @@ public final class CoverInfoSerializer {
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
       public Builder clearColorInfo() {
         if (colorInfoBuilder_ == null) {
@@ -2066,33 +1278,33 @@ public final class CoverInfoSerializer {
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder getColorInfoBuilder() {
+      public com.douyin.webcast.ColorInfoSerializer.ColorInfo.Builder getColorInfoBuilder() {
         
         onChanged();
         return getColorInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder getColorInfoOrBuilder() {
+      public com.douyin.webcast.ColorInfoSerializer.ColorInfoOrBuilder getColorInfoOrBuilder() {
         if (colorInfoBuilder_ != null) {
           return colorInfoBuilder_.getMessageOrBuilder();
         } else {
           return colorInfo_ == null ?
-              com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.getDefaultInstance() : colorInfo_;
+              com.douyin.webcast.ColorInfoSerializer.ColorInfo.getDefaultInstance() : colorInfo_;
         }
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo.ColorInfo colorInfo = 8;</code>
+       * <code>.com.douyin.webcast.proto.ColorInfo colorInfo = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder> 
+          com.douyin.webcast.ColorInfoSerializer.ColorInfo, com.douyin.webcast.ColorInfoSerializer.ColorInfo.Builder, com.douyin.webcast.ColorInfoSerializer.ColorInfoOrBuilder> 
           getColorInfoFieldBuilder() {
         if (colorInfoBuilder_ == null) {
           colorInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfo.ColorInfoOrBuilder>(
+              com.douyin.webcast.ColorInfoSerializer.ColorInfo, com.douyin.webcast.ColorInfoSerializer.ColorInfo.Builder, com.douyin.webcast.ColorInfoSerializer.ColorInfoOrBuilder>(
                   getColorInfo(),
                   getParentForChildren(),
                   isClean());
@@ -2158,11 +1370,6 @@ public final class CoverInfoSerializer {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_douyin_webcast_proto_CoverInfo_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2173,18 +1380,18 @@ public final class CoverInfoSerializer {
   static {
     java.lang.String[] descriptorData = {
       "\n\017CoverInfo.proto\022\030com.douyin.webcast.pr" +
-      "oto\"\352\001\n\tCoverInfo\022\020\n\010url_list\030\001 \003(\t\022\013\n\003u" +
-      "ri\030\002 \001(\t\022\016\n\006height\030\003 \001(\005\022\r\n\005width\030\004 \001(\005\022" +
-      "\021\n\tavg_color\030\005 \001(\t\022\022\n\nimage_type\030\006 \001(\005\022@" +
-      "\n\tcolorInfo\030\010 \001(\0132-.com.douyin.webcast.p" +
-      "roto.CoverInfo.ColorInfo\0326\n\tColorInfo\022\014\n" +
-      "\004text\030\001 \001(\t\022\r\n\005color\030\002 \001(\t\022\014\n\004type\030\003 \001(\005" +
-      "B)\n\022com.douyin.webcastB\023CoverInfoSeriali" +
-      "zerb\006proto3"
+      "oto\032\017ColorInfo.proto\"\250\001\n\tCoverInfo\022\020\n\010ur" +
+      "l_list\030\001 \003(\t\022\013\n\003uri\030\002 \001(\t\022\016\n\006height\030\003 \001(" +
+      "\005\022\r\n\005width\030\004 \001(\005\022\021\n\tavg_color\030\005 \001(\t\022\022\n\ni" +
+      "mage_type\030\006 \001(\005\0226\n\tcolorInfo\030\010 \001(\0132#.com" +
+      ".douyin.webcast.proto.ColorInfoB)\n\022com.d" +
+      "ouyin.webcastB\023CoverInfoSerializerb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.douyin.webcast.ColorInfoSerializer.getDescriptor(),
         });
     internal_static_com_douyin_webcast_proto_CoverInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2192,12 +1399,7 @@ public final class CoverInfoSerializer {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_douyin_webcast_proto_CoverInfo_descriptor,
         new java.lang.String[] { "UrlList", "Uri", "Height", "Width", "AvgColor", "ImageType", "ColorInfo", });
-    internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_descriptor =
-      internal_static_com_douyin_webcast_proto_CoverInfo_descriptor.getNestedTypes().get(0);
-    internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_douyin_webcast_proto_CoverInfo_ColorInfo_descriptor,
-        new java.lang.String[] { "Text", "Color", "Type", });
+    com.douyin.webcast.ColorInfoSerializer.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

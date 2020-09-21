@@ -79,6 +79,33 @@ public final class TimeInfoSerializer {
         getMsgBytes();
 
     /**
+     * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+     * @return Whether the giftInfo field is set.
+     */
+    boolean hasGiftInfo();
+    /**
+     * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+     * @return The giftInfo.
+     */
+    com.douyin.webcast.GiftInfoSerializer.GiftInfo getGiftInfo();
+    /**
+     * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+     */
+    com.douyin.webcast.GiftInfoSerializer.GiftInfoOrBuilder getGiftInfoOrBuilder();
+
+    /**
+     * <code>int32 int_9 = 9;</code>
+     * @return The int9.
+     */
+    int getInt9();
+
+    /**
+     * <code>int32 int_10 = 10;</code>
+     * @return The int10.
+     */
+    int getInt10();
+
+    /**
      * <code>int32 timeInfo_11 = 11;</code>
      * @return The timeInfo11.
      */
@@ -161,6 +188,29 @@ public final class TimeInfoSerializer {
               java.lang.String s = input.readStringRequireUtf8();
 
               msg_ = s;
+              break;
+            }
+            case 66: {
+              com.douyin.webcast.GiftInfoSerializer.GiftInfo.Builder subBuilder = null;
+              if (giftInfo_ != null) {
+                subBuilder = giftInfo_.toBuilder();
+              }
+              giftInfo_ = input.readMessage(com.douyin.webcast.GiftInfoSerializer.GiftInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(giftInfo_);
+                giftInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 72: {
+
+              int9_ = input.readInt32();
+              break;
+            }
+            case 80: {
+
+              int10_ = input.readInt32();
               break;
             }
             case 88: {
@@ -332,6 +382,54 @@ public final class TimeInfoSerializer {
       }
     }
 
+    public static final int GIFTINFO_FIELD_NUMBER = 8;
+    private com.douyin.webcast.GiftInfoSerializer.GiftInfo giftInfo_;
+    /**
+     * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+     * @return Whether the giftInfo field is set.
+     */
+    @java.lang.Override
+    public boolean hasGiftInfo() {
+      return giftInfo_ != null;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+     * @return The giftInfo.
+     */
+    @java.lang.Override
+    public com.douyin.webcast.GiftInfoSerializer.GiftInfo getGiftInfo() {
+      return giftInfo_ == null ? com.douyin.webcast.GiftInfoSerializer.GiftInfo.getDefaultInstance() : giftInfo_;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+     */
+    @java.lang.Override
+    public com.douyin.webcast.GiftInfoSerializer.GiftInfoOrBuilder getGiftInfoOrBuilder() {
+      return getGiftInfo();
+    }
+
+    public static final int INT_9_FIELD_NUMBER = 9;
+    private int int9_;
+    /**
+     * <code>int32 int_9 = 9;</code>
+     * @return The int9.
+     */
+    @java.lang.Override
+    public int getInt9() {
+      return int9_;
+    }
+
+    public static final int INT_10_FIELD_NUMBER = 10;
+    private int int10_;
+    /**
+     * <code>int32 int_10 = 10;</code>
+     * @return The int10.
+     */
+    @java.lang.Override
+    public int getInt10() {
+      return int10_;
+    }
+
     public static final int TIMEINFO_11_FIELD_NUMBER = 11;
     private int timeInfo11_;
     /**
@@ -375,6 +473,15 @@ public final class TimeInfoSerializer {
       if (!getMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, msg_);
       }
+      if (giftInfo_ != null) {
+        output.writeMessage(8, getGiftInfo());
+      }
+      if (int9_ != 0) {
+        output.writeInt32(9, int9_);
+      }
+      if (int10_ != 0) {
+        output.writeInt32(10, int10_);
+      }
       if (timeInfo11_ != 0) {
         output.writeInt32(11, timeInfo11_);
       }
@@ -409,6 +516,18 @@ public final class TimeInfoSerializer {
       if (!getMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, msg_);
       }
+      if (giftInfo_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getGiftInfo());
+      }
+      if (int9_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, int9_);
+      }
+      if (int10_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, int10_);
+      }
       if (timeInfo11_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(11, timeInfo11_);
@@ -440,6 +559,15 @@ public final class TimeInfoSerializer {
           != other.getId3()) return false;
       if (!getMsg()
           .equals(other.getMsg())) return false;
+      if (hasGiftInfo() != other.hasGiftInfo()) return false;
+      if (hasGiftInfo()) {
+        if (!getGiftInfo()
+            .equals(other.getGiftInfo())) return false;
+      }
+      if (getInt9()
+          != other.getInt9()) return false;
+      if (getInt10()
+          != other.getInt10()) return false;
       if (getTimeInfo11()
           != other.getTimeInfo11()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -468,6 +596,14 @@ public final class TimeInfoSerializer {
       hash = (53 * hash) + getId3();
       hash = (37 * hash) + MSG_FIELD_NUMBER;
       hash = (53 * hash) + getMsg().hashCode();
+      if (hasGiftInfo()) {
+        hash = (37 * hash) + GIFTINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getGiftInfo().hashCode();
+      }
+      hash = (37 * hash) + INT_9_FIELD_NUMBER;
+      hash = (53 * hash) + getInt9();
+      hash = (37 * hash) + INT_10_FIELD_NUMBER;
+      hash = (53 * hash) + getInt10();
       hash = (37 * hash) + TIMEINFO_11_FIELD_NUMBER;
       hash = (53 * hash) + getTimeInfo11();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -615,6 +751,16 @@ public final class TimeInfoSerializer {
 
         msg_ = "";
 
+        if (giftInfoBuilder_ == null) {
+          giftInfo_ = null;
+        } else {
+          giftInfo_ = null;
+          giftInfoBuilder_ = null;
+        }
+        int9_ = 0;
+
+        int10_ = 0;
+
         timeInfo11_ = 0;
 
         return this;
@@ -649,6 +795,13 @@ public final class TimeInfoSerializer {
         result.nowTime_ = nowTime_;
         result.id3_ = id3_;
         result.msg_ = msg_;
+        if (giftInfoBuilder_ == null) {
+          result.giftInfo_ = giftInfo_;
+        } else {
+          result.giftInfo_ = giftInfoBuilder_.build();
+        }
+        result.int9_ = int9_;
+        result.int10_ = int10_;
         result.timeInfo11_ = timeInfo11_;
         onBuilt();
         return result;
@@ -717,6 +870,15 @@ public final class TimeInfoSerializer {
         if (!other.getMsg().isEmpty()) {
           msg_ = other.msg_;
           onChanged();
+        }
+        if (other.hasGiftInfo()) {
+          mergeGiftInfo(other.getGiftInfo());
+        }
+        if (other.getInt9() != 0) {
+          setInt9(other.getInt9());
+        }
+        if (other.getInt10() != 0) {
+          setInt10(other.getInt10());
         }
         if (other.getTimeInfo11() != 0) {
           setTimeInfo11(other.getTimeInfo11());
@@ -1056,6 +1218,187 @@ public final class TimeInfoSerializer {
         return this;
       }
 
+      private com.douyin.webcast.GiftInfoSerializer.GiftInfo giftInfo_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.GiftInfoSerializer.GiftInfo, com.douyin.webcast.GiftInfoSerializer.GiftInfo.Builder, com.douyin.webcast.GiftInfoSerializer.GiftInfoOrBuilder> giftInfoBuilder_;
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       * @return Whether the giftInfo field is set.
+       */
+      public boolean hasGiftInfo() {
+        return giftInfoBuilder_ != null || giftInfo_ != null;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       * @return The giftInfo.
+       */
+      public com.douyin.webcast.GiftInfoSerializer.GiftInfo getGiftInfo() {
+        if (giftInfoBuilder_ == null) {
+          return giftInfo_ == null ? com.douyin.webcast.GiftInfoSerializer.GiftInfo.getDefaultInstance() : giftInfo_;
+        } else {
+          return giftInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      public Builder setGiftInfo(com.douyin.webcast.GiftInfoSerializer.GiftInfo value) {
+        if (giftInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          giftInfo_ = value;
+          onChanged();
+        } else {
+          giftInfoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      public Builder setGiftInfo(
+          com.douyin.webcast.GiftInfoSerializer.GiftInfo.Builder builderForValue) {
+        if (giftInfoBuilder_ == null) {
+          giftInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          giftInfoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      public Builder mergeGiftInfo(com.douyin.webcast.GiftInfoSerializer.GiftInfo value) {
+        if (giftInfoBuilder_ == null) {
+          if (giftInfo_ != null) {
+            giftInfo_ =
+              com.douyin.webcast.GiftInfoSerializer.GiftInfo.newBuilder(giftInfo_).mergeFrom(value).buildPartial();
+          } else {
+            giftInfo_ = value;
+          }
+          onChanged();
+        } else {
+          giftInfoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      public Builder clearGiftInfo() {
+        if (giftInfoBuilder_ == null) {
+          giftInfo_ = null;
+          onChanged();
+        } else {
+          giftInfo_ = null;
+          giftInfoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      public com.douyin.webcast.GiftInfoSerializer.GiftInfo.Builder getGiftInfoBuilder() {
+        
+        onChanged();
+        return getGiftInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      public com.douyin.webcast.GiftInfoSerializer.GiftInfoOrBuilder getGiftInfoOrBuilder() {
+        if (giftInfoBuilder_ != null) {
+          return giftInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return giftInfo_ == null ?
+              com.douyin.webcast.GiftInfoSerializer.GiftInfo.getDefaultInstance() : giftInfo_;
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftInfo giftInfo = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.GiftInfoSerializer.GiftInfo, com.douyin.webcast.GiftInfoSerializer.GiftInfo.Builder, com.douyin.webcast.GiftInfoSerializer.GiftInfoOrBuilder> 
+          getGiftInfoFieldBuilder() {
+        if (giftInfoBuilder_ == null) {
+          giftInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.douyin.webcast.GiftInfoSerializer.GiftInfo, com.douyin.webcast.GiftInfoSerializer.GiftInfo.Builder, com.douyin.webcast.GiftInfoSerializer.GiftInfoOrBuilder>(
+                  getGiftInfo(),
+                  getParentForChildren(),
+                  isClean());
+          giftInfo_ = null;
+        }
+        return giftInfoBuilder_;
+      }
+
+      private int int9_ ;
+      /**
+       * <code>int32 int_9 = 9;</code>
+       * @return The int9.
+       */
+      @java.lang.Override
+      public int getInt9() {
+        return int9_;
+      }
+      /**
+       * <code>int32 int_9 = 9;</code>
+       * @param value The int9 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInt9(int value) {
+        
+        int9_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 int_9 = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInt9() {
+        
+        int9_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int int10_ ;
+      /**
+       * <code>int32 int_10 = 10;</code>
+       * @return The int10.
+       */
+      @java.lang.Override
+      public int getInt10() {
+        return int10_;
+      }
+      /**
+       * <code>int32 int_10 = 10;</code>
+       * @param value The int10 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInt10(int value) {
+        
+        int10_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 int_10 = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInt10() {
+        
+        int10_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int timeInfo11_ ;
       /**
        * <code>int32 timeInfo_11 = 11;</code>
@@ -1154,22 +1497,26 @@ public final class TimeInfoSerializer {
   static {
     java.lang.String[] descriptorData = {
       "\n\016TimeInfo.proto\022\030com.douyin.webcast.pro" +
-      "to\"z\n\010TimeInfo\022\023\n\013messageType\030\001 \001(\t\022\013\n\003i" +
-      "d1\030\002 \001(\003\022\013\n\003id2\030\003 \001(\003\022\020\n\010now_time\030\004 \001(\003\022" +
-      "\013\n\003id3\030\006 \001(\005\022\013\n\003msg\030\007 \001(\t\022\023\n\013timeInfo_11" +
-      "\030\013 \001(\005B(\n\022com.douyin.webcastB\022TimeInfoSe" +
-      "rializerb\006proto3"
+      "to\032\016GiftInfo.proto\"\317\001\n\010TimeInfo\022\023\n\013messa" +
+      "geType\030\001 \001(\t\022\013\n\003id1\030\002 \001(\003\022\013\n\003id2\030\003 \001(\003\022\020" +
+      "\n\010now_time\030\004 \001(\003\022\013\n\003id3\030\006 \001(\005\022\013\n\003msg\030\007 \001" +
+      "(\t\0224\n\010giftInfo\030\010 \001(\0132\".com.douyin.webcas" +
+      "t.proto.GiftInfo\022\r\n\005int_9\030\t \001(\005\022\016\n\006int_1" +
+      "0\030\n \001(\005\022\023\n\013timeInfo_11\030\013 \001(\005B(\n\022com.douy" +
+      "in.webcastB\022TimeInfoSerializerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.douyin.webcast.GiftInfoSerializer.getDescriptor(),
         });
     internal_static_com_douyin_webcast_proto_TimeInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_douyin_webcast_proto_TimeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_douyin_webcast_proto_TimeInfo_descriptor,
-        new java.lang.String[] { "MessageType", "Id1", "Id2", "NowTime", "Id3", "Msg", "TimeInfo11", });
+        new java.lang.String[] { "MessageType", "Id1", "Id2", "NowTime", "Id3", "Msg", "GiftInfo", "Int9", "Int10", "TimeInfo11", });
+    com.douyin.webcast.GiftInfoSerializer.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "WebcastLikeMessageSerializer";
+import "TimeInfo.proto";
+import "UserInfo.proto";
+message WebcastLikeMessage{
+  message WebcastLikeMessageBody{
+    com.douyin.webcast.proto.TimeInfo timeInfo=1;
+    int32 int_2=2;
+    int32 int_3=3;
+    com.douyin.webcast.proto.UserInfo userInfo=5;
+  }
+    WebcastLikeMessageBody body=1;
+}

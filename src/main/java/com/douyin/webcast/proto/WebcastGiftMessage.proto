@@ -4,20 +4,24 @@ option java_package = "com.douyin.webcast";
 option java_outer_classname = "WebcastGiftMessageSerializer";
 import "TimeInfo.proto";
 import "UserInfo.proto";
+import "GiftDetailsInfo.proto";
 message WebcastGiftMessage{
   message WebcastGiftMessageBody{
-    com.douyin.webcast.proto.TimeInfo timeInfo=1;
-    int32 gift_bofy_2=2;
-    int64 gift_body_3=3;
-    int32 gift_body_4=4;
-    int32 gift_body_5=5;
-    int32 gift_body_6=6;
-    com.douyin.webcast.proto.UserInfo userInfo=7;
-    int32 gift_body_9=9;
-    int64 timestamp=11;
-    int32 gift_body_13=13;
-//    string gift_body_16=16;
-//    string gift_body_19=19;
+    com.douyin.webcast.proto.TimeInfo timeInfo = 1;
+    int32 gift_bofy_2 = 2;
+    int64 gift_body_3 = 3;
+    int32 gift_body_4 = 4;
+    //    送礼物数量
+    int32 gift_count = 5;
+    //    送礼物数量
+    int32 gift_body_6 = 6;
+    com.douyin.webcast.proto.UserInfo userInfo = 7;
+    int32 gift_body_9 = 9;
+    int64 timestamp = 11;
+    int32 gift_body_13 = 13;
+    com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;
+    string gift_body_16 = 16;
+    //    string gift_body_19=19;
   }
-  WebcastGiftMessageBody body=1;
+  WebcastGiftMessageBody body = 1;
 }

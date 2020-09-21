@@ -161,12 +161,20 @@ public final class WebcastGiftMessageSerializer {
       int getGiftBody4();
 
       /**
-       * <code>int32 gift_body_5 = 5;</code>
-       * @return The giftBody5.
+       * <pre>
+       *    送礼物数量
+       * </pre>
+       *
+       * <code>int32 gift_count = 5;</code>
+       * @return The giftCount.
        */
-      int getGiftBody5();
+      int getGiftCount();
 
       /**
+       * <pre>
+       *    送礼物数量
+       * </pre>
+       *
        * <code>int32 gift_body_6 = 6;</code>
        * @return The giftBody6.
        */
@@ -200,15 +208,45 @@ public final class WebcastGiftMessageSerializer {
       long getTimestamp();
 
       /**
-       * <pre>
-       *    string gift_body_16=16;
-       *    string gift_body_19=19;
-       * </pre>
-       *
        * <code>int32 gift_body_13 = 13;</code>
        * @return The giftBody13.
        */
       int getGiftBody13();
+
+      /**
+       * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+       * @return Whether the giftDetailsInfo field is set.
+       */
+      boolean hasGiftDetailsInfo();
+      /**
+       * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+       * @return The giftDetailsInfo.
+       */
+      com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo getGiftDetailsInfo();
+      /**
+       * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+       */
+      com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfoOrBuilder getGiftDetailsInfoOrBuilder();
+
+      /**
+       * <pre>
+       *    string gift_body_19=19;
+       * </pre>
+       *
+       * <code>string gift_body_16 = 16;</code>
+       * @return The giftBody16.
+       */
+      java.lang.String getGiftBody16();
+      /**
+       * <pre>
+       *    string gift_body_19=19;
+       * </pre>
+       *
+       * <code>string gift_body_16 = 16;</code>
+       * @return The bytes for giftBody16.
+       */
+      com.google.protobuf.ByteString
+          getGiftBody16Bytes();
     }
     /**
      * Protobuf type {@code com.douyin.webcast.proto.WebcastGiftMessage.WebcastGiftMessageBody}
@@ -223,6 +261,7 @@ public final class WebcastGiftMessageSerializer {
         super(builder);
       }
       private WebcastGiftMessageBody() {
+        giftBody16_ = "";
       }
 
       @java.lang.Override
@@ -285,7 +324,7 @@ public final class WebcastGiftMessageSerializer {
               }
               case 40: {
 
-                giftBody5_ = input.readInt32();
+                giftCount_ = input.readInt32();
                 break;
               }
               case 48: {
@@ -319,6 +358,25 @@ public final class WebcastGiftMessageSerializer {
               case 104: {
 
                 giftBody13_ = input.readInt32();
+                break;
+              }
+              case 122: {
+                com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.Builder subBuilder = null;
+                if (giftDetailsInfo_ != null) {
+                  subBuilder = giftDetailsInfo_.toBuilder();
+                }
+                giftDetailsInfo_ = input.readMessage(com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(giftDetailsInfo_);
+                  giftDetailsInfo_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 130: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                giftBody16_ = s;
                 break;
               }
               default: {
@@ -412,20 +470,28 @@ public final class WebcastGiftMessageSerializer {
         return giftBody4_;
       }
 
-      public static final int GIFT_BODY_5_FIELD_NUMBER = 5;
-      private int giftBody5_;
+      public static final int GIFT_COUNT_FIELD_NUMBER = 5;
+      private int giftCount_;
       /**
-       * <code>int32 gift_body_5 = 5;</code>
-       * @return The giftBody5.
+       * <pre>
+       *    送礼物数量
+       * </pre>
+       *
+       * <code>int32 gift_count = 5;</code>
+       * @return The giftCount.
        */
       @java.lang.Override
-      public int getGiftBody5() {
-        return giftBody5_;
+      public int getGiftCount() {
+        return giftCount_;
       }
 
       public static final int GIFT_BODY_6_FIELD_NUMBER = 6;
       private int giftBody6_;
       /**
+       * <pre>
+       *    送礼物数量
+       * </pre>
+       *
        * <code>int32 gift_body_6 = 6;</code>
        * @return The giftBody6.
        */
@@ -485,17 +551,84 @@ public final class WebcastGiftMessageSerializer {
       public static final int GIFT_BODY_13_FIELD_NUMBER = 13;
       private int giftBody13_;
       /**
-       * <pre>
-       *    string gift_body_16=16;
-       *    string gift_body_19=19;
-       * </pre>
-       *
        * <code>int32 gift_body_13 = 13;</code>
        * @return The giftBody13.
        */
       @java.lang.Override
       public int getGiftBody13() {
         return giftBody13_;
+      }
+
+      public static final int GIFTDETAILSINFO_FIELD_NUMBER = 15;
+      private com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo giftDetailsInfo_;
+      /**
+       * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+       * @return Whether the giftDetailsInfo field is set.
+       */
+      @java.lang.Override
+      public boolean hasGiftDetailsInfo() {
+        return giftDetailsInfo_ != null;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+       * @return The giftDetailsInfo.
+       */
+      @java.lang.Override
+      public com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo getGiftDetailsInfo() {
+        return giftDetailsInfo_ == null ? com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.getDefaultInstance() : giftDetailsInfo_;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+       */
+      @java.lang.Override
+      public com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfoOrBuilder getGiftDetailsInfoOrBuilder() {
+        return getGiftDetailsInfo();
+      }
+
+      public static final int GIFT_BODY_16_FIELD_NUMBER = 16;
+      private volatile java.lang.Object giftBody16_;
+      /**
+       * <pre>
+       *    string gift_body_19=19;
+       * </pre>
+       *
+       * <code>string gift_body_16 = 16;</code>
+       * @return The giftBody16.
+       */
+      @java.lang.Override
+      public java.lang.String getGiftBody16() {
+        java.lang.Object ref = giftBody16_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          giftBody16_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       *    string gift_body_19=19;
+       * </pre>
+       *
+       * <code>string gift_body_16 = 16;</code>
+       * @return The bytes for giftBody16.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getGiftBody16Bytes() {
+        java.lang.Object ref = giftBody16_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          giftBody16_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
 
       private byte memoizedIsInitialized = -1;
@@ -524,8 +657,8 @@ public final class WebcastGiftMessageSerializer {
         if (giftBody4_ != 0) {
           output.writeInt32(4, giftBody4_);
         }
-        if (giftBody5_ != 0) {
-          output.writeInt32(5, giftBody5_);
+        if (giftCount_ != 0) {
+          output.writeInt32(5, giftCount_);
         }
         if (giftBody6_ != 0) {
           output.writeInt32(6, giftBody6_);
@@ -541,6 +674,12 @@ public final class WebcastGiftMessageSerializer {
         }
         if (giftBody13_ != 0) {
           output.writeInt32(13, giftBody13_);
+        }
+        if (giftDetailsInfo_ != null) {
+          output.writeMessage(15, getGiftDetailsInfo());
+        }
+        if (!getGiftBody16Bytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 16, giftBody16_);
         }
         unknownFields.writeTo(output);
       }
@@ -567,9 +706,9 @@ public final class WebcastGiftMessageSerializer {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(4, giftBody4_);
         }
-        if (giftBody5_ != 0) {
+        if (giftCount_ != 0) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, giftBody5_);
+            .computeInt32Size(5, giftCount_);
         }
         if (giftBody6_ != 0) {
           size += com.google.protobuf.CodedOutputStream
@@ -590,6 +729,13 @@ public final class WebcastGiftMessageSerializer {
         if (giftBody13_ != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(13, giftBody13_);
+        }
+        if (giftDetailsInfo_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(15, getGiftDetailsInfo());
+        }
+        if (!getGiftBody16Bytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, giftBody16_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -617,8 +763,8 @@ public final class WebcastGiftMessageSerializer {
             != other.getGiftBody3()) return false;
         if (getGiftBody4()
             != other.getGiftBody4()) return false;
-        if (getGiftBody5()
-            != other.getGiftBody5()) return false;
+        if (getGiftCount()
+            != other.getGiftCount()) return false;
         if (getGiftBody6()
             != other.getGiftBody6()) return false;
         if (hasUserInfo() != other.hasUserInfo()) return false;
@@ -632,6 +778,13 @@ public final class WebcastGiftMessageSerializer {
             != other.getTimestamp()) return false;
         if (getGiftBody13()
             != other.getGiftBody13()) return false;
+        if (hasGiftDetailsInfo() != other.hasGiftDetailsInfo()) return false;
+        if (hasGiftDetailsInfo()) {
+          if (!getGiftDetailsInfo()
+              .equals(other.getGiftDetailsInfo())) return false;
+        }
+        if (!getGiftBody16()
+            .equals(other.getGiftBody16())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -654,8 +807,8 @@ public final class WebcastGiftMessageSerializer {
             getGiftBody3());
         hash = (37 * hash) + GIFT_BODY_4_FIELD_NUMBER;
         hash = (53 * hash) + getGiftBody4();
-        hash = (37 * hash) + GIFT_BODY_5_FIELD_NUMBER;
-        hash = (53 * hash) + getGiftBody5();
+        hash = (37 * hash) + GIFT_COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getGiftCount();
         hash = (37 * hash) + GIFT_BODY_6_FIELD_NUMBER;
         hash = (53 * hash) + getGiftBody6();
         if (hasUserInfo()) {
@@ -669,6 +822,12 @@ public final class WebcastGiftMessageSerializer {
             getTimestamp());
         hash = (37 * hash) + GIFT_BODY_13_FIELD_NUMBER;
         hash = (53 * hash) + getGiftBody13();
+        if (hasGiftDetailsInfo()) {
+          hash = (37 * hash) + GIFTDETAILSINFO_FIELD_NUMBER;
+          hash = (53 * hash) + getGiftDetailsInfo().hashCode();
+        }
+        hash = (37 * hash) + GIFT_BODY_16_FIELD_NUMBER;
+        hash = (53 * hash) + getGiftBody16().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -814,7 +973,7 @@ public final class WebcastGiftMessageSerializer {
 
           giftBody4_ = 0;
 
-          giftBody5_ = 0;
+          giftCount_ = 0;
 
           giftBody6_ = 0;
 
@@ -829,6 +988,14 @@ public final class WebcastGiftMessageSerializer {
           timestamp_ = 0L;
 
           giftBody13_ = 0;
+
+          if (giftDetailsInfoBuilder_ == null) {
+            giftDetailsInfo_ = null;
+          } else {
+            giftDetailsInfo_ = null;
+            giftDetailsInfoBuilder_ = null;
+          }
+          giftBody16_ = "";
 
           return this;
         }
@@ -864,7 +1031,7 @@ public final class WebcastGiftMessageSerializer {
           result.giftBofy2_ = giftBofy2_;
           result.giftBody3_ = giftBody3_;
           result.giftBody4_ = giftBody4_;
-          result.giftBody5_ = giftBody5_;
+          result.giftCount_ = giftCount_;
           result.giftBody6_ = giftBody6_;
           if (userInfoBuilder_ == null) {
             result.userInfo_ = userInfo_;
@@ -874,6 +1041,12 @@ public final class WebcastGiftMessageSerializer {
           result.giftBody9_ = giftBody9_;
           result.timestamp_ = timestamp_;
           result.giftBody13_ = giftBody13_;
+          if (giftDetailsInfoBuilder_ == null) {
+            result.giftDetailsInfo_ = giftDetailsInfo_;
+          } else {
+            result.giftDetailsInfo_ = giftDetailsInfoBuilder_.build();
+          }
+          result.giftBody16_ = giftBody16_;
           onBuilt();
           return result;
         }
@@ -934,8 +1107,8 @@ public final class WebcastGiftMessageSerializer {
           if (other.getGiftBody4() != 0) {
             setGiftBody4(other.getGiftBody4());
           }
-          if (other.getGiftBody5() != 0) {
-            setGiftBody5(other.getGiftBody5());
+          if (other.getGiftCount() != 0) {
+            setGiftCount(other.getGiftCount());
           }
           if (other.getGiftBody6() != 0) {
             setGiftBody6(other.getGiftBody6());
@@ -951,6 +1124,13 @@ public final class WebcastGiftMessageSerializer {
           }
           if (other.getGiftBody13() != 0) {
             setGiftBody13(other.getGiftBody13());
+          }
+          if (other.hasGiftDetailsInfo()) {
+            mergeGiftDetailsInfo(other.getGiftDetailsInfo());
+          }
+          if (!other.getGiftBody16().isEmpty()) {
+            giftBody16_ = other.giftBody16_;
+            onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -1193,39 +1373,55 @@ public final class WebcastGiftMessageSerializer {
           return this;
         }
 
-        private int giftBody5_ ;
+        private int giftCount_ ;
         /**
-         * <code>int32 gift_body_5 = 5;</code>
-         * @return The giftBody5.
+         * <pre>
+         *    送礼物数量
+         * </pre>
+         *
+         * <code>int32 gift_count = 5;</code>
+         * @return The giftCount.
          */
         @java.lang.Override
-        public int getGiftBody5() {
-          return giftBody5_;
+        public int getGiftCount() {
+          return giftCount_;
         }
         /**
-         * <code>int32 gift_body_5 = 5;</code>
-         * @param value The giftBody5 to set.
+         * <pre>
+         *    送礼物数量
+         * </pre>
+         *
+         * <code>int32 gift_count = 5;</code>
+         * @param value The giftCount to set.
          * @return This builder for chaining.
          */
-        public Builder setGiftBody5(int value) {
+        public Builder setGiftCount(int value) {
           
-          giftBody5_ = value;
+          giftCount_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 gift_body_5 = 5;</code>
+         * <pre>
+         *    送礼物数量
+         * </pre>
+         *
+         * <code>int32 gift_count = 5;</code>
          * @return This builder for chaining.
          */
-        public Builder clearGiftBody5() {
+        public Builder clearGiftCount() {
           
-          giftBody5_ = 0;
+          giftCount_ = 0;
           onChanged();
           return this;
         }
 
         private int giftBody6_ ;
         /**
+         * <pre>
+         *    送礼物数量
+         * </pre>
+         *
          * <code>int32 gift_body_6 = 6;</code>
          * @return The giftBody6.
          */
@@ -1234,6 +1430,10 @@ public final class WebcastGiftMessageSerializer {
           return giftBody6_;
         }
         /**
+         * <pre>
+         *    送礼物数量
+         * </pre>
+         *
          * <code>int32 gift_body_6 = 6;</code>
          * @param value The giftBody6 to set.
          * @return This builder for chaining.
@@ -1245,6 +1445,10 @@ public final class WebcastGiftMessageSerializer {
           return this;
         }
         /**
+         * <pre>
+         *    送礼物数量
+         * </pre>
+         *
          * <code>int32 gift_body_6 = 6;</code>
          * @return This builder for chaining.
          */
@@ -1438,11 +1642,6 @@ public final class WebcastGiftMessageSerializer {
 
         private int giftBody13_ ;
         /**
-         * <pre>
-         *    string gift_body_16=16;
-         *    string gift_body_19=19;
-         * </pre>
-         *
          * <code>int32 gift_body_13 = 13;</code>
          * @return The giftBody13.
          */
@@ -1451,11 +1650,6 @@ public final class WebcastGiftMessageSerializer {
           return giftBody13_;
         }
         /**
-         * <pre>
-         *    string gift_body_16=16;
-         *    string gift_body_19=19;
-         * </pre>
-         *
          * <code>int32 gift_body_13 = 13;</code>
          * @param value The giftBody13 to set.
          * @return This builder for chaining.
@@ -1467,17 +1661,227 @@ public final class WebcastGiftMessageSerializer {
           return this;
         }
         /**
-         * <pre>
-         *    string gift_body_16=16;
-         *    string gift_body_19=19;
-         * </pre>
-         *
          * <code>int32 gift_body_13 = 13;</code>
          * @return This builder for chaining.
          */
         public Builder clearGiftBody13() {
           
           giftBody13_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo giftDetailsInfo_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo, com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.Builder, com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfoOrBuilder> giftDetailsInfoBuilder_;
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         * @return Whether the giftDetailsInfo field is set.
+         */
+        public boolean hasGiftDetailsInfo() {
+          return giftDetailsInfoBuilder_ != null || giftDetailsInfo_ != null;
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         * @return The giftDetailsInfo.
+         */
+        public com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo getGiftDetailsInfo() {
+          if (giftDetailsInfoBuilder_ == null) {
+            return giftDetailsInfo_ == null ? com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.getDefaultInstance() : giftDetailsInfo_;
+          } else {
+            return giftDetailsInfoBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        public Builder setGiftDetailsInfo(com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo value) {
+          if (giftDetailsInfoBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            giftDetailsInfo_ = value;
+            onChanged();
+          } else {
+            giftDetailsInfoBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        public Builder setGiftDetailsInfo(
+            com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.Builder builderForValue) {
+          if (giftDetailsInfoBuilder_ == null) {
+            giftDetailsInfo_ = builderForValue.build();
+            onChanged();
+          } else {
+            giftDetailsInfoBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        public Builder mergeGiftDetailsInfo(com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo value) {
+          if (giftDetailsInfoBuilder_ == null) {
+            if (giftDetailsInfo_ != null) {
+              giftDetailsInfo_ =
+                com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.newBuilder(giftDetailsInfo_).mergeFrom(value).buildPartial();
+            } else {
+              giftDetailsInfo_ = value;
+            }
+            onChanged();
+          } else {
+            giftDetailsInfoBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        public Builder clearGiftDetailsInfo() {
+          if (giftDetailsInfoBuilder_ == null) {
+            giftDetailsInfo_ = null;
+            onChanged();
+          } else {
+            giftDetailsInfo_ = null;
+            giftDetailsInfoBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        public com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.Builder getGiftDetailsInfoBuilder() {
+          
+          onChanged();
+          return getGiftDetailsInfoFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        public com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfoOrBuilder getGiftDetailsInfoOrBuilder() {
+          if (giftDetailsInfoBuilder_ != null) {
+            return giftDetailsInfoBuilder_.getMessageOrBuilder();
+          } else {
+            return giftDetailsInfo_ == null ?
+                com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.getDefaultInstance() : giftDetailsInfo_;
+          }
+        }
+        /**
+         * <code>.com.douyin.webcast.proto.GiftDetailsInfo giftDetailsInfo = 15;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo, com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.Builder, com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfoOrBuilder> 
+            getGiftDetailsInfoFieldBuilder() {
+          if (giftDetailsInfoBuilder_ == null) {
+            giftDetailsInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo, com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfo.Builder, com.douyin.webcast.GiftDetailsInfoSerializer.GiftDetailsInfoOrBuilder>(
+                    getGiftDetailsInfo(),
+                    getParentForChildren(),
+                    isClean());
+            giftDetailsInfo_ = null;
+          }
+          return giftDetailsInfoBuilder_;
+        }
+
+        private java.lang.Object giftBody16_ = "";
+        /**
+         * <pre>
+         *    string gift_body_19=19;
+         * </pre>
+         *
+         * <code>string gift_body_16 = 16;</code>
+         * @return The giftBody16.
+         */
+        public java.lang.String getGiftBody16() {
+          java.lang.Object ref = giftBody16_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            giftBody16_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         *    string gift_body_19=19;
+         * </pre>
+         *
+         * <code>string gift_body_16 = 16;</code>
+         * @return The bytes for giftBody16.
+         */
+        public com.google.protobuf.ByteString
+            getGiftBody16Bytes() {
+          java.lang.Object ref = giftBody16_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            giftBody16_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         *    string gift_body_19=19;
+         * </pre>
+         *
+         * <code>string gift_body_16 = 16;</code>
+         * @param value The giftBody16 to set.
+         * @return This builder for chaining.
+         */
+        public Builder setGiftBody16(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          giftBody16_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *    string gift_body_19=19;
+         * </pre>
+         *
+         * <code>string gift_body_16 = 16;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearGiftBody16() {
+          
+          giftBody16_ = getDefaultInstance().getGiftBody16();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *    string gift_body_19=19;
+         * </pre>
+         *
+         * <code>string gift_body_16 = 16;</code>
+         * @param value The bytes for giftBody16 to set.
+         * @return This builder for chaining.
+         */
+        public Builder setGiftBody16Bytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          giftBody16_ = value;
           onChanged();
           return this;
         }
@@ -2067,24 +2471,28 @@ public final class WebcastGiftMessageSerializer {
     java.lang.String[] descriptorData = {
       "\n\030WebcastGiftMessage.proto\022\030com.douyin.w" +
       "ebcast.proto\032\016TimeInfo.proto\032\016UserInfo.p" +
-      "roto\"\225\003\n\022WebcastGiftMessage\022Q\n\004body\030\001 \001(" +
-      "\0132C.com.douyin.webcast.proto.WebcastGift" +
-      "Message.WebcastGiftMessageBody\032\253\002\n\026Webca" +
-      "stGiftMessageBody\0224\n\010timeInfo\030\001 \001(\0132\".co" +
-      "m.douyin.webcast.proto.TimeInfo\022\023\n\013gift_" +
-      "bofy_2\030\002 \001(\005\022\023\n\013gift_body_3\030\003 \001(\003\022\023\n\013gif" +
-      "t_body_4\030\004 \001(\005\022\023\n\013gift_body_5\030\005 \001(\005\022\023\n\013g" +
-      "ift_body_6\030\006 \001(\005\0224\n\010userInfo\030\007 \001(\0132\".com" +
-      ".douyin.webcast.proto.UserInfo\022\023\n\013gift_b" +
-      "ody_9\030\t \001(\005\022\021\n\ttimestamp\030\013 \001(\003\022\024\n\014gift_b" +
-      "ody_13\030\r \001(\005B2\n\022com.douyin.webcastB\034Webc" +
-      "astGiftMessageSerializerb\006proto3"
+      "roto\032\025GiftDetailsInfo.proto\"\356\003\n\022WebcastG" +
+      "iftMessage\022Q\n\004body\030\001 \001(\0132C.com.douyin.we" +
+      "bcast.proto.WebcastGiftMessage.WebcastGi" +
+      "ftMessageBody\032\204\003\n\026WebcastGiftMessageBody" +
+      "\0224\n\010timeInfo\030\001 \001(\0132\".com.douyin.webcast." +
+      "proto.TimeInfo\022\023\n\013gift_bofy_2\030\002 \001(\005\022\023\n\013g" +
+      "ift_body_3\030\003 \001(\003\022\023\n\013gift_body_4\030\004 \001(\005\022\022\n" +
+      "\ngift_count\030\005 \001(\005\022\023\n\013gift_body_6\030\006 \001(\005\0224" +
+      "\n\010userInfo\030\007 \001(\0132\".com.douyin.webcast.pr" +
+      "oto.UserInfo\022\023\n\013gift_body_9\030\t \001(\005\022\021\n\ttim" +
+      "estamp\030\013 \001(\003\022\024\n\014gift_body_13\030\r \001(\005\022B\n\017gi" +
+      "ftDetailsInfo\030\017 \001(\0132).com.douyin.webcast" +
+      ".proto.GiftDetailsInfo\022\024\n\014gift_body_16\030\020" +
+      " \001(\tB2\n\022com.douyin.webcastB\034WebcastGiftM" +
+      "essageSerializerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.douyin.webcast.TimeInfoSerializer.getDescriptor(),
           com.douyin.webcast.UserInfoSerializer.getDescriptor(),
+          com.douyin.webcast.GiftDetailsInfoSerializer.getDescriptor(),
         });
     internal_static_com_douyin_webcast_proto_WebcastGiftMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2097,9 +2505,10 @@ public final class WebcastGiftMessageSerializer {
     internal_static_com_douyin_webcast_proto_WebcastGiftMessage_WebcastGiftMessageBody_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_douyin_webcast_proto_WebcastGiftMessage_WebcastGiftMessageBody_descriptor,
-        new java.lang.String[] { "TimeInfo", "GiftBofy2", "GiftBody3", "GiftBody4", "GiftBody5", "GiftBody6", "UserInfo", "GiftBody9", "Timestamp", "GiftBody13", });
+        new java.lang.String[] { "TimeInfo", "GiftBofy2", "GiftBody3", "GiftBody4", "GiftCount", "GiftBody6", "UserInfo", "GiftBody9", "Timestamp", "GiftBody13", "GiftDetailsInfo", "GiftBody16", });
     com.douyin.webcast.TimeInfoSerializer.getDescriptor();
     com.douyin.webcast.UserInfoSerializer.getDescriptor();
+    com.douyin.webcast.GiftDetailsInfoSerializer.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

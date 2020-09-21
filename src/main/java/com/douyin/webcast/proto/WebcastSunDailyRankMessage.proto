@@ -1,0 +1,36 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "WebcastSunDailyRankMessageSerializer";
+import "TimeInfo.proto";
+import "ColorInfo.proto";
+message WebcastSunDailyRankMessage{
+  message WebcastSunDailyRankMessageBody{
+    com.douyin.webcast.proto.TimeInfo timeInfo = 1;
+    //    小时榜排名距上一名差距
+    string gapWithLastOneInHourRank = 2;
+    int32 int_3 = 3;
+    //    小时榜排名
+    string rankInHour = 4;
+    int32 int_5 = 5;
+    int32 int_10 = 10;
+    string str_12 = 12;
+    int32 int_13 = 13;
+    message Obj16{
+      int32 int_1 = 1;
+      //      排名
+      int32 rank = 2;
+    }
+    repeated Obj16 obj_16s = 16;
+    int64 timestamp = 17;
+    int32 int_18 = 18;
+    message SunDailyRankInfo{
+      string type = 1;
+      string msg = 2;
+      com.douyin.webcast.proto.ColorInfo color = 3;
+    }
+    SunDailyRankInfo info_19 = 19;
+    SunDailyRankInfo info_20 = 20;
+  }
+  WebcastSunDailyRankMessageBody body = 1;
+}

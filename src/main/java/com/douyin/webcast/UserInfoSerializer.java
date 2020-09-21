@@ -35,16 +35,16 @@ public final class UserInfoSerializer {
     long getId();
 
     /**
-     * <code>string name = 3;</code>
-     * @return The name.
+     * <code>string nickname = 3;</code>
+     * @return The nickname.
      */
-    java.lang.String getName();
+    java.lang.String getNickname();
     /**
-     * <code>string name = 3;</code>
-     * @return The bytes for name.
+     * <code>string nickname = 3;</code>
+     * @return The bytes for nickname.
      */
     com.google.protobuf.ByteString
-        getNameBytes();
+        getNicknameBytes();
 
     /**
      * <code>int32 gender = 4;</code>
@@ -53,19 +53,103 @@ public final class UserInfoSerializer {
     int getGender();
 
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
-     * @return Whether the headimg field is set.
+     * <code>string signature = 5;</code>
+     * @return The signature.
      */
-    boolean hasHeadimg();
+    java.lang.String getSignature();
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
-     * @return The headimg.
+     * <code>string signature = 5;</code>
+     * @return The bytes for signature.
      */
-    com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg();
+    com.google.protobuf.ByteString
+        getSignatureBytes();
+
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+     * @return Whether the headimg9 field is set.
      */
-    com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimgOrBuilder();
+    boolean hasHeadimg9();
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+     * @return The headimg9.
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg9();
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg9OrBuilder();
+
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+     * @return Whether the headimg10 field is set.
+     */
+    boolean hasHeadimg10();
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+     * @return The headimg10.
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg10();
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg10OrBuilder();
+
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+     * @return Whether the headimg11 field is set.
+     */
+    boolean hasHeadimg11();
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+     * @return The headimg11.
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg11();
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg11OrBuilder();
+
+    /**
+     * <code>int32 int_12 = 12;</code>
+     * @return The int12.
+     */
+    int getInt12();
+
+    /**
+     * <code>int32 int_15 = 15;</code>
+     * @return The int15.
+     */
+    int getInt15();
+
+    /**
+     * <code>int64 timestamp = 17;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    java.util.List<com.douyin.webcast.CoverInfoSerializer.CoverInfo> 
+        getHeadimg21List();
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg21(int index);
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    int getHeadimg21Count();
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    java.util.List<? extends com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
+        getHeadimg21OrBuilderList();
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg21OrBuilder(
+        int index);
 
     /**
      * <code>.com.douyin.webcast.proto.UserInfo.U_Obj22 u_obj = 22;</code>
@@ -133,7 +217,9 @@ public final class UserInfoSerializer {
       super(builder);
     }
     private UserInfo() {
-      name_ = "";
+      nickname_ = "";
+      signature_ = "";
+      headimg21_ = java.util.Collections.emptyList();
       idStr_ = "";
       secUid_ = "";
     }
@@ -158,6 +244,7 @@ public final class UserInfoSerializer {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -181,7 +268,7 @@ public final class UserInfoSerializer {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              name_ = s;
+              nickname_ = s;
               break;
             }
             case 32: {
@@ -189,17 +276,73 @@ public final class UserInfoSerializer {
               gender_ = input.readInt32();
               break;
             }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              signature_ = s;
+              break;
+            }
             case 74: {
               com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder subBuilder = null;
-              if (headimg_ != null) {
-                subBuilder = headimg_.toBuilder();
+              if (headimg9_ != null) {
+                subBuilder = headimg9_.toBuilder();
               }
-              headimg_ = input.readMessage(com.douyin.webcast.CoverInfoSerializer.CoverInfo.parser(), extensionRegistry);
+              headimg9_ = input.readMessage(com.douyin.webcast.CoverInfoSerializer.CoverInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(headimg_);
-                headimg_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(headimg9_);
+                headimg9_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 82: {
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder subBuilder = null;
+              if (headimg10_ != null) {
+                subBuilder = headimg10_.toBuilder();
+              }
+              headimg10_ = input.readMessage(com.douyin.webcast.CoverInfoSerializer.CoverInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(headimg10_);
+                headimg10_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 90: {
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder subBuilder = null;
+              if (headimg11_ != null) {
+                subBuilder = headimg11_.toBuilder();
+              }
+              headimg11_ = input.readMessage(com.douyin.webcast.CoverInfoSerializer.CoverInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(headimg11_);
+                headimg11_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 96: {
+
+              int12_ = input.readInt32();
+              break;
+            }
+            case 120: {
+
+              int15_ = input.readInt32();
+              break;
+            }
+            case 136: {
+
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 170: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                headimg21_ = new java.util.ArrayList<com.douyin.webcast.CoverInfoSerializer.CoverInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              headimg21_.add(
+                  input.readMessage(com.douyin.webcast.CoverInfoSerializer.CoverInfo.parser(), extensionRegistry));
               break;
             }
             case 178: {
@@ -247,6 +390,9 @@ public final class UserInfoSerializer {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          headimg21_ = java.util.Collections.unmodifiableList(headimg21_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -918,38 +1064,38 @@ public final class UserInfoSerializer {
       return id_;
     }
 
-    public static final int NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object name_;
+    public static final int NICKNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object nickname_;
     /**
-     * <code>string name = 3;</code>
-     * @return The name.
+     * <code>string nickname = 3;</code>
+     * @return The nickname.
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    public java.lang.String getNickname() {
+      java.lang.Object ref = nickname_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        nickname_ = s;
         return s;
       }
     }
     /**
-     * <code>string name = 3;</code>
-     * @return The bytes for name.
+     * <code>string nickname = 3;</code>
+     * @return The bytes for nickname.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getNicknameBytes() {
+      java.lang.Object ref = nickname_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        nickname_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -967,30 +1113,193 @@ public final class UserInfoSerializer {
       return gender_;
     }
 
-    public static final int HEADIMG_FIELD_NUMBER = 9;
-    private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg_;
+    public static final int SIGNATURE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object signature_;
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
-     * @return Whether the headimg field is set.
+     * <code>string signature = 5;</code>
+     * @return The signature.
      */
     @java.lang.Override
-    public boolean hasHeadimg() {
-      return headimg_ != null;
+    public java.lang.String getSignature() {
+      java.lang.Object ref = signature_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        signature_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
-     * @return The headimg.
+     * <code>string signature = 5;</code>
+     * @return The bytes for signature.
      */
     @java.lang.Override
-    public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg() {
-      return headimg_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg_;
+    public com.google.protobuf.ByteString
+        getSignatureBytes() {
+      java.lang.Object ref = signature_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        signature_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HEADIMG9_FIELD_NUMBER = 9;
+    private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg9_;
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+     * @return Whether the headimg9 field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeadimg9() {
+      return headimg9_ != null;
     }
     /**
-     * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+     * @return The headimg9.
      */
     @java.lang.Override
-    public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimgOrBuilder() {
-      return getHeadimg();
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg9() {
+      return headimg9_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg9_;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg9OrBuilder() {
+      return getHeadimg9();
+    }
+
+    public static final int HEADIMG10_FIELD_NUMBER = 10;
+    private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg10_;
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+     * @return Whether the headimg10 field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeadimg10() {
+      return headimg10_ != null;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+     * @return The headimg10.
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg10() {
+      return headimg10_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg10_;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg10OrBuilder() {
+      return getHeadimg10();
+    }
+
+    public static final int HEADIMG11_FIELD_NUMBER = 11;
+    private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg11_;
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+     * @return Whether the headimg11 field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeadimg11() {
+      return headimg11_ != null;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+     * @return The headimg11.
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg11() {
+      return headimg11_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg11_;
+    }
+    /**
+     * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg11OrBuilder() {
+      return getHeadimg11();
+    }
+
+    public static final int INT_12_FIELD_NUMBER = 12;
+    private int int12_;
+    /**
+     * <code>int32 int_12 = 12;</code>
+     * @return The int12.
+     */
+    @java.lang.Override
+    public int getInt12() {
+      return int12_;
+    }
+
+    public static final int INT_15_FIELD_NUMBER = 15;
+    private int int15_;
+    /**
+     * <code>int32 int_15 = 15;</code>
+     * @return The int15.
+     */
+    @java.lang.Override
+    public int getInt15() {
+      return int15_;
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 17;
+    private long timestamp_;
+    /**
+     * <code>int64 timestamp = 17;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int HEADIMG21_FIELD_NUMBER = 21;
+    private java.util.List<com.douyin.webcast.CoverInfoSerializer.CoverInfo> headimg21_;
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.douyin.webcast.CoverInfoSerializer.CoverInfo> getHeadimg21List() {
+      return headimg21_;
+    }
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
+        getHeadimg21OrBuilderList() {
+      return headimg21_;
+    }
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    @java.lang.Override
+    public int getHeadimg21Count() {
+      return headimg21_.size();
+    }
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg21(int index) {
+      return headimg21_.get(index);
+    }
+    /**
+     * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+     */
+    @java.lang.Override
+    public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg21OrBuilder(
+        int index) {
+      return headimg21_.get(index);
     }
 
     public static final int U_OBJ_FIELD_NUMBER = 22;
@@ -1134,14 +1443,35 @@ public final class UserInfoSerializer {
       if (id_ != 0L) {
         output.writeInt64(2, id_);
       }
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
+      if (!getNicknameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nickname_);
       }
       if (gender_ != 0) {
         output.writeInt32(4, gender_);
       }
-      if (headimg_ != null) {
-        output.writeMessage(9, getHeadimg());
+      if (!getSignatureBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, signature_);
+      }
+      if (headimg9_ != null) {
+        output.writeMessage(9, getHeadimg9());
+      }
+      if (headimg10_ != null) {
+        output.writeMessage(10, getHeadimg10());
+      }
+      if (headimg11_ != null) {
+        output.writeMessage(11, getHeadimg11());
+      }
+      if (int12_ != 0) {
+        output.writeInt32(12, int12_);
+      }
+      if (int15_ != 0) {
+        output.writeInt32(15, int15_);
+      }
+      if (timestamp_ != 0L) {
+        output.writeInt64(17, timestamp_);
+      }
+      for (int i = 0; i < headimg21_.size(); i++) {
+        output.writeMessage(21, headimg21_.get(i));
       }
       if (uObj_ != null) {
         output.writeMessage(22, getUObj());
@@ -1172,16 +1502,43 @@ public final class UserInfoSerializer {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, id_);
       }
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
+      if (!getNicknameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, nickname_);
       }
       if (gender_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, gender_);
       }
-      if (headimg_ != null) {
+      if (!getSignatureBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, signature_);
+      }
+      if (headimg9_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, getHeadimg());
+          .computeMessageSize(9, getHeadimg9());
+      }
+      if (headimg10_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getHeadimg10());
+      }
+      if (headimg11_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, getHeadimg11());
+      }
+      if (int12_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, int12_);
+      }
+      if (int15_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(15, int15_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(17, timestamp_);
+      }
+      for (int i = 0; i < headimg21_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(21, headimg21_.get(i));
       }
       if (uObj_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -1216,15 +1573,35 @@ public final class UserInfoSerializer {
           != other.getStr1()) return false;
       if (getId()
           != other.getId()) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getNickname()
+          .equals(other.getNickname())) return false;
       if (getGender()
           != other.getGender()) return false;
-      if (hasHeadimg() != other.hasHeadimg()) return false;
-      if (hasHeadimg()) {
-        if (!getHeadimg()
-            .equals(other.getHeadimg())) return false;
+      if (!getSignature()
+          .equals(other.getSignature())) return false;
+      if (hasHeadimg9() != other.hasHeadimg9()) return false;
+      if (hasHeadimg9()) {
+        if (!getHeadimg9()
+            .equals(other.getHeadimg9())) return false;
       }
+      if (hasHeadimg10() != other.hasHeadimg10()) return false;
+      if (hasHeadimg10()) {
+        if (!getHeadimg10()
+            .equals(other.getHeadimg10())) return false;
+      }
+      if (hasHeadimg11() != other.hasHeadimg11()) return false;
+      if (hasHeadimg11()) {
+        if (!getHeadimg11()
+            .equals(other.getHeadimg11())) return false;
+      }
+      if (getInt12()
+          != other.getInt12()) return false;
+      if (getInt15()
+          != other.getInt15()) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
+      if (!getHeadimg21List()
+          .equals(other.getHeadimg21List())) return false;
       if (hasUObj() != other.hasUObj()) return false;
       if (hasUObj()) {
         if (!getUObj()
@@ -1253,13 +1630,34 @@ public final class UserInfoSerializer {
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getNickname().hashCode();
       hash = (37 * hash) + GENDER_FIELD_NUMBER;
       hash = (53 * hash) + getGender();
-      if (hasHeadimg()) {
-        hash = (37 * hash) + HEADIMG_FIELD_NUMBER;
-        hash = (53 * hash) + getHeadimg().hashCode();
+      hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
+      hash = (53 * hash) + getSignature().hashCode();
+      if (hasHeadimg9()) {
+        hash = (37 * hash) + HEADIMG9_FIELD_NUMBER;
+        hash = (53 * hash) + getHeadimg9().hashCode();
+      }
+      if (hasHeadimg10()) {
+        hash = (37 * hash) + HEADIMG10_FIELD_NUMBER;
+        hash = (53 * hash) + getHeadimg10().hashCode();
+      }
+      if (hasHeadimg11()) {
+        hash = (37 * hash) + HEADIMG11_FIELD_NUMBER;
+        hash = (53 * hash) + getHeadimg11().hashCode();
+      }
+      hash = (37 * hash) + INT_12_FIELD_NUMBER;
+      hash = (53 * hash) + getInt12();
+      hash = (37 * hash) + INT_15_FIELD_NUMBER;
+      hash = (53 * hash) + getInt15();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
+      if (getHeadimg21Count() > 0) {
+        hash = (37 * hash) + HEADIMG21_FIELD_NUMBER;
+        hash = (53 * hash) + getHeadimg21List().hashCode();
       }
       if (hasUObj()) {
         hash = (37 * hash) + U_OBJ_FIELD_NUMBER;
@@ -1399,6 +1797,7 @@ public final class UserInfoSerializer {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getHeadimg21FieldBuilder();
         }
       }
       @java.lang.Override
@@ -1408,15 +1807,41 @@ public final class UserInfoSerializer {
 
         id_ = 0L;
 
-        name_ = "";
+        nickname_ = "";
 
         gender_ = 0;
 
-        if (headimgBuilder_ == null) {
-          headimg_ = null;
+        signature_ = "";
+
+        if (headimg9Builder_ == null) {
+          headimg9_ = null;
         } else {
-          headimg_ = null;
-          headimgBuilder_ = null;
+          headimg9_ = null;
+          headimg9Builder_ = null;
+        }
+        if (headimg10Builder_ == null) {
+          headimg10_ = null;
+        } else {
+          headimg10_ = null;
+          headimg10Builder_ = null;
+        }
+        if (headimg11Builder_ == null) {
+          headimg11_ = null;
+        } else {
+          headimg11_ = null;
+          headimg11Builder_ = null;
+        }
+        int12_ = 0;
+
+        int15_ = 0;
+
+        timestamp_ = 0L;
+
+        if (headimg21Builder_ == null) {
+          headimg21_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          headimg21Builder_.clear();
         }
         if (uObjBuilder_ == null) {
           uObj_ = null;
@@ -1456,14 +1881,38 @@ public final class UserInfoSerializer {
       @java.lang.Override
       public com.douyin.webcast.UserInfoSerializer.UserInfo buildPartial() {
         com.douyin.webcast.UserInfoSerializer.UserInfo result = new com.douyin.webcast.UserInfoSerializer.UserInfo(this);
+        int from_bitField0_ = bitField0_;
         result.str1_ = str1_;
         result.id_ = id_;
-        result.name_ = name_;
+        result.nickname_ = nickname_;
         result.gender_ = gender_;
-        if (headimgBuilder_ == null) {
-          result.headimg_ = headimg_;
+        result.signature_ = signature_;
+        if (headimg9Builder_ == null) {
+          result.headimg9_ = headimg9_;
         } else {
-          result.headimg_ = headimgBuilder_.build();
+          result.headimg9_ = headimg9Builder_.build();
+        }
+        if (headimg10Builder_ == null) {
+          result.headimg10_ = headimg10_;
+        } else {
+          result.headimg10_ = headimg10Builder_.build();
+        }
+        if (headimg11Builder_ == null) {
+          result.headimg11_ = headimg11_;
+        } else {
+          result.headimg11_ = headimg11Builder_.build();
+        }
+        result.int12_ = int12_;
+        result.int15_ = int15_;
+        result.timestamp_ = timestamp_;
+        if (headimg21Builder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            headimg21_ = java.util.Collections.unmodifiableList(headimg21_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.headimg21_ = headimg21_;
+        } else {
+          result.headimg21_ = headimg21Builder_.build();
         }
         if (uObjBuilder_ == null) {
           result.uObj_ = uObj_;
@@ -1527,15 +1976,60 @@ public final class UserInfoSerializer {
         if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
+        if (!other.getNickname().isEmpty()) {
+          nickname_ = other.nickname_;
           onChanged();
         }
         if (other.getGender() != 0) {
           setGender(other.getGender());
         }
-        if (other.hasHeadimg()) {
-          mergeHeadimg(other.getHeadimg());
+        if (!other.getSignature().isEmpty()) {
+          signature_ = other.signature_;
+          onChanged();
+        }
+        if (other.hasHeadimg9()) {
+          mergeHeadimg9(other.getHeadimg9());
+        }
+        if (other.hasHeadimg10()) {
+          mergeHeadimg10(other.getHeadimg10());
+        }
+        if (other.hasHeadimg11()) {
+          mergeHeadimg11(other.getHeadimg11());
+        }
+        if (other.getInt12() != 0) {
+          setInt12(other.getInt12());
+        }
+        if (other.getInt15() != 0) {
+          setInt15(other.getInt15());
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (headimg21Builder_ == null) {
+          if (!other.headimg21_.isEmpty()) {
+            if (headimg21_.isEmpty()) {
+              headimg21_ = other.headimg21_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureHeadimg21IsMutable();
+              headimg21_.addAll(other.headimg21_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.headimg21_.isEmpty()) {
+            if (headimg21Builder_.isEmpty()) {
+              headimg21Builder_.dispose();
+              headimg21Builder_ = null;
+              headimg21_ = other.headimg21_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              headimg21Builder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getHeadimg21FieldBuilder() : null;
+            } else {
+              headimg21Builder_.addAllMessages(other.headimg21_);
+            }
+          }
         }
         if (other.hasUObj()) {
           mergeUObj(other.getUObj());
@@ -1579,6 +2073,7 @@ public final class UserInfoSerializer {
         }
         return this;
       }
+      private int bitField0_;
 
       private long str1_ ;
       /**
@@ -1654,78 +2149,78 @@ public final class UserInfoSerializer {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object nickname_ = "";
       /**
-       * <code>string name = 3;</code>
-       * @return The name.
+       * <code>string nickname = 3;</code>
+       * @return The nickname.
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
+      public java.lang.String getNickname() {
+        java.lang.Object ref = nickname_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          name_ = s;
+          nickname_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string name = 3;</code>
-       * @return The bytes for name.
+       * <code>string nickname = 3;</code>
+       * @return The bytes for nickname.
        */
       public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
+          getNicknameBytes() {
+        java.lang.Object ref = nickname_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          name_ = b;
+          nickname_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string name = 3;</code>
-       * @param value The name to set.
+       * <code>string nickname = 3;</code>
+       * @param value The nickname to set.
        * @return This builder for chaining.
        */
-      public Builder setName(
+      public Builder setNickname(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        name_ = value;
+        nickname_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 3;</code>
+       * <code>string nickname = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearName() {
+      public Builder clearNickname() {
         
-        name_ = getDefaultInstance().getName();
+        nickname_ = getDefaultInstance().getNickname();
         onChanged();
         return this;
       }
       /**
-       * <code>string name = 3;</code>
-       * @param value The bytes for name to set.
+       * <code>string nickname = 3;</code>
+       * @param value The bytes for nickname to set.
        * @return This builder for chaining.
        */
-      public Builder setNameBytes(
+      public Builder setNicknameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        name_ = value;
+        nickname_ = value;
         onChanged();
         return this;
       }
@@ -1761,123 +2256,770 @@ public final class UserInfoSerializer {
         return this;
       }
 
-      private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> headimgBuilder_;
+      private java.lang.Object signature_ = "";
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
-       * @return Whether the headimg field is set.
+       * <code>string signature = 5;</code>
+       * @return The signature.
        */
-      public boolean hasHeadimg() {
-        return headimgBuilder_ != null || headimg_ != null;
-      }
-      /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
-       * @return The headimg.
-       */
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg() {
-        if (headimgBuilder_ == null) {
-          return headimg_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg_;
+      public java.lang.String getSignature() {
+        java.lang.Object ref = signature_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          signature_ = s;
+          return s;
         } else {
-          return headimgBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>string signature = 5;</code>
+       * @return The bytes for signature.
        */
-      public Builder setHeadimg(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
-        if (headimgBuilder_ == null) {
+      public com.google.protobuf.ByteString
+          getSignatureBytes() {
+        java.lang.Object ref = signature_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          signature_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string signature = 5;</code>
+       * @param value The signature to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSignature(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string signature = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSignature() {
+        
+        signature_ = getDefaultInstance().getSignature();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string signature = 5;</code>
+       * @param value The bytes for signature to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSignatureBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg9_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> headimg9Builder_;
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+       * @return Whether the headimg9 field is set.
+       */
+      public boolean hasHeadimg9() {
+        return headimg9Builder_ != null || headimg9_ != null;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+       * @return The headimg9.
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg9() {
+        if (headimg9Builder_ == null) {
+          return headimg9_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg9_;
+        } else {
+          return headimg9Builder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
+       */
+      public Builder setHeadimg9(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg9Builder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          headimg_ = value;
+          headimg9_ = value;
           onChanged();
         } else {
-          headimgBuilder_.setMessage(value);
+          headimg9Builder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
        */
-      public Builder setHeadimg(
+      public Builder setHeadimg9(
           com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder builderForValue) {
-        if (headimgBuilder_ == null) {
-          headimg_ = builderForValue.build();
+        if (headimg9Builder_ == null) {
+          headimg9_ = builderForValue.build();
           onChanged();
         } else {
-          headimgBuilder_.setMessage(builderForValue.build());
+          headimg9Builder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
        */
-      public Builder mergeHeadimg(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
-        if (headimgBuilder_ == null) {
-          if (headimg_ != null) {
-            headimg_ =
-              com.douyin.webcast.CoverInfoSerializer.CoverInfo.newBuilder(headimg_).mergeFrom(value).buildPartial();
+      public Builder mergeHeadimg9(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg9Builder_ == null) {
+          if (headimg9_ != null) {
+            headimg9_ =
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.newBuilder(headimg9_).mergeFrom(value).buildPartial();
           } else {
-            headimg_ = value;
+            headimg9_ = value;
           }
           onChanged();
         } else {
-          headimgBuilder_.mergeFrom(value);
+          headimg9Builder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
        */
-      public Builder clearHeadimg() {
-        if (headimgBuilder_ == null) {
-          headimg_ = null;
+      public Builder clearHeadimg9() {
+        if (headimg9Builder_ == null) {
+          headimg9_ = null;
           onChanged();
         } else {
-          headimg_ = null;
-          headimgBuilder_ = null;
+          headimg9_ = null;
+          headimg9Builder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
        */
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder getHeadimgBuilder() {
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder getHeadimg9Builder() {
         
         onChanged();
-        return getHeadimgFieldBuilder().getBuilder();
+        return getHeadimg9FieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
        */
-      public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimgOrBuilder() {
-        if (headimgBuilder_ != null) {
-          return headimgBuilder_.getMessageOrBuilder();
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg9OrBuilder() {
+        if (headimg9Builder_ != null) {
+          return headimg9Builder_.getMessageOrBuilder();
         } else {
-          return headimg_ == null ?
-              com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg_;
+          return headimg9_ == null ?
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg9_;
         }
       }
       /**
-       * <code>.com.douyin.webcast.proto.CoverInfo headimg = 9;</code>
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg9 = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
-          getHeadimgFieldBuilder() {
-        if (headimgBuilder_ == null) {
-          headimgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getHeadimg9FieldBuilder() {
+        if (headimg9Builder_ == null) {
+          headimg9Builder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder>(
-                  getHeadimg(),
+                  getHeadimg9(),
                   getParentForChildren(),
                   isClean());
-          headimg_ = null;
+          headimg9_ = null;
         }
-        return headimgBuilder_;
+        return headimg9Builder_;
+      }
+
+      private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg10_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> headimg10Builder_;
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       * @return Whether the headimg10 field is set.
+       */
+      public boolean hasHeadimg10() {
+        return headimg10Builder_ != null || headimg10_ != null;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       * @return The headimg10.
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg10() {
+        if (headimg10Builder_ == null) {
+          return headimg10_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg10_;
+        } else {
+          return headimg10Builder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      public Builder setHeadimg10(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg10Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          headimg10_ = value;
+          onChanged();
+        } else {
+          headimg10Builder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      public Builder setHeadimg10(
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder builderForValue) {
+        if (headimg10Builder_ == null) {
+          headimg10_ = builderForValue.build();
+          onChanged();
+        } else {
+          headimg10Builder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      public Builder mergeHeadimg10(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg10Builder_ == null) {
+          if (headimg10_ != null) {
+            headimg10_ =
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.newBuilder(headimg10_).mergeFrom(value).buildPartial();
+          } else {
+            headimg10_ = value;
+          }
+          onChanged();
+        } else {
+          headimg10Builder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      public Builder clearHeadimg10() {
+        if (headimg10Builder_ == null) {
+          headimg10_ = null;
+          onChanged();
+        } else {
+          headimg10_ = null;
+          headimg10Builder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder getHeadimg10Builder() {
+        
+        onChanged();
+        return getHeadimg10FieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg10OrBuilder() {
+        if (headimg10Builder_ != null) {
+          return headimg10Builder_.getMessageOrBuilder();
+        } else {
+          return headimg10_ == null ?
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg10_;
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg10 = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
+          getHeadimg10FieldBuilder() {
+        if (headimg10Builder_ == null) {
+          headimg10Builder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder>(
+                  getHeadimg10(),
+                  getParentForChildren(),
+                  isClean());
+          headimg10_ = null;
+        }
+        return headimg10Builder_;
+      }
+
+      private com.douyin.webcast.CoverInfoSerializer.CoverInfo headimg11_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> headimg11Builder_;
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       * @return Whether the headimg11 field is set.
+       */
+      public boolean hasHeadimg11() {
+        return headimg11Builder_ != null || headimg11_ != null;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       * @return The headimg11.
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg11() {
+        if (headimg11Builder_ == null) {
+          return headimg11_ == null ? com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg11_;
+        } else {
+          return headimg11Builder_.getMessage();
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      public Builder setHeadimg11(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg11Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          headimg11_ = value;
+          onChanged();
+        } else {
+          headimg11Builder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      public Builder setHeadimg11(
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder builderForValue) {
+        if (headimg11Builder_ == null) {
+          headimg11_ = builderForValue.build();
+          onChanged();
+        } else {
+          headimg11Builder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      public Builder mergeHeadimg11(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg11Builder_ == null) {
+          if (headimg11_ != null) {
+            headimg11_ =
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.newBuilder(headimg11_).mergeFrom(value).buildPartial();
+          } else {
+            headimg11_ = value;
+          }
+          onChanged();
+        } else {
+          headimg11Builder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      public Builder clearHeadimg11() {
+        if (headimg11Builder_ == null) {
+          headimg11_ = null;
+          onChanged();
+        } else {
+          headimg11_ = null;
+          headimg11Builder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder getHeadimg11Builder() {
+        
+        onChanged();
+        return getHeadimg11FieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg11OrBuilder() {
+        if (headimg11Builder_ != null) {
+          return headimg11Builder_.getMessageOrBuilder();
+        } else {
+          return headimg11_ == null ?
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance() : headimg11_;
+        }
+      }
+      /**
+       * <code>.com.douyin.webcast.proto.CoverInfo headimg11 = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
+          getHeadimg11FieldBuilder() {
+        if (headimg11Builder_ == null) {
+          headimg11Builder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder>(
+                  getHeadimg11(),
+                  getParentForChildren(),
+                  isClean());
+          headimg11_ = null;
+        }
+        return headimg11Builder_;
+      }
+
+      private int int12_ ;
+      /**
+       * <code>int32 int_12 = 12;</code>
+       * @return The int12.
+       */
+      @java.lang.Override
+      public int getInt12() {
+        return int12_;
+      }
+      /**
+       * <code>int32 int_12 = 12;</code>
+       * @param value The int12 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInt12(int value) {
+        
+        int12_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 int_12 = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInt12() {
+        
+        int12_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int int15_ ;
+      /**
+       * <code>int32 int_15 = 15;</code>
+       * @return The int15.
+       */
+      @java.lang.Override
+      public int getInt15() {
+        return int15_;
+      }
+      /**
+       * <code>int32 int_15 = 15;</code>
+       * @param value The int15 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInt15(int value) {
+        
+        int15_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 int_15 = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInt15() {
+        
+        int15_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>int64 timestamp = 17;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>int64 timestamp = 17;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 timestamp = 17;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.douyin.webcast.CoverInfoSerializer.CoverInfo> headimg21_ =
+        java.util.Collections.emptyList();
+      private void ensureHeadimg21IsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          headimg21_ = new java.util.ArrayList<com.douyin.webcast.CoverInfoSerializer.CoverInfo>(headimg21_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> headimg21Builder_;
+
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public java.util.List<com.douyin.webcast.CoverInfoSerializer.CoverInfo> getHeadimg21List() {
+        if (headimg21Builder_ == null) {
+          return java.util.Collections.unmodifiableList(headimg21_);
+        } else {
+          return headimg21Builder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public int getHeadimg21Count() {
+        if (headimg21Builder_ == null) {
+          return headimg21_.size();
+        } else {
+          return headimg21Builder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo getHeadimg21(int index) {
+        if (headimg21Builder_ == null) {
+          return headimg21_.get(index);
+        } else {
+          return headimg21Builder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder setHeadimg21(
+          int index, com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg21Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHeadimg21IsMutable();
+          headimg21_.set(index, value);
+          onChanged();
+        } else {
+          headimg21Builder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder setHeadimg21(
+          int index, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder builderForValue) {
+        if (headimg21Builder_ == null) {
+          ensureHeadimg21IsMutable();
+          headimg21_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          headimg21Builder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder addHeadimg21(com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg21Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHeadimg21IsMutable();
+          headimg21_.add(value);
+          onChanged();
+        } else {
+          headimg21Builder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder addHeadimg21(
+          int index, com.douyin.webcast.CoverInfoSerializer.CoverInfo value) {
+        if (headimg21Builder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHeadimg21IsMutable();
+          headimg21_.add(index, value);
+          onChanged();
+        } else {
+          headimg21Builder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder addHeadimg21(
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder builderForValue) {
+        if (headimg21Builder_ == null) {
+          ensureHeadimg21IsMutable();
+          headimg21_.add(builderForValue.build());
+          onChanged();
+        } else {
+          headimg21Builder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder addHeadimg21(
+          int index, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder builderForValue) {
+        if (headimg21Builder_ == null) {
+          ensureHeadimg21IsMutable();
+          headimg21_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          headimg21Builder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder addAllHeadimg21(
+          java.lang.Iterable<? extends com.douyin.webcast.CoverInfoSerializer.CoverInfo> values) {
+        if (headimg21Builder_ == null) {
+          ensureHeadimg21IsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, headimg21_);
+          onChanged();
+        } else {
+          headimg21Builder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder clearHeadimg21() {
+        if (headimg21Builder_ == null) {
+          headimg21_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          headimg21Builder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public Builder removeHeadimg21(int index) {
+        if (headimg21Builder_ == null) {
+          ensureHeadimg21IsMutable();
+          headimg21_.remove(index);
+          onChanged();
+        } else {
+          headimg21Builder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder getHeadimg21Builder(
+          int index) {
+        return getHeadimg21FieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder getHeadimg21OrBuilder(
+          int index) {
+        if (headimg21Builder_ == null) {
+          return headimg21_.get(index);  } else {
+          return headimg21Builder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public java.util.List<? extends com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
+           getHeadimg21OrBuilderList() {
+        if (headimg21Builder_ != null) {
+          return headimg21Builder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(headimg21_);
+        }
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder addHeadimg21Builder() {
+        return getHeadimg21FieldBuilder().addBuilder(
+            com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder addHeadimg21Builder(
+          int index) {
+        return getHeadimg21FieldBuilder().addBuilder(
+            index, com.douyin.webcast.CoverInfoSerializer.CoverInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.douyin.webcast.proto.CoverInfo headimg21 = 21;</code>
+       */
+      public java.util.List<com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder> 
+           getHeadimg21BuilderList() {
+        return getHeadimg21FieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder> 
+          getHeadimg21FieldBuilder() {
+        if (headimg21Builder_ == null) {
+          headimg21Builder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.douyin.webcast.CoverInfoSerializer.CoverInfo, com.douyin.webcast.CoverInfoSerializer.CoverInfo.Builder, com.douyin.webcast.CoverInfoSerializer.CoverInfoOrBuilder>(
+                  headimg21_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          headimg21_ = null;
+        }
+        return headimg21Builder_;
       }
 
       private com.douyin.webcast.UserInfoSerializer.UserInfo.U_Obj22 uObj_;
@@ -2274,15 +3416,22 @@ public final class UserInfoSerializer {
   static {
     java.lang.String[] descriptorData = {
       "\n\016UserInfo.proto\022\030com.douyin.webcast.pro" +
-      "to\032\017CoverInfo.proto\"\237\002\n\010UserInfo\022\014\n\004str1" +
-      "\030\001 \001(\003\022\n\n\002id\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\016\n\006gend" +
-      "er\030\004 \001(\005\0224\n\007headimg\030\t \001(\0132#.com.douyin.w" +
-      "ebcast.proto.CoverInfo\0229\n\005u_obj\030\026 \001(\0132*." +
-      "com.douyin.webcast.proto.UserInfo.U_Obj2" +
-      "2\022\016\n\006id_str\030& \001(\t\022\017\n\007sec_uid\030. \001(\t\022\032\n\022au" +
-      "thorization_info\0306 \001(\005\032-\n\007U_Obj22\022\n\n\002o1\030" +
-      "\001 \001(\005\022\n\n\002o2\030\002 \001(\005\022\n\n\002o3\030\003 \001(\005B(\n\022com.dou" +
-      "yin.webcastB\022UserInfoSerializerb\006proto3"
+      "to\032\017CoverInfo.proto\"\222\004\n\010UserInfo\022\014\n\004str1" +
+      "\030\001 \001(\003\022\n\n\002id\030\002 \001(\003\022\020\n\010nickname\030\003 \001(\t\022\016\n\006" +
+      "gender\030\004 \001(\005\022\021\n\tsignature\030\005 \001(\t\0225\n\010headi" +
+      "mg9\030\t \001(\0132#.com.douyin.webcast.proto.Cov" +
+      "erInfo\0226\n\theadimg10\030\n \001(\0132#.com.douyin.w" +
+      "ebcast.proto.CoverInfo\0226\n\theadimg11\030\013 \001(" +
+      "\0132#.com.douyin.webcast.proto.CoverInfo\022\016" +
+      "\n\006int_12\030\014 \001(\005\022\016\n\006int_15\030\017 \001(\005\022\021\n\ttimest" +
+      "amp\030\021 \001(\003\0226\n\theadimg21\030\025 \003(\0132#.com.douyi" +
+      "n.webcast.proto.CoverInfo\0229\n\005u_obj\030\026 \001(\013" +
+      "2*.com.douyin.webcast.proto.UserInfo.U_O" +
+      "bj22\022\016\n\006id_str\030& \001(\t\022\017\n\007sec_uid\030. \001(\t\022\032\n" +
+      "\022authorization_info\0306 \001(\005\032-\n\007U_Obj22\022\n\n\002" +
+      "o1\030\001 \001(\005\022\n\n\002o2\030\002 \001(\005\022\n\n\002o3\030\003 \001(\005B(\n\022com." +
+      "douyin.webcastB\022UserInfoSerializerb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2294,7 +3443,7 @@ public final class UserInfoSerializer {
     internal_static_com_douyin_webcast_proto_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_douyin_webcast_proto_UserInfo_descriptor,
-        new java.lang.String[] { "Str1", "Id", "Name", "Gender", "Headimg", "UObj", "IdStr", "SecUid", "AuthorizationInfo", });
+        new java.lang.String[] { "Str1", "Id", "Nickname", "Gender", "Signature", "Headimg9", "Headimg10", "Headimg11", "Int12", "Int15", "Timestamp", "Headimg21", "UObj", "IdStr", "SecUid", "AuthorizationInfo", });
     internal_static_com_douyin_webcast_proto_UserInfo_U_Obj22_descriptor =
       internal_static_com_douyin_webcast_proto_UserInfo_descriptor.getNestedTypes().get(0);
     internal_static_com_douyin_webcast_proto_UserInfo_U_Obj22_fieldAccessorTable = new

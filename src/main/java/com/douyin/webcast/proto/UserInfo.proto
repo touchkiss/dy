@@ -7,9 +7,16 @@ message UserInfo{
   int64 str1 = 1;
   //          用户id，短数字类型
   int64 id = 2;
-  string name = 3;
+  string nickname = 3;
   int32 gender = 4;
-  com.douyin.webcast.proto.CoverInfo headimg = 9;
+  string signature=5;
+  com.douyin.webcast.proto.CoverInfo headimg9 = 9;
+  com.douyin.webcast.proto.CoverInfo headimg10 = 10;
+  com.douyin.webcast.proto.CoverInfo headimg11 = 11;
+  int32 int_12=12;
+  int32 int_15=15;
+  int64 timestamp=17;
+  repeated com.douyin.webcast.proto.CoverInfo headimg21 = 21;
   message U_Obj22{
     int32 o1 = 1;
     int32 o2 = 2;

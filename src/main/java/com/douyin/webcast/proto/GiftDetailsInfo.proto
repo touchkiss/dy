@@ -1,0 +1,27 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "GiftDetailsInfoSerializer";
+import "CoverInfo.proto";
+message GiftDetailsInfo{
+  com.douyin.webcast.proto.CoverInfo coverInfo_1 = 1;
+  string name = 2;
+  int32 int_5 = 5;
+  int32 int_7 = 7;
+  int32 int_8 = 8;
+  int32 int_10 = 10;
+  int32 int_11 = 11;
+  int32 int_12 = 12;
+  int32 int_13 = 13;
+  com.douyin.webcast.proto.CoverInfo coverInfo_15 = 15;
+  string str_16 = 16;
+  message Obj20{
+    string str1 = 1;
+    int32 int_2 = 2;
+  }
+  Obj20 obj_20 = 20;
+  com.douyin.webcast.proto.CoverInfo coverInfo_21 = 21;
+  //  有可能是礼物数量
+  int32 int_42 = 42;
+  repeated string str_44 = 44;
+}

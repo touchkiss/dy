@@ -1,0 +1,23 @@
+syntax = "proto3";
+package com.douyin.webcast.proto;
+option java_package = "com.douyin.webcast";
+option java_outer_classname = "GiftItemSerializer";
+import "ColorInfo.proto";
+import "UserInfo.proto";
+message GiftItem{
+  int32 id = 1;
+  com.douyin.webcast.proto.ColorInfo color = 2;
+  message GiftFromUser{
+    com.douyin.webcast.proto.UserInfo userinfo = 1;
+  }
+  GiftFromUser fromUser = 21;
+  message GiftName{
+    int32 giftId = 1;
+    message GiftNameInfo{
+      string gift_id_str = 1;
+      string gift_name = 2;
+    }
+    GiftNameInfo giftNameInfo = 2;
+  }
+  GiftName giftName = 22;
+}
