@@ -73,7 +73,7 @@ public class UserInfo {
     private ProfileStoryBean profile_story;
     private Long profile_tab_type;
     private String province;
-    private RFansGroupInfoBean r_fans_group_info;
+//    private RFansGroupInfoBean r_fans_group_info;
     private String recommend_reason_relation;
     private Long recommend_user_reason_source;
     private Object relative_users;
@@ -91,7 +91,7 @@ public class UserInfo {
     private Long stitch_setting;
     private Long story_count;
     private Long sync_to_toutiao;
-    private TabSettingsBean tab_settings;
+//    private TabSettingsBean tab_settings;
     private Long total_favorited;
     private String twitter_id;
     private String twitter_name;
@@ -145,19 +145,19 @@ public class UserInfo {
         private Long user_urged;
     }
 
-    @NoArgsConstructor
-    @Data
-    public static class TabSettingsBean {
-        @NoArgsConstructor
-        @Data
-        public static class PrivateTabBean {
-        }
-    }
-
-    @NoArgsConstructor
-    @Data
-    public static class RFansGroupInfoBean {
-    }
+//    @NoArgsConstructor
+//    @Data
+//    public static class TabSettingsBean {
+//        @NoArgsConstructor
+//        @Data
+//        public static class PrivateTabBean {
+//        }
+//    }
+//
+//    @NoArgsConstructor
+//    @Data
+//    public static class RFansGroupInfoBean {
+//    }
 
     @NoArgsConstructor
     @Data

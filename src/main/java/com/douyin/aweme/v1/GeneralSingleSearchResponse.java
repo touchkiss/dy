@@ -16,15 +16,15 @@ public class GeneralSingleSearchResponse extends BaseResponse {
     private String qc;
     private Long cursor;
     private Long has_more;
-    private AdInfoBean ad_info;
+//    private AdInfoBean ad_info;
     private Object guide_search_words;
     private String backtrace;
     private List<DataBean> data;
 
-    @NoArgsConstructor
-    @Data
-    public static class AdInfoBean {
-    }
+//    @NoArgsConstructor
+//    @Data
+//    public static class AdInfoBean {
+//    }
 
     @NoArgsConstructor
     @Data

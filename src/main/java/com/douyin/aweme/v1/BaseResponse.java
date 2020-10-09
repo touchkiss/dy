@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class BaseResponse {
     private Long status_code;
+    private String status_msg;
     private ExtraBean extra;
     private LogPbBean log_pb;
     @NoArgsConstructor

@@ -15,9 +15,9 @@ import java.util.Enumeration;
  *
  * @author Touchkiss
  */
-@WebListener
+//@WebListener
 @Slf4j
-@Configuration
+//@Configuration
 public class RequestListener implements ServletRequestListener {
     @Override
     public void requestDestroyed(ServletRequestEvent servletRequestEvent) {

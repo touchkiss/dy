@@ -13,7 +13,7 @@ public class AwemeInfo {
     private Object anchors;
     private UserInfo author;
     private long author_user_id;
-    private AwemeControlBean aweme_control;
+//    private AwemeControlBean aweme_control;
     private String aweme_id;
     private Long aweme_type;
     private Long bodydance_score;
@@ -23,7 +23,7 @@ public class AwemeInfo {
     private Long collect_stat;
     private Object comment_list;
     private Object commerce_config_data;
-    private CommerceInfoBean commerce_info;
+//    private CommerceInfoBean commerce_info;
     private Object cover_labels;
     private Long create_time;
     private String desc;
@@ -34,7 +34,7 @@ public class AwemeInfo {
     private Long duration;
     private Boolean  have_dashboard;
     private Boolean  has_vs_entry;
-    private HotListBean hot_list;
+//    private HotListBean hot_list;
     private Object hybrid_label;
     private List<?> geofencing;
     private Object geofencing_regions;
@@ -80,17 +80,17 @@ public class AwemeInfo {
     private Long user_digged;
     private VideoBean video;
     private VideoControlBean video_control;
-    private List<?> video_labels;
-    private List<?> video_text;
+//    private List<?> video_labels;
+//    private List<?> video_text;
     private Long vr_type;
     private Boolean  with_promotional_music;
     private Boolean  without_watermark;
     private XiguaTaskBean xigua_task;
 
-    @NoArgsConstructor
-    @Data
-    public static class HotListBean {
-    }
+//    @NoArgsConstructor
+//    @Data
+//    public static class HotListBean {
+//    }
 
     @NoArgsConstructor
     @Data
@@ -402,15 +402,15 @@ public class AwemeInfo {
         private Boolean  allow_stitch;
     }
 
-    @NoArgsConstructor
-    @Data
-    public static class AwemeControlBean {
-    }
-
-    @NoArgsConstructor
-    @Data
-    public static class CommerceInfoBean {
-    }
+//    @NoArgsConstructor
+//    @Data
+//    public static class AwemeControlBean {
+//    }
+//
+//    @NoArgsConstructor
+//    @Data
+//    public static class CommerceInfoBean {
+//    }
 
     @NoArgsConstructor
     @Data
