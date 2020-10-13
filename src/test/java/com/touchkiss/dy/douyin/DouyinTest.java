@@ -129,18 +129,17 @@ public class DouyinTest {
             headers.add(new BasicHeader("X-Khronos", String.valueOf(now / 1000)));
             headers.add(new BasicHeader("x-common-params-v2", "os_api=19&device_platform=android&device_type=PCRT00&iid=69980830055940&version_code=110300&app_name=aweme&openudid=1062042365927853&device_id=2708807412624253&os_version=4.4.4&aid=1128&channel=aweGW&ssmix=a&manifest_version_code=110301&dpi=240&cdid=23083b87-0468-4aba-b87a-1b14297f826a&version_name=11.3.0&resolution=720*1280&language=zh&device_brand=OPPO&app_type=normal&ac=wifi&update_version_code=11309900&uuid=865746239395652"));
             String url = "https://api3-core-c-lq.amemv.com/aweme/v2/feed/?type=0&max_cursor=0&min_cursor=0&count=6&volume=0.73&pull_type=0&need_relieve_aweme=0&filter_warn=0&req_from=enter_auto&is_cold_start=1&longitude=121.492479&latitude=31.247221&address_book_access=2&gps_access=1&cached_item_num=0&last_ad_show_interval=-1&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&download_sdk_info=%7B%22space_unoccupied%22%3A5544624%7D&action_mask=-1&teen_protector_vote_aweme_count=0&last_teen_protector_vote_aweme_interval=0&ts="+(now/1000)+"&_rticket="+now+"&cpu_support64=false&mcc_mnc=46000&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&host_abi=armeabi-v7a&";
-            String gorgon = HttpUtil.post("http://192.168.8.229:8888/urlAndHeaders", HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, new HashMap() {{
-                put("url", url);
-            }}, headers);
+//            String gorgon = HttpUtil.post("http://192.168.8.229:8888/urlAndHeaders", HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, new HashMap() {{
+//                put("url", url);
+//            }}, headers);
+            HashMap<String, String> headerMap = (HashMap<String, String>) headers.stream().collect(Collectors.toMap(Header::getName, Header::getValue));
+            String gorgon = Gorgon2.getGorgon((int)(now/1000),url, headerMap);
+            System.out.println("计算出："+gorgon);
             headers.add(new BasicHeader("X-Gorgon", gorgon));
             CloseableHttpResponse response = HttpUtil.getResponse(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, headers);
             HttpEntity httpEntity = response.getEntity();
             InputStream content = httpEntity.getContent();
             FileUtils.copyInputStreamToFile(content,new File("D:\\feed.bin"));
-//            NearbyFeedResponse nearbyFeedResponse = GsonUtil.fromJson(response, NearbyFeedResponse.class);
-//            for (AwemeInfo awemeInfo : nearbyFeedResponse.getAweme_list()) {
-//                System.out.println(awemeInfo.getDesc());
-//            }
         }catch (Exception e){
             e.printStackTrace();
         }
