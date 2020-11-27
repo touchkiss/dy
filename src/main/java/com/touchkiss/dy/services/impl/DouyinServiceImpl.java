@@ -1,6 +1,6 @@
 package com.touchkiss.dy.services.impl;
 
-import com.douyin.Gorgon2;
+import com.douyin.Gorgon;
 import com.douyin.aweme.v1.GeneralSingleSearchResponse;
 import com.douyin.aweme.v1.UserProfileResponse;
 import com.touchkiss.dy.services.DouyinService;
@@ -39,7 +39,7 @@ public class DouyinServiceImpl implements DouyinService {
             headers.add(new BasicHeader("X-Khronos", String.valueOf(now / 1000)));
             String url = "https://api5-core-c-lq.amemv.com/aweme/v1/user/profile/other/?sec_user_id=" + secId + "&address_book_access=2&from=0&publish_video_strategy_type=2&version_name=11.3.0&ts=" + (now / 1000) + "&device_type=PCRT00&iid=69980830055940&app_type=normal&resolution=720*1280&aid=1128&app_name=aweme&_rticket=" + now + "&device_platform=android&version_code=110300&dpi=240&openudid=1062042365927853&cdid=23083b87-0468-4aba-b87a-1b14297f826a&cpu_support64=false&ssmix=a&os_api=19&mcc_mnc=46000&device_id=2708807412624253&device_brand=OPPO&manifest_version_code=110301&os_version=4.4.4&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&host_abi=armeabi-v7a&update_version_code=11309900&ac=wifi&uuid=865746239395652&language=zh&channel=aweGW";
             HashMap<String, String> headerMap = (HashMap<String, String>) headers.stream().collect(Collectors.toMap(Header::getName, Header::getValue));
-            String gorgon = Gorgon2.getGorgonInTime((int)(now/1000),url, headerMap);
+            String gorgon = Gorgon.getGorgon(url, headerMap);
             headers.add(new BasicHeader("X-Gorgon", gorgon));
             String response = HttpUtil.get(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, headers);
             System.out.println(response);
@@ -69,7 +69,7 @@ public class DouyinServiceImpl implements DouyinService {
             headers.add(new BasicHeader("X-Khronos", String.valueOf(now / 1000)));
             String url = "https://search-hl.amemv.com/aweme/v1/general/search/single/?version_name=11.3.0&ts="+(now/1000)+"&device_type=PCRT00&iid=69980830055940&app_type=normal&resolution=720*1280&aid=1128&app_name=aweme&_rticket="+now+"&device_platform=android&version_code=110300&dpi=240&openudid=1062042365927853&cdid=23083b87-0468-4aba-b87a-1b14297f826a&cpu_support64=false&ssmix=a&os_api=19&mcc_mnc=46000&device_id=2708807412624253&device_brand=OPPO&manifest_version_code=110301&os_version=4.4.4&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&host_abi=armeabi-v7a&update_version_code=11309900&ac=wifi&uuid=865746239395652&language=zh&channel=aweGW";
             HashMap<String, String> headerMap = (HashMap<String, String>) headers.stream().collect(Collectors.toMap(Header::getName, Header::getValue));
-            String gorgon = Gorgon2.getGorgonInTime((int)(now/1000),url, headerMap);
+            String gorgon = Gorgon.getGorgon(url, headerMap);
             headers.add(new BasicHeader("X-Gorgon", gorgon));
             String response = HttpUtil.post(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT,HttpUtil.DEFAULT_CHARSET,body, headers);
             System.out.println(response);
