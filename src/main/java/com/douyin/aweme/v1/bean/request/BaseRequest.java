@@ -18,9 +18,17 @@ import java.util.Set;
 public abstract class BaseRequest<T extends BaseResponse> {
     public Set<String> headers = new HashSet<>();
     public List<String> params=new ArrayList<>();
-    public String host;
+    public String Host;
     public String uri;
     public String method;
+
+    public BaseRequest(Set<String> headers, List<String> params, String host, String uri, String method) {
+        this.headers = headers;
+        this.params = params;
+        Host = host;
+        this.uri = uri;
+        this.method = method;
+    }
 
     public Class getRequestClass() {
         return getClass();

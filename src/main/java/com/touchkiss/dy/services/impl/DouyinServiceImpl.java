@@ -1,7 +1,7 @@
 package com.touchkiss.dy.services.impl;
 
 import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
-import com.douyin.aweme.v1.bean.response.UserProfileResponse;
+import com.douyin.aweme.v1.bean.response.UserInfoResponse;
 import com.touchkiss.dy.services.DouyinService;
 import com.touchkiss.dy.utils.GsonUtil;
 import com.touchkiss.dy.utils.HttpUtil;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Service
 public class DouyinServiceImpl implements DouyinService {
     @Override
-    public UserProfileResponse userProfile(String secId) {
+    public UserInfoResponse userProfile(String secId) {
         try {
             long time = System.currentTimeMillis();
             long ts = time / 1000;

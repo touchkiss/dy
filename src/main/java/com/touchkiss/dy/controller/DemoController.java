@@ -1,7 +1,7 @@
 package com.touchkiss.dy.controller;
 
 import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
-import com.douyin.aweme.v1.bean.response.UserProfileResponse;
+import com.douyin.aweme.v1.bean.response.UserInfoResponse;
 import com.touchkiss.dy.services.DouyinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +21,7 @@ public class DemoController {
         return "你好啊";
     }
     @RequestMapping("profile")
-    public UserProfileResponse profile(String secId){
+    public UserInfoResponse profile(String secId){
         return douyinService.userProfile(secId);
     }
     @RequestMapping("search")

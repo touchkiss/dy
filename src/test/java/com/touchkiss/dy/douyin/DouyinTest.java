@@ -3,7 +3,7 @@ package com.touchkiss.dy.douyin;
 import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
 import com.douyin.aweme.v1.bean.response.NearbyFeedResponse;
 import com.douyin.aweme.v1.bean.response.AwemeInfo;
-import com.douyin.aweme.v1.bean.response.UserProfileResponse;
+import com.douyin.aweme.v1.bean.response.UserInfoResponse;
 import com.douyin.aweme.v2.CommentListResponse;
 import com.touchkiss.dy.utils.*;
 import org.apache.commons.io.FileUtils;
@@ -51,8 +51,8 @@ public class DouyinTest {
 //        System.out.println(SendRequest.sendGet(url, headers));
         String response = HttpUtil.get(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, headers);
         System.out.println(response);
-        UserProfileResponse userProfileResponse = GsonUtil.fromJson(response, UserProfileResponse.class);
-        System.out.println(userProfileResponse.getUser().getNickname());
+        UserInfoResponse userInfoResponse = GsonUtil.fromJson(response, UserInfoResponse.class);
+        System.out.println(userInfoResponse.getUser().getNickname());
     }
 
     @Test

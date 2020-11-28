@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class UserProfileResponse extends BaseResponse {
+public class UserInfoResponse extends BaseResponse {
     private UserInfo user;
 }

@@ -12,7 +12,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class UserPostListResponse extends BaseResponse {
+public class AwemePostResponse extends BaseResponse {
     private long min_cursor;
     private long max_cursor;
     private Long has_more;
