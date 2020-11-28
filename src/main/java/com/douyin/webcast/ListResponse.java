@@ -1,7 +1,7 @@
 package com.douyin.webcast;
 
-import com.douyin.aweme.v1.BaseResponse;
-import com.douyin.aweme.v1.UserInfo;
+import com.douyin.aweme.v1.bean.response.BaseResponse;
+import com.douyin.aweme.v1.bean.response.UserInfo;
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
 import lombok.NoArgsConstructor;

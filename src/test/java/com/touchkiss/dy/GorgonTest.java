@@ -1,6 +1,6 @@
 package com.touchkiss.dy;
 
-import com.douyin.aweme.v1.HotSearchResponse;
+import com.douyin.aweme.v1.bean.response.HotSearchResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

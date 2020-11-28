@@ -1,7 +1,7 @@
 package com.douyin.aweme.v2;
 
-import com.douyin.aweme.v1.BaseResponse;
-import com.douyin.aweme.v1.UserInfo;
+import com.douyin.aweme.v1.bean.response.BaseResponse;
+import com.douyin.aweme.v1.bean.response.UserInfo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

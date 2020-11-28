@@ -1,7 +1,7 @@
 package com.touchkiss.dy.services;
 
-import com.douyin.aweme.v1.GeneralSingleSearchResponse;
-import com.douyin.aweme.v1.UserProfileResponse;
+import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
+import com.douyin.aweme.v1.bean.response.UserProfileResponse;
 
 /**
  * Created on 2020/10/09 12:38

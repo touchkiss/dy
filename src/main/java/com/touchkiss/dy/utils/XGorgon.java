@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class XGorgon {
 
@@ -44,39 +42,38 @@ public class XGorgon {
         int ts = (int) (time / 1000);
         String _rticket = time + "";
         String sessionid = "";
-        String url = "https://aweme.snssdk.com/aweme/v1/aweme/post/?source=0&max_cursor=0&sec_user_id=MS4wLjABAAAA07Z6fx4H67g7rmBuEuwm22zLnyT3J0MaSEQBWETiHQY&count=20&manifest_version_code=960&_rticket="+time+"&app_type=normal&iid=3781959390083272&channel=ame_xiaomi2020_960_yz1&device_type=Redmi%20Note%208%20Pro&language=zh&resolution=1080*2134&openudid=ce348c6bf7df0427&update_version_code=9603&cdid=e1e64752-cc73-46a6-8970-737a9de1ac2d&os_api=29&dpi=440&oaid=6292668db7e5f1fc&ac=wifi&device_id=1213500227850904&mcc_mnc=46001&os_version=10&version_code=960&app_name=aweme&version_name=9.6.0&device_brand=Redmi&ssmix=a&device_platform=android&aid=1128&ts="+ts;
+        String url = "https://aweme.snssdk.com/aweme/v1/aweme/post/?source=0&max_cursor=0&sec_user_id=MS4wLjABAAAA07Z6fx4H67g7rmBuEuwm22zLnyT3J0MaSEQBWETiHQY&count=20&manifest_version_code=960&_rticket=" + time + "&app_type=normal&iid=3781959390083272&channel=ame_xiaomi2020_960_yz1&device_type=Redmi%20Note%208%20Pro&language=zh&resolution=1080*2134&openudid=ce348c6bf7df0427&update_version_code=9603&cdid=e1e64752-cc73-46a6-8970-737a9de1ac2d&os_api=29&dpi=440&oaid=6292668db7e5f1fc&ac=wifi&device_id=1213500227850904&mcc_mnc=46001&os_version=10&version_code=960&app_name=aweme&version_name=9.6.0&device_brand=Redmi&ssmix=a&device_platform=android&aid=1128&ts=" + ts;
         String params = url.substring(url.indexOf("?") + 1);
         //String STUB = encryption(k).toUpperCase();
         String STUB = "";
         String s = getXGon(params, STUB, cookies);
 
 
-
-        String Gorgon = xGorgon(ts,StrToByte(s));
-        System.err.println("Gorgon="+Gorgon);
+        String Gorgon = xGorgon(ts, StrToByte(s));
+        System.err.println("Gorgon=" + Gorgon);
         System.err.println(url);
 
         long ticket = time;
-        System.err.println("ts             ="+ts);
-        System.err.println("time           ="+time);
-        System.err.println("X-SS-REQ-TICKET="+time);
-        System.err.println("X-Khronos      ="+ts);
+        System.err.println("ts             =" + ts);
+        System.err.println("time           =" + time);
+        System.err.println("X-SS-REQ-TICKET=" + time);
+        System.err.println("X-Khronos      =" + ts);
         String body = "keyword=%E7%AE%B1%E5%AD%90%E7%B2%BE%E9%80%89%E7%94%B5%E5%BD%B1&offset=0&count=20&is_pull_refresh=0&search_source=search_history&hot_search=0&latitude=31.247221&longitude=121.492479&search_id=&query_correct_type=1&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&is_filter_search=0&sort_type=0&publish_time=0&disable_synthesis=0&multi_mod=0&single_filter_aladdin=0";
-        List<Header>headers=new ArrayList<>();
-        headers.add(new BasicHeader("X-Gorgon",Gorgon));
-        headers.add(new BasicHeader("X-Khronos",String.valueOf(ts)));
-        headers.add(new BasicHeader("sdk-version","1"));
-        headers.add(new BasicHeader("Accept-Encoding","gzip"));
+        List<Header> headers = new ArrayList<>();
+        headers.add(new BasicHeader("X-Gorgon", Gorgon));
+        headers.add(new BasicHeader("X-Khronos", String.valueOf(ts)));
+        headers.add(new BasicHeader("sdk-version", "1"));
+        headers.add(new BasicHeader("Accept-Encoding", "gzip"));
 //        headers.add(new BasicHeader("X-SS-REQ-TICKET",String.valueOf(time)));
         String md5 = MD5Util.MD5(body);
         System.out.println(md5);
 //        headers.add(new BasicHeader("X-SS-STUB", md5));
-        headers.add(new BasicHeader("User-Agent","ttnet okhttp/3.10.0.2"));
-        headers.add(new BasicHeader("Host","aweme-lq.snssdk.com"));
-        headers.add(new BasicHeader("Cookie",cookies));
-        headers.add(new BasicHeader("Connection","Keep-Alive"));
+        headers.add(new BasicHeader("User-Agent", "ttnet okhttp/3.10.0.2"));
+        headers.add(new BasicHeader("Host", "aweme-lq.snssdk.com"));
+        headers.add(new BasicHeader("Cookie", cookies));
+        headers.add(new BasicHeader("Connection", "Keep-Alive"));
 //
-        String json = HttpUtil.get(url,HttpUtil.DEFAULT_CONNECT_TIMEOUT,HttpUtil.DEFAULT_SOCKET_TIMEOUT,"UTF-8", headers);
+        String json = HttpUtil.get(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, "UTF-8", headers);
         System.err.println(json);
 
 
@@ -99,6 +96,7 @@ public class XGorgon {
         return new String(cArr);
 
     }
+
     public static byte[] StrToByte(String str) {
         String str2 = str;
         Object[] objArr = new Object[1];
@@ -115,30 +113,31 @@ public class XGorgon {
     }
 
     public static String encryption(String str) {
-        String re_md5 = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(str.getBytes());
-            byte b[] = md.digest();
-
-            int i;
-
-            StringBuffer buf = new StringBuffer("");
-            for (int offset = 0; offset < b.length; offset++) {
-                i = b[offset];
-                if (i < 0)
-                    i += 256;
-                if (i < 16)
-                    buf.append("0");
-                buf.append(Integer.toHexString(i));
-            }
-
-            re_md5 = buf.toString();
-
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return re_md5.toUpperCase();
+        return MD5Util.MD5(str);
+//        String re_md5 = null;
+//        try {
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//            md.update(str.getBytes());
+//            byte b[] = md.digest();
+//
+//            int i;
+//
+//            StringBuffer buf = new StringBuffer("");
+//            for (int offset = 0; offset < b.length; offset++) {
+//                i = b[offset];
+//                if (i < 0)
+//                    i += 256;
+//                if (i < 16)
+//                    buf.append("0");
+//                buf.append(Integer.toHexString(i));
+//            }
+//
+//            re_md5 = buf.toString();
+//
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//        }
+//        return re_md5.toUpperCase();
     }
 
     public static String getXGon(String url, String stub, String cookies) {
@@ -168,11 +167,11 @@ public class XGorgon {
             sb.append(encryption(sessionid).toLowerCase());
         }*/
         int index = cookies.indexOf("sessionid=");
-        if(index == -1){
+        if (index == -1) {
             sb.append(NULL_MD5_STRING);
         } else {
-            String sessionid = StringUtils.substringBetween(cookies,"sessionid=",";");
-            if (sessionid==null){//sessionid在cookie字符串中的最后
+            String sessionid = StringUtils.substringBetween(cookies, "sessionid=", ";");
+            if (sessionid == null) {//sessionid在cookie字符串中的最后
                 sessionid = cookies.substring(index + 10);
             }
             sb.append(encryption(sessionid).toLowerCase());
@@ -181,67 +180,67 @@ public class XGorgon {
         return sb.toString();
     }
 
-    public static ArrayList<String> input(int timeMillis, byte[] inputBytes){
+    public static ArrayList<String> input(int timeMillis, byte[] inputBytes) {
 
 
         ArrayList<String> byteTable = new ArrayList<>();
 
-        for (int i = 0;i < 4;i++){
-            if (inputBytes[i] < 0){
-                byteTable.add(Integer.toHexString(inputBytes[i]).substring(6)) ;
-            }else {
-                byteTable.add(Integer.toHexString(inputBytes[i])) ;
+        for (int i = 0; i < 4; i++) {
+            if (inputBytes[i] < 0) {
+                byteTable.add(Integer.toHexString(inputBytes[i]).substring(6));
+            } else {
+                byteTable.add(Integer.toHexString(inputBytes[i]));
             }
         }
-        for (int i = 0;i < 4;i++){
+        for (int i = 0; i < 4; i++) {
             byteTable.add("0");
         }
-        for (int i = 32;i < 36;i++){
-            if (inputBytes[i] < 0){
-                byteTable.add(Integer.toHexString(inputBytes[i]).substring(6)) ;
-            }else {
-                byteTable.add(Integer.toHexString(inputBytes[i])) ;
+        for (int i = 32; i < 36; i++) {
+            if (inputBytes[i] < 0) {
+                byteTable.add(Integer.toHexString(inputBytes[i]).substring(6));
+            } else {
+                byteTable.add(Integer.toHexString(inputBytes[i]));
             }
         }
-        for (int i = 0;i < 4;i++){
+        for (int i = 0; i < 4; i++) {
             byteTable.add("0");
         }
         String timeByte = Integer.toHexString(timeMillis);
-        for (int i = 0;i < 4;i++){
-            byteTable.add(timeByte.substring(2*i, 2*i+2));
+        for (int i = 0; i < 4; i++) {
+            byteTable.add(timeByte.substring(2 * i, 2 * i + 2));
         }
         return byteTable;
     }
 
-    private static ArrayList<String> initialize(ArrayList<String> data){
+    private static ArrayList<String> initialize(ArrayList<String> data) {
 
         int hex = 0;
         byteTable2 = byteTable1.split(" ");
-        for (int i = 0; i < data.size();i++){
+        for (int i = 0; i < data.size(); i++) {
             int hex1 = 0;
-            if (i == 0){
+            if (i == 0) {
                 hex1 = Integer.valueOf(byteTable2[Integer.valueOf(byteTable2[0], 16) - 1], 16);
                 byteTable2[i] = Integer.toHexString(hex1);
-            }else if (i == 1){
+            } else if (i == 1) {
                 int temp = Integer.valueOf("D6", 16) + Integer.valueOf("28", 16);
-                if (temp > 256){
+                if (temp > 256) {
                     temp -= 256;
                 }
                 hex1 = Integer.valueOf(byteTable2[temp - 1], 16);
                 hex = temp;
                 byteTable2[i] = Integer.toHexString(hex1);
-            }else {
+            } else {
                 int temp = hex + Integer.valueOf(byteTable2[i], 16);
-                if (temp > 256){
+                if (temp > 256) {
                     temp -= 256;
                 }
                 hex1 = Integer.valueOf(byteTable2[temp - 1], 16);
                 hex = temp;
                 byteTable2[i] = Integer.toHexString(hex1);
             }
-            if (hex1 * 2 >256){
+            if (hex1 * 2 > 256) {
                 hex1 = hex1 * 2 - 256;
-            }else{
+            } else {
                 hex1 = hex1 * 2;
             }
 
@@ -252,26 +251,26 @@ public class XGorgon {
         return data;
     }
 
-    public static ArrayList<String> handle(ArrayList<String> data){
+    public static ArrayList<String> handle(ArrayList<String> data) {
 
-        for (int i = 0; i < data.size();i++){
+        for (int i = 0; i < data.size(); i++) {
             String byte1 = data.get(i);
-            if (byte1.length() < 2){
+            if (byte1.length() < 2) {
                 byte1 += "0";
-            }else {
+            } else {
                 byte1 = data.get(i).split("")[1] + data.get(i).split("")[0];
             }
-            if (i < data.size() - 1){
+            if (i < data.size() - 1) {
                 byte1 = Integer.toHexString(Integer.valueOf(byte1, 16) ^ Integer.valueOf(data.get(i + 1), 16));
-            }else {
+            } else {
                 byte1 = Integer.toHexString(Integer.valueOf(byte1, 16) ^ Integer.valueOf(data.get(0), 16));
             }
             int byte2 = ((Integer.valueOf(byte1, 16) & Integer.valueOf("55", 16)) * 2) | ((Integer.valueOf(byte1, 16) & Integer.valueOf("AA", 16)) / 2);
             byte2 = ((byte2 & Integer.valueOf("33", 16)) * 4) | ((byte2 & Integer.valueOf("CC", 16)) / 4);
             String byte3 = Integer.toHexString(byte2);
-            if (byte3.length() > 1){
+            if (byte3.length() > 1) {
                 byte3 = byte3.split("")[1] + byte3.split("")[0];
-            }else {
+            } else {
                 byte3 += "0";
             }
             int byte4 = Integer.valueOf(byte3, 16) ^ Integer.valueOf("FF", 16);
@@ -281,7 +280,7 @@ public class XGorgon {
         return data;
     }
 
-    public static String xGorgon(int timeMillis, byte[] inputBytes){
+    public static String xGorgon(int timeMillis, byte[] inputBytes) {
 
         ArrayList<String> data1 = new ArrayList<>();
         data1.add("3");
@@ -297,11 +296,11 @@ public class XGorgon {
         data1.addAll(data2);
 
         String xGorgonStr = "";
-        for (int i = 0;i < data1.size();i++){
+        for (int i = 0; i < data1.size(); i++) {
             String temp = String.valueOf(data1.get(i));
-            if (temp.length() > 1){
+            if (temp.length() > 1) {
                 xGorgonStr += temp;
-            }else {
+            } else {
                 xGorgonStr += "0";
                 xGorgonStr += temp;
             }
