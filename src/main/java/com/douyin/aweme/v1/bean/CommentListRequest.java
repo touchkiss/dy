@@ -1,6 +1,6 @@
-package com.douyin.aweme.v1.bean.request;
+package com.douyin.aweme.v1.bean;
 
-import com.douyin.aweme.v2.CommentListResponse;
+import com.douyin.aweme.v2.bean.CommentListResponse;
 import lombok.Data;
 
 import java.util.Arrays;

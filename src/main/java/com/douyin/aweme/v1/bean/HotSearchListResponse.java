@@ -1,4 +1,4 @@
-package com.douyin.aweme.v1.bean.response;
+package com.douyin.aweme.v1.bean;
 
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class HotSearchResponse extends BaseResponse {
+public class HotSearchListResponse extends BaseResponse {
     private DataBean data;
     private Object ad_search_list;
     private CoverBean banner_dark;

@@ -1,6 +1,5 @@
-package com.douyin.aweme.v1.bean.request;
+package com.douyin.aweme.v1.bean;
 
-import com.douyin.aweme.v1.bean.response.AwemePostResponse;
 import lombok.Data;
 
 import java.util.ArrayList;

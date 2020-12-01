@@ -1,6 +1,5 @@
-package com.douyin.aweme.v1.bean.request;
+package com.douyin.aweme.v1.bean;
 
-import com.douyin.aweme.v1.bean.response.ForwardListResponse;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ import java.util.HashSet;
  * @author Touchkiss
  */
 @Data
+@Deprecated
 public class ForwardListRequest extends BaseRequest<ForwardListResponse> {
     private String user_id;
     private long max_cursor;

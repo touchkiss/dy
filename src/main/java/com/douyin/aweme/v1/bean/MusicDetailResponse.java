@@ -1,4 +1,4 @@
-package com.douyin.aweme.v1.bean.response;
+package com.douyin.aweme.v1.bean;
 
 import lombok.Data;
 

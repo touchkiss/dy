@@ -1,4 +1,4 @@
-package com.douyin.aweme.v1.bean.response;
+package com.douyin.aweme.v1.bean;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 @NoArgsConstructor
 @Data
-public class GeneralSingleSearchResponse extends BaseResponse {
+public class GeneralSearchSingleResponse extends BaseResponse {
     private String qc;
     private Long cursor;
     private Long has_more;

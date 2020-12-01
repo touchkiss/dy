@@ -1,6 +1,6 @@
 package com.douyin.webcast;
 
-import com.douyin.aweme.v1.bean.response.BaseResponse;
+import com.douyin.aweme.v1.bean.BaseResponse;
 import com.huoshan.bean.response.CoverBean;
 import com.huoshan.bean.response.PayGradeBean;
 import lombok.Data;

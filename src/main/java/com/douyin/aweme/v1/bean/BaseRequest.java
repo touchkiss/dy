@@ -1,11 +1,9 @@
-package com.douyin.aweme.v1.bean.request;
+package com.douyin.aweme.v1.bean;
 
-import com.douyin.aweme.v1.bean.response.BaseResponse;
+import com.douyin.aweme.v1.bean.BaseResponse;
 import lombok.Data;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -16,8 +14,8 @@ import java.util.Set;
  */
 @Data
 public abstract class BaseRequest<T extends BaseResponse> {
-    public Set<String> headers = new HashSet<>();
-    public List<String> params=new ArrayList<>();
+    public Set<String> headers;
+    public List<String> params;
     public String Host;
     public String uri;
     public String method;

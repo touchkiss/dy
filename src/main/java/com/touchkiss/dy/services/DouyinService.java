@@ -1,7 +1,7 @@
 package com.touchkiss.dy.services;
 
-import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
-import com.douyin.aweme.v1.bean.response.UserInfoResponse;
+import com.douyin.aweme.v1.bean.GeneralSearchSingleResponse;
+import com.douyin.aweme.v1.bean.UserResponse;
 
 /**
  * Created on 2020/10/09 12:38
@@ -9,7 +9,7 @@ import com.douyin.aweme.v1.bean.response.UserInfoResponse;
  * @author Touchkiss
  */
 public interface DouyinService {
-    UserInfoResponse userProfile(String secId);
+    UserResponse userProfile(String secId);
 
-    GeneralSingleSearchResponse generalSingleSearch(String keyword, int offset, int count);
+    GeneralSearchSingleResponse generalSingleSearch(String keyword, int offset, int count);
 }

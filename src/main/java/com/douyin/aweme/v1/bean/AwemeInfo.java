@@ -1,4 +1,4 @@
-package com.douyin.aweme.v1.bean.response;
+package com.douyin.aweme.v1.bean;
 
 import com.huoshan.bean.response.CoverBean;
 import lombok.Data;
@@ -136,8 +136,8 @@ public class AwemeInfo {
         private CoverBean avatar_thumb;
         private CoverBean avatar_medium;
         private CoverBean avatar_large;
-        private Long preview_start_time;
-        private Long preview_end_time;
+        private Double preview_start_time;
+        private Double preview_end_time;
         private Boolean  is_commerce_music;
         private Boolean  is_original_sound;
         private Long audition_duration;

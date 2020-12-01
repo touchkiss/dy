@@ -1,14 +1,6 @@
 package com.douyin.aweme.v1.bean;
 
 import cn.hutool.http.HttpRequest;
-import com.douyin.aweme.v1.bean.request.AwemePostRequest;
-import com.douyin.aweme.v1.bean.request.BaseRequest;
-import com.douyin.aweme.v1.bean.request.CommentListRequest;
-import com.douyin.aweme.v1.bean.request.ForwardListRequest;
-import com.douyin.aweme.v1.bean.response.AwemePostResponse;
-import com.douyin.aweme.v1.bean.response.BaseResponse;
-import com.douyin.aweme.v1.bean.response.ForwardListResponse;
-import com.douyin.aweme.v2.CommentListResponse;
 import com.touchkiss.dy.utils.GsonUtil;
 import com.touchkiss.dy.utils.XGorgonUtil;
 import lombok.Data;
@@ -19,6 +11,11 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Created on 2020/09/16 10:01
+ *
+ * @author Touchkiss
+ */
 @Data
 public class DouYinClient {
     private String cookie;
@@ -27,33 +24,37 @@ public class DouYinClient {
 
     @Data
     public static class BaseParams {
-        private String retry_type;
-        private String mcc_mnc;
-        private String iid;
-        private String device_id;
         private String ac;
-        private String channel;
         private String aid;
         private String app_name;
         private String app_type;
-        private String version_code;
-        private String version_name;
-        private String device_platform;
-        private String ssmix;
-        private String device_type;
+        private String appTheme;
+        private String as;
+        private String channel;
+        private String cp;
+        private String cpu_support64;
         private String device_brand;
+        private String device_id;
+        private String device_platform;
+        private String device_type;
+        private String dpi;
+        private String host_abi;
+        private String iid;
+        private String js_sdk_version;
         private String language;
+        private String manifest_version_code;
+        private String mas;
+        private String mcc_mnc;
+        private String oaid;
         private String os_api;
         private String os_version;
         private String openudid;
-        private String manifest_version_code;
         private String resolution;
-        private String dpi;
+        private String retry_type;
+        private String ssmix;
         private String update_version_code;
-        private String js_sdk_version;
-        private String as;
-        private String cp;
-        private String mas;
+        private String version_code;
+        private String version_name;
     }
 
     public <T extends BaseResponse> T doAction(BaseRequest<T> request) {
@@ -79,7 +80,7 @@ public class DouYinClient {
                     Field field = baseParamFieldMap.get(paramName);
                     field.setAccessible(true);
                     Object o = field.get(this.baseParams);
-                    if (o!=null){
+                    if (o != null) {
                         value = o.toString();
                     }
                 } else if ("ts".equals(paramName)) {
@@ -113,6 +114,8 @@ public class DouYinClient {
                     headers.put(headerName, Collections.singletonList(String.valueOf(ts)));
                 } else if ("X-Gorgon".equals(headerName)) {
                     headers.put(headerName, Collections.singletonList(XGorgonUtil.xGorgon(ts, params, "", cookie)));
+                } else if ("Host".equals(headerName)) {
+                    headers.put(headerName, Collections.singletonList(request.Host));
                 }
             });
         }
@@ -125,15 +128,20 @@ public class DouYinClient {
         httpRequest.cookie(this.cookie)
                 .header(headers, true);
         String body = httpRequest.execute().body();
+        System.out.println(body);
         return GsonUtil.fromJson(body, request.getResponseClass());
     }
 
-    public static void main(String[] args) {
+    public static DouYinClient getInstance(){
         DouYinClient douYinClient = new DouYinClient();
         BaseParams baseParams = new BaseParams();
+        baseParams.setCpu_support64("true");
+        baseParams.setHost_abi("arm64-v8a");
+        baseParams.setAppTheme("dark");
+        baseParams.setOaid("6292668db7e5f1fc");
         baseParams.setRetry_type("no_retry");
         baseParams.setMcc_mnc("46001");
-        baseParams.setIid("175561601975351");
+        baseParams.setIid("650551645976190");
         baseParams.setDevice_id("1213500227850904");
         baseParams.setAc("wifi");
         baseParams.setChannel("tianzhuo_dy_wifi1");
@@ -155,10 +163,10 @@ public class DouYinClient {
         baseParams.setDpi("440");
         baseParams.setUpdate_version_code("4212");
 //        baseParams.setJs_sdk_version("1.9.1");
-        baseParams.setAs("a165d69cc0476f54520999");
-        baseParams.setCp("627cf058072acc4de1QqYu");
-        baseParams.setMas("013d2a53b928f8e974099b0be90d744b159c9c9c0c4cac2cac666c");
-        douYinClient.cookie = "install_id=175561601975351; ttreq=1$b58700d61faec314340a870b0ec82de5f1a0a4fa; odin_tt=8691c0e9404cff945fd089a3210d5c1df7dc1313ee2ecb1805f71f8d71a45d3e4a7f62d6e0efed283a691b9b95856ee7";
+//        baseParams.setAs("a165d69cc0476f54520999");
+//        baseParams.setCp("627cf058072acc4de1QqYu");
+//        baseParams.setMas("013d2a53b928f8e974099b0be90d744b159c9c9c0c4cac2cac666c");
+        douYinClient.cookie = "install_id=650551645976190; ttreq=1$c08d790d460d136d144a6c2a90a866b4ac9fa076; odin_tt=afbb4d09f9287d86ec70bc289d4b6dd9fe9b5de17b7ea45693ba89a2e164cca436d9b150a6d59215f671d0203321a56b58ba02dbd8fc43ec3ce2b62d6a1b9b19";
         douYinClient.baseParams = baseParams;
         douYinClient.basicHeaders = new HashMap() {{
             put("Accept-Encoding", "gzip");
@@ -166,11 +174,19 @@ public class DouYinClient {
 //            put("User-Agent", "okhttp/3.10.0.1");
             put("User-Agent", "com.ss.android.ugc.aweme/421 (Linux; U; Android 10; zh_CN; Redmi Note 8 Pro; Build/QP1A.190711.020; Cronet/58.0.2991.0)");
             put("Connection", "Keep-Alive");
+            put("X-SS-QUERIES", "dGMCDL6ot3awALq29MzedztVVY75xqwVa8tRSsSsmUjE367hsCodObDoQxwPFtATrSW5sLBSiDi9Z7QeCxbeHZVp29e9ChDM%2FYIAasRHoamiw9uHvhzMqLAMW7Y2RZqrDKEMW%2Fn9rBVv2tUAN96aYfixhAo%3D");
+            put("X-Pods", " ");
+            put("X-SS-RS", "0");
         }};
+        return douYinClient;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
 //        UserInfoRequest userInfoRequest = new UserInfoRequest();
 ////        userInfoRequest.setSec_user_id("MS4wLjABAAAAT_y6U7R-QeZ4C2tpyzFHaUlwoKmZQGg0x9YCW15soh4");
 //        userInfoRequest.setUser_id("58814164483");
-//        UserProfileResponse userProfileResponse = douYinClient.doAction(userInfoRequest);
+//        UserInfoResponse userProfileResponse = douYinClient.doAction(userInfoRequest);
 //        System.out.println(GsonUtil.toJson(userProfileResponse));
 
 //        AwemePostRequest awemePostRequest = new AwemePostRequest();
@@ -187,11 +203,76 @@ public class DouYinClient {
 //        forwardListRequest.setCount(20);
 //        ForwardListResponse forwardListResponse = douYinClient.doAction(forwardListRequest);
 //        System.out.println(GsonUtil.toJson(forwardListResponse));
-        CommentListRequest commentListRequest = new CommentListRequest();
-        commentListRequest.setAweme_id("6892336724219940108");
-        commentListRequest.setCursor(20);
-        commentListRequest.setCount(20);
-        CommentListResponse commentListResponse = douYinClient.doAction(commentListRequest);
-        System.out.println(GsonUtil.toJson(commentListResponse));
+//        List<String> awemeList = Arrays.asList("6749300646844943628");
+//        for (String awemeid : awemeList) {
+//            int cursor = 0;
+//            System.out.println("当前awemeid：" + awemeid);
+//            while (true) {
+//                try {
+//                    CommentListRequest commentListRequest = new CommentListRequest();
+//                    commentListRequest.setAweme_id(awemeid);
+//                    commentListRequest.setCursor(cursor);
+//                    commentListRequest.setCount(20);
+//                    CommentListResponse commentListResponse = douYinClient.doAction(commentListRequest);
+//                    for (CommentListResponse.CommentsBean comment : commentListResponse.getComments()) {
+//                        System.out.println(comment.getText());
+//                    }
+//                    cursor += 20;
+//                    Thread.sleep(1000);
+//                } catch (Exception e) {
+////                    e.printStackTrace();
+//                    break;
+//                }
+//            }
+//
+//        }
+//        MusicDetailRequest musicDetailRequest = new MusicDetailRequest();
+//        musicDetailRequest.setMusic_id("6889957451349674760");
+//        musicDetailRequest.setClick_reason("0");
+//        MusicDetailResponse musicDetailResponse = douYinClient.doAction(musicDetailRequest);
+//        System.out.println(GsonUtil.toJson(musicDetailResponse));
+
+//        MusicAwemeListRequest musicAwemeListRequest=new MusicAwemeListRequest();
+//        musicAwemeListRequest.setMusic_id("6889957451349674760");
+//        musicAwemeListRequest.setCursor(0);
+//        musicAwemeListRequest.setCount(16);
+//        musicAwemeListRequest.setType(6);
+//        MusicAwemeListResponse musicAwemeListResponse = douYinClient.doAction(musicAwemeListRequest);
+//        System.out.println(GsonUtil.toJson(musicAwemeListResponse));
+
+//        MusicFreshAwemeListRequest musicFreshAwemeListRequest=new MusicFreshAwemeListRequest();
+//        musicFreshAwemeListRequest.setMusic_id("6889957451349674760");
+//        musicFreshAwemeListRequest.setCursor(0);
+//        musicFreshAwemeListRequest.setCount(20);
+//        musicFreshAwemeListRequest.setType(6);
+//        MusicFreshAwemeListResponse musicFreshAwemeListResponse = douYinClient.doAction(musicFreshAwemeListRequest);
+//        System.out.println(GsonUtil.toJson(musicFreshAwemeListResponse));
+
+//        try {
+//            SearchSugRequest searchSugRequest = new SearchSugRequest();
+//            searchSugRequest.setKeyword(URLEncoder.encode("元旦", "utf-8"));
+//            searchSugRequest.setSource("general");
+//            SearchSugResponse searchSugResponse = douYinClient.doAction(searchSugRequest);
+//            System.out.println(GsonUtil.toJson(searchSugResponse));
+//        } catch (Exception e) {
+//
+//        }
+
+//        HotSearchListRequest hotSearchListRequest = new HotSearchListRequest();
+//        hotSearchListRequest.setDetail_list("0");
+//        HotSearchListResponse hotSearchListResponse = douYinClient.doAction(hotSearchListRequest);
+//        System.out.println(GsonUtil.toJson(hotSearchListResponse));
+
+//        try {
+//            GeneralSearchSingleRequest generalSearchSingleRequest = new GeneralSearchSingleRequest();
+//            generalSearchSingleRequest.setKeyword(URLEncoder.encode("圣诞节","utf-8"));
+//            GeneralSearchSingleResponse generalSearchSingleResponse = douYinClient.doAction(generalSearchSingleRequest);
+//            System.out.println(GsonUtil.toJson(generalSearchSingleResponse));
+//        }catch (Exception e){
+//
+//        }
+        NearbyFeedRequest nearbyFeedRequest = new NearbyFeedRequest();
+        NearbyFeedResponse nearbyFeedResponse = getInstance().doAction(nearbyFeedRequest);
+        System.out.println(GsonUtil.toJson(nearbyFeedResponse));
     }
 }

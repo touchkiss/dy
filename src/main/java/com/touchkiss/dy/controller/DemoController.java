@@ -1,7 +1,9 @@
 package com.touchkiss.dy.controller;
 
-import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
-import com.douyin.aweme.v1.bean.response.UserInfoResponse;
+import com.douyin.aweme.v1.bean.GeneralSearchSingleResponse;
+import com.douyin.aweme.v1.bean.UserResponse;
+import com.douyin.aweme.v2.bean.UserInfoResponse;
+import com.douyin.aweme.v2.services.AwemeServiceV2;
 import com.touchkiss.dy.services.DouyinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,16 +18,26 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
     @Autowired
     private DouyinService douyinService;
+    @Autowired
+    private AwemeServiceV2 awemeServiceV2;
+
     @RequestMapping("test")
     public String test() {
         return "你好啊";
     }
+
     @RequestMapping("profile")
-    public UserInfoResponse profile(String secId){
+    public UserResponse profile(String secId) {
         return douyinService.userProfile(secId);
     }
+
+    @RequestMapping("profile2")
+    public UserInfoResponse profile2(String secId) {
+        return awemeServiceV2.userInfo(secId);
+    }
+
     @RequestMapping("search")
-    public GeneralSingleSearchResponse search(String word){
+    public GeneralSearchSingleResponse search(String word) {
         return douyinService.generalSingleSearch(word, 0, 20);
     }
 }

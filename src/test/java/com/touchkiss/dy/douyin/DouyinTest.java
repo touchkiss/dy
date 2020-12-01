@@ -1,10 +1,10 @@
 package com.touchkiss.dy.douyin;
 
-import com.douyin.aweme.v1.bean.response.GeneralSingleSearchResponse;
-import com.douyin.aweme.v1.bean.response.NearbyFeedResponse;
-import com.douyin.aweme.v1.bean.response.AwemeInfo;
-import com.douyin.aweme.v1.bean.response.UserInfoResponse;
-import com.douyin.aweme.v2.CommentListResponse;
+import com.douyin.aweme.v1.bean.GeneralSearchSingleResponse;
+import com.douyin.aweme.v1.bean.NearbyFeedResponse;
+import com.douyin.aweme.v1.bean.AwemeInfo;
+import com.douyin.aweme.v1.bean.UserResponse;
+import com.douyin.aweme.v2.bean.CommentListResponse;
 import com.touchkiss.dy.utils.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.http.Header;
@@ -51,8 +51,8 @@ public class DouyinTest {
 //        System.out.println(SendRequest.sendGet(url, headers));
         String response = HttpUtil.get(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, HttpUtil.DEFAULT_CHARSET, headers);
         System.out.println(response);
-        UserInfoResponse userInfoResponse = GsonUtil.fromJson(response, UserInfoResponse.class);
-        System.out.println(userInfoResponse.getUser().getNickname());
+        UserResponse userResponse = GsonUtil.fromJson(response, UserResponse.class);
+        System.out.println(userResponse.getUser().getNickname());
     }
 
     @Test
@@ -166,8 +166,8 @@ public class DouyinTest {
             headers.add(new BasicHeader("X-Gorgon", gorgon));
             String response = HttpUtil.post(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT,HttpUtil.DEFAULT_CHARSET,body, headers);
             System.out.println(response);
-            GeneralSingleSearchResponse generalSingleSearchResponse = GsonUtil.fromJson(response, GeneralSingleSearchResponse.class);
-            for (GeneralSingleSearchResponse.DataBean datum : generalSingleSearchResponse.getData()) {
+            GeneralSearchSingleResponse generalSearchSingleResponse = GsonUtil.fromJson(response, GeneralSearchSingleResponse.class);
+            for (GeneralSearchSingleResponse.DataBean datum : generalSearchSingleResponse.getData()) {
                 if (datum.getAweme_info()!=null){
                     System.out.println(datum.getAweme_info().getAuthor().getNickname());
                 }
