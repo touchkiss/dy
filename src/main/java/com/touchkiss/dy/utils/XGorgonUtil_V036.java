@@ -14,7 +14,7 @@ import java.util.*;
  *
  * @author Touchkiss
  */
-public class XGorgonUtil {
+public class XGorgonUtil_V036 {
     private static final String NULL_MD5_STRING = "00000000000000000000000000000000";
 
     private static String byteTable1 =

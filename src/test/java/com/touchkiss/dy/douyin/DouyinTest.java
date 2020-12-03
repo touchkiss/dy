@@ -45,7 +45,7 @@ public class DouyinTest {
 //            put("url", url);
 //        }}, headers);
         HashMap<String, String> headerMap = (HashMap<String, String>) headers.stream().collect(Collectors.toMap(Header::getName, Header::getValue));
-        String gorgon = XGorgonUtil.xGorgon(now/1000,url.substring(url.indexOf("?")+1),"", cookie);
+        String gorgon = XGorgonUtil_V036.xGorgon(now/1000,url.substring(url.indexOf("?")+1),"", cookie);
         System.out.println("计算出："+gorgon);
         headers.add(new BasicHeader("X-Gorgon", gorgon));
 //        System.out.println(SendRequest.sendGet(url, headers));
@@ -129,7 +129,7 @@ public class DouyinTest {
 //                put("url", url);
 //            }}, headers);
             HashMap<String, String> headerMap = (HashMap<String, String>) headers.stream().collect(Collectors.toMap(Header::getName, Header::getValue));
-            String gorgon = XGorgonUtil.xGorgon(now/1000,url.substring(url.indexOf("?")+1),"", cookie);
+            String gorgon = XGorgonUtil_V036.xGorgon(now/1000,url.substring(url.indexOf("?")+1),"", cookie);
             System.out.println("计算出："+gorgon);
             headers.add(new BasicHeader("X-Gorgon", gorgon));
             CloseableHttpResponse response = HttpUtil.getResponse(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, headers);

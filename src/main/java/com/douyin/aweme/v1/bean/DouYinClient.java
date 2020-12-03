@@ -2,7 +2,7 @@ package com.douyin.aweme.v1.bean;
 
 import cn.hutool.http.HttpRequest;
 import com.touchkiss.dy.utils.GsonUtil;
-import com.touchkiss.dy.utils.XGorgonUtil;
+import com.touchkiss.dy.utils.XGorgonUtil_V036;
 import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -113,7 +113,7 @@ public class DouYinClient {
                 } else if ("X-Khronos".equals(headerName)) {
                     headers.put(headerName, Collections.singletonList(String.valueOf(ts)));
                 } else if ("X-Gorgon".equals(headerName)) {
-                    headers.put(headerName, Collections.singletonList(XGorgonUtil.xGorgon(ts, params, "", cookie)));
+                    headers.put(headerName, Collections.singletonList(XGorgonUtil_V036.xGorgon(ts, params, "", cookie)));
                 } else if ("Host".equals(headerName)) {
                     headers.put(headerName, Collections.singletonList(request.Host));
                 }
@@ -271,8 +271,14 @@ public class DouYinClient {
 //        }catch (Exception e){
 //
 //        }
-        NearbyFeedRequest nearbyFeedRequest = new NearbyFeedRequest();
-        NearbyFeedResponse nearbyFeedResponse = getInstance().doAction(nearbyFeedRequest);
-        System.out.println(GsonUtil.toJson(nearbyFeedResponse));
+//        NearbyFeedRequest nearbyFeedRequest = new NearbyFeedRequest();
+//        NearbyFeedResponse nearbyFeedResponse = getInstance().doAction(nearbyFeedRequest);
+//        System.out.println(GsonUtil.toJson(nearbyFeedResponse));
+
+//        FeedRequest feedRequest = new FeedRequest();
+//        FeedResponse feedResponse = getInstance().doAction(feedRequest);
+//        System.out.println(GsonUtil.toJson(feedResponse));
+        HotsearchAwemeBillboardRequest hotsearchAwemeBillboardRequest = new HotsearchAwemeBillboardRequest();
+        System.out.println(GsonUtil.toJson(getInstance().doAction(hotsearchAwemeBillboardRequest)));
     }
 }
