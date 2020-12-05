@@ -278,7 +278,17 @@ public class DouYinClient {
 //        FeedRequest feedRequest = new FeedRequest();
 //        FeedResponse feedResponse = getInstance().doAction(feedRequest);
 //        System.out.println(GsonUtil.toJson(feedResponse));
-        HotsearchAwemeBillboardRequest hotsearchAwemeBillboardRequest = new HotsearchAwemeBillboardRequest();
-        System.out.println(GsonUtil.toJson(getInstance().doAction(hotsearchAwemeBillboardRequest)));
+//        HotsearchAwemeBillboardRequest hotsearchAwemeBillboardRequest = new HotsearchAwemeBillboardRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(hotsearchAwemeBillboardRequest)));
+
+//        MixDetailRequest mixDetailRequest = new MixDetailRequest();
+//        mixDetailRequest.setMix_id("6826190273844873230");
+//        MixDetailResponse mixDetailResponse = getInstance().doAction(mixDetailRequest);
+//        System.out.println(GsonUtil.toJson(mixDetailResponse));
+
+        MixAwemeRequest mixAwemeRequest = new MixAwemeRequest();
+        mixAwemeRequest.setMix_id("6826190273844873230");
+        MixAwemeResponse mixAwemeResponse = getInstance().doAction(mixAwemeRequest);
+        System.out.println(GsonUtil.toJson(mixAwemeResponse));
     }
 }
