@@ -9,7 +9,8 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class UserInfo {
-
+    private Boolean accept_private_policy;
+    private String account_region;
     private Object ad_cover_url;
     private Long apple_account;
     private Long authority_status;
@@ -73,7 +74,7 @@ public class UserInfo {
     private ProfileStoryBean profile_story;
     private Long profile_tab_type;
     private String province;
-//    private RFansGroupInfoBean r_fans_group_info;
+    //    private RFansGroupInfoBean r_fans_group_info;
     private String recommend_reason_relation;
     private Long recommend_user_reason_source;
     private Object relative_users;
@@ -91,7 +92,7 @@ public class UserInfo {
     private Long stitch_setting;
     private Long story_count;
     private Long sync_to_toutiao;
-//    private TabSettingsBean tab_settings;
+    //    private TabSettingsBean tab_settings;
     private Long total_favorited;
     private String twitter_id;
     private String twitter_name;

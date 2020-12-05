@@ -24,6 +24,7 @@ public class HotsearchAwemeBillboardResponse extends BaseResponse {
     public static class Aweme {
         private AwemeInfo aweme_info;
         private int label;
+//        播放量
         private long hot_value;
     }
 }

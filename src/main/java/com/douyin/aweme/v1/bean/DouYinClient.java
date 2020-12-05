@@ -1,13 +1,16 @@
 package com.douyin.aweme.v1.bean;
 
 import cn.hutool.http.HttpRequest;
+import com.douyin.webcast.WebcastRanklistHotRequest;
 import com.touchkiss.dy.utils.GsonUtil;
 import com.touchkiss.dy.utils.XGorgonUtil_V036;
 import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -162,7 +165,7 @@ public class DouYinClient {
         baseParams.setResolution("1080*2134");
         baseParams.setDpi("440");
         baseParams.setUpdate_version_code("4212");
-//        baseParams.setJs_sdk_version("1.9.1");
+        baseParams.setJs_sdk_version("1.9.1");
 //        baseParams.setAs("a165d69cc0476f54520999");
 //        baseParams.setCp("627cf058072acc4de1QqYu");
 //        baseParams.setMas("013d2a53b928f8e974099b0be90d744b159c9c9c0c4cac2cac666c");
@@ -181,7 +184,7 @@ public class DouYinClient {
         return douYinClient;
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
 
 //        UserInfoRequest userInfoRequest = new UserInfoRequest();
 ////        userInfoRequest.setSec_user_id("MS4wLjABAAAAT_y6U7R-QeZ4C2tpyzFHaUlwoKmZQGg0x9YCW15soh4");
@@ -266,7 +269,7 @@ public class DouYinClient {
 //        try {
 //            GeneralSearchSingleRequest generalSearchSingleRequest = new GeneralSearchSingleRequest();
 //            generalSearchSingleRequest.setKeyword(URLEncoder.encode("圣诞节","utf-8"));
-//            GeneralSearchSingleResponse generalSearchSingleResponse = douYinClient.doAction(generalSearchSingleRequest);
+//            GeneralSearchSingleResponse generalSearchSingleResponse = getInstance().doAction(generalSearchSingleRequest);
 //            System.out.println(GsonUtil.toJson(generalSearchSingleResponse));
 //        }catch (Exception e){
 //
@@ -286,9 +289,55 @@ public class DouYinClient {
 //        MixDetailResponse mixDetailResponse = getInstance().doAction(mixDetailRequest);
 //        System.out.println(GsonUtil.toJson(mixDetailResponse));
 
-        MixAwemeRequest mixAwemeRequest = new MixAwemeRequest();
-        mixAwemeRequest.setMix_id("6826190273844873230");
-        MixAwemeResponse mixAwemeResponse = getInstance().doAction(mixAwemeRequest);
-        System.out.println(GsonUtil.toJson(mixAwemeResponse));
+//        MixAwemeRequest mixAwemeRequest = new MixAwemeRequest();
+//        mixAwemeRequest.setMix_id("6826190273844873230");
+//        MixAwemeResponse mixAwemeResponse = getInstance().doAction(mixAwemeRequest);
+//        System.out.println(GsonUtil.toJson(mixAwemeResponse));
+
+//        HotsearchStarBillboardRequest hotsearchStarBillboardRequest = new HotsearchStarBillboardRequest();
+//        HotsearchStarBillboardResponse hotsearchStarBillboardResponse = getInstance().doAction(hotsearchStarBillboardRequest);
+//        System.out.println(GsonUtil.toJson(hotsearchStarBillboardResponse));
+
+
+//        WebcastRanklistHotRequest webcastRanklistHotRequest = new WebcastRanklistHotRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(webcastRanklistHotRequest)));
+
+//        ChartMusicListRequest chartMusicListRequest = new ChartMusicListRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(chartMusicListRequest)));
+
+//        BranchBillboardEntranceRequest branchBillboardEntranceRequest = new BranchBillboardEntranceRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(branchBillboardEntranceRequest)));
+
+//        HotsearchBrandCategoryRequest hotsearchBrandCategoryRequest = new HotsearchBrandCategoryRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(hotsearchBrandCategoryRequest)));
+
+//        HotsearchBrandWeeklyListRequest hotsearchBrandWeeklyListRequest = new HotsearchBrandWeeklyListRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(hotsearchBrandWeeklyListRequest)));
+
+//        HotsearchBrandBillboardRequest hotsearchBrandBillboardRequest = new HotsearchBrandBillboardRequest();
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(hotsearchBrandBillboardRequest)));
+//
+//        PoiAwemeRequest poiAwemeRequest = new PoiAwemeRequest();
+//        poiAwemeRequest.setPoi_id("6679538858037725191");
+//        poiAwemeRequest.setAweme_id("6902755433556036878");
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(poiAwemeRequest)));
+
+//        PoiDetailRequest poiDetailRequest = new PoiDetailRequest();
+//        poiDetailRequest.setPoi_id("6679538858037725191");
+//        poiDetailRequest.setItem_id("6902755433556036878");
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(poiDetailRequest)));
+
+//        AwemeFavoriteRequest awemeFavoriteRequest = new AwemeFavoriteRequest();
+//        awemeFavoriteRequest.setUser_id(58548061709L);
+////        awemeFavoriteRequest.setSec_user_id("MS4wLjABAAAAM6JVXq80BLR7m2fjOyFso0NmUd_vE9Gv6zdviKawR0o");
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(awemeFavoriteRequest)));
+
+//        ChallengeDetailRequest challengeDetailRequest = new ChallengeDetailRequest();
+//        challengeDetailRequest.setHashtag_name(URLEncoder.encode("圣诞节","utf-8"));
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(challengeDetailRequest)));
+
+        ChallengeAwemeRequest challengeAwemeRequest = new ChallengeAwemeRequest();
+        challengeAwemeRequest.setHashtag_name(URLEncoder.encode("圣诞节","utf-8"));
+        System.out.println(GsonUtil.toJson(getInstance().doAction(challengeAwemeRequest)));
     }
 }
