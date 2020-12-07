@@ -1,0 +1,50 @@
+logging:
+  file:
+    path: d:/logs/aweme
+  level:
+    com:
+      touchkiss:
+        catelogueoflife:
+          '*':
+            mapper:
+              '*': debug
+    org:
+      springframework:
+        web: debug
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+pagehelper:
+  helperDialect: mysql
+  params: count=countSql
+  reasonable: false
+  supportMethodsArguments: true
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: mouse
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/aweme?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+    username: root
+
+  redis:
+    host: 127.0.0.1
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    password: 123456
+    pool:
+      maxtotal: 2000
+    port: 6379
+    timeout: 2000
