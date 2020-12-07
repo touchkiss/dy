@@ -1,6 +1,8 @@
 package com.douyin.aweme.v2.services.impl;
 
 import cn.hutool.http.HttpUtil;
+import com.douyin.aweme.v1.bean.ChallengeAwemeResponse;
+import com.douyin.aweme.v1.bean.ChallengeDetailResponse;
 import com.douyin.aweme.v2.bean.AwemeIteminfoResponse;
 import com.douyin.aweme.v2.bean.UserInfoResponse;
 import com.douyin.aweme.v2.services.AwemeServiceV2;
@@ -22,5 +24,15 @@ public class AwemeServiceV2Impl implements AwemeServiceV2 {
     @Override
     public AwemeIteminfoResponse awemeIteminfo(String item_ids) {
         return GsonUtil.fromJson(HttpUtil.get("https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids=" + item_ids), AwemeIteminfoResponse.class);
+    }
+
+    @Override
+    public ChallengeAwemeResponse challengeAweme(String ch_id, int count, int cursor) {
+        return GsonUtil.fromJson(HttpUtil.get("https://www.iesdouyin.com/web/api/v2/challenge/aweme/?ch_id=" + ch_id + "&count=" + count + "&cursor=" + cursor), ChallengeAwemeResponse.class);
+    }
+
+    @Override
+    public ChallengeDetailResponse challengeDetail(String ch_id) {
+        return GsonUtil.fromJson(HttpUtil.get("https://www.iesdouyin.com/web/api/v2/challenge/info/?ch_id=" + ch_id), ChallengeDetailResponse.class);
     }
 }

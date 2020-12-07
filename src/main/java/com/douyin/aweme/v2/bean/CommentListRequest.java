@@ -1,5 +1,6 @@
-package com.douyin.aweme.v1.bean;
+package com.douyin.aweme.v2.bean;
 
+import com.douyin.aweme.v1.bean.BaseRequest;
 import com.douyin.aweme.v2.bean.CommentListResponse;
 import lombok.Data;
 

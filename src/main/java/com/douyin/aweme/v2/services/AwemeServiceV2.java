@@ -1,5 +1,7 @@
 package com.douyin.aweme.v2.services;
 
+import com.douyin.aweme.v1.bean.ChallengeAwemeResponse;
+import com.douyin.aweme.v1.bean.ChallengeDetailResponse;
 import com.douyin.aweme.v2.bean.AwemeIteminfoResponse;
 import com.douyin.aweme.v2.bean.UserInfoResponse;
 
@@ -27,4 +29,22 @@ public interface AwemeServiceV2 {
      * @return
      */
     AwemeIteminfoResponse awemeIteminfo(String item_ids);
+
+    /**
+     * 网页获取话题下作品列表
+     *
+     * @param ch_id
+     * @param count
+     * @param cursor
+     * @return
+     */
+    ChallengeAwemeResponse challengeAweme(String ch_id, int count, int cursor);
+
+    /**
+     * 网页获取话题详情
+     *
+     * @param ch_id
+     * @return
+     */
+    ChallengeDetailResponse challengeDetail(String ch_id);
 }

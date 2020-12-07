@@ -1,14 +1,15 @@
 package com.douyin.aweme.v1.bean;
 
 import cn.hutool.http.HttpRequest;
-import com.douyin.webcast.WebcastRanklistHotRequest;
+import com.douyin.aweme.v2.bean.PlatformShareCommandTransRequest;
+import com.douyin.aweme.v2.bean.PlatformShareCommandTransResponse;
+import com.google.gson.Gson;
 import com.touchkiss.dy.utils.GsonUtil;
 import com.touchkiss.dy.utils.XGorgonUtil_V036;
 import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.*;
@@ -116,7 +117,9 @@ public class DouYinClient {
                 } else if ("X-Khronos".equals(headerName)) {
                     headers.put(headerName, Collections.singletonList(String.valueOf(ts)));
                 } else if ("X-Gorgon".equals(headerName)) {
-                    headers.put(headerName, Collections.singletonList(XGorgonUtil_V036.xGorgon(ts, params, "", cookie)));
+                    String gorgon = XGorgonUtil_V036.xGorgon(ts, params, "", cookie);
+                    System.out.println("gorgon:" + gorgon);
+                    headers.put(headerName, Collections.singletonList(gorgon));
                 } else if ("Host".equals(headerName)) {
                     headers.put(headerName, Collections.singletonList(request.Host));
                 }
@@ -131,11 +134,11 @@ public class DouYinClient {
         httpRequest.cookie(this.cookie)
                 .header(headers, true);
         String body = httpRequest.execute().body();
-        System.out.println(body);
+//        System.out.println(body);
         return GsonUtil.fromJson(body, request.getResponseClass());
     }
 
-    public static DouYinClient getInstance(){
+    public static DouYinClient getInstance() {
         DouYinClient douYinClient = new DouYinClient();
         BaseParams baseParams = new BaseParams();
         baseParams.setCpu_support64("true");
@@ -169,13 +172,13 @@ public class DouYinClient {
 //        baseParams.setAs("a165d69cc0476f54520999");
 //        baseParams.setCp("627cf058072acc4de1QqYu");
 //        baseParams.setMas("013d2a53b928f8e974099b0be90d744b159c9c9c0c4cac2cac666c");
-        douYinClient.cookie = "install_id=650551645976190; ttreq=1$c08d790d460d136d144a6c2a90a866b4ac9fa076; odin_tt=afbb4d09f9287d86ec70bc289d4b6dd9fe9b5de17b7ea45693ba89a2e164cca436d9b150a6d59215f671d0203321a56b58ba02dbd8fc43ec3ce2b62d6a1b9b19";
+        douYinClient.cookie = "odin_tt=e36bf422d919c7e254aef98bfc4822d061b97cef3c3d107397a1d09fd8dc09199642bed52665797266c4efd060766ff4";
         douYinClient.baseParams = baseParams;
         douYinClient.basicHeaders = new HashMap() {{
             put("Accept-Encoding", "gzip");
             put("sdk-version", "1");
 //            put("User-Agent", "okhttp/3.10.0.1");
-            put("User-Agent", "com.ss.android.ugc.aweme/421 (Linux; U; Android 10; zh_CN; Redmi Note 8 Pro; Build/QP1A.190711.020; Cronet/58.0.2991.0)");
+            put("User-Agent", "com.ss.android.ugc.aweme/721 (Linux; U; Android 10; zh_CN; Redmi Note 8 Pro; Build/QP1A.190711.020; Cronet/58.0.2991.0)");
             put("Connection", "Keep-Alive");
             put("X-SS-QUERIES", "dGMCDL6ot3awALq29MzedztVVY75xqwVa8tRSsSsmUjE367hsCodObDoQxwPFtATrSW5sLBSiDi9Z7QeCxbeHZVp29e9ChDM%2FYIAasRHoamiw9uHvhzMqLAMW7Y2RZqrDKEMW%2Fn9rBVv2tUAN96aYfixhAo%3D");
             put("X-Pods", " ");
@@ -186,10 +189,10 @@ public class DouYinClient {
 
     public static void main(String[] args) throws Exception {
 
-//        UserInfoRequest userInfoRequest = new UserInfoRequest();
-////        userInfoRequest.setSec_user_id("MS4wLjABAAAAT_y6U7R-QeZ4C2tpyzFHaUlwoKmZQGg0x9YCW15soh4");
-//        userInfoRequest.setUser_id("58814164483");
-//        UserInfoResponse userProfileResponse = douYinClient.doAction(userInfoRequest);
+//        UserRequest userInfoRequest = new UserRequest();
+//        userInfoRequest.setSec_user_id("MS4wLjABAAAABH2Akgc8-8YwPbS9WclwU2B4_dHpVlovgopgJyoHyGc");
+////        userInfoRequest.setUser_id("58814164483");
+//        UserResponse userProfileResponse = getInstance().doAction(userInfoRequest);
 //        System.out.println(GsonUtil.toJson(userProfileResponse));
 
 //        AwemePostRequest awemePostRequest = new AwemePostRequest();
@@ -230,9 +233,9 @@ public class DouYinClient {
 //
 //        }
 //        MusicDetailRequest musicDetailRequest = new MusicDetailRequest();
-//        musicDetailRequest.setMusic_id("6889957451349674760");
+//        musicDetailRequest.setMusic_id("6456638950865029902");
 //        musicDetailRequest.setClick_reason("0");
-//        MusicDetailResponse musicDetailResponse = douYinClient.doAction(musicDetailRequest);
+//        MusicDetailResponse musicDetailResponse = getInstance().doAction(musicDetailRequest);
 //        System.out.println(GsonUtil.toJson(musicDetailResponse));
 
 //        MusicAwemeListRequest musicAwemeListRequest=new MusicAwemeListRequest();
@@ -336,8 +339,18 @@ public class DouYinClient {
 //        challengeDetailRequest.setHashtag_name(URLEncoder.encode("圣诞节","utf-8"));
 //        System.out.println(GsonUtil.toJson(getInstance().doAction(challengeDetailRequest)));
 
-        ChallengeAwemeRequest challengeAwemeRequest = new ChallengeAwemeRequest();
-        challengeAwemeRequest.setHashtag_name(URLEncoder.encode("圣诞节","utf-8"));
-        System.out.println(GsonUtil.toJson(getInstance().doAction(challengeAwemeRequest)));
+//        ChallengeAwemeRequest challengeAwemeRequest = new ChallengeAwemeRequest();
+//        challengeAwemeRequest.setHashtag_name(URLEncoder.encode("圣诞节","utf-8"));
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(challengeAwemeRequest)));
+
+//        ShortenRequest shortenRequest = new ShortenRequest();
+//        shortenRequest.setTarget(URLEncoder.encode("http://tool.chinaz.com/Tools/unixtime.aspx","utf-8"));
+//        ShortenResponse shortenResponse = getInstance().doAction(shortenRequest);
+//        System.out.println(GsonUtil.toJson(shortenResponse));
+
+        PlatformShareCommandTransRequest platformShareCommandTransRequest = new PlatformShareCommandTransRequest();
+        platformShareCommandTransRequest.setCommand(URLEncoder.encode("##uDrQ76eHXd8##","utf-8"));
+        PlatformShareCommandTransResponse platformShareCommandTransResponse = getInstance().doAction(platformShareCommandTransRequest);
+        System.out.println(GsonUtil.toJson(platformShareCommandTransResponse));
     }
 }

@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserResponse extends BaseResponse {
     private UserInfo user;
+
 }

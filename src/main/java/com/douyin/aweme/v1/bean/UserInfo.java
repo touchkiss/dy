@@ -111,6 +111,68 @@ public class UserInfo {
     private boolean with_fusion_shop_entry;
     private String youtube_channel_id;
     private String youtube_channel_title;
+    private Boolean is_pro_account;
+    private Integer youtube_last_refresh_time;
+    private Boolean dp_level;
+    private String school_poi_id;
+    private String cover_colour;
+    private Object need_points;
+    private Integer reflow_page_gid;
+    private Boolean can_set_geofencing;
+    private Boolean star_use_new_download;
+    private Integer aweme_hotsoon_auth;
+    private Integer count_status;
+    private String weibo_url;
+    private Boolean has_insights;
+    private Integer show_secret_banner;
+    private Integer special_lock;
+    private Object type_label;
+    private Boolean with_luban_entry;
+    private Integer content_language_already_popup;
+    private Boolean story_open;
+    private Boolean show_image_bubble;
+    private Object homepage_bottom_toast;
+    private String weibo_verify;
+    private Boolean with_shop_entry;
+    private TabSettingsBean tab_settings;
+    private Integer user_period;
+    private ActivityBean activity;
+    private Integer normal_top_comment_permission;
+    private Boolean with_stick_entry;
+    private WxInfoBean wx_info;
+    private Boolean user_canceled;
+    private String weibo_schema;
+    private Integer school_auth;
+    private String avatar_uri;
+    private String video_icon_virtual_URI;
+    private String share_qrcode_uri;
+    private Integer user_story_count;
+    private Integer wx_tag;
+    private Integer latest_order_time;
+    private Object user_tags;
+    private Integer im_age_stage;
+    private Object new_story_cover;
+    private Boolean has_story;
+    private Boolean ever_over_1k_follower;
+    private Integer ky_only_predict;
+    private Integer react_setting;
+    private Integer unique_id_modify_time;
+    private Integer download_prompt_ts;
+    private AwemeControlBean aweme_control;
+    private Object item_list;
+    private Integer user_mode;
+    private RFansGroupInfoBean r_fans_group_info;
+    private Integer reflow_page_uid;
+    private Boolean show_user_ban_dialog;
+    private String bind_phone;
+    private Object platform_sync_info;
+    private Integer constellation;
+    private Boolean has_activity_medal;
+    private Boolean douplus_old_user;
+    private Integer hide_following_follower_list;
+    private Boolean enable_nearby_visible;
+    private List<?> geofencing;
+    private List<?> ban_user_functions;
 
     @NoArgsConstructor
     @Data
@@ -250,5 +312,91 @@ public class UserInfo {
         private String apple_id;
         private String download_url;
         private String package_name;
+    }
+
+    @NoArgsConstructor
+    @Data
+    public static class TabSettingsBean {
+        /**
+         * private_tab : {"show_private_tab":false,"private_tab_style":1}
+         */
+
+        private PrivateTabBean private_tab;
+
+        @NoArgsConstructor
+        @Data
+        public static class PrivateTabBean {
+            /**
+             * show_private_tab : false
+             * private_tab_style : 1
+             */
+
+            private Boolean show_private_tab;
+            private Integer private_tab_style;
+        }
+    }
+
+    @NoArgsConstructor
+    @Data
+    public static class ActivityBean {
+        /**
+         * use_music_count : 0
+         * digg_count : 0
+         */
+
+        private Integer use_music_count;
+        private Integer digg_count;
+    }
+
+    @NoArgsConstructor
+    @Data
+    public static class WxInfoBean {
+        /**
+         * wx_nickname_replace : Demon刘明达♪
+         * replaced : false
+         * wx_avatar_replace : {"uri":"1b47a0002f4a1cb22a676","url_list":["https://p6-dy-ipv6.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.webp?from=2956013662","https://p26-dy.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.webp?from=2956013662","https://p3-dy-ipv6.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.webp?from=2956013662","https://p6-dy-ipv6.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.jpeg?from=2956013662"]}
+         */
+
+        private String wx_nickname_replace;
+        private Boolean replaced;
+        private WxAvatarReplaceBean wx_avatar_replace;
+
+        @NoArgsConstructor
+        @Data
+        public static class WxAvatarReplaceBean {
+            /**
+             * uri : 1b47a0002f4a1cb22a676
+             * url_list : ["https://p6-dy-ipv6.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.webp?from=2956013662","https://p26-dy.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.webp?from=2956013662","https://p3-dy-ipv6.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.webp?from=2956013662","https://p6-dy-ipv6.byteimg.com/aweme/1080x1080/1b47a0002f4a1cb22a676.jpeg?from=2956013662"]
+             */
+
+            private String uri;
+            private List<String> url_list;
+        }
+    }
+
+    @NoArgsConstructor
+    @Data
+    public static class VideoIconBean {
+        /**
+         * uri :
+         * url_list : []
+         * width : 720
+         * height : 720
+         */
+
+        private String uri;
+        private Integer width;
+        private Integer height;
+        private List<?> url_list;
+    }
+
+    @NoArgsConstructor
+    @Data
+    public static class AwemeControlBean {
+    }
+
+    @NoArgsConstructor
+    @Data
+    public static class RFansGroupInfoBean {
     }
 }

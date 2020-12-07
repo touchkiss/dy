@@ -17,7 +17,7 @@ public class MusicDetailRequest extends BaseRequest<MusicDetailResponse> {
     private String click_reason;
 
     public MusicDetailRequest() {
-        super(new HashSet<>(Arrays.asList("Host", "Connection", "Accept-Encoding", "X-SS-QUERIES", "sdk-version", "X-SS-RS", "User-Agent", "X-Khronos", "X-Gorgon", "X-Pods")), Arrays.asList("music_id", "click_reason", "retry_type", "mcc_mnc", "iid", "device_id", "ac", "channel", "aid", "app_name", "version_code", "version_name", "device_platform", "ssmix", "device_type", "device_brand", "language", "os_api", "os_version", "openudid", "manifest_version_code", "resolution", "dpi", "update_version_code", "_rticket", "ts", "js_sdk_version"), "api.amemv.com", "/aweme/v1/music/detail/", "get");
+        super(new HashSet<>(Arrays.asList("Host", "Connection", "Accept-Encoding", "X-SS-REQ-TICKET", "sdk-version", "User-Agent", "X-Khronos", "X-Gorgon")), Arrays.asList("music_id", "click_reason", "manifest_version_code", "_rticket", "app_type", "iid", "channel", "device_type", "language", "resolution", "openudid", "update_version_code", "os_api", "dpi", "ac", "device_id", "mcc_mnc", "os_version", "version_code", "app_name", "version_name", "js_sdk_version", "device_brand", "ssmix", "device_platform", "aid", "ts"), "api.amemv.com", "/aweme/v1/music/detail/", "get");
     }
 }
 
