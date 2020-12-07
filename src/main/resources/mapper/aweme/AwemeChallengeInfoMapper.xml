@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeChallengeInfoDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeChallengeInfo">
+    <id column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="cha_name" jdbcType="VARCHAR" property="chaName" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="user_counr" jdbcType="INTEGER" property="userCounr" />
+    <result column="view_count" jdbcType="BIGINT" property="viewCount" />
+    <result column="sub_type" jdbcType="INTEGER" property="subType" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="sec_uid" jdbcType="VARCHAR" property="secUid" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid,cha_name,desc,type,user_counr,view_count,sub_type,uid,sec_uid,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeChallengeInfo">
+     insert into aweme_challenge_info(<include refid="Base_Column_List"></include>)
+     values (
+     #{cid,jdbcType=BIGINT},#{chaName,jdbcType=VARCHAR},#{desc,jdbcType=VARCHAR},#{type,jdbcType=INTEGER},#{userCounr,jdbcType=INTEGER},#{viewCount,jdbcType=BIGINT},#{subType,jdbcType=INTEGER},#{uid,jdbcType=BIGINT},#{secUid,jdbcType=VARCHAR},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByCid" parameterType="java.lang.Long">
+     delete from aweme_challenge_info
+     where cid = #{cid,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_challenge_info
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByCid">
+     update aweme_challenge_info
+     set
+       cha_name = #{awemeChallengeInfo.chaName,jdbcType=VARCHAR},
+       desc = #{awemeChallengeInfo.desc,jdbcType=VARCHAR},
+       type = #{awemeChallengeInfo.type,jdbcType=INTEGER},
+       user_counr = #{awemeChallengeInfo.userCounr,jdbcType=INTEGER},
+       view_count = #{awemeChallengeInfo.viewCount,jdbcType=BIGINT},
+       sub_type = #{awemeChallengeInfo.subType,jdbcType=INTEGER},
+       uid = #{awemeChallengeInfo.uid,jdbcType=BIGINT},
+       sec_uid = #{awemeChallengeInfo.secUid,jdbcType=VARCHAR},
+       first_fetch_time = #{awemeChallengeInfo.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeChallengeInfo.lastFetchTime,jdbcType=BIGINT}
+     where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByCid">
+     update aweme_challenge_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeChallengeInfo.chaName != null">
+       cha_name = #{awemeChallengeInfo.chaName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeChallengeInfo.desc != null">
+       desc = #{awemeChallengeInfo.desc,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeChallengeInfo.type != null">
+       type = #{awemeChallengeInfo.type,jdbcType=INTEGER},
+     </if>
+     <if test="awemeChallengeInfo.userCounr != null">
+       user_counr = #{awemeChallengeInfo.userCounr,jdbcType=INTEGER},
+     </if>
+     <if test="awemeChallengeInfo.viewCount != null">
+       view_count = #{awemeChallengeInfo.viewCount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeChallengeInfo.subType != null">
+       sub_type = #{awemeChallengeInfo.subType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeChallengeInfo.uid != null">
+       uid = #{awemeChallengeInfo.uid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeChallengeInfo.secUid != null">
+       sec_uid = #{awemeChallengeInfo.secUid,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeChallengeInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeChallengeInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeChallengeInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeChallengeInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_challenge_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeChallengeInfo.chaName != null">
+       cha_name = #{awemeChallengeInfo.chaName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeChallengeInfo.desc != null">
+       desc = #{awemeChallengeInfo.desc,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeChallengeInfo.type != null">
+       type = #{awemeChallengeInfo.type,jdbcType=INTEGER},
+     </if>
+     <if test="awemeChallengeInfo.userCounr != null">
+       user_counr = #{awemeChallengeInfo.userCounr,jdbcType=INTEGER},
+     </if>
+     <if test="awemeChallengeInfo.viewCount != null">
+       view_count = #{awemeChallengeInfo.viewCount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeChallengeInfo.subType != null">
+       sub_type = #{awemeChallengeInfo.subType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeChallengeInfo.uid != null">
+       uid = #{awemeChallengeInfo.uid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeChallengeInfo.secUid != null">
+       sec_uid = #{awemeChallengeInfo.secUid,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeChallengeInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeChallengeInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeChallengeInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeChallengeInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByCid" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_challenge_info
+     where cid = #{cid,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeChallengeInfoList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_challenge_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_challenge_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'cid' or key.startsWith('cid_')">and cid</when>
+                        <when test="key == 'chaName' or key.startsWith('chaName_')">and cha_name</when>
+                        <when test="key == 'desc' or key.startsWith('desc_')">and desc</when>
+                        <when test="key == 'type' or key.startsWith('type_')">and type</when>
+                        <when test="key == 'userCounr' or key.startsWith('userCounr_')">and user_counr</when>
+                        <when test="key == 'viewCount' or key.startsWith('viewCount_')">and view_count</when>
+                        <when test="key == 'subType' or key.startsWith('subType_')">and sub_type</when>
+                        <when test="key == 'uid' or key.startsWith('uid_')">and uid</when>
+                        <when test="key == 'secUid' or key.startsWith('secUid_')">and sec_uid</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

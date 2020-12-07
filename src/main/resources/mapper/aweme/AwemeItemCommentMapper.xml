@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeItemCommentDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeItemComment">
+    <id column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="aweme_id" jdbcType="BIGINT" property="awemeId" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="digg_count" jdbcType="INTEGER" property="diggCount" />
+    <result column="is_author_digged" jdbcType="BIT" property="isAuthorDigged" />
+    <result column="reply_id" jdbcType="BIGINT" property="replyId" />
+    <result column="reply_to_reply_id" jdbcType="BIGINT" property="replyToReplyId" />
+    <result column="reply_to_userid" jdbcType="BIGINT" property="replyToUserid" />
+    <result column="reply_to_username" jdbcType="VARCHAR" property="replyToUsername" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="text" jdbcType="VARCHAR" property="text" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="user_buried" jdbcType="BIT" property="userBuried" />
+    <result column="user_digged" jdbcType="INTEGER" property="userDigged" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid,aweme_id,create_time,digg_count,is_author_digged,reply_id,reply_to_reply_id,reply_to_userid,reply_to_username,status,text,uid,user_buried,user_digged,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeItemComment">
+     insert into aweme_item_comment(<include refid="Base_Column_List"></include>)
+     values (
+     #{cid,jdbcType=BIGINT},#{awemeId,jdbcType=BIGINT},#{createTime,jdbcType=BIGINT},#{diggCount,jdbcType=INTEGER},#{isAuthorDigged,jdbcType=BIT},#{replyId,jdbcType=BIGINT},#{replyToReplyId,jdbcType=BIGINT},#{replyToUserid,jdbcType=BIGINT},#{replyToUsername,jdbcType=VARCHAR},#{status,jdbcType=INTEGER},#{text,jdbcType=VARCHAR},#{uid,jdbcType=BIGINT},#{userBuried,jdbcType=BIT},#{userDigged,jdbcType=INTEGER},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByCid" parameterType="java.lang.Long">
+     delete from aweme_item_comment
+     where cid = #{cid,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_item_comment
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByCid">
+     update aweme_item_comment
+     set
+       aweme_id = #{awemeItemComment.awemeId,jdbcType=BIGINT},
+       create_time = #{awemeItemComment.createTime,jdbcType=BIGINT},
+       digg_count = #{awemeItemComment.diggCount,jdbcType=INTEGER},
+       is_author_digged = #{awemeItemComment.isAuthorDigged,jdbcType=BIT},
+       reply_id = #{awemeItemComment.replyId,jdbcType=BIGINT},
+       reply_to_reply_id = #{awemeItemComment.replyToReplyId,jdbcType=BIGINT},
+       reply_to_userid = #{awemeItemComment.replyToUserid,jdbcType=BIGINT},
+       reply_to_username = #{awemeItemComment.replyToUsername,jdbcType=VARCHAR},
+       status = #{awemeItemComment.status,jdbcType=INTEGER},
+       text = #{awemeItemComment.text,jdbcType=VARCHAR},
+       uid = #{awemeItemComment.uid,jdbcType=BIGINT},
+       user_buried = #{awemeItemComment.userBuried,jdbcType=BIT},
+       user_digged = #{awemeItemComment.userDigged,jdbcType=INTEGER},
+       first_fetch_time = #{awemeItemComment.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeItemComment.lastFetchTime,jdbcType=BIGINT}
+     where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByCid">
+     update aweme_item_comment
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemComment.awemeId != null">
+       aweme_id = #{awemeItemComment.awemeId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.createTime != null">
+       create_time = #{awemeItemComment.createTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.diggCount != null">
+       digg_count = #{awemeItemComment.diggCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemComment.isAuthorDigged != null">
+       is_author_digged = #{awemeItemComment.isAuthorDigged,jdbcType=BIT},
+     </if>
+     <if test="awemeItemComment.replyId != null">
+       reply_id = #{awemeItemComment.replyId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.replyToReplyId != null">
+       reply_to_reply_id = #{awemeItemComment.replyToReplyId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.replyToUserid != null">
+       reply_to_userid = #{awemeItemComment.replyToUserid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.replyToUsername != null">
+       reply_to_username = #{awemeItemComment.replyToUsername,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeItemComment.status != null">
+       status = #{awemeItemComment.status,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemComment.text != null">
+       text = #{awemeItemComment.text,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeItemComment.uid != null">
+       uid = #{awemeItemComment.uid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.userBuried != null">
+       user_buried = #{awemeItemComment.userBuried,jdbcType=BIT},
+     </if>
+     <if test="awemeItemComment.userDigged != null">
+       user_digged = #{awemeItemComment.userDigged,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemComment.firstFetchTime != null">
+       first_fetch_time = #{awemeItemComment.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.lastFetchTime != null">
+       last_fetch_time = #{awemeItemComment.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_item_comment
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemComment.awemeId != null">
+       aweme_id = #{awemeItemComment.awemeId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.createTime != null">
+       create_time = #{awemeItemComment.createTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.diggCount != null">
+       digg_count = #{awemeItemComment.diggCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemComment.isAuthorDigged != null">
+       is_author_digged = #{awemeItemComment.isAuthorDigged,jdbcType=BIT},
+     </if>
+     <if test="awemeItemComment.replyId != null">
+       reply_id = #{awemeItemComment.replyId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.replyToReplyId != null">
+       reply_to_reply_id = #{awemeItemComment.replyToReplyId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.replyToUserid != null">
+       reply_to_userid = #{awemeItemComment.replyToUserid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.replyToUsername != null">
+       reply_to_username = #{awemeItemComment.replyToUsername,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeItemComment.status != null">
+       status = #{awemeItemComment.status,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemComment.text != null">
+       text = #{awemeItemComment.text,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeItemComment.uid != null">
+       uid = #{awemeItemComment.uid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.userBuried != null">
+       user_buried = #{awemeItemComment.userBuried,jdbcType=BIT},
+     </if>
+     <if test="awemeItemComment.userDigged != null">
+       user_digged = #{awemeItemComment.userDigged,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemComment.firstFetchTime != null">
+       first_fetch_time = #{awemeItemComment.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemComment.lastFetchTime != null">
+       last_fetch_time = #{awemeItemComment.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByCid" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_item_comment
+     where cid = #{cid,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeItemCommentList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_item_comment  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_item_comment  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'cid' or key.startsWith('cid_')">and cid</when>
+                        <when test="key == 'awemeId' or key.startsWith('awemeId_')">and aweme_id</when>
+                        <when test="key == 'createTime' or key.startsWith('createTime_')">and create_time</when>
+                        <when test="key == 'diggCount' or key.startsWith('diggCount_')">and digg_count</when>
+                        <when test="key == 'isAuthorDigged' or key.startsWith('isAuthorDigged_')">and is_author_digged</when>
+                        <when test="key == 'replyId' or key.startsWith('replyId_')">and reply_id</when>
+                        <when test="key == 'replyToReplyId' or key.startsWith('replyToReplyId_')">and reply_to_reply_id</when>
+                        <when test="key == 'replyToUserid' or key.startsWith('replyToUserid_')">and reply_to_userid</when>
+                        <when test="key == 'replyToUsername' or key.startsWith('replyToUsername_')">and reply_to_username</when>
+                        <when test="key == 'status' or key.startsWith('status_')">and status</when>
+                        <when test="key == 'text' or key.startsWith('text_')">and text</when>
+                        <when test="key == 'uid' or key.startsWith('uid_')">and uid</when>
+                        <when test="key == 'userBuried' or key.startsWith('userBuried_')">and user_buried</when>
+                        <when test="key == 'userDigged' or key.startsWith('userDigged_')">and user_digged</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

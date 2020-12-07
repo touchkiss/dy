@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeMusicInfoDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeMusicInfo">
+    <id column="mid" jdbcType="BIGINT" property="mid" />
+    <result column="audition_duration" jdbcType="INTEGER" property="auditionDuration" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="author_deleted" jdbcType="BIT" property="authorDeleted" />
+    <result column="avatar_larger" jdbcType="VARCHAR" property="avatarLarger" />
+    <result column="binded_challenge_id" jdbcType="BIGINT" property="bindedChallengeId" />
+    <result column="can_background_play" jdbcType="BIT" property="canBackgroundPlay" />
+    <result column="collect_stat" jdbcType="INTEGER" property="collectStat" />
+    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
+    <result column="dmv_auto_show" jdbcType="BIT" property="dmvAutoShow" />
+    <result column="duration" jdbcType="INTEGER" property="duration" />
+    <result column="end_time" jdbcType="INTEGER" property="endTime" />
+    <result column="extra" jdbcType="VARCHAR" property="extra" />
+    <result column="is_commerce_music" jdbcType="BIT" property="isCommerceMusic" />
+    <result column="is_del_video" jdbcType="BIT" property="isDelVideo" />
+    <result column="is_matched_metadata" jdbcType="BIT" property="isMatchedMetadata" />
+    <result column="is_original" jdbcType="BIT" property="isOriginal" />
+    <result column="is_original_sound" jdbcType="BIT" property="isOriginalSound" />
+    <result column="is_pgc" jdbcType="BIT" property="isPgc" />
+    <result column="is_restricted" jdbcType="BIT" property="isRestricted" />
+    <result column="is_video_self_see" jdbcType="BIT" property="isVideoSelfSee" />
+    <result column="mute_share" jdbcType="BIT" property="muteShare" />
+    <result column="owner_id" jdbcType="BIGINT" property="ownerId" />
+    <result column="play_url" jdbcType="VARCHAR" property="playUrl" />
+    <result column="prevent_download" jdbcType="BIT" property="preventDownload" />
+    <result column="prevent_item_download_status" jdbcType="BIT" property="preventItemDownloadStatus" />
+    <result column="preview_end_time" jdbcType="INTEGER" property="previewEndTime" />
+    <result column="preview_start_time" jdbcType="INTEGER" property="previewStartTime" />
+    <result column="reason_type" jdbcType="INTEGER" property="reasonType" />
+    <result column="redirect" jdbcType="BIT" property="redirect" />
+    <result column="schema_url" jdbcType="VARCHAR" property="schemaUrl" />
+    <result column="source_platform" jdbcType="INTEGER" property="sourcePlatform" />
+    <result column="start_time" jdbcType="INTEGER" property="startTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="user_count" jdbcType="INTEGER" property="userCount" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mid,audition_duration,author,author_deleted,avatar_larger,binded_challenge_id,can_background_play,collect_stat,cover_url,dmv_auto_show,duration,end_time,extra,is_commerce_music,is_del_video,is_matched_metadata,is_original,is_original_sound,is_pgc,is_restricted,is_video_self_see,mute_share,owner_id,play_url,prevent_download,prevent_item_download_status,preview_end_time,preview_start_time,reason_type,redirect,schema_url,source_platform,start_time,status,title,user_count,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeMusicInfo">
+     insert into aweme_music_info(<include refid="Base_Column_List"></include>)
+     values (
+     #{mid,jdbcType=BIGINT},#{auditionDuration,jdbcType=INTEGER},#{author,jdbcType=VARCHAR},#{authorDeleted,jdbcType=BIT},#{avatarLarger,jdbcType=VARCHAR},#{bindedChallengeId,jdbcType=BIGINT},#{canBackgroundPlay,jdbcType=BIT},#{collectStat,jdbcType=INTEGER},#{coverUrl,jdbcType=VARCHAR},#{dmvAutoShow,jdbcType=BIT},#{duration,jdbcType=INTEGER},#{endTime,jdbcType=INTEGER},#{extra,jdbcType=VARCHAR},#{isCommerceMusic,jdbcType=BIT},#{isDelVideo,jdbcType=BIT},#{isMatchedMetadata,jdbcType=BIT},#{isOriginal,jdbcType=BIT},#{isOriginalSound,jdbcType=BIT},#{isPgc,jdbcType=BIT},#{isRestricted,jdbcType=BIT},#{isVideoSelfSee,jdbcType=BIT},#{muteShare,jdbcType=BIT},#{ownerId,jdbcType=BIGINT},#{playUrl,jdbcType=VARCHAR},#{preventDownload,jdbcType=BIT},#{preventItemDownloadStatus,jdbcType=BIT},#{previewEndTime,jdbcType=INTEGER},#{previewStartTime,jdbcType=INTEGER},#{reasonType,jdbcType=INTEGER},#{redirect,jdbcType=BIT},#{schemaUrl,jdbcType=VARCHAR},#{sourcePlatform,jdbcType=INTEGER},#{startTime,jdbcType=INTEGER},#{status,jdbcType=INTEGER},#{title,jdbcType=VARCHAR},#{userCount,jdbcType=INTEGER},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByMid" parameterType="java.lang.Long">
+     delete from aweme_music_info
+     where mid = #{mid,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_music_info
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByMid">
+     update aweme_music_info
+     set
+       audition_duration = #{awemeMusicInfo.auditionDuration,jdbcType=INTEGER},
+       author = #{awemeMusicInfo.author,jdbcType=VARCHAR},
+       author_deleted = #{awemeMusicInfo.authorDeleted,jdbcType=BIT},
+       avatar_larger = #{awemeMusicInfo.avatarLarger,jdbcType=VARCHAR},
+       binded_challenge_id = #{awemeMusicInfo.bindedChallengeId,jdbcType=BIGINT},
+       can_background_play = #{awemeMusicInfo.canBackgroundPlay,jdbcType=BIT},
+       collect_stat = #{awemeMusicInfo.collectStat,jdbcType=INTEGER},
+       cover_url = #{awemeMusicInfo.coverUrl,jdbcType=VARCHAR},
+       dmv_auto_show = #{awemeMusicInfo.dmvAutoShow,jdbcType=BIT},
+       duration = #{awemeMusicInfo.duration,jdbcType=INTEGER},
+       end_time = #{awemeMusicInfo.endTime,jdbcType=INTEGER},
+       extra = #{awemeMusicInfo.extra,jdbcType=VARCHAR},
+       is_commerce_music = #{awemeMusicInfo.isCommerceMusic,jdbcType=BIT},
+       is_del_video = #{awemeMusicInfo.isDelVideo,jdbcType=BIT},
+       is_matched_metadata = #{awemeMusicInfo.isMatchedMetadata,jdbcType=BIT},
+       is_original = #{awemeMusicInfo.isOriginal,jdbcType=BIT},
+       is_original_sound = #{awemeMusicInfo.isOriginalSound,jdbcType=BIT},
+       is_pgc = #{awemeMusicInfo.isPgc,jdbcType=BIT},
+       is_restricted = #{awemeMusicInfo.isRestricted,jdbcType=BIT},
+       is_video_self_see = #{awemeMusicInfo.isVideoSelfSee,jdbcType=BIT},
+       mute_share = #{awemeMusicInfo.muteShare,jdbcType=BIT},
+       owner_id = #{awemeMusicInfo.ownerId,jdbcType=BIGINT},
+       play_url = #{awemeMusicInfo.playUrl,jdbcType=VARCHAR},
+       prevent_download = #{awemeMusicInfo.preventDownload,jdbcType=BIT},
+       prevent_item_download_status = #{awemeMusicInfo.preventItemDownloadStatus,jdbcType=BIT},
+       preview_end_time = #{awemeMusicInfo.previewEndTime,jdbcType=INTEGER},
+       preview_start_time = #{awemeMusicInfo.previewStartTime,jdbcType=INTEGER},
+       reason_type = #{awemeMusicInfo.reasonType,jdbcType=INTEGER},
+       redirect = #{awemeMusicInfo.redirect,jdbcType=BIT},
+       schema_url = #{awemeMusicInfo.schemaUrl,jdbcType=VARCHAR},
+       source_platform = #{awemeMusicInfo.sourcePlatform,jdbcType=INTEGER},
+       start_time = #{awemeMusicInfo.startTime,jdbcType=INTEGER},
+       status = #{awemeMusicInfo.status,jdbcType=INTEGER},
+       title = #{awemeMusicInfo.title,jdbcType=VARCHAR},
+       user_count = #{awemeMusicInfo.userCount,jdbcType=INTEGER},
+       first_fetch_time = #{awemeMusicInfo.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeMusicInfo.lastFetchTime,jdbcType=BIGINT}
+     where mid = #{mid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMid">
+     update aweme_music_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeMusicInfo.auditionDuration != null">
+       audition_duration = #{awemeMusicInfo.auditionDuration,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.author != null">
+       author = #{awemeMusicInfo.author,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.authorDeleted != null">
+       author_deleted = #{awemeMusicInfo.authorDeleted,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.avatarLarger != null">
+       avatar_larger = #{awemeMusicInfo.avatarLarger,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.bindedChallengeId != null">
+       binded_challenge_id = #{awemeMusicInfo.bindedChallengeId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMusicInfo.canBackgroundPlay != null">
+       can_background_play = #{awemeMusicInfo.canBackgroundPlay,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.collectStat != null">
+       collect_stat = #{awemeMusicInfo.collectStat,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.coverUrl != null">
+       cover_url = #{awemeMusicInfo.coverUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.dmvAutoShow != null">
+       dmv_auto_show = #{awemeMusicInfo.dmvAutoShow,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.duration != null">
+       duration = #{awemeMusicInfo.duration,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.endTime != null">
+       end_time = #{awemeMusicInfo.endTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.extra != null">
+       extra = #{awemeMusicInfo.extra,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.isCommerceMusic != null">
+       is_commerce_music = #{awemeMusicInfo.isCommerceMusic,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isDelVideo != null">
+       is_del_video = #{awemeMusicInfo.isDelVideo,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isMatchedMetadata != null">
+       is_matched_metadata = #{awemeMusicInfo.isMatchedMetadata,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isOriginal != null">
+       is_original = #{awemeMusicInfo.isOriginal,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isOriginalSound != null">
+       is_original_sound = #{awemeMusicInfo.isOriginalSound,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isPgc != null">
+       is_pgc = #{awemeMusicInfo.isPgc,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isRestricted != null">
+       is_restricted = #{awemeMusicInfo.isRestricted,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isVideoSelfSee != null">
+       is_video_self_see = #{awemeMusicInfo.isVideoSelfSee,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.muteShare != null">
+       mute_share = #{awemeMusicInfo.muteShare,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.ownerId != null">
+       owner_id = #{awemeMusicInfo.ownerId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMusicInfo.playUrl != null">
+       play_url = #{awemeMusicInfo.playUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.preventDownload != null">
+       prevent_download = #{awemeMusicInfo.preventDownload,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.preventItemDownloadStatus != null">
+       prevent_item_download_status = #{awemeMusicInfo.preventItemDownloadStatus,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.previewEndTime != null">
+       preview_end_time = #{awemeMusicInfo.previewEndTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.previewStartTime != null">
+       preview_start_time = #{awemeMusicInfo.previewStartTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.reasonType != null">
+       reason_type = #{awemeMusicInfo.reasonType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.redirect != null">
+       redirect = #{awemeMusicInfo.redirect,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.schemaUrl != null">
+       schema_url = #{awemeMusicInfo.schemaUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.sourcePlatform != null">
+       source_platform = #{awemeMusicInfo.sourcePlatform,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.startTime != null">
+       start_time = #{awemeMusicInfo.startTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.status != null">
+       status = #{awemeMusicInfo.status,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.title != null">
+       title = #{awemeMusicInfo.title,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.userCount != null">
+       user_count = #{awemeMusicInfo.userCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeMusicInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMusicInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeMusicInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where mid = #{mid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_music_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeMusicInfo.auditionDuration != null">
+       audition_duration = #{awemeMusicInfo.auditionDuration,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.author != null">
+       author = #{awemeMusicInfo.author,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.authorDeleted != null">
+       author_deleted = #{awemeMusicInfo.authorDeleted,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.avatarLarger != null">
+       avatar_larger = #{awemeMusicInfo.avatarLarger,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.bindedChallengeId != null">
+       binded_challenge_id = #{awemeMusicInfo.bindedChallengeId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMusicInfo.canBackgroundPlay != null">
+       can_background_play = #{awemeMusicInfo.canBackgroundPlay,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.collectStat != null">
+       collect_stat = #{awemeMusicInfo.collectStat,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.coverUrl != null">
+       cover_url = #{awemeMusicInfo.coverUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.dmvAutoShow != null">
+       dmv_auto_show = #{awemeMusicInfo.dmvAutoShow,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.duration != null">
+       duration = #{awemeMusicInfo.duration,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.endTime != null">
+       end_time = #{awemeMusicInfo.endTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.extra != null">
+       extra = #{awemeMusicInfo.extra,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.isCommerceMusic != null">
+       is_commerce_music = #{awemeMusicInfo.isCommerceMusic,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isDelVideo != null">
+       is_del_video = #{awemeMusicInfo.isDelVideo,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isMatchedMetadata != null">
+       is_matched_metadata = #{awemeMusicInfo.isMatchedMetadata,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isOriginal != null">
+       is_original = #{awemeMusicInfo.isOriginal,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isOriginalSound != null">
+       is_original_sound = #{awemeMusicInfo.isOriginalSound,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isPgc != null">
+       is_pgc = #{awemeMusicInfo.isPgc,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isRestricted != null">
+       is_restricted = #{awemeMusicInfo.isRestricted,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.isVideoSelfSee != null">
+       is_video_self_see = #{awemeMusicInfo.isVideoSelfSee,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.muteShare != null">
+       mute_share = #{awemeMusicInfo.muteShare,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.ownerId != null">
+       owner_id = #{awemeMusicInfo.ownerId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMusicInfo.playUrl != null">
+       play_url = #{awemeMusicInfo.playUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.preventDownload != null">
+       prevent_download = #{awemeMusicInfo.preventDownload,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.preventItemDownloadStatus != null">
+       prevent_item_download_status = #{awemeMusicInfo.preventItemDownloadStatus,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.previewEndTime != null">
+       preview_end_time = #{awemeMusicInfo.previewEndTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.previewStartTime != null">
+       preview_start_time = #{awemeMusicInfo.previewStartTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.reasonType != null">
+       reason_type = #{awemeMusicInfo.reasonType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.redirect != null">
+       redirect = #{awemeMusicInfo.redirect,jdbcType=BIT},
+     </if>
+     <if test="awemeMusicInfo.schemaUrl != null">
+       schema_url = #{awemeMusicInfo.schemaUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.sourcePlatform != null">
+       source_platform = #{awemeMusicInfo.sourcePlatform,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.startTime != null">
+       start_time = #{awemeMusicInfo.startTime,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.status != null">
+       status = #{awemeMusicInfo.status,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.title != null">
+       title = #{awemeMusicInfo.title,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMusicInfo.userCount != null">
+       user_count = #{awemeMusicInfo.userCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMusicInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeMusicInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMusicInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeMusicInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByMid" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_music_info
+     where mid = #{mid,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeMusicInfoList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_music_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_music_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'mid' or key.startsWith('mid_')">and mid</when>
+                        <when test="key == 'auditionDuration' or key.startsWith('auditionDuration_')">and audition_duration</when>
+                        <when test="key == 'author' or key.startsWith('author_')">and author</when>
+                        <when test="key == 'authorDeleted' or key.startsWith('authorDeleted_')">and author_deleted</when>
+                        <when test="key == 'avatarLarger' or key.startsWith('avatarLarger_')">and avatar_larger</when>
+                        <when test="key == 'bindedChallengeId' or key.startsWith('bindedChallengeId_')">and binded_challenge_id</when>
+                        <when test="key == 'canBackgroundPlay' or key.startsWith('canBackgroundPlay_')">and can_background_play</when>
+                        <when test="key == 'collectStat' or key.startsWith('collectStat_')">and collect_stat</when>
+                        <when test="key == 'coverUrl' or key.startsWith('coverUrl_')">and cover_url</when>
+                        <when test="key == 'dmvAutoShow' or key.startsWith('dmvAutoShow_')">and dmv_auto_show</when>
+                        <when test="key == 'duration' or key.startsWith('duration_')">and duration</when>
+                        <when test="key == 'endTime' or key.startsWith('endTime_')">and end_time</when>
+                        <when test="key == 'extra' or key.startsWith('extra_')">and extra</when>
+                        <when test="key == 'isCommerceMusic' or key.startsWith('isCommerceMusic_')">and is_commerce_music</when>
+                        <when test="key == 'isDelVideo' or key.startsWith('isDelVideo_')">and is_del_video</when>
+                        <when test="key == 'isMatchedMetadata' or key.startsWith('isMatchedMetadata_')">and is_matched_metadata</when>
+                        <when test="key == 'isOriginal' or key.startsWith('isOriginal_')">and is_original</when>
+                        <when test="key == 'isOriginalSound' or key.startsWith('isOriginalSound_')">and is_original_sound</when>
+                        <when test="key == 'isPgc' or key.startsWith('isPgc_')">and is_pgc</when>
+                        <when test="key == 'isRestricted' or key.startsWith('isRestricted_')">and is_restricted</when>
+                        <when test="key == 'isVideoSelfSee' or key.startsWith('isVideoSelfSee_')">and is_video_self_see</when>
+                        <when test="key == 'muteShare' or key.startsWith('muteShare_')">and mute_share</when>
+                        <when test="key == 'ownerId' or key.startsWith('ownerId_')">and owner_id</when>
+                        <when test="key == 'playUrl' or key.startsWith('playUrl_')">and play_url</when>
+                        <when test="key == 'preventDownload' or key.startsWith('preventDownload_')">and prevent_download</when>
+                        <when test="key == 'preventItemDownloadStatus' or key.startsWith('preventItemDownloadStatus_')">and prevent_item_download_status</when>
+                        <when test="key == 'previewEndTime' or key.startsWith('previewEndTime_')">and preview_end_time</when>
+                        <when test="key == 'previewStartTime' or key.startsWith('previewStartTime_')">and preview_start_time</when>
+                        <when test="key == 'reasonType' or key.startsWith('reasonType_')">and reason_type</when>
+                        <when test="key == 'redirect' or key.startsWith('redirect_')">and redirect</when>
+                        <when test="key == 'schemaUrl' or key.startsWith('schemaUrl_')">and schema_url</when>
+                        <when test="key == 'sourcePlatform' or key.startsWith('sourcePlatform_')">and source_platform</when>
+                        <when test="key == 'startTime' or key.startsWith('startTime_')">and start_time</when>
+                        <when test="key == 'status' or key.startsWith('status_')">and status</when>
+                        <when test="key == 'title' or key.startsWith('title_')">and title</when>
+                        <when test="key == 'userCount' or key.startsWith('userCount_')">and user_count</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeMixInfoDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeMixInfo">
+    <id column="mix_id" jdbcType="BIGINT" property="mixId" />
+    <result column="mix_name" jdbcType="VARCHAR" property="mixName" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="author_uid" jdbcType="BIGINT" property="authorUid" />
+    <result column="author_sec_uid" jdbcType="VARCHAR" property="authorSecUid" />
+    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
+    <result column="collect_vv" jdbcType="INTEGER" property="collectVv" />
+    <result column="current_episode" jdbcType="INTEGER" property="currentEpisode" />
+    <result column="play_vv" jdbcType="BIGINT" property="playVv" />
+    <result column="updated_to_episode" jdbcType="INTEGER" property="updatedToEpisode" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mix_id,mix_name,create_time,desc,author_uid,author_sec_uid,cover_url,collect_vv,current_episode,play_vv,updated_to_episode,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeMixInfo">
+     insert into aweme_mix_info(<include refid="Base_Column_List"></include>)
+     values (
+     #{mixId,jdbcType=BIGINT},#{mixName,jdbcType=VARCHAR},#{createTime,jdbcType=BIGINT},#{desc,jdbcType=VARCHAR},#{authorUid,jdbcType=BIGINT},#{authorSecUid,jdbcType=VARCHAR},#{coverUrl,jdbcType=VARCHAR},#{collectVv,jdbcType=INTEGER},#{currentEpisode,jdbcType=INTEGER},#{playVv,jdbcType=BIGINT},#{updatedToEpisode,jdbcType=INTEGER},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByMixId" parameterType="java.lang.Long">
+     delete from aweme_mix_info
+     where mix_id = #{mixId,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_mix_info
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByMixId">
+     update aweme_mix_info
+     set
+       mix_name = #{awemeMixInfo.mixName,jdbcType=VARCHAR},
+       create_time = #{awemeMixInfo.createTime,jdbcType=BIGINT},
+       desc = #{awemeMixInfo.desc,jdbcType=VARCHAR},
+       author_uid = #{awemeMixInfo.authorUid,jdbcType=BIGINT},
+       author_sec_uid = #{awemeMixInfo.authorSecUid,jdbcType=VARCHAR},
+       cover_url = #{awemeMixInfo.coverUrl,jdbcType=VARCHAR},
+       collect_vv = #{awemeMixInfo.collectVv,jdbcType=INTEGER},
+       current_episode = #{awemeMixInfo.currentEpisode,jdbcType=INTEGER},
+       play_vv = #{awemeMixInfo.playVv,jdbcType=BIGINT},
+       updated_to_episode = #{awemeMixInfo.updatedToEpisode,jdbcType=INTEGER},
+       first_fetch_time = #{awemeMixInfo.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeMixInfo.lastFetchTime,jdbcType=BIGINT}
+     where mix_id = #{mixId,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMixId">
+     update aweme_mix_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeMixInfo.mixName != null">
+       mix_name = #{awemeMixInfo.mixName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.createTime != null">
+       create_time = #{awemeMixInfo.createTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.desc != null">
+       desc = #{awemeMixInfo.desc,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.authorUid != null">
+       author_uid = #{awemeMixInfo.authorUid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.authorSecUid != null">
+       author_sec_uid = #{awemeMixInfo.authorSecUid,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.coverUrl != null">
+       cover_url = #{awemeMixInfo.coverUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.collectVv != null">
+       collect_vv = #{awemeMixInfo.collectVv,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMixInfo.currentEpisode != null">
+       current_episode = #{awemeMixInfo.currentEpisode,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMixInfo.playVv != null">
+       play_vv = #{awemeMixInfo.playVv,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.updatedToEpisode != null">
+       updated_to_episode = #{awemeMixInfo.updatedToEpisode,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMixInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeMixInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeMixInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where mix_id = #{mixId,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_mix_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeMixInfo.mixName != null">
+       mix_name = #{awemeMixInfo.mixName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.createTime != null">
+       create_time = #{awemeMixInfo.createTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.desc != null">
+       desc = #{awemeMixInfo.desc,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.authorUid != null">
+       author_uid = #{awemeMixInfo.authorUid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.authorSecUid != null">
+       author_sec_uid = #{awemeMixInfo.authorSecUid,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.coverUrl != null">
+       cover_url = #{awemeMixInfo.coverUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeMixInfo.collectVv != null">
+       collect_vv = #{awemeMixInfo.collectVv,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMixInfo.currentEpisode != null">
+       current_episode = #{awemeMixInfo.currentEpisode,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMixInfo.playVv != null">
+       play_vv = #{awemeMixInfo.playVv,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.updatedToEpisode != null">
+       updated_to_episode = #{awemeMixInfo.updatedToEpisode,jdbcType=INTEGER},
+     </if>
+     <if test="awemeMixInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeMixInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeMixInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeMixInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByMixId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_mix_info
+     where mix_id = #{mixId,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeMixInfoList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_mix_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_mix_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'mixId' or key.startsWith('mixId_')">and mix_id</when>
+                        <when test="key == 'mixName' or key.startsWith('mixName_')">and mix_name</when>
+                        <when test="key == 'createTime' or key.startsWith('createTime_')">and create_time</when>
+                        <when test="key == 'desc' or key.startsWith('desc_')">and desc</when>
+                        <when test="key == 'authorUid' or key.startsWith('authorUid_')">and author_uid</when>
+                        <when test="key == 'authorSecUid' or key.startsWith('authorSecUid_')">and author_sec_uid</when>
+                        <when test="key == 'coverUrl' or key.startsWith('coverUrl_')">and cover_url</when>
+                        <when test="key == 'collectVv' or key.startsWith('collectVv_')">and collect_vv</when>
+                        <when test="key == 'currentEpisode' or key.startsWith('currentEpisode_')">and current_episode</when>
+                        <when test="key == 'playVv' or key.startsWith('playVv_')">and play_vv</when>
+                        <when test="key == 'updatedToEpisode' or key.startsWith('updatedToEpisode_')">and updated_to_episode</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

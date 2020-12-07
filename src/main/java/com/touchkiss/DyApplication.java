@@ -1,18 +1,17 @@
-package com.touchkiss.dy;
+package com.touchkiss;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.StandardCharsets;
 
-@SpringBootApplication(scanBasePackages = {"com.touchkiss.dy","com.douyin","com.huoshan"})
+@SpringBootApplication(scanBasePackages = {"com.touchkiss", "com.douyin", "com.huoshan"})
 @EnableScheduling
 public class DyApplication extends SpringBootServletInitializer {
 

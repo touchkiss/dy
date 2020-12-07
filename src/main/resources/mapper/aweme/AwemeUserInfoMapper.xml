@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeUserInfoDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeUserInfo">
+    <id column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="short_id" jdbcType="BIGINT" property="shortId" />
+    <result column="unique_id" jdbcType="VARCHAR" property="uniqueId" />
+    <result column="sec_uid" jdbcType="VARCHAR" property="secUid" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="room_id" jdbcType="BIGINT" property="roomId" />
+    <result column="accept_private_policy" jdbcType="BIT" property="acceptPrivatePolicy" />
+    <result column="account_region" jdbcType="VARCHAR" property="accountRegion" />
+    <result column="apple_account" jdbcType="BIGINT" property="appleAccount" />
+    <result column="authority_status" jdbcType="INTEGER" property="authorityStatus" />
+    <result column="avatar_larger" jdbcType="VARCHAR" property="avatarLarger" />
+    <result column="aweme_count" jdbcType="INTEGER" property="awemeCount" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="birthday_hide_level" jdbcType="INTEGER" property="birthdayHideLevel" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="comment_filter_status" jdbcType="INTEGER" property="commentFilterStatus" />
+    <result column="comment_setting" jdbcType="INTEGER" property="commentSetting" />
+    <result column="commerce_user_level" jdbcType="INTEGER" property="commerceUserLevel" />
+    <result column="constellation" jdbcType="INTEGER" property="constellation" />
+    <result column="content_language_already_popup" jdbcType="INTEGER" property="contentLanguageAlreadyPopup" />
+    <result column="count_status" jdbcType="INTEGER" property="countStatus" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="cover_colour" jdbcType="VARCHAR" property="coverColour" />
+    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
+    <result column="custom_verify" jdbcType="VARCHAR" property="customVerify" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="dongtai_count" jdbcType="INTEGER" property="dongtaiCount" />
+    <result column="douplus_old_user" jdbcType="BIT" property="douplusOldUser" />
+    <result column="download_promot_ts" jdbcType="BIGINT" property="downloadPromotTs" />
+    <result column="download_setting" jdbcType="INTEGER" property="downloadSetting" />
+    <result column="dp_level" jdbcType="INTEGER" property="dpLevel" />
+    <result column="duet_setting" jdbcType="INTEGER" property="duetSetting" />
+    <result column="enable_nearby_visible" jdbcType="BIT" property="enableNearbyVisible" />
+    <result column="enterprise_user_info" jdbcType="LONGVARCHAR" property="enterpriseUserInfo" />
+    <result column="enterprise_verify_reason" jdbcType="VARCHAR" property="enterpriseVerifyReason" />
+    <result column="ever_over_1k_follower" jdbcType="BIT" property="everOver_1kFollower" />
+    <result column="favoriting_count" jdbcType="INTEGER" property="favoritingCount" />
+    <result column="follow_status" jdbcType="INTEGER" property="followStatus" />
+    <result column="follower_count" jdbcType="INTEGER" property="followerCount" />
+    <result column="follower_status" jdbcType="INTEGER" property="followerStatus" />
+    <result column="following_count" jdbcType="INTEGER" property="followingCount" />
+    <result column="forward_count" jdbcType="INTEGER" property="forwardCount" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="has_activity_medal" jdbcType="BIT" property="hasActivityMedal" />
+    <result column="has_insights" jdbcType="BIT" property="hasInsights" />
+    <result column="has_story" jdbcType="BIT" property="hasStory" />
+    <result column="has_unread_story" jdbcType="BIT" property="hasUnreadStory" />
+    <result column="hide_following_follower_list" jdbcType="INTEGER" property="hideFollowingFollowerList" />
+    <result column="hide_location" jdbcType="BIT" property="hideLocation" />
+    <result column="ins_id" jdbcType="VARCHAR" property="insId" />
+    <result column="is_activity_user" jdbcType="BIT" property="isActivityUser" />
+    <result column="is_ad_fake" jdbcType="BIT" property="isAdFake" />
+    <result column="is_block" jdbcType="BIT" property="isBlock" />
+    <result column="is_blocked" jdbcType="BIT" property="isBlocked" />
+    <result column="is_discipline_member" jdbcType="BIT" property="isDisciplineMember" />
+    <result column="is_effect_artist" jdbcType="BIT" property="isEffectArtist" />
+    <result column="is_gov_media_vip" jdbcType="BIT" property="isGovMediaVip" />
+    <result column="is_mix_user" jdbcType="BIT" property="isMixUser" />
+    <result column="is_pro_account" jdbcType="BIT" property="isProAccount" />
+    <result column="is_star" jdbcType="BIT" property="isStar" />
+    <result column="is_verified" jdbcType="BIT" property="isVerified" />
+    <result column="iso_country_code" jdbcType="VARCHAR" property="isoCountryCode" />
+    <result column="live_commerce" jdbcType="BIT" property="liveCommerce" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="message_chat_entry" jdbcType="BIT" property="messageChatEntry" />
+    <result column="mplatform_followers_count" jdbcType="INTEGER" property="mplatformFollowersCount" />
+    <result column="prevent_download" jdbcType="BIT" property="preventDownload" />
+    <result column="profile_tab_type" jdbcType="INTEGER" property="profileTabType" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="recommend_reason_relation" jdbcType="VARCHAR" property="recommendReasonRelation" />
+    <result column="recommend_user_reason_source" jdbcType="INTEGER" property="recommendUserReasonSource" />
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+    <result column="secret" jdbcType="INTEGER" property="secret" />
+    <result column="show_favorite_list" jdbcType="BIT" property="showFavoriteList" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="signature_language" jdbcType="VARCHAR" property="signatureLanguage" />
+    <result column="stitch_setting" jdbcType="INTEGER" property="stitchSetting" />
+    <result column="story_count" jdbcType="INTEGER" property="storyCount" />
+    <result column="story_open" jdbcType="BIT" property="storyOpen" />
+    <result column="sync_to_toutiao" jdbcType="INTEGER" property="syncToToutiao" />
+    <result column="total_favorited" jdbcType="INTEGER" property="totalFavorited" />
+    <result column="twitter_id" jdbcType="VARCHAR" property="twitterId" />
+    <result column="twitter_name" jdbcType="VARCHAR" property="twitterName" />
+    <result column="unique_id_modify_time" jdbcType="BIGINT" property="uniqueIdModifyTime" />
+    <result column="user_canceled" jdbcType="BIT" property="userCanceled" />
+    <result column="user_mode" jdbcType="INTEGER" property="userMode" />
+    <result column="user_story_count" jdbcType="INTEGER" property="userStoryCount" />
+    <result column="verification_type" jdbcType="INTEGER" property="verificationType" />
+    <result column="verify_info" jdbcType="VARCHAR" property="verifyInfo" />
+    <result column="watch_status" jdbcType="BIT" property="watchStatus" />
+    <result column="weibo_schema" jdbcType="VARCHAR" property="weiboSchema" />
+    <result column="weibo_url" jdbcType="VARCHAR" property="weiboUrl" />
+    <result column="weibo_verify" jdbcType="VARCHAR" property="weiboVerify" />
+    <result column="with_commerce_entry" jdbcType="BIT" property="withCommerceEntry" />
+    <result column="with_commerce_enterprise_tab_entry" jdbcType="BIT" property="withCommerceEnterpriseTabEntry" />
+    <result column="with_fusion_shop_entry" jdbcType="BIT" property="withFusionShopEntry" />
+    <result column="with_luban_entry" jdbcType="BIT" property="withLubanEntry" />
+    <result column="with_new_goods" jdbcType="BIT" property="withNewGoods" />
+    <result column="with_shop_entry" jdbcType="BIT" property="withShopEntry" />
+    <result column="with_stick_entry" jdbcType="BIT" property="withStickEntry" />
+    <result column="wx_avatar_url" jdbcType="VARCHAR" property="wxAvatarUrl" />
+    <result column="wx_nickname" jdbcType="VARCHAR" property="wxNickname" />
+    <result column="wx_tag" jdbcType="INTEGER" property="wxTag" />
+    <result column="youtube_channel_id" jdbcType="VARCHAR" property="youtubeChannelId" />
+    <result column="youtube_channel_title" jdbcType="VARCHAR" property="youtubeChannelTitle" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid,short_id,unique_id,sec_uid,nickname,language,region,room_id,accept_private_policy,account_region,apple_account,authority_status,avatar_larger,aweme_count,birthday,birthday_hide_level,city,comment_filter_status,comment_setting,commerce_user_level,constellation,content_language_already_popup,count_status,country,cover_colour,cover_url,custom_verify,district,dongtai_count,douplus_old_user,download_promot_ts,download_setting,dp_level,duet_setting,enable_nearby_visible,enterprise_user_info,enterprise_verify_reason,ever_over_1k_follower,favoriting_count,follow_status,follower_count,follower_status,following_count,forward_count,gender,has_activity_medal,has_insights,has_story,has_unread_story,hide_following_follower_list,hide_location,ins_id,is_activity_user,is_ad_fake,is_block,is_blocked,is_discipline_member,is_effect_artist,is_gov_media_vip,is_mix_user,is_pro_account,is_star,is_verified,iso_country_code,live_commerce,location,message_chat_entry,mplatform_followers_count,prevent_download,profile_tab_type,province,recommend_reason_relation,recommend_user_reason_source,school_name,secret,show_favorite_list,signature,signature_language,stitch_setting,story_count,story_open,sync_to_toutiao,total_favorited,twitter_id,twitter_name,unique_id_modify_time,user_canceled,user_mode,user_story_count,verification_type,verify_info,watch_status,weibo_schema,weibo_url,weibo_verify,with_commerce_entry,with_commerce_enterprise_tab_entry,with_fusion_shop_entry,with_luban_entry,with_new_goods,with_shop_entry,with_stick_entry,wx_avatar_url,wx_nickname,wx_tag,youtube_channel_id,youtube_channel_title,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeUserInfo">
+     insert into aweme_user_info(<include refid="Base_Column_List"></include>)
+     values (
+     #{uid,jdbcType=BIGINT},#{shortId,jdbcType=BIGINT},#{uniqueId,jdbcType=VARCHAR},#{secUid,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR},#{language,jdbcType=VARCHAR},#{region,jdbcType=VARCHAR},#{roomId,jdbcType=BIGINT},#{acceptPrivatePolicy,jdbcType=BIT},#{accountRegion,jdbcType=VARCHAR},#{appleAccount,jdbcType=BIGINT},#{authorityStatus,jdbcType=INTEGER},#{avatarLarger,jdbcType=VARCHAR},#{awemeCount,jdbcType=INTEGER},#{birthday,jdbcType=DATE},#{birthdayHideLevel,jdbcType=INTEGER},#{city,jdbcType=VARCHAR},#{commentFilterStatus,jdbcType=INTEGER},#{commentSetting,jdbcType=INTEGER},#{commerceUserLevel,jdbcType=INTEGER},#{constellation,jdbcType=INTEGER},#{contentLanguageAlreadyPopup,jdbcType=INTEGER},#{countStatus,jdbcType=INTEGER},#{country,jdbcType=VARCHAR},#{coverColour,jdbcType=VARCHAR},#{coverUrl,jdbcType=VARCHAR},#{customVerify,jdbcType=VARCHAR},#{district,jdbcType=VARCHAR},#{dongtaiCount,jdbcType=INTEGER},#{douplusOldUser,jdbcType=BIT},#{downloadPromotTs,jdbcType=BIGINT},#{downloadSetting,jdbcType=INTEGER},#{dpLevel,jdbcType=INTEGER},#{duetSetting,jdbcType=INTEGER},#{enableNearbyVisible,jdbcType=BIT},#{enterpriseUserInfo,jdbcType=LONGVARCHAR},#{enterpriseVerifyReason,jdbcType=VARCHAR},#{everOver_1kFollower,jdbcType=BIT},#{favoritingCount,jdbcType=INTEGER},#{followStatus,jdbcType=INTEGER},#{followerCount,jdbcType=INTEGER},#{followerStatus,jdbcType=INTEGER},#{followingCount,jdbcType=INTEGER},#{forwardCount,jdbcType=INTEGER},#{gender,jdbcType=INTEGER},#{hasActivityMedal,jdbcType=BIT},#{hasInsights,jdbcType=BIT},#{hasStory,jdbcType=BIT},#{hasUnreadStory,jdbcType=BIT},#{hideFollowingFollowerList,jdbcType=INTEGER},#{hideLocation,jdbcType=BIT},#{insId,jdbcType=VARCHAR},#{isActivityUser,jdbcType=BIT},#{isAdFake,jdbcType=BIT},#{isBlock,jdbcType=BIT},#{isBlocked,jdbcType=BIT},#{isDisciplineMember,jdbcType=BIT},#{isEffectArtist,jdbcType=BIT},#{isGovMediaVip,jdbcType=BIT},#{isMixUser,jdbcType=BIT},#{isProAccount,jdbcType=BIT},#{isStar,jdbcType=BIT},#{isVerified,jdbcType=BIT},#{isoCountryCode,jdbcType=VARCHAR},#{liveCommerce,jdbcType=BIT},#{location,jdbcType=VARCHAR},#{messageChatEntry,jdbcType=BIT},#{mplatformFollowersCount,jdbcType=INTEGER},#{preventDownload,jdbcType=BIT},#{profileTabType,jdbcType=INTEGER},#{province,jdbcType=VARCHAR},#{recommendReasonRelation,jdbcType=VARCHAR},#{recommendUserReasonSource,jdbcType=INTEGER},#{schoolName,jdbcType=VARCHAR},#{secret,jdbcType=INTEGER},#{showFavoriteList,jdbcType=BIT},#{signature,jdbcType=VARCHAR},#{signatureLanguage,jdbcType=VARCHAR},#{stitchSetting,jdbcType=INTEGER},#{storyCount,jdbcType=INTEGER},#{storyOpen,jdbcType=BIT},#{syncToToutiao,jdbcType=INTEGER},#{totalFavorited,jdbcType=INTEGER},#{twitterId,jdbcType=VARCHAR},#{twitterName,jdbcType=VARCHAR},#{uniqueIdModifyTime,jdbcType=BIGINT},#{userCanceled,jdbcType=BIT},#{userMode,jdbcType=INTEGER},#{userStoryCount,jdbcType=INTEGER},#{verificationType,jdbcType=INTEGER},#{verifyInfo,jdbcType=VARCHAR},#{watchStatus,jdbcType=BIT},#{weiboSchema,jdbcType=VARCHAR},#{weiboUrl,jdbcType=VARCHAR},#{weiboVerify,jdbcType=VARCHAR},#{withCommerceEntry,jdbcType=BIT},#{withCommerceEnterpriseTabEntry,jdbcType=BIT},#{withFusionShopEntry,jdbcType=BIT},#{withLubanEntry,jdbcType=BIT},#{withNewGoods,jdbcType=BIT},#{withShopEntry,jdbcType=BIT},#{withStickEntry,jdbcType=BIT},#{wxAvatarUrl,jdbcType=VARCHAR},#{wxNickname,jdbcType=VARCHAR},#{wxTag,jdbcType=INTEGER},#{youtubeChannelId,jdbcType=VARCHAR},#{youtubeChannelTitle,jdbcType=VARCHAR},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByUid" parameterType="java.lang.Long">
+     delete from aweme_user_info
+     where uid = #{uid,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_user_info
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByUid">
+     update aweme_user_info
+     set
+       short_id = #{awemeUserInfo.shortId,jdbcType=BIGINT},
+       unique_id = #{awemeUserInfo.uniqueId,jdbcType=VARCHAR},
+       sec_uid = #{awemeUserInfo.secUid,jdbcType=VARCHAR},
+       nickname = #{awemeUserInfo.nickname,jdbcType=VARCHAR},
+       language = #{awemeUserInfo.language,jdbcType=VARCHAR},
+       region = #{awemeUserInfo.region,jdbcType=VARCHAR},
+       room_id = #{awemeUserInfo.roomId,jdbcType=BIGINT},
+       accept_private_policy = #{awemeUserInfo.acceptPrivatePolicy,jdbcType=BIT},
+       account_region = #{awemeUserInfo.accountRegion,jdbcType=VARCHAR},
+       apple_account = #{awemeUserInfo.appleAccount,jdbcType=BIGINT},
+       authority_status = #{awemeUserInfo.authorityStatus,jdbcType=INTEGER},
+       avatar_larger = #{awemeUserInfo.avatarLarger,jdbcType=VARCHAR},
+       aweme_count = #{awemeUserInfo.awemeCount,jdbcType=INTEGER},
+       birthday = #{awemeUserInfo.birthday,jdbcType=DATE},
+       birthday_hide_level = #{awemeUserInfo.birthdayHideLevel,jdbcType=INTEGER},
+       city = #{awemeUserInfo.city,jdbcType=VARCHAR},
+       comment_filter_status = #{awemeUserInfo.commentFilterStatus,jdbcType=INTEGER},
+       comment_setting = #{awemeUserInfo.commentSetting,jdbcType=INTEGER},
+       commerce_user_level = #{awemeUserInfo.commerceUserLevel,jdbcType=INTEGER},
+       constellation = #{awemeUserInfo.constellation,jdbcType=INTEGER},
+       content_language_already_popup = #{awemeUserInfo.contentLanguageAlreadyPopup,jdbcType=INTEGER},
+       count_status = #{awemeUserInfo.countStatus,jdbcType=INTEGER},
+       country = #{awemeUserInfo.country,jdbcType=VARCHAR},
+       cover_colour = #{awemeUserInfo.coverColour,jdbcType=VARCHAR},
+       cover_url = #{awemeUserInfo.coverUrl,jdbcType=VARCHAR},
+       custom_verify = #{awemeUserInfo.customVerify,jdbcType=VARCHAR},
+       district = #{awemeUserInfo.district,jdbcType=VARCHAR},
+       dongtai_count = #{awemeUserInfo.dongtaiCount,jdbcType=INTEGER},
+       douplus_old_user = #{awemeUserInfo.douplusOldUser,jdbcType=BIT},
+       download_promot_ts = #{awemeUserInfo.downloadPromotTs,jdbcType=BIGINT},
+       download_setting = #{awemeUserInfo.downloadSetting,jdbcType=INTEGER},
+       dp_level = #{awemeUserInfo.dpLevel,jdbcType=INTEGER},
+       duet_setting = #{awemeUserInfo.duetSetting,jdbcType=INTEGER},
+       enable_nearby_visible = #{awemeUserInfo.enableNearbyVisible,jdbcType=BIT},
+       enterprise_user_info = #{awemeUserInfo.enterpriseUserInfo,jdbcType=LONGVARCHAR},
+       enterprise_verify_reason = #{awemeUserInfo.enterpriseVerifyReason,jdbcType=VARCHAR},
+       ever_over_1k_follower = #{awemeUserInfo.everOver_1kFollower,jdbcType=BIT},
+       favoriting_count = #{awemeUserInfo.favoritingCount,jdbcType=INTEGER},
+       follow_status = #{awemeUserInfo.followStatus,jdbcType=INTEGER},
+       follower_count = #{awemeUserInfo.followerCount,jdbcType=INTEGER},
+       follower_status = #{awemeUserInfo.followerStatus,jdbcType=INTEGER},
+       following_count = #{awemeUserInfo.followingCount,jdbcType=INTEGER},
+       forward_count = #{awemeUserInfo.forwardCount,jdbcType=INTEGER},
+       gender = #{awemeUserInfo.gender,jdbcType=INTEGER},
+       has_activity_medal = #{awemeUserInfo.hasActivityMedal,jdbcType=BIT},
+       has_insights = #{awemeUserInfo.hasInsights,jdbcType=BIT},
+       has_story = #{awemeUserInfo.hasStory,jdbcType=BIT},
+       has_unread_story = #{awemeUserInfo.hasUnreadStory,jdbcType=BIT},
+       hide_following_follower_list = #{awemeUserInfo.hideFollowingFollowerList,jdbcType=INTEGER},
+       hide_location = #{awemeUserInfo.hideLocation,jdbcType=BIT},
+       ins_id = #{awemeUserInfo.insId,jdbcType=VARCHAR},
+       is_activity_user = #{awemeUserInfo.isActivityUser,jdbcType=BIT},
+       is_ad_fake = #{awemeUserInfo.isAdFake,jdbcType=BIT},
+       is_block = #{awemeUserInfo.isBlock,jdbcType=BIT},
+       is_blocked = #{awemeUserInfo.isBlocked,jdbcType=BIT},
+       is_discipline_member = #{awemeUserInfo.isDisciplineMember,jdbcType=BIT},
+       is_effect_artist = #{awemeUserInfo.isEffectArtist,jdbcType=BIT},
+       is_gov_media_vip = #{awemeUserInfo.isGovMediaVip,jdbcType=BIT},
+       is_mix_user = #{awemeUserInfo.isMixUser,jdbcType=BIT},
+       is_pro_account = #{awemeUserInfo.isProAccount,jdbcType=BIT},
+       is_star = #{awemeUserInfo.isStar,jdbcType=BIT},
+       is_verified = #{awemeUserInfo.isVerified,jdbcType=BIT},
+       iso_country_code = #{awemeUserInfo.isoCountryCode,jdbcType=VARCHAR},
+       live_commerce = #{awemeUserInfo.liveCommerce,jdbcType=BIT},
+       location = #{awemeUserInfo.location,jdbcType=VARCHAR},
+       message_chat_entry = #{awemeUserInfo.messageChatEntry,jdbcType=BIT},
+       mplatform_followers_count = #{awemeUserInfo.mplatformFollowersCount,jdbcType=INTEGER},
+       prevent_download = #{awemeUserInfo.preventDownload,jdbcType=BIT},
+       profile_tab_type = #{awemeUserInfo.profileTabType,jdbcType=INTEGER},
+       province = #{awemeUserInfo.province,jdbcType=VARCHAR},
+       recommend_reason_relation = #{awemeUserInfo.recommendReasonRelation,jdbcType=VARCHAR},
+       recommend_user_reason_source = #{awemeUserInfo.recommendUserReasonSource,jdbcType=INTEGER},
+       school_name = #{awemeUserInfo.schoolName,jdbcType=VARCHAR},
+       secret = #{awemeUserInfo.secret,jdbcType=INTEGER},
+       show_favorite_list = #{awemeUserInfo.showFavoriteList,jdbcType=BIT},
+       signature = #{awemeUserInfo.signature,jdbcType=VARCHAR},
+       signature_language = #{awemeUserInfo.signatureLanguage,jdbcType=VARCHAR},
+       stitch_setting = #{awemeUserInfo.stitchSetting,jdbcType=INTEGER},
+       story_count = #{awemeUserInfo.storyCount,jdbcType=INTEGER},
+       story_open = #{awemeUserInfo.storyOpen,jdbcType=BIT},
+       sync_to_toutiao = #{awemeUserInfo.syncToToutiao,jdbcType=INTEGER},
+       total_favorited = #{awemeUserInfo.totalFavorited,jdbcType=INTEGER},
+       twitter_id = #{awemeUserInfo.twitterId,jdbcType=VARCHAR},
+       twitter_name = #{awemeUserInfo.twitterName,jdbcType=VARCHAR},
+       unique_id_modify_time = #{awemeUserInfo.uniqueIdModifyTime,jdbcType=BIGINT},
+       user_canceled = #{awemeUserInfo.userCanceled,jdbcType=BIT},
+       user_mode = #{awemeUserInfo.userMode,jdbcType=INTEGER},
+       user_story_count = #{awemeUserInfo.userStoryCount,jdbcType=INTEGER},
+       verification_type = #{awemeUserInfo.verificationType,jdbcType=INTEGER},
+       verify_info = #{awemeUserInfo.verifyInfo,jdbcType=VARCHAR},
+       watch_status = #{awemeUserInfo.watchStatus,jdbcType=BIT},
+       weibo_schema = #{awemeUserInfo.weiboSchema,jdbcType=VARCHAR},
+       weibo_url = #{awemeUserInfo.weiboUrl,jdbcType=VARCHAR},
+       weibo_verify = #{awemeUserInfo.weiboVerify,jdbcType=VARCHAR},
+       with_commerce_entry = #{awemeUserInfo.withCommerceEntry,jdbcType=BIT},
+       with_commerce_enterprise_tab_entry = #{awemeUserInfo.withCommerceEnterpriseTabEntry,jdbcType=BIT},
+       with_fusion_shop_entry = #{awemeUserInfo.withFusionShopEntry,jdbcType=BIT},
+       with_luban_entry = #{awemeUserInfo.withLubanEntry,jdbcType=BIT},
+       with_new_goods = #{awemeUserInfo.withNewGoods,jdbcType=BIT},
+       with_shop_entry = #{awemeUserInfo.withShopEntry,jdbcType=BIT},
+       with_stick_entry = #{awemeUserInfo.withStickEntry,jdbcType=BIT},
+       wx_avatar_url = #{awemeUserInfo.wxAvatarUrl,jdbcType=VARCHAR},
+       wx_nickname = #{awemeUserInfo.wxNickname,jdbcType=VARCHAR},
+       wx_tag = #{awemeUserInfo.wxTag,jdbcType=INTEGER},
+       youtube_channel_id = #{awemeUserInfo.youtubeChannelId,jdbcType=VARCHAR},
+       youtube_channel_title = #{awemeUserInfo.youtubeChannelTitle,jdbcType=VARCHAR},
+       first_fetch_time = #{awemeUserInfo.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeUserInfo.lastFetchTime,jdbcType=BIGINT}
+     where uid = #{uid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByUid">
+     update aweme_user_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeUserInfo.shortId != null">
+       short_id = #{awemeUserInfo.shortId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.uniqueId != null">
+       unique_id = #{awemeUserInfo.uniqueId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.secUid != null">
+       sec_uid = #{awemeUserInfo.secUid,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.nickname != null">
+       nickname = #{awemeUserInfo.nickname,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.language != null">
+       language = #{awemeUserInfo.language,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.region != null">
+       region = #{awemeUserInfo.region,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.roomId != null">
+       room_id = #{awemeUserInfo.roomId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.acceptPrivatePolicy != null">
+       accept_private_policy = #{awemeUserInfo.acceptPrivatePolicy,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.accountRegion != null">
+       account_region = #{awemeUserInfo.accountRegion,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.appleAccount != null">
+       apple_account = #{awemeUserInfo.appleAccount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.authorityStatus != null">
+       authority_status = #{awemeUserInfo.authorityStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.avatarLarger != null">
+       avatar_larger = #{awemeUserInfo.avatarLarger,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.awemeCount != null">
+       aweme_count = #{awemeUserInfo.awemeCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.birthday != null">
+       birthday = #{awemeUserInfo.birthday,jdbcType=DATE},
+     </if>
+     <if test="awemeUserInfo.birthdayHideLevel != null">
+       birthday_hide_level = #{awemeUserInfo.birthdayHideLevel,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.city != null">
+       city = #{awemeUserInfo.city,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.commentFilterStatus != null">
+       comment_filter_status = #{awemeUserInfo.commentFilterStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.commentSetting != null">
+       comment_setting = #{awemeUserInfo.commentSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.commerceUserLevel != null">
+       commerce_user_level = #{awemeUserInfo.commerceUserLevel,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.constellation != null">
+       constellation = #{awemeUserInfo.constellation,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.contentLanguageAlreadyPopup != null">
+       content_language_already_popup = #{awemeUserInfo.contentLanguageAlreadyPopup,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.countStatus != null">
+       count_status = #{awemeUserInfo.countStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.country != null">
+       country = #{awemeUserInfo.country,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.coverColour != null">
+       cover_colour = #{awemeUserInfo.coverColour,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.coverUrl != null">
+       cover_url = #{awemeUserInfo.coverUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.customVerify != null">
+       custom_verify = #{awemeUserInfo.customVerify,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.district != null">
+       district = #{awemeUserInfo.district,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.dongtaiCount != null">
+       dongtai_count = #{awemeUserInfo.dongtaiCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.douplusOldUser != null">
+       douplus_old_user = #{awemeUserInfo.douplusOldUser,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.downloadPromotTs != null">
+       download_promot_ts = #{awemeUserInfo.downloadPromotTs,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.downloadSetting != null">
+       download_setting = #{awemeUserInfo.downloadSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.dpLevel != null">
+       dp_level = #{awemeUserInfo.dpLevel,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.duetSetting != null">
+       duet_setting = #{awemeUserInfo.duetSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.enableNearbyVisible != null">
+       enable_nearby_visible = #{awemeUserInfo.enableNearbyVisible,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.enterpriseUserInfo != null">
+       enterprise_user_info = #{awemeUserInfo.enterpriseUserInfo,jdbcType=LONGVARCHAR},
+     </if>
+     <if test="awemeUserInfo.enterpriseVerifyReason != null">
+       enterprise_verify_reason = #{awemeUserInfo.enterpriseVerifyReason,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.everOver_1kFollower != null">
+       ever_over_1k_follower = #{awemeUserInfo.everOver_1kFollower,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.favoritingCount != null">
+       favoriting_count = #{awemeUserInfo.favoritingCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followStatus != null">
+       follow_status = #{awemeUserInfo.followStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followerCount != null">
+       follower_count = #{awemeUserInfo.followerCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followerStatus != null">
+       follower_status = #{awemeUserInfo.followerStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followingCount != null">
+       following_count = #{awemeUserInfo.followingCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.forwardCount != null">
+       forward_count = #{awemeUserInfo.forwardCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.gender != null">
+       gender = #{awemeUserInfo.gender,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.hasActivityMedal != null">
+       has_activity_medal = #{awemeUserInfo.hasActivityMedal,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hasInsights != null">
+       has_insights = #{awemeUserInfo.hasInsights,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hasStory != null">
+       has_story = #{awemeUserInfo.hasStory,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hasUnreadStory != null">
+       has_unread_story = #{awemeUserInfo.hasUnreadStory,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hideFollowingFollowerList != null">
+       hide_following_follower_list = #{awemeUserInfo.hideFollowingFollowerList,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.hideLocation != null">
+       hide_location = #{awemeUserInfo.hideLocation,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.insId != null">
+       ins_id = #{awemeUserInfo.insId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.isActivityUser != null">
+       is_activity_user = #{awemeUserInfo.isActivityUser,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isAdFake != null">
+       is_ad_fake = #{awemeUserInfo.isAdFake,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isBlock != null">
+       is_block = #{awemeUserInfo.isBlock,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isBlocked != null">
+       is_blocked = #{awemeUserInfo.isBlocked,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isDisciplineMember != null">
+       is_discipline_member = #{awemeUserInfo.isDisciplineMember,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isEffectArtist != null">
+       is_effect_artist = #{awemeUserInfo.isEffectArtist,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isGovMediaVip != null">
+       is_gov_media_vip = #{awemeUserInfo.isGovMediaVip,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isMixUser != null">
+       is_mix_user = #{awemeUserInfo.isMixUser,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isProAccount != null">
+       is_pro_account = #{awemeUserInfo.isProAccount,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isStar != null">
+       is_star = #{awemeUserInfo.isStar,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isVerified != null">
+       is_verified = #{awemeUserInfo.isVerified,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isoCountryCode != null">
+       iso_country_code = #{awemeUserInfo.isoCountryCode,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.liveCommerce != null">
+       live_commerce = #{awemeUserInfo.liveCommerce,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.location != null">
+       location = #{awemeUserInfo.location,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.messageChatEntry != null">
+       message_chat_entry = #{awemeUserInfo.messageChatEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.mplatformFollowersCount != null">
+       mplatform_followers_count = #{awemeUserInfo.mplatformFollowersCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.preventDownload != null">
+       prevent_download = #{awemeUserInfo.preventDownload,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.profileTabType != null">
+       profile_tab_type = #{awemeUserInfo.profileTabType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.province != null">
+       province = #{awemeUserInfo.province,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.recommendReasonRelation != null">
+       recommend_reason_relation = #{awemeUserInfo.recommendReasonRelation,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.recommendUserReasonSource != null">
+       recommend_user_reason_source = #{awemeUserInfo.recommendUserReasonSource,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.schoolName != null">
+       school_name = #{awemeUserInfo.schoolName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.secret != null">
+       secret = #{awemeUserInfo.secret,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.showFavoriteList != null">
+       show_favorite_list = #{awemeUserInfo.showFavoriteList,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.signature != null">
+       signature = #{awemeUserInfo.signature,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.signatureLanguage != null">
+       signature_language = #{awemeUserInfo.signatureLanguage,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.stitchSetting != null">
+       stitch_setting = #{awemeUserInfo.stitchSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.storyCount != null">
+       story_count = #{awemeUserInfo.storyCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.storyOpen != null">
+       story_open = #{awemeUserInfo.storyOpen,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.syncToToutiao != null">
+       sync_to_toutiao = #{awemeUserInfo.syncToToutiao,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.totalFavorited != null">
+       total_favorited = #{awemeUserInfo.totalFavorited,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.twitterId != null">
+       twitter_id = #{awemeUserInfo.twitterId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.twitterName != null">
+       twitter_name = #{awemeUserInfo.twitterName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.uniqueIdModifyTime != null">
+       unique_id_modify_time = #{awemeUserInfo.uniqueIdModifyTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.userCanceled != null">
+       user_canceled = #{awemeUserInfo.userCanceled,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.userMode != null">
+       user_mode = #{awemeUserInfo.userMode,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.userStoryCount != null">
+       user_story_count = #{awemeUserInfo.userStoryCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.verificationType != null">
+       verification_type = #{awemeUserInfo.verificationType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.verifyInfo != null">
+       verify_info = #{awemeUserInfo.verifyInfo,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.watchStatus != null">
+       watch_status = #{awemeUserInfo.watchStatus,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.weiboSchema != null">
+       weibo_schema = #{awemeUserInfo.weiboSchema,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.weiboUrl != null">
+       weibo_url = #{awemeUserInfo.weiboUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.weiboVerify != null">
+       weibo_verify = #{awemeUserInfo.weiboVerify,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.withCommerceEntry != null">
+       with_commerce_entry = #{awemeUserInfo.withCommerceEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withCommerceEnterpriseTabEntry != null">
+       with_commerce_enterprise_tab_entry = #{awemeUserInfo.withCommerceEnterpriseTabEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withFusionShopEntry != null">
+       with_fusion_shop_entry = #{awemeUserInfo.withFusionShopEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withLubanEntry != null">
+       with_luban_entry = #{awemeUserInfo.withLubanEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withNewGoods != null">
+       with_new_goods = #{awemeUserInfo.withNewGoods,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withShopEntry != null">
+       with_shop_entry = #{awemeUserInfo.withShopEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withStickEntry != null">
+       with_stick_entry = #{awemeUserInfo.withStickEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.wxAvatarUrl != null">
+       wx_avatar_url = #{awemeUserInfo.wxAvatarUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.wxNickname != null">
+       wx_nickname = #{awemeUserInfo.wxNickname,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.wxTag != null">
+       wx_tag = #{awemeUserInfo.wxTag,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.youtubeChannelId != null">
+       youtube_channel_id = #{awemeUserInfo.youtubeChannelId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.youtubeChannelTitle != null">
+       youtube_channel_title = #{awemeUserInfo.youtubeChannelTitle,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeUserInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeUserInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where uid = #{uid,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_user_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeUserInfo.shortId != null">
+       short_id = #{awemeUserInfo.shortId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.uniqueId != null">
+       unique_id = #{awemeUserInfo.uniqueId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.secUid != null">
+       sec_uid = #{awemeUserInfo.secUid,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.nickname != null">
+       nickname = #{awemeUserInfo.nickname,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.language != null">
+       language = #{awemeUserInfo.language,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.region != null">
+       region = #{awemeUserInfo.region,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.roomId != null">
+       room_id = #{awemeUserInfo.roomId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.acceptPrivatePolicy != null">
+       accept_private_policy = #{awemeUserInfo.acceptPrivatePolicy,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.accountRegion != null">
+       account_region = #{awemeUserInfo.accountRegion,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.appleAccount != null">
+       apple_account = #{awemeUserInfo.appleAccount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.authorityStatus != null">
+       authority_status = #{awemeUserInfo.authorityStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.avatarLarger != null">
+       avatar_larger = #{awemeUserInfo.avatarLarger,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.awemeCount != null">
+       aweme_count = #{awemeUserInfo.awemeCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.birthday != null">
+       birthday = #{awemeUserInfo.birthday,jdbcType=DATE},
+     </if>
+     <if test="awemeUserInfo.birthdayHideLevel != null">
+       birthday_hide_level = #{awemeUserInfo.birthdayHideLevel,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.city != null">
+       city = #{awemeUserInfo.city,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.commentFilterStatus != null">
+       comment_filter_status = #{awemeUserInfo.commentFilterStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.commentSetting != null">
+       comment_setting = #{awemeUserInfo.commentSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.commerceUserLevel != null">
+       commerce_user_level = #{awemeUserInfo.commerceUserLevel,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.constellation != null">
+       constellation = #{awemeUserInfo.constellation,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.contentLanguageAlreadyPopup != null">
+       content_language_already_popup = #{awemeUserInfo.contentLanguageAlreadyPopup,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.countStatus != null">
+       count_status = #{awemeUserInfo.countStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.country != null">
+       country = #{awemeUserInfo.country,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.coverColour != null">
+       cover_colour = #{awemeUserInfo.coverColour,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.coverUrl != null">
+       cover_url = #{awemeUserInfo.coverUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.customVerify != null">
+       custom_verify = #{awemeUserInfo.customVerify,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.district != null">
+       district = #{awemeUserInfo.district,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.dongtaiCount != null">
+       dongtai_count = #{awemeUserInfo.dongtaiCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.douplusOldUser != null">
+       douplus_old_user = #{awemeUserInfo.douplusOldUser,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.downloadPromotTs != null">
+       download_promot_ts = #{awemeUserInfo.downloadPromotTs,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.downloadSetting != null">
+       download_setting = #{awemeUserInfo.downloadSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.dpLevel != null">
+       dp_level = #{awemeUserInfo.dpLevel,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.duetSetting != null">
+       duet_setting = #{awemeUserInfo.duetSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.enableNearbyVisible != null">
+       enable_nearby_visible = #{awemeUserInfo.enableNearbyVisible,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.enterpriseUserInfo != null">
+       enterprise_user_info = #{awemeUserInfo.enterpriseUserInfo,jdbcType=LONGVARCHAR},
+     </if>
+     <if test="awemeUserInfo.enterpriseVerifyReason != null">
+       enterprise_verify_reason = #{awemeUserInfo.enterpriseVerifyReason,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.everOver_1kFollower != null">
+       ever_over_1k_follower = #{awemeUserInfo.everOver_1kFollower,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.favoritingCount != null">
+       favoriting_count = #{awemeUserInfo.favoritingCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followStatus != null">
+       follow_status = #{awemeUserInfo.followStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followerCount != null">
+       follower_count = #{awemeUserInfo.followerCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followerStatus != null">
+       follower_status = #{awemeUserInfo.followerStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.followingCount != null">
+       following_count = #{awemeUserInfo.followingCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.forwardCount != null">
+       forward_count = #{awemeUserInfo.forwardCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.gender != null">
+       gender = #{awemeUserInfo.gender,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.hasActivityMedal != null">
+       has_activity_medal = #{awemeUserInfo.hasActivityMedal,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hasInsights != null">
+       has_insights = #{awemeUserInfo.hasInsights,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hasStory != null">
+       has_story = #{awemeUserInfo.hasStory,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hasUnreadStory != null">
+       has_unread_story = #{awemeUserInfo.hasUnreadStory,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.hideFollowingFollowerList != null">
+       hide_following_follower_list = #{awemeUserInfo.hideFollowingFollowerList,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.hideLocation != null">
+       hide_location = #{awemeUserInfo.hideLocation,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.insId != null">
+       ins_id = #{awemeUserInfo.insId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.isActivityUser != null">
+       is_activity_user = #{awemeUserInfo.isActivityUser,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isAdFake != null">
+       is_ad_fake = #{awemeUserInfo.isAdFake,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isBlock != null">
+       is_block = #{awemeUserInfo.isBlock,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isBlocked != null">
+       is_blocked = #{awemeUserInfo.isBlocked,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isDisciplineMember != null">
+       is_discipline_member = #{awemeUserInfo.isDisciplineMember,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isEffectArtist != null">
+       is_effect_artist = #{awemeUserInfo.isEffectArtist,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isGovMediaVip != null">
+       is_gov_media_vip = #{awemeUserInfo.isGovMediaVip,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isMixUser != null">
+       is_mix_user = #{awemeUserInfo.isMixUser,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isProAccount != null">
+       is_pro_account = #{awemeUserInfo.isProAccount,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isStar != null">
+       is_star = #{awemeUserInfo.isStar,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isVerified != null">
+       is_verified = #{awemeUserInfo.isVerified,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.isoCountryCode != null">
+       iso_country_code = #{awemeUserInfo.isoCountryCode,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.liveCommerce != null">
+       live_commerce = #{awemeUserInfo.liveCommerce,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.location != null">
+       location = #{awemeUserInfo.location,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.messageChatEntry != null">
+       message_chat_entry = #{awemeUserInfo.messageChatEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.mplatformFollowersCount != null">
+       mplatform_followers_count = #{awemeUserInfo.mplatformFollowersCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.preventDownload != null">
+       prevent_download = #{awemeUserInfo.preventDownload,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.profileTabType != null">
+       profile_tab_type = #{awemeUserInfo.profileTabType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.province != null">
+       province = #{awemeUserInfo.province,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.recommendReasonRelation != null">
+       recommend_reason_relation = #{awemeUserInfo.recommendReasonRelation,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.recommendUserReasonSource != null">
+       recommend_user_reason_source = #{awemeUserInfo.recommendUserReasonSource,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.schoolName != null">
+       school_name = #{awemeUserInfo.schoolName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.secret != null">
+       secret = #{awemeUserInfo.secret,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.showFavoriteList != null">
+       show_favorite_list = #{awemeUserInfo.showFavoriteList,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.signature != null">
+       signature = #{awemeUserInfo.signature,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.signatureLanguage != null">
+       signature_language = #{awemeUserInfo.signatureLanguage,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.stitchSetting != null">
+       stitch_setting = #{awemeUserInfo.stitchSetting,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.storyCount != null">
+       story_count = #{awemeUserInfo.storyCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.storyOpen != null">
+       story_open = #{awemeUserInfo.storyOpen,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.syncToToutiao != null">
+       sync_to_toutiao = #{awemeUserInfo.syncToToutiao,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.totalFavorited != null">
+       total_favorited = #{awemeUserInfo.totalFavorited,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.twitterId != null">
+       twitter_id = #{awemeUserInfo.twitterId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.twitterName != null">
+       twitter_name = #{awemeUserInfo.twitterName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.uniqueIdModifyTime != null">
+       unique_id_modify_time = #{awemeUserInfo.uniqueIdModifyTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.userCanceled != null">
+       user_canceled = #{awemeUserInfo.userCanceled,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.userMode != null">
+       user_mode = #{awemeUserInfo.userMode,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.userStoryCount != null">
+       user_story_count = #{awemeUserInfo.userStoryCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.verificationType != null">
+       verification_type = #{awemeUserInfo.verificationType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.verifyInfo != null">
+       verify_info = #{awemeUserInfo.verifyInfo,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.watchStatus != null">
+       watch_status = #{awemeUserInfo.watchStatus,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.weiboSchema != null">
+       weibo_schema = #{awemeUserInfo.weiboSchema,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.weiboUrl != null">
+       weibo_url = #{awemeUserInfo.weiboUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.weiboVerify != null">
+       weibo_verify = #{awemeUserInfo.weiboVerify,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.withCommerceEntry != null">
+       with_commerce_entry = #{awemeUserInfo.withCommerceEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withCommerceEnterpriseTabEntry != null">
+       with_commerce_enterprise_tab_entry = #{awemeUserInfo.withCommerceEnterpriseTabEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withFusionShopEntry != null">
+       with_fusion_shop_entry = #{awemeUserInfo.withFusionShopEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withLubanEntry != null">
+       with_luban_entry = #{awemeUserInfo.withLubanEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withNewGoods != null">
+       with_new_goods = #{awemeUserInfo.withNewGoods,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withShopEntry != null">
+       with_shop_entry = #{awemeUserInfo.withShopEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.withStickEntry != null">
+       with_stick_entry = #{awemeUserInfo.withStickEntry,jdbcType=BIT},
+     </if>
+     <if test="awemeUserInfo.wxAvatarUrl != null">
+       wx_avatar_url = #{awemeUserInfo.wxAvatarUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.wxNickname != null">
+       wx_nickname = #{awemeUserInfo.wxNickname,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.wxTag != null">
+       wx_tag = #{awemeUserInfo.wxTag,jdbcType=INTEGER},
+     </if>
+     <if test="awemeUserInfo.youtubeChannelId != null">
+       youtube_channel_id = #{awemeUserInfo.youtubeChannelId,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.youtubeChannelTitle != null">
+       youtube_channel_title = #{awemeUserInfo.youtubeChannelTitle,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeUserInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeUserInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByUid" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_user_info
+     where uid = #{uid,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeUserInfoList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_user_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_user_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'uid' or key.startsWith('uid_')">and uid</when>
+                        <when test="key == 'shortId' or key.startsWith('shortId_')">and short_id</when>
+                        <when test="key == 'uniqueId' or key.startsWith('uniqueId_')">and unique_id</when>
+                        <when test="key == 'secUid' or key.startsWith('secUid_')">and sec_uid</when>
+                        <when test="key == 'nickname' or key.startsWith('nickname_')">and nickname</when>
+                        <when test="key == 'language' or key.startsWith('language_')">and language</when>
+                        <when test="key == 'region' or key.startsWith('region_')">and region</when>
+                        <when test="key == 'roomId' or key.startsWith('roomId_')">and room_id</when>
+                        <when test="key == 'acceptPrivatePolicy' or key.startsWith('acceptPrivatePolicy_')">and accept_private_policy</when>
+                        <when test="key == 'accountRegion' or key.startsWith('accountRegion_')">and account_region</when>
+                        <when test="key == 'appleAccount' or key.startsWith('appleAccount_')">and apple_account</when>
+                        <when test="key == 'authorityStatus' or key.startsWith('authorityStatus_')">and authority_status</when>
+                        <when test="key == 'avatarLarger' or key.startsWith('avatarLarger_')">and avatar_larger</when>
+                        <when test="key == 'awemeCount' or key.startsWith('awemeCount_')">and aweme_count</when>
+                        <when test="key == 'birthday' or key.startsWith('birthday_')">and birthday</when>
+                        <when test="key == 'birthdayHideLevel' or key.startsWith('birthdayHideLevel_')">and birthday_hide_level</when>
+                        <when test="key == 'city' or key.startsWith('city_')">and city</when>
+                        <when test="key == 'commentFilterStatus' or key.startsWith('commentFilterStatus_')">and comment_filter_status</when>
+                        <when test="key == 'commentSetting' or key.startsWith('commentSetting_')">and comment_setting</when>
+                        <when test="key == 'commerceUserLevel' or key.startsWith('commerceUserLevel_')">and commerce_user_level</when>
+                        <when test="key == 'constellation' or key.startsWith('constellation_')">and constellation</when>
+                        <when test="key == 'contentLanguageAlreadyPopup' or key.startsWith('contentLanguageAlreadyPopup_')">and content_language_already_popup</when>
+                        <when test="key == 'countStatus' or key.startsWith('countStatus_')">and count_status</when>
+                        <when test="key == 'country' or key.startsWith('country_')">and country</when>
+                        <when test="key == 'coverColour' or key.startsWith('coverColour_')">and cover_colour</when>
+                        <when test="key == 'coverUrl' or key.startsWith('coverUrl_')">and cover_url</when>
+                        <when test="key == 'customVerify' or key.startsWith('customVerify_')">and custom_verify</when>
+                        <when test="key == 'district' or key.startsWith('district_')">and district</when>
+                        <when test="key == 'dongtaiCount' or key.startsWith('dongtaiCount_')">and dongtai_count</when>
+                        <when test="key == 'douplusOldUser' or key.startsWith('douplusOldUser_')">and douplus_old_user</when>
+                        <when test="key == 'downloadPromotTs' or key.startsWith('downloadPromotTs_')">and download_promot_ts</when>
+                        <when test="key == 'downloadSetting' or key.startsWith('downloadSetting_')">and download_setting</when>
+                        <when test="key == 'dpLevel' or key.startsWith('dpLevel_')">and dp_level</when>
+                        <when test="key == 'duetSetting' or key.startsWith('duetSetting_')">and duet_setting</when>
+                        <when test="key == 'enableNearbyVisible' or key.startsWith('enableNearbyVisible_')">and enable_nearby_visible</when>
+                        <when test="key == 'enterpriseUserInfo' or key.startsWith('enterpriseUserInfo_')">and enterprise_user_info</when>
+                        <when test="key == 'enterpriseVerifyReason' or key.startsWith('enterpriseVerifyReason_')">and enterprise_verify_reason</when>
+                        <when test="key == 'everOver_1kFollower' or key.startsWith('everOver_1kFollower_')">and ever_over_1k_follower</when>
+                        <when test="key == 'favoritingCount' or key.startsWith('favoritingCount_')">and favoriting_count</when>
+                        <when test="key == 'followStatus' or key.startsWith('followStatus_')">and follow_status</when>
+                        <when test="key == 'followerCount' or key.startsWith('followerCount_')">and follower_count</when>
+                        <when test="key == 'followerStatus' or key.startsWith('followerStatus_')">and follower_status</when>
+                        <when test="key == 'followingCount' or key.startsWith('followingCount_')">and following_count</when>
+                        <when test="key == 'forwardCount' or key.startsWith('forwardCount_')">and forward_count</when>
+                        <when test="key == 'gender' or key.startsWith('gender_')">and gender</when>
+                        <when test="key == 'hasActivityMedal' or key.startsWith('hasActivityMedal_')">and has_activity_medal</when>
+                        <when test="key == 'hasInsights' or key.startsWith('hasInsights_')">and has_insights</when>
+                        <when test="key == 'hasStory' or key.startsWith('hasStory_')">and has_story</when>
+                        <when test="key == 'hasUnreadStory' or key.startsWith('hasUnreadStory_')">and has_unread_story</when>
+                        <when test="key == 'hideFollowingFollowerList' or key.startsWith('hideFollowingFollowerList_')">and hide_following_follower_list</when>
+                        <when test="key == 'hideLocation' or key.startsWith('hideLocation_')">and hide_location</when>
+                        <when test="key == 'insId' or key.startsWith('insId_')">and ins_id</when>
+                        <when test="key == 'isActivityUser' or key.startsWith('isActivityUser_')">and is_activity_user</when>
+                        <when test="key == 'isAdFake' or key.startsWith('isAdFake_')">and is_ad_fake</when>
+                        <when test="key == 'isBlock' or key.startsWith('isBlock_')">and is_block</when>
+                        <when test="key == 'isBlocked' or key.startsWith('isBlocked_')">and is_blocked</when>
+                        <when test="key == 'isDisciplineMember' or key.startsWith('isDisciplineMember_')">and is_discipline_member</when>
+                        <when test="key == 'isEffectArtist' or key.startsWith('isEffectArtist_')">and is_effect_artist</when>
+                        <when test="key == 'isGovMediaVip' or key.startsWith('isGovMediaVip_')">and is_gov_media_vip</when>
+                        <when test="key == 'isMixUser' or key.startsWith('isMixUser_')">and is_mix_user</when>
+                        <when test="key == 'isProAccount' or key.startsWith('isProAccount_')">and is_pro_account</when>
+                        <when test="key == 'isStar' or key.startsWith('isStar_')">and is_star</when>
+                        <when test="key == 'isVerified' or key.startsWith('isVerified_')">and is_verified</when>
+                        <when test="key == 'isoCountryCode' or key.startsWith('isoCountryCode_')">and iso_country_code</when>
+                        <when test="key == 'liveCommerce' or key.startsWith('liveCommerce_')">and live_commerce</when>
+                        <when test="key == 'location' or key.startsWith('location_')">and location</when>
+                        <when test="key == 'messageChatEntry' or key.startsWith('messageChatEntry_')">and message_chat_entry</when>
+                        <when test="key == 'mplatformFollowersCount' or key.startsWith('mplatformFollowersCount_')">and mplatform_followers_count</when>
+                        <when test="key == 'preventDownload' or key.startsWith('preventDownload_')">and prevent_download</when>
+                        <when test="key == 'profileTabType' or key.startsWith('profileTabType_')">and profile_tab_type</when>
+                        <when test="key == 'province' or key.startsWith('province_')">and province</when>
+                        <when test="key == 'recommendReasonRelation' or key.startsWith('recommendReasonRelation_')">and recommend_reason_relation</when>
+                        <when test="key == 'recommendUserReasonSource' or key.startsWith('recommendUserReasonSource_')">and recommend_user_reason_source</when>
+                        <when test="key == 'schoolName' or key.startsWith('schoolName_')">and school_name</when>
+                        <when test="key == 'secret' or key.startsWith('secret_')">and secret</when>
+                        <when test="key == 'showFavoriteList' or key.startsWith('showFavoriteList_')">and show_favorite_list</when>
+                        <when test="key == 'signature' or key.startsWith('signature_')">and signature</when>
+                        <when test="key == 'signatureLanguage' or key.startsWith('signatureLanguage_')">and signature_language</when>
+                        <when test="key == 'stitchSetting' or key.startsWith('stitchSetting_')">and stitch_setting</when>
+                        <when test="key == 'storyCount' or key.startsWith('storyCount_')">and story_count</when>
+                        <when test="key == 'storyOpen' or key.startsWith('storyOpen_')">and story_open</when>
+                        <when test="key == 'syncToToutiao' or key.startsWith('syncToToutiao_')">and sync_to_toutiao</when>
+                        <when test="key == 'totalFavorited' or key.startsWith('totalFavorited_')">and total_favorited</when>
+                        <when test="key == 'twitterId' or key.startsWith('twitterId_')">and twitter_id</when>
+                        <when test="key == 'twitterName' or key.startsWith('twitterName_')">and twitter_name</when>
+                        <when test="key == 'uniqueIdModifyTime' or key.startsWith('uniqueIdModifyTime_')">and unique_id_modify_time</when>
+                        <when test="key == 'userCanceled' or key.startsWith('userCanceled_')">and user_canceled</when>
+                        <when test="key == 'userMode' or key.startsWith('userMode_')">and user_mode</when>
+                        <when test="key == 'userStoryCount' or key.startsWith('userStoryCount_')">and user_story_count</when>
+                        <when test="key == 'verificationType' or key.startsWith('verificationType_')">and verification_type</when>
+                        <when test="key == 'verifyInfo' or key.startsWith('verifyInfo_')">and verify_info</when>
+                        <when test="key == 'watchStatus' or key.startsWith('watchStatus_')">and watch_status</when>
+                        <when test="key == 'weiboSchema' or key.startsWith('weiboSchema_')">and weibo_schema</when>
+                        <when test="key == 'weiboUrl' or key.startsWith('weiboUrl_')">and weibo_url</when>
+                        <when test="key == 'weiboVerify' or key.startsWith('weiboVerify_')">and weibo_verify</when>
+                        <when test="key == 'withCommerceEntry' or key.startsWith('withCommerceEntry_')">and with_commerce_entry</when>
+                        <when test="key == 'withCommerceEnterpriseTabEntry' or key.startsWith('withCommerceEnterpriseTabEntry_')">and with_commerce_enterprise_tab_entry</when>
+                        <when test="key == 'withFusionShopEntry' or key.startsWith('withFusionShopEntry_')">and with_fusion_shop_entry</when>
+                        <when test="key == 'withLubanEntry' or key.startsWith('withLubanEntry_')">and with_luban_entry</when>
+                        <when test="key == 'withNewGoods' or key.startsWith('withNewGoods_')">and with_new_goods</when>
+                        <when test="key == 'withShopEntry' or key.startsWith('withShopEntry_')">and with_shop_entry</when>
+                        <when test="key == 'withStickEntry' or key.startsWith('withStickEntry_')">and with_stick_entry</when>
+                        <when test="key == 'wxAvatarUrl' or key.startsWith('wxAvatarUrl_')">and wx_avatar_url</when>
+                        <when test="key == 'wxNickname' or key.startsWith('wxNickname_')">and wx_nickname</when>
+                        <when test="key == 'wxTag' or key.startsWith('wxTag_')">and wx_tag</when>
+                        <when test="key == 'youtubeChannelId' or key.startsWith('youtubeChannelId_')">and youtube_channel_id</when>
+                        <when test="key == 'youtubeChannelTitle' or key.startsWith('youtubeChannelTitle_')">and youtube_channel_title</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

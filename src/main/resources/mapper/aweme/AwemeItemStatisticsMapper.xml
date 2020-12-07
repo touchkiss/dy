@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeItemStatisticsDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeItemStatistics">
+    <id column="aweme_id" jdbcType="BIGINT" property="awemeId" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="digg_count" jdbcType="INTEGER" property="diggCount" />
+    <result column="download_count" jdbcType="INTEGER" property="downloadCount" />
+    <result column="exposure_count" jdbcType="INTEGER" property="exposureCount" />
+    <result column="forward_count" jdbcType="INTEGER" property="forwardCount" />
+    <result column="lose_comment_count" jdbcType="INTEGER" property="loseCommentCount" />
+    <result column="lose_count" jdbcType="INTEGER" property="loseCount" />
+    <result column="play_count" jdbcType="INTEGER" property="playCount" />
+    <result column="share_count" jdbcType="INTEGER" property="shareCount" />
+    <result column="whatsapp_share_count" jdbcType="INTEGER" property="whatsappShareCount" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    aweme_id,comment_count,digg_count,download_count,exposure_count,forward_count,lose_comment_count,lose_count,play_count,share_count,whatsapp_share_count,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeItemStatistics">
+     insert into aweme_item_statistics(<include refid="Base_Column_List"></include>)
+     values (
+     #{awemeId,jdbcType=BIGINT},#{commentCount,jdbcType=INTEGER},#{diggCount,jdbcType=INTEGER},#{downloadCount,jdbcType=INTEGER},#{exposureCount,jdbcType=INTEGER},#{forwardCount,jdbcType=INTEGER},#{loseCommentCount,jdbcType=INTEGER},#{loseCount,jdbcType=INTEGER},#{playCount,jdbcType=INTEGER},#{shareCount,jdbcType=INTEGER},#{whatsappShareCount,jdbcType=INTEGER},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByAwemeId" parameterType="java.lang.Long">
+     delete from aweme_item_statistics
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_item_statistics
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByAwemeId">
+     update aweme_item_statistics
+     set
+       comment_count = #{awemeItemStatistics.commentCount,jdbcType=INTEGER},
+       digg_count = #{awemeItemStatistics.diggCount,jdbcType=INTEGER},
+       download_count = #{awemeItemStatistics.downloadCount,jdbcType=INTEGER},
+       exposure_count = #{awemeItemStatistics.exposureCount,jdbcType=INTEGER},
+       forward_count = #{awemeItemStatistics.forwardCount,jdbcType=INTEGER},
+       lose_comment_count = #{awemeItemStatistics.loseCommentCount,jdbcType=INTEGER},
+       lose_count = #{awemeItemStatistics.loseCount,jdbcType=INTEGER},
+       play_count = #{awemeItemStatistics.playCount,jdbcType=INTEGER},
+       share_count = #{awemeItemStatistics.shareCount,jdbcType=INTEGER},
+       whatsapp_share_count = #{awemeItemStatistics.whatsappShareCount,jdbcType=INTEGER},
+       first_fetch_time = #{awemeItemStatistics.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeItemStatistics.lastFetchTime,jdbcType=BIGINT}
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByAwemeId">
+     update aweme_item_statistics
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemStatistics.commentCount != null">
+       comment_count = #{awemeItemStatistics.commentCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.diggCount != null">
+       digg_count = #{awemeItemStatistics.diggCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.downloadCount != null">
+       download_count = #{awemeItemStatistics.downloadCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.exposureCount != null">
+       exposure_count = #{awemeItemStatistics.exposureCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.forwardCount != null">
+       forward_count = #{awemeItemStatistics.forwardCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.loseCommentCount != null">
+       lose_comment_count = #{awemeItemStatistics.loseCommentCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.loseCount != null">
+       lose_count = #{awemeItemStatistics.loseCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.playCount != null">
+       play_count = #{awemeItemStatistics.playCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.shareCount != null">
+       share_count = #{awemeItemStatistics.shareCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.whatsappShareCount != null">
+       whatsapp_share_count = #{awemeItemStatistics.whatsappShareCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.firstFetchTime != null">
+       first_fetch_time = #{awemeItemStatistics.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemStatistics.lastFetchTime != null">
+       last_fetch_time = #{awemeItemStatistics.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_item_statistics
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemStatistics.commentCount != null">
+       comment_count = #{awemeItemStatistics.commentCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.diggCount != null">
+       digg_count = #{awemeItemStatistics.diggCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.downloadCount != null">
+       download_count = #{awemeItemStatistics.downloadCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.exposureCount != null">
+       exposure_count = #{awemeItemStatistics.exposureCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.forwardCount != null">
+       forward_count = #{awemeItemStatistics.forwardCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.loseCommentCount != null">
+       lose_comment_count = #{awemeItemStatistics.loseCommentCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.loseCount != null">
+       lose_count = #{awemeItemStatistics.loseCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.playCount != null">
+       play_count = #{awemeItemStatistics.playCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.shareCount != null">
+       share_count = #{awemeItemStatistics.shareCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.whatsappShareCount != null">
+       whatsapp_share_count = #{awemeItemStatistics.whatsappShareCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatistics.firstFetchTime != null">
+       first_fetch_time = #{awemeItemStatistics.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemStatistics.lastFetchTime != null">
+       last_fetch_time = #{awemeItemStatistics.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByAwemeId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_item_statistics
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeItemStatisticsList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_item_statistics  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_item_statistics  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'awemeId' or key.startsWith('awemeId_')">and aweme_id</when>
+                        <when test="key == 'commentCount' or key.startsWith('commentCount_')">and comment_count</when>
+                        <when test="key == 'diggCount' or key.startsWith('diggCount_')">and digg_count</when>
+                        <when test="key == 'downloadCount' or key.startsWith('downloadCount_')">and download_count</when>
+                        <when test="key == 'exposureCount' or key.startsWith('exposureCount_')">and exposure_count</when>
+                        <when test="key == 'forwardCount' or key.startsWith('forwardCount_')">and forward_count</when>
+                        <when test="key == 'loseCommentCount' or key.startsWith('loseCommentCount_')">and lose_comment_count</when>
+                        <when test="key == 'loseCount' or key.startsWith('loseCount_')">and lose_count</when>
+                        <when test="key == 'playCount' or key.startsWith('playCount_')">and play_count</when>
+                        <when test="key == 'shareCount' or key.startsWith('shareCount_')">and share_count</when>
+                        <when test="key == 'whatsappShareCount' or key.startsWith('whatsappShareCount_')">and whatsapp_share_count</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

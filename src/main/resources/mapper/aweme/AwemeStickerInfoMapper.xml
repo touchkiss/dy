@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeStickerInfoDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeStickerInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="effect_id" jdbcType="BIGINT" property="effectId" />
+    <result column="icon_url" jdbcType="VARCHAR" property="iconUrl" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="owner_id" jdbcType="BIGINT" property="ownerId" />
+    <result column="owner_nickname" jdbcType="VARCHAR" property="ownerNickname" />
+    <result column="user_count" jdbcType="INTEGER" property="userCount" />
+    <result column="vv_count" jdbcType="BIGINT" property="vvCount" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id,effect_id,icon_url,name,owner_id,owner_nickname,user_count,vv_count,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeStickerInfo">
+     insert into aweme_sticker_info(<include refid="Base_Column_List"></include>)
+     values (
+     #{id,jdbcType=BIGINT},#{effectId,jdbcType=BIGINT},#{iconUrl,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{ownerId,jdbcType=BIGINT},#{ownerNickname,jdbcType=VARCHAR},#{userCount,jdbcType=INTEGER},#{vvCount,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteById" parameterType="java.lang.Long">
+     delete from aweme_sticker_info
+     where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_sticker_info
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateById">
+     update aweme_sticker_info
+     set
+       effect_id = #{awemeStickerInfo.effectId,jdbcType=BIGINT},
+       icon_url = #{awemeStickerInfo.iconUrl,jdbcType=VARCHAR},
+       name = #{awemeStickerInfo.name,jdbcType=VARCHAR},
+       owner_id = #{awemeStickerInfo.ownerId,jdbcType=BIGINT},
+       owner_nickname = #{awemeStickerInfo.ownerNickname,jdbcType=VARCHAR},
+       user_count = #{awemeStickerInfo.userCount,jdbcType=INTEGER},
+       vv_count = #{awemeStickerInfo.vvCount,jdbcType=BIGINT},
+       first_fetch_time = #{awemeStickerInfo.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeStickerInfo.lastFetchTime,jdbcType=BIGINT}
+     where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveById">
+     update aweme_sticker_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeStickerInfo.effectId != null">
+       effect_id = #{awemeStickerInfo.effectId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.iconUrl != null">
+       icon_url = #{awemeStickerInfo.iconUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.name != null">
+       name = #{awemeStickerInfo.name,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.ownerId != null">
+       owner_id = #{awemeStickerInfo.ownerId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.ownerNickname != null">
+       owner_nickname = #{awemeStickerInfo.ownerNickname,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.userCount != null">
+       user_count = #{awemeStickerInfo.userCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeStickerInfo.vvCount != null">
+       vv_count = #{awemeStickerInfo.vvCount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeStickerInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeStickerInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_sticker_info
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeStickerInfo.effectId != null">
+       effect_id = #{awemeStickerInfo.effectId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.iconUrl != null">
+       icon_url = #{awemeStickerInfo.iconUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.name != null">
+       name = #{awemeStickerInfo.name,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.ownerId != null">
+       owner_id = #{awemeStickerInfo.ownerId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.ownerNickname != null">
+       owner_nickname = #{awemeStickerInfo.ownerNickname,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.userCount != null">
+       user_count = #{awemeStickerInfo.userCount,jdbcType=INTEGER},
+     </if>
+     <if test="awemeStickerInfo.vvCount != null">
+       vv_count = #{awemeStickerInfo.vvCount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.firstFetchTime != null">
+       first_fetch_time = #{awemeStickerInfo.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeStickerInfo.lastFetchTime != null">
+       last_fetch_time = #{awemeStickerInfo.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_sticker_info
+     where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeStickerInfoList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_sticker_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_sticker_info  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'id' or key.startsWith('id_')">and id</when>
+                        <when test="key == 'effectId' or key.startsWith('effectId_')">and effect_id</when>
+                        <when test="key == 'iconUrl' or key.startsWith('iconUrl_')">and icon_url</when>
+                        <when test="key == 'name' or key.startsWith('name_')">and name</when>
+                        <when test="key == 'ownerId' or key.startsWith('ownerId_')">and owner_id</when>
+                        <when test="key == 'ownerNickname' or key.startsWith('ownerNickname_')">and owner_nickname</when>
+                        <when test="key == 'userCount' or key.startsWith('userCount_')">and user_count</when>
+                        <when test="key == 'vvCount' or key.startsWith('vvCount_')">and vv_count</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

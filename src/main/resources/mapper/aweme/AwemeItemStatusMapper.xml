@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeItemStatusDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeItemStatus">
+    <id column="aweme_id" jdbcType="BIGINT" property="awemeId" />
+    <result column="allow_comment" jdbcType="BIT" property="allowComment" />
+    <result column="allow_share" jdbcType="BIT" property="allowShare" />
+    <result column="dont_share_status" jdbcType="INTEGER" property="dontShareStatus" />
+    <result column="download_status" jdbcType="INTEGER" property="downloadStatus" />
+    <result column="is_reviewing" jdbcType="BIT" property="isReviewing" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="is_private" jdbcType="BIT" property="isPrivate" />
+    <result column="is_prohibited" jdbcType="BIT" property="isProhibited" />
+    <result column="private_status" jdbcType="INTEGER" property="privateStatus" />
+    <result column="self_see" jdbcType="BIT" property="selfSee" />
+    <result column="video_hide_search" jdbcType="INTEGER" property="videoHideSearch" />
+    <result column="with_fusion_goods" jdbcType="BIT" property="withFusionGoods" />
+    <result column="with_goods" jdbcType="BIT" property="withGoods" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    aweme_id,allow_comment,allow_share,dont_share_status,download_status,is_reviewing,is_delete,is_private,is_prohibited,private_status,self_see,video_hide_search,with_fusion_goods,with_goods,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeItemStatus">
+     insert into aweme_item_status(<include refid="Base_Column_List"></include>)
+     values (
+     #{awemeId,jdbcType=BIGINT},#{allowComment,jdbcType=BIT},#{allowShare,jdbcType=BIT},#{dontShareStatus,jdbcType=INTEGER},#{downloadStatus,jdbcType=INTEGER},#{isReviewing,jdbcType=BIT},#{isDelete,jdbcType=BIT},#{isPrivate,jdbcType=BIT},#{isProhibited,jdbcType=BIT},#{privateStatus,jdbcType=INTEGER},#{selfSee,jdbcType=BIT},#{videoHideSearch,jdbcType=INTEGER},#{withFusionGoods,jdbcType=BIT},#{withGoods,jdbcType=BIT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteByAwemeId" parameterType="java.lang.Long">
+     delete from aweme_item_status
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_item_status
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateByAwemeId">
+     update aweme_item_status
+     set
+       allow_comment = #{awemeItemStatus.allowComment,jdbcType=BIT},
+       allow_share = #{awemeItemStatus.allowShare,jdbcType=BIT},
+       dont_share_status = #{awemeItemStatus.dontShareStatus,jdbcType=INTEGER},
+       download_status = #{awemeItemStatus.downloadStatus,jdbcType=INTEGER},
+       is_reviewing = #{awemeItemStatus.isReviewing,jdbcType=BIT},
+       is_delete = #{awemeItemStatus.isDelete,jdbcType=BIT},
+       is_private = #{awemeItemStatus.isPrivate,jdbcType=BIT},
+       is_prohibited = #{awemeItemStatus.isProhibited,jdbcType=BIT},
+       private_status = #{awemeItemStatus.privateStatus,jdbcType=INTEGER},
+       self_see = #{awemeItemStatus.selfSee,jdbcType=BIT},
+       video_hide_search = #{awemeItemStatus.videoHideSearch,jdbcType=INTEGER},
+       with_fusion_goods = #{awemeItemStatus.withFusionGoods,jdbcType=BIT},
+       with_goods = #{awemeItemStatus.withGoods,jdbcType=BIT},
+       first_fetch_time = #{awemeItemStatus.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeItemStatus.lastFetchTime,jdbcType=BIGINT}
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByAwemeId">
+     update aweme_item_status
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemStatus.allowComment != null">
+       allow_comment = #{awemeItemStatus.allowComment,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.allowShare != null">
+       allow_share = #{awemeItemStatus.allowShare,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.dontShareStatus != null">
+       dont_share_status = #{awemeItemStatus.dontShareStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.downloadStatus != null">
+       download_status = #{awemeItemStatus.downloadStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.isReviewing != null">
+       is_reviewing = #{awemeItemStatus.isReviewing,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.isDelete != null">
+       is_delete = #{awemeItemStatus.isDelete,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.isPrivate != null">
+       is_private = #{awemeItemStatus.isPrivate,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.isProhibited != null">
+       is_prohibited = #{awemeItemStatus.isProhibited,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.privateStatus != null">
+       private_status = #{awemeItemStatus.privateStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.selfSee != null">
+       self_see = #{awemeItemStatus.selfSee,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.videoHideSearch != null">
+       video_hide_search = #{awemeItemStatus.videoHideSearch,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.withFusionGoods != null">
+       with_fusion_goods = #{awemeItemStatus.withFusionGoods,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.withGoods != null">
+       with_goods = #{awemeItemStatus.withGoods,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.firstFetchTime != null">
+       first_fetch_time = #{awemeItemStatus.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemStatus.lastFetchTime != null">
+       last_fetch_time = #{awemeItemStatus.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_item_status
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemStatus.allowComment != null">
+       allow_comment = #{awemeItemStatus.allowComment,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.allowShare != null">
+       allow_share = #{awemeItemStatus.allowShare,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.dontShareStatus != null">
+       dont_share_status = #{awemeItemStatus.dontShareStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.downloadStatus != null">
+       download_status = #{awemeItemStatus.downloadStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.isReviewing != null">
+       is_reviewing = #{awemeItemStatus.isReviewing,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.isDelete != null">
+       is_delete = #{awemeItemStatus.isDelete,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.isPrivate != null">
+       is_private = #{awemeItemStatus.isPrivate,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.isProhibited != null">
+       is_prohibited = #{awemeItemStatus.isProhibited,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.privateStatus != null">
+       private_status = #{awemeItemStatus.privateStatus,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.selfSee != null">
+       self_see = #{awemeItemStatus.selfSee,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.videoHideSearch != null">
+       video_hide_search = #{awemeItemStatus.videoHideSearch,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItemStatus.withFusionGoods != null">
+       with_fusion_goods = #{awemeItemStatus.withFusionGoods,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.withGoods != null">
+       with_goods = #{awemeItemStatus.withGoods,jdbcType=BIT},
+     </if>
+     <if test="awemeItemStatus.firstFetchTime != null">
+       first_fetch_time = #{awemeItemStatus.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemStatus.lastFetchTime != null">
+       last_fetch_time = #{awemeItemStatus.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectByAwemeId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_item_status
+     where aweme_id = #{awemeId,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeItemStatusList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_item_status  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_item_status  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'awemeId' or key.startsWith('awemeId_')">and aweme_id</when>
+                        <when test="key == 'allowComment' or key.startsWith('allowComment_')">and allow_comment</when>
+                        <when test="key == 'allowShare' or key.startsWith('allowShare_')">and allow_share</when>
+                        <when test="key == 'dontShareStatus' or key.startsWith('dontShareStatus_')">and dont_share_status</when>
+                        <when test="key == 'downloadStatus' or key.startsWith('downloadStatus_')">and download_status</when>
+                        <when test="key == 'isReviewing' or key.startsWith('isReviewing_')">and is_reviewing</when>
+                        <when test="key == 'isDelete' or key.startsWith('isDelete_')">and is_delete</when>
+                        <when test="key == 'isPrivate' or key.startsWith('isPrivate_')">and is_private</when>
+                        <when test="key == 'isProhibited' or key.startsWith('isProhibited_')">and is_prohibited</when>
+                        <when test="key == 'privateStatus' or key.startsWith('privateStatus_')">and private_status</when>
+                        <when test="key == 'selfSee' or key.startsWith('selfSee_')">and self_see</when>
+                        <when test="key == 'videoHideSearch' or key.startsWith('videoHideSearch_')">and video_hide_search</when>
+                        <when test="key == 'withFusionGoods' or key.startsWith('withFusionGoods_')">and with_fusion_goods</when>
+                        <when test="key == 'withGoods' or key.startsWith('withGoods_')">and with_goods</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

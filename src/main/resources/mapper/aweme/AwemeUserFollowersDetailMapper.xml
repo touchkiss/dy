@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeUserFollowersDetailDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeUserFollowersDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="aweme_uid" jdbcType="BIGINT" property="awemeUid" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="fans_count" jdbcType="BIGINT" property="fansCount" />
+    <result column="open_url" jdbcType="VARCHAR" property="openUrl" />
+    <result column="apple_id" jdbcType="BIGINT" property="appleId" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id,aweme_uid,app_name,name,icon,fans_count,open_url,apple_id,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeUserFollowersDetail">
+     insert into aweme_user_followers_detail(<include refid="Base_Column_List"></include>)
+     values (
+     #{id,jdbcType=BIGINT},#{awemeUid,jdbcType=BIGINT},#{appName,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{icon,jdbcType=VARCHAR},#{fansCount,jdbcType=BIGINT},#{openUrl,jdbcType=VARCHAR},#{appleId,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <insert id="insertWithoutId" parameterType="com.touchkiss.aweme.bean.AwemeUserFollowersDetail" useGeneratedKeys="true" keyProperty="id">
+     insert into aweme_user_followers_detail(aweme_uid,app_name,name,icon,fans_count,open_url,apple_id,first_fetch_time,last_fetch_time)
+     values (
+     #{awemeUid,jdbcType=BIGINT},#{appName,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{icon,jdbcType=VARCHAR},#{fansCount,jdbcType=BIGINT},#{openUrl,jdbcType=VARCHAR},#{appleId,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteById" parameterType="java.lang.Long">
+     delete from aweme_user_followers_detail
+     where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_user_followers_detail
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateById">
+     update aweme_user_followers_detail
+     set
+       aweme_uid = #{awemeUserFollowersDetail.awemeUid,jdbcType=BIGINT},
+       app_name = #{awemeUserFollowersDetail.appName,jdbcType=VARCHAR},
+       name = #{awemeUserFollowersDetail.name,jdbcType=VARCHAR},
+       icon = #{awemeUserFollowersDetail.icon,jdbcType=VARCHAR},
+       fans_count = #{awemeUserFollowersDetail.fansCount,jdbcType=BIGINT},
+       open_url = #{awemeUserFollowersDetail.openUrl,jdbcType=VARCHAR},
+       apple_id = #{awemeUserFollowersDetail.appleId,jdbcType=BIGINT},
+       first_fetch_time = #{awemeUserFollowersDetail.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeUserFollowersDetail.lastFetchTime,jdbcType=BIGINT}
+     where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveById">
+     update aweme_user_followers_detail
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeUserFollowersDetail.awemeUid != null">
+       aweme_uid = #{awemeUserFollowersDetail.awemeUid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.appName != null">
+       app_name = #{awemeUserFollowersDetail.appName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.name != null">
+       name = #{awemeUserFollowersDetail.name,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.icon != null">
+       icon = #{awemeUserFollowersDetail.icon,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.fansCount != null">
+       fans_count = #{awemeUserFollowersDetail.fansCount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.openUrl != null">
+       open_url = #{awemeUserFollowersDetail.openUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.appleId != null">
+       apple_id = #{awemeUserFollowersDetail.appleId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.firstFetchTime != null">
+       first_fetch_time = #{awemeUserFollowersDetail.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.lastFetchTime != null">
+       last_fetch_time = #{awemeUserFollowersDetail.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_user_followers_detail
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeUserFollowersDetail.awemeUid != null">
+       aweme_uid = #{awemeUserFollowersDetail.awemeUid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.appName != null">
+       app_name = #{awemeUserFollowersDetail.appName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.name != null">
+       name = #{awemeUserFollowersDetail.name,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.icon != null">
+       icon = #{awemeUserFollowersDetail.icon,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.fansCount != null">
+       fans_count = #{awemeUserFollowersDetail.fansCount,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.openUrl != null">
+       open_url = #{awemeUserFollowersDetail.openUrl,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeUserFollowersDetail.appleId != null">
+       apple_id = #{awemeUserFollowersDetail.appleId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.firstFetchTime != null">
+       first_fetch_time = #{awemeUserFollowersDetail.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeUserFollowersDetail.lastFetchTime != null">
+       last_fetch_time = #{awemeUserFollowersDetail.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_user_followers_detail
+     where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeUserFollowersDetailList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_user_followers_detail  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_user_followers_detail  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'id' or key.startsWith('id_')">and id</when>
+                        <when test="key == 'awemeUid' or key.startsWith('awemeUid_')">and aweme_uid</when>
+                        <when test="key == 'appName' or key.startsWith('appName_')">and app_name</when>
+                        <when test="key == 'name' or key.startsWith('name_')">and name</when>
+                        <when test="key == 'icon' or key.startsWith('icon_')">and icon</when>
+                        <when test="key == 'fansCount' or key.startsWith('fansCount_')">and fans_count</when>
+                        <when test="key == 'openUrl' or key.startsWith('openUrl_')">and open_url</when>
+                        <when test="key == 'appleId' or key.startsWith('appleId_')">and apple_id</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>

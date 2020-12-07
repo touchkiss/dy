@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.touchkiss.aweme.mapper.AwemeItemChallengeDaoM">
+  <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeItemChallenge">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="aweme_id" jdbcType="BIGINT" property="awemeId" />
+    <result column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
+    <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id,aweme_id,cid,first_fetch_time,last_fetch_time
+  </sql>
+  <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeItemChallenge">
+     insert into aweme_item_challenge(<include refid="Base_Column_List"></include>)
+     values (
+     #{id,jdbcType=BIGINT},#{awemeId,jdbcType=BIGINT},#{cid,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <insert id="insertWithoutId" parameterType="com.touchkiss.aweme.bean.AwemeItemChallenge" useGeneratedKeys="true" keyProperty="id">
+     insert into aweme_item_challenge(aweme_id,cid,first_fetch_time,last_fetch_time)
+     values (
+     #{awemeId,jdbcType=BIGINT},#{cid,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+  </insert>
+  <delete id="deleteById" parameterType="java.lang.Long">
+     delete from aweme_item_challenge
+     where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <delete id="deleteByMap">
+        delete from aweme_item_challenge
+        <include refid="whereSql"></include>
+    </delete>
+  <update id="updateById">
+     update aweme_item_challenge
+     set
+       aweme_id = #{awemeItemChallenge.awemeId,jdbcType=BIGINT},
+       cid = #{awemeItemChallenge.cid,jdbcType=BIGINT},
+       first_fetch_time = #{awemeItemChallenge.firstFetchTime,jdbcType=BIGINT},
+       last_fetch_time = #{awemeItemChallenge.lastFetchTime,jdbcType=BIGINT}
+     where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveById">
+     update aweme_item_challenge
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemChallenge.awemeId != null">
+       aweme_id = #{awemeItemChallenge.awemeId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemChallenge.cid != null">
+       cid = #{awemeItemChallenge.cid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemChallenge.firstFetchTime != null">
+       first_fetch_time = #{awemeItemChallenge.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemChallenge.lastFetchTime != null">
+       last_fetch_time = #{awemeItemChallenge.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+     where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateSelectiveByMap">
+     update aweme_item_challenge
+     set
+        <trim suffixOverrides=",">
+     <if test="awemeItemChallenge.awemeId != null">
+       aweme_id = #{awemeItemChallenge.awemeId,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemChallenge.cid != null">
+       cid = #{awemeItemChallenge.cid,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemChallenge.firstFetchTime != null">
+       first_fetch_time = #{awemeItemChallenge.firstFetchTime,jdbcType=BIGINT},
+     </if>
+     <if test="awemeItemChallenge.lastFetchTime != null">
+       last_fetch_time = #{awemeItemChallenge.lastFetchTime,jdbcType=BIGINT}
+     </if>
+        </trim>
+        <include refid="whereSql"></include>
+  </update>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+     select
+     <include refid="Base_Column_List" />
+     from aweme_item_challenge
+     where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="queryAwemeItemChallengeList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
+     select * FROM  aweme_item_challenge  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+     <if test="wheres.get('limit')!=null and wheres.get('limit')!='' ">
+         ${wheres.get('limit')}
+     </if>
+  </select>
+  <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
+     select * FROM  aweme_item_challenge  <include refid="whereSql"></include>
+     <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
+         ${wheres.get('datatableorderby')}
+     </if>
+  </select>
+  <sql id="whereSql">
+        <if test="wheres != null and wheres.size() > 0">
+            where 1 = 1
+            <foreach collection="wheres.entrySet()" item="value" index="key">
+                <bind name="valid" value="1"/>
+                <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
+                    <choose>
+                        <when test="key == 'id' or key.startsWith('id_')">and id</when>
+                        <when test="key == 'awemeId' or key.startsWith('awemeId_')">and aweme_id</when>
+                        <when test="key == 'cid' or key.startsWith('cid_')">and cid</when>
+                        <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>
+                        <when test="key == 'lastFetchTime' or key.startsWith('lastFetchTime_')">and last_fetch_time</when>
+                        <otherwise>
+                            <bind name="valid" value="0"/>
+                        </otherwise>
+                    </choose>
+                    <if test="valid == 1">
+                        <choose>
+                            <when test="key.endsWith('_eq')">= #{value}</when>
+                            <when test="key.endsWith('_ne')">&lt;&gt; #{value}</when>
+                            <when test="key.endsWith('_lt')">&lt; #{value}</when>
+                            <when test="key.endsWith('_gt')">&gt; #{value}</when>
+                            <when test="key.endsWith('_let')">&lt;= #{value}</when>
+                            <when test="key.endsWith('_get')">&gt;= #{value}</when>
+                            <when test="key.endsWith('_reg')">regexp #{value}</when>
+                            <when test="key.endsWith('_in')">in (${value})</when>
+                            <when test="key.endsWith('_nin')">not in (${value})</when>
+                            <when test="key.endsWith('_like')">like '%${value}%'</when>
+                            <when test="key.endsWith('_nlike')">not like '%${value}%'</when>
+                            <when test="key.endsWith('_isn')">is null</when>
+                            <when test="key.endsWith('_isnn')">is not null</when>
+                            <otherwise>= #{value}</otherwise>
+                        </choose>
+                    </if>
+                </if>
+            </foreach>
+        </if>
+  </sql>
+</mapper>
