@@ -2,6 +2,8 @@ package com.douyin.aweme.v2.services;
 
 import com.douyin.aweme.v1.bean.ChallengeAwemeResponse;
 import com.douyin.aweme.v1.bean.ChallengeDetailResponse;
+import com.douyin.aweme.v1.bean.StickerAwemeResponse;
+import com.douyin.aweme.v1.bean.StickerDetailResponse;
 import com.douyin.aweme.v2.bean.AwemeIteminfoResponse;
 import com.douyin.aweme.v2.bean.UserInfoResponse;
 
@@ -47,4 +49,22 @@ public interface AwemeServiceV2 {
      * @return
      */
     ChallengeDetailResponse challengeDetail(String ch_id);
+
+    /**
+     * 网页获取贴纸详情
+     * https://www.iesdouyin.com/share/sticker/detail/645185/?schema_type=17&object_id=645185
+     *
+     * @param sticker_ids
+     * @return
+     */
+    StickerDetailResponse stickerDetail(String sticker_ids);
+
+    /**
+     * 网页获取使用贴纸的视频
+     * @param sticker_id
+     * @param cursor
+     * @param count
+     * @return
+     */
+    StickerAwemeResponse stickerList(int sticker_id,int cursor,int count);
 }

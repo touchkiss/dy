@@ -296,7 +296,7 @@ public class PoiAwemeResponse extends BaseResponse{
         private Object nickname_position;
         private Object origin_comment_ids;
         private DescendantsBean descendants;
-        private MixInfoBean mix_info;
+        private MixDetailResponse.MixInfoBean mix_info;
         private List<TextExtraBean> text_extra;
         private List<?> geofencing;
         private List<?> video_text;
@@ -1627,82 +1627,6 @@ public class PoiAwemeResponse extends BaseResponse{
 
             private String notify_msg;
             private List<String> platforms;
-        }
-
-        @NoArgsConstructor
-        @Data
-        public static class MixInfoBean {
-            /**
-             * mix_type : 0
-             * share_info : {"share_desc":"在抖音，记录美好生活","share_desc_info":"这么有趣的合集，不能只有我一个人知道吧","share_title":"这么有趣的合集，不能只有我一个人知道吧","share_title_myself":"","share_title_other":"","share_url":"https://www.iesdouyin.com/share/mix/detail/6892375869046654983/?schema_type=24&object_id=6892375869046654983","share_weibo_desc":"这么有趣的合集，不能只有我一个人知道吧"}
-             * update_time : 1604841789
-             * cover_url : {"height":720,"uri":"tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794","url_list":["https://p5-dy-ipv6.byteimg.com/obj/tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794?from=2563711402","https://p3-dy-ipv6.byteimg.com/obj/tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794?from=2563711402","https://p9-dy.byteimg.com/obj/tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794?from=2563711402"],"width":720}
-             * create_time : 1604756310
-             * desc : 边走边拍的美好时光
-             * extra : {"first_reviewed":1,"is_quality_mix":0,"next_info":{"cover":"tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794","desc":"边走边拍的美好时光","name":"保定最值得旅行的美景"}}
-             * mix_name : 保定最值得旅行的美景
-             * ids : null
-             * mix_id : 6892375869046654983
-             * statis : {"collect_vv":0,"current_episode":8,"play_vv":0,"updated_to_episode":40}
-             * status : {"is_collected":0,"status":2}
-             */
-
-            private int mix_type;
-            private ShareInfoBeanX share_info;
-            private int update_time;
-            private CoverUrlBeanX cover_url;
-            private int create_time;
-            private String desc;
-            private String extraX;
-            private String mix_name;
-            private Object ids;
-            private String mix_id;
-            private StatisBean statis;
-            private StatusBeanX status;
-
-            @NoArgsConstructor
-            @Data
-            public static class CoverUrlBeanX {
-                /**
-                 * height : 720
-                 * uri : tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794
-                 * url_list : ["https://p5-dy-ipv6.byteimg.com/obj/tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794?from=2563711402","https://p3-dy-ipv6.byteimg.com/obj/tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794?from=2563711402","https://p9-dy.byteimg.com/obj/tos-cn-i-0813/4be086d1b4ce4bc6855e331132341794?from=2563711402"]
-                 * width : 720
-                 */
-
-                private int height;
-                private String uri;
-                private int width;
-                private List<String> url_list;
-            }
-
-            @NoArgsConstructor
-            @Data
-            public static class StatisBean {
-                /**
-                 * collect_vv : 0
-                 * current_episode : 8
-                 * play_vv : 0
-                 * updated_to_episode : 40
-                 */
-
-                private int collect_vv;
-                private int current_episode;
-                private int play_vv;
-                private int updated_to_episode;
-            }
-
-            @NoArgsConstructor
-            @Data
-            public static class StatusBeanX {
-                /**
-                 * is_collected : 0
-                 * status : 2
-                 */
-
-                private int is_collected;
-                private int status;
-            }
         }
 
         @NoArgsConstructor

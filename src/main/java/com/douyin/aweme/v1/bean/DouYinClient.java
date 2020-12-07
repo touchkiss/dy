@@ -134,7 +134,7 @@ public class DouYinClient {
         httpRequest.cookie(this.cookie)
                 .header(headers, true);
         String body = httpRequest.execute().body();
-//        System.out.println(body);
+        System.out.println(body);
         return GsonUtil.fromJson(body, request.getResponseClass());
     }
 
@@ -348,9 +348,24 @@ public class DouYinClient {
 //        ShortenResponse shortenResponse = getInstance().doAction(shortenRequest);
 //        System.out.println(GsonUtil.toJson(shortenResponse));
 
-        PlatformShareCommandTransRequest platformShareCommandTransRequest = new PlatformShareCommandTransRequest();
-        platformShareCommandTransRequest.setCommand(URLEncoder.encode("##uDrQ76eHXd8##","utf-8"));
-        PlatformShareCommandTransResponse platformShareCommandTransResponse = getInstance().doAction(platformShareCommandTransRequest);
-        System.out.println(GsonUtil.toJson(platformShareCommandTransResponse));
+//        PlatformShareCommandTransRequest platformShareCommandTransRequest = new PlatformShareCommandTransRequest();
+//        platformShareCommandTransRequest.setCommand(URLEncoder.encode("##uDrQ76eHXd8##","utf-8"));
+//        PlatformShareCommandTransResponse platformShareCommandTransResponse = getInstance().doAction(platformShareCommandTransRequest);
+//        System.out.println(GsonUtil.toJson(platformShareCommandTransResponse));
+
+//        StickerDetailRequest stickerDetailRequest = new StickerDetailRequest();
+//        stickerDetailRequest.setSticker_ids(645185);
+//        StickerDetailResponse stickerDetailResponse = getInstance().doAction(stickerDetailRequest);
+//        System.out.println(GsonUtil.toJson(stickerDetailResponse));
+
+//        StickerAwemeRequest stickerAwemeRequest = new StickerAwemeRequest();
+//        stickerAwemeRequest.setSticker_id(645185);
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(stickerAwemeRequest)));
+
+
+        MixListRequest mixListRequest = new MixListRequest();
+        mixListRequest.setUser_id(58686979942L);
+//        mixListRequest.setSec_user_id("MS4wLjABAAAAuRrM8MTRNOaHtnKXcCkKHbSNGjF2jOyyBEckGLnT8aM");
+        System.out.println(GsonUtil.toJson(getInstance().doAction(mixListRequest)));
     }
 }
