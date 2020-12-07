@@ -1,9 +1,6 @@
 package com.douyin.aweme.v2.services;
 
-import com.douyin.aweme.v1.bean.ChallengeAwemeResponse;
-import com.douyin.aweme.v1.bean.ChallengeDetailResponse;
-import com.douyin.aweme.v1.bean.StickerAwemeResponse;
-import com.douyin.aweme.v1.bean.StickerDetailResponse;
+import com.douyin.aweme.v1.bean.*;
 import com.douyin.aweme.v2.bean.AwemeIteminfoResponse;
 import com.douyin.aweme.v2.bean.UserInfoResponse;
 
@@ -61,10 +58,30 @@ public interface AwemeServiceV2 {
 
     /**
      * 网页获取使用贴纸的视频
+     *
      * @param sticker_id
      * @param cursor
      * @param count
      * @return
      */
-    StickerAwemeResponse stickerList(int sticker_id,int cursor,int count);
+    StickerAwemeResponse stickerList(int sticker_id, int cursor, int count);
+
+    /**
+     * 网页获取音乐信息
+     * https://www.iesdouyin.com/share/music/6898226681195072263
+     *
+     * @param music_id
+     * @return
+     */
+    MusicDetailResponse musicInfo(long music_id);
+
+    /**
+     * 网页获取使用音乐的视频列表
+     *
+     * @param music_id
+     * @param count
+     * @param cursor
+     * @return
+     */
+    MusicAwemeListResponse musicListAweme(long music_id, int count, int cursor);
 }
