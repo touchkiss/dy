@@ -2,6 +2,7 @@ package com.douyin.aweme.v2.services;
 
 import com.douyin.aweme.v1.bean.*;
 import com.douyin.aweme.v2.bean.AwemeIteminfoResponse;
+import com.douyin.aweme.v2.bean.StickerListResponse;
 import com.douyin.aweme.v2.bean.UserInfoResponse;
 
 /**
@@ -64,7 +65,7 @@ public interface AwemeServiceV2 {
      * @param count
      * @return
      */
-    StickerAwemeResponse stickerList(int sticker_id, int cursor, int count);
+    StickerListResponse stickerList(int sticker_id, int cursor, int count);
 
     /**
      * 网页获取音乐信息

@@ -147,15 +147,15 @@ public class DouYinClient {
         baseParams.setOaid("6292668db7e5f1fc");
         baseParams.setRetry_type("no_retry");
         baseParams.setMcc_mnc("46001");
-        baseParams.setIid("650551645976190");
+        baseParams.setIid("105196150336925");
         baseParams.setDevice_id("1213500227850904");
         baseParams.setAc("wifi");
-        baseParams.setChannel("tianzhuo_dy_wifi1");
+        baseParams.setChannel("wandoujia_aweme1");
         baseParams.setAid("1128");
         baseParams.setApp_name("aweme");
         baseParams.setApp_type("normal");
-        baseParams.setVersion_code("421");
-        baseParams.setVersion_name("4.2.1");
+        baseParams.setVersion_code("721");
+        baseParams.setVersion_name("7.2.1");
         baseParams.setDevice_platform("android");
         baseParams.setSsmix("a");
         baseParams.setDevice_type("Redmi+Note+8+Pro");
@@ -164,15 +164,15 @@ public class DouYinClient {
         baseParams.setOs_api("29");
         baseParams.setOs_version("10");
         baseParams.setOpenudid("ce348c6bf7df0427");
-        baseParams.setManifest_version_code("421");
+        baseParams.setManifest_version_code("721");
         baseParams.setResolution("1080*2134");
         baseParams.setDpi("440");
         baseParams.setUpdate_version_code("4212");
-        baseParams.setJs_sdk_version("1.9.1");
+        baseParams.setJs_sdk_version("1.19.2.0");
 //        baseParams.setAs("a165d69cc0476f54520999");
 //        baseParams.setCp("627cf058072acc4de1QqYu");
 //        baseParams.setMas("013d2a53b928f8e974099b0be90d744b159c9c9c0c4cac2cac666c");
-        douYinClient.cookie = "odin_tt=e36bf422d919c7e254aef98bfc4822d061b97cef3c3d107397a1d09fd8dc09199642bed52665797266c4efd060766ff4";
+        douYinClient.cookie = "odin_tt=8e4d37f8f4677252fc66224cb794b3bf2e65714ff5c1554aaa9099ed3e8896d4ca324897e43a005259d8b6fda4585b90";
         douYinClient.baseParams = baseParams;
         douYinClient.basicHeaders = new HashMap() {{
             put("Accept-Encoding", "gzip");
@@ -363,9 +363,15 @@ public class DouYinClient {
 //        System.out.println(GsonUtil.toJson(getInstance().doAction(stickerAwemeRequest)));
 
 
-        MixListRequest mixListRequest = new MixListRequest();
-        mixListRequest.setUser_id(58686979942L);
-//        mixListRequest.setSec_user_id("MS4wLjABAAAAuRrM8MTRNOaHtnKXcCkKHbSNGjF2jOyyBEckGLnT8aM");
-        System.out.println(GsonUtil.toJson(getInstance().doAction(mixListRequest)));
+//        MixListRequest mixListRequest = new MixListRequest();
+//        mixListRequest.setUser_id(58686979942L);
+////        mixListRequest.setSec_user_id("MS4wLjABAAAAuRrM8MTRNOaHtnKXcCkKHbSNGjF2jOyyBEckGLnT8aM");
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(mixListRequest)));
+
+
+        OriginalMusicListRequest originalMusicListRequest = new OriginalMusicListRequest();
+        originalMusicListRequest.setUser_id(80430828164L);
+        originalMusicListRequest.setSec_user_id("MS4wLjABAAAAcZGzyELZy3zQ9m3XBFl9rq3Z9_mlEDfrQTxE7Lxuz2o");
+        System.out.println(GsonUtil.toJson(getInstance().doAction(originalMusicListRequest)));
     }
 }

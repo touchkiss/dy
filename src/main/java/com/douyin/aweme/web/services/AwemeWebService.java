@@ -1,10 +1,10 @@
 package com.douyin.aweme.web.services;
 
-import cn.hutool.http.HttpUtil;
 import com.douyin.aweme.v1.bean.MixAwemeResponse;
 import com.douyin.aweme.v1.bean.MixDetailResponse;
 import com.douyin.aweme.web.bean.ShareBillboardResponse;
 import com.touchkiss.dy.utils.GsonUtil;
+import com.touchkiss.dy.utils.HutoolHttpUtilWithProxy;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,7 +20,7 @@ public class AwemeWebService {
      * @return
      */
     public ShareBillboardResponse shareBillboard() {
-        return GsonUtil.fromJson(HttpUtil.get("https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/"), ShareBillboardResponse.class);
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/v2/hotsearch/billboard/word/"), ShareBillboardResponse.class);
     }
 
     /**
@@ -30,7 +30,7 @@ public class AwemeWebService {
      * @return
      */
     public MixDetailResponse mixDetail(String mix_id) {
-        return GsonUtil.fromJson(HttpUtil.get("https://www.iesdouyin.com/web/api/mix/detail/?mix_id=" + mix_id), MixDetailResponse.class);
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/mix/detail/?mix_id=" + mix_id), MixDetailResponse.class);
     }
 
     /**
@@ -42,6 +42,6 @@ public class AwemeWebService {
      * @return
      */
     public MixAwemeResponse mixAweme(String mix_id, int count, int cursor) {
-        return GsonUtil.fromJson(HttpUtil.get("https://www.iesdouyin.com/web/api/mix/item/list/?mix_id=" + mix_id + "&count=" + count + "&cursor=" + cursor), MixAwemeResponse.class);
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/mix/item/list/?mix_id=" + mix_id + "&count=" + count + "&cursor=" + cursor), MixAwemeResponse.class);
     }
 }
