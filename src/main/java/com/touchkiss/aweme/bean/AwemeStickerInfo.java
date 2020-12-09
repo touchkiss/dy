@@ -3,7 +3,7 @@ package com.touchkiss.aweme.bean;
 import lombok.Data;
 
 /**
- * Created on 2020-12-07 22:32:21
+ * Created on 2020-12-09 23:38:23
  *
  * @author Touchkiss
  */
@@ -12,7 +12,8 @@ public class AwemeStickerInfo {
 	private Long id; //
 	private Long effectId; //
 	private String iconUrl; //
-	private String name; //
+	private String stickerName; //
+	private String stickerDesc; //
 	private Long ownerId; //
 	private String ownerNickname; //
 	private Integer userCount; //

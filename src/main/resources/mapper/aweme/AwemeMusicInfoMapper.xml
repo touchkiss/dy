@@ -4,6 +4,7 @@
 <mapper namespace="com.touchkiss.aweme.mapper.AwemeMusicInfoDaoM">
   <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeMusicInfo">
     <id column="mid" jdbcType="BIGINT" property="mid" />
+    <result column="id" jdbcType="BIGINT" property="id" />
     <result column="audition_duration" jdbcType="INTEGER" property="auditionDuration" />
     <result column="author" jdbcType="VARCHAR" property="author" />
     <result column="author_deleted" jdbcType="BIT" property="authorDeleted" />
@@ -43,12 +44,12 @@
     <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    mid,audition_duration,author,author_deleted,avatar_larger,binded_challenge_id,can_background_play,collect_stat,cover_url,dmv_auto_show,duration,end_time,extra,is_commerce_music,is_del_video,is_matched_metadata,is_original,is_original_sound,is_pgc,is_restricted,is_video_self_see,mute_share,owner_id,play_url,prevent_download,prevent_item_download_status,preview_end_time,preview_start_time,reason_type,redirect,schema_url,source_platform,start_time,status,title,user_count,first_fetch_time,last_fetch_time
+    mid,id,audition_duration,author,author_deleted,avatar_larger,binded_challenge_id,can_background_play,collect_stat,cover_url,dmv_auto_show,duration,end_time,extra,is_commerce_music,is_del_video,is_matched_metadata,is_original,is_original_sound,is_pgc,is_restricted,is_video_self_see,mute_share,owner_id,play_url,prevent_download,prevent_item_download_status,preview_end_time,preview_start_time,reason_type,redirect,schema_url,source_platform,start_time,status,title,user_count,first_fetch_time,last_fetch_time
   </sql>
   <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeMusicInfo">
      insert into aweme_music_info(<include refid="Base_Column_List"></include>)
      values (
-     #{mid,jdbcType=BIGINT},#{auditionDuration,jdbcType=INTEGER},#{author,jdbcType=VARCHAR},#{authorDeleted,jdbcType=BIT},#{avatarLarger,jdbcType=VARCHAR},#{bindedChallengeId,jdbcType=BIGINT},#{canBackgroundPlay,jdbcType=BIT},#{collectStat,jdbcType=INTEGER},#{coverUrl,jdbcType=VARCHAR},#{dmvAutoShow,jdbcType=BIT},#{duration,jdbcType=INTEGER},#{endTime,jdbcType=INTEGER},#{extra,jdbcType=VARCHAR},#{isCommerceMusic,jdbcType=BIT},#{isDelVideo,jdbcType=BIT},#{isMatchedMetadata,jdbcType=BIT},#{isOriginal,jdbcType=BIT},#{isOriginalSound,jdbcType=BIT},#{isPgc,jdbcType=BIT},#{isRestricted,jdbcType=BIT},#{isVideoSelfSee,jdbcType=BIT},#{muteShare,jdbcType=BIT},#{ownerId,jdbcType=BIGINT},#{playUrl,jdbcType=VARCHAR},#{preventDownload,jdbcType=BIT},#{preventItemDownloadStatus,jdbcType=BIT},#{previewEndTime,jdbcType=INTEGER},#{previewStartTime,jdbcType=INTEGER},#{reasonType,jdbcType=INTEGER},#{redirect,jdbcType=BIT},#{schemaUrl,jdbcType=VARCHAR},#{sourcePlatform,jdbcType=INTEGER},#{startTime,jdbcType=INTEGER},#{status,jdbcType=INTEGER},#{title,jdbcType=VARCHAR},#{userCount,jdbcType=INTEGER},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+     #{mid,jdbcType=BIGINT},#{id,jdbcType=BIGINT},#{auditionDuration,jdbcType=INTEGER},#{author,jdbcType=VARCHAR},#{authorDeleted,jdbcType=BIT},#{avatarLarger,jdbcType=VARCHAR},#{bindedChallengeId,jdbcType=BIGINT},#{canBackgroundPlay,jdbcType=BIT},#{collectStat,jdbcType=INTEGER},#{coverUrl,jdbcType=VARCHAR},#{dmvAutoShow,jdbcType=BIT},#{duration,jdbcType=INTEGER},#{endTime,jdbcType=INTEGER},#{extra,jdbcType=VARCHAR},#{isCommerceMusic,jdbcType=BIT},#{isDelVideo,jdbcType=BIT},#{isMatchedMetadata,jdbcType=BIT},#{isOriginal,jdbcType=BIT},#{isOriginalSound,jdbcType=BIT},#{isPgc,jdbcType=BIT},#{isRestricted,jdbcType=BIT},#{isVideoSelfSee,jdbcType=BIT},#{muteShare,jdbcType=BIT},#{ownerId,jdbcType=BIGINT},#{playUrl,jdbcType=VARCHAR},#{preventDownload,jdbcType=BIT},#{preventItemDownloadStatus,jdbcType=BIT},#{previewEndTime,jdbcType=INTEGER},#{previewStartTime,jdbcType=INTEGER},#{reasonType,jdbcType=INTEGER},#{redirect,jdbcType=BIT},#{schemaUrl,jdbcType=VARCHAR},#{sourcePlatform,jdbcType=INTEGER},#{startTime,jdbcType=INTEGER},#{status,jdbcType=INTEGER},#{title,jdbcType=VARCHAR},#{userCount,jdbcType=INTEGER},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
   </insert>
   <delete id="deleteByMid" parameterType="java.lang.Long">
      delete from aweme_music_info
@@ -61,6 +62,7 @@
   <update id="updateByMid">
      update aweme_music_info
      set
+       id = #{awemeMusicInfo.id,jdbcType=BIGINT},
        audition_duration = #{awemeMusicInfo.auditionDuration,jdbcType=INTEGER},
        author = #{awemeMusicInfo.author,jdbcType=VARCHAR},
        author_deleted = #{awemeMusicInfo.authorDeleted,jdbcType=BIT},
@@ -104,6 +106,9 @@
      update aweme_music_info
      set
         <trim suffixOverrides=",">
+     <if test="awemeMusicInfo.id != null">
+       id = #{awemeMusicInfo.id,jdbcType=BIGINT},
+     </if>
      <if test="awemeMusicInfo.auditionDuration != null">
        audition_duration = #{awemeMusicInfo.auditionDuration,jdbcType=INTEGER},
      </if>
@@ -222,6 +227,9 @@
      update aweme_music_info
      set
         <trim suffixOverrides=",">
+     <if test="awemeMusicInfo.id != null">
+       id = #{awemeMusicInfo.id,jdbcType=BIGINT},
+     </if>
      <if test="awemeMusicInfo.auditionDuration != null">
        audition_duration = #{awemeMusicInfo.auditionDuration,jdbcType=INTEGER},
      </if>
@@ -365,6 +373,7 @@
                 <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
                     <choose>
                         <when test="key == 'mid' or key.startsWith('mid_')">and mid</when>
+                        <when test="key == 'id' or key.startsWith('id_')">and id</when>
                         <when test="key == 'auditionDuration' or key.startsWith('auditionDuration_')">and audition_duration</when>
                         <when test="key == 'author' or key.startsWith('author_')">and author</when>
                         <when test="key == 'authorDeleted' or key.startsWith('authorDeleted_')">and author_deleted</when>

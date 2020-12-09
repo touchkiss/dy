@@ -5,7 +5,7 @@ import lombok.Data;
 import java.sql.Date;
 
 /**
- * Created on 2020-12-07 22:32:21
+ * Created on 2020-12-09 23:38:23
  *
  * @author Touchkiss
  */
@@ -16,7 +16,7 @@ public class AwemeUserInfo {
 	private String uniqueId; //抖音号
 	private String secUid; //加密的抖音id
 	private String nickname; //昵称
-	private String language; //语言
+	private String uLanguage; //语言
 	private String region; //地区
 	private Long roomId; //直播房间号
 	private Boolean acceptPrivatePolicy; //

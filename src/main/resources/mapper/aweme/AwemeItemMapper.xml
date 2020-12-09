@@ -4,12 +4,13 @@
 <mapper namespace="com.touchkiss.aweme.mapper.AwemeItemDaoM">
   <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeItem">
     <id column="aweme_id" jdbcType="BIGINT" property="awemeId" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
     <result column="aweme_type" jdbcType="INTEGER" property="awemeType" />
     <result column="bodydance_score" jdbcType="INTEGER" property="bodydanceScore" />
     <result column="cmt_swt" jdbcType="BIT" property="cmtSwt" />
     <result column="collect_stat" jdbcType="INTEGER" property="collectStat" />
     <result column="create_time" jdbcType="BIGINT" property="createTime" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="item_desc" jdbcType="VARCHAR" property="itemDesc" />
     <result column="desc_language" jdbcType="VARCHAR" property="descLanguage" />
     <result column="distribute_type" jdbcType="INTEGER" property="distributeType" />
     <result column="duration" jdbcType="INTEGER" property="duration" />
@@ -29,24 +30,28 @@
     <result column="item_duet" jdbcType="INTEGER" property="itemDuet" />
     <result column="item_react" jdbcType="INTEGER" property="itemReact" />
     <result column="item_stitch" jdbcType="INTEGER" property="itemStitch" />
+    <result column="sticker_id" jdbcType="INTEGER" property="stickerId" />
     <result column="mid" jdbcType="BIGINT" property="mid" />
     <result column="mix_id" jdbcType="BIGINT" property="mixId" />
     <result column="nearby_level" jdbcType="INTEGER" property="nearbyLevel" />
     <result column="prevent_download" jdbcType="BIT" property="preventDownload" />
     <result column="rate" jdbcType="INTEGER" property="rate" />
     <result column="vr_type" jdbcType="INTEGER" property="vrType" />
+    <result column="width" jdbcType="INTEGER" property="width" />
+    <result column="height" jdbcType="INTEGER" property="height" />
+    <result column="ratio" jdbcType="VARCHAR" property="ratio" />
     <result column="with_promotional_music" jdbcType="BIT" property="withPromotionalMusic" />
     <result column="without_watermark" jdbcType="BIT" property="withoutWatermark" />
     <result column="first_fetch_time" jdbcType="BIGINT" property="firstFetchTime" />
     <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    aweme_id,aweme_type,bodydance_score,cmt_swt,collect_stat,create_time,desc,desc_language,distribute_type,duration,group_id,have_dashboard,is_fantasy,is_first_video,is_hash_tag,is_in_scope,is_pgcshow,is_preview,is_relieve,is_story,is_top,is_vr,item_comment_settings,item_duet,item_react,item_stitch,mid,mix_id,nearby_level,prevent_download,rate,vr_type,with_promotional_music,without_watermark,first_fetch_time,last_fetch_time
+    aweme_id,uid,aweme_type,bodydance_score,cmt_swt,collect_stat,create_time,item_desc,desc_language,distribute_type,duration,group_id,have_dashboard,is_fantasy,is_first_video,is_hash_tag,is_in_scope,is_pgcshow,is_preview,is_relieve,is_story,is_top,is_vr,item_comment_settings,item_duet,item_react,item_stitch,sticker_id,mid,mix_id,nearby_level,prevent_download,rate,vr_type,width,height,ratio,with_promotional_music,without_watermark,first_fetch_time,last_fetch_time
   </sql>
   <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeItem">
      insert into aweme_item(<include refid="Base_Column_List"></include>)
      values (
-     #{awemeId,jdbcType=BIGINT},#{awemeType,jdbcType=INTEGER},#{bodydanceScore,jdbcType=INTEGER},#{cmtSwt,jdbcType=BIT},#{collectStat,jdbcType=INTEGER},#{createTime,jdbcType=BIGINT},#{desc,jdbcType=VARCHAR},#{descLanguage,jdbcType=VARCHAR},#{distributeType,jdbcType=INTEGER},#{duration,jdbcType=INTEGER},#{groupId,jdbcType=VARCHAR},#{haveDashboard,jdbcType=BIT},#{isFantasy,jdbcType=BIT},#{isFirstVideo,jdbcType=BIT},#{isHashTag,jdbcType=INTEGER},#{isInScope,jdbcType=BIT},#{isPgcshow,jdbcType=BIT},#{isPreview,jdbcType=INTEGER},#{isRelieve,jdbcType=BIT},#{isStory,jdbcType=INTEGER},#{isTop,jdbcType=INTEGER},#{isVr,jdbcType=BIT},#{itemCommentSettings,jdbcType=INTEGER},#{itemDuet,jdbcType=INTEGER},#{itemReact,jdbcType=INTEGER},#{itemStitch,jdbcType=INTEGER},#{mid,jdbcType=BIGINT},#{mixId,jdbcType=BIGINT},#{nearbyLevel,jdbcType=INTEGER},#{preventDownload,jdbcType=BIT},#{rate,jdbcType=INTEGER},#{vrType,jdbcType=INTEGER},#{withPromotionalMusic,jdbcType=BIT},#{withoutWatermark,jdbcType=BIT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+     #{awemeId,jdbcType=BIGINT},#{uid,jdbcType=BIGINT},#{awemeType,jdbcType=INTEGER},#{bodydanceScore,jdbcType=INTEGER},#{cmtSwt,jdbcType=BIT},#{collectStat,jdbcType=INTEGER},#{createTime,jdbcType=BIGINT},#{itemDesc,jdbcType=VARCHAR},#{descLanguage,jdbcType=VARCHAR},#{distributeType,jdbcType=INTEGER},#{duration,jdbcType=INTEGER},#{groupId,jdbcType=VARCHAR},#{haveDashboard,jdbcType=BIT},#{isFantasy,jdbcType=BIT},#{isFirstVideo,jdbcType=BIT},#{isHashTag,jdbcType=INTEGER},#{isInScope,jdbcType=BIT},#{isPgcshow,jdbcType=BIT},#{isPreview,jdbcType=INTEGER},#{isRelieve,jdbcType=BIT},#{isStory,jdbcType=INTEGER},#{isTop,jdbcType=INTEGER},#{isVr,jdbcType=BIT},#{itemCommentSettings,jdbcType=INTEGER},#{itemDuet,jdbcType=INTEGER},#{itemReact,jdbcType=INTEGER},#{itemStitch,jdbcType=INTEGER},#{stickerId,jdbcType=INTEGER},#{mid,jdbcType=BIGINT},#{mixId,jdbcType=BIGINT},#{nearbyLevel,jdbcType=INTEGER},#{preventDownload,jdbcType=BIT},#{rate,jdbcType=INTEGER},#{vrType,jdbcType=INTEGER},#{width,jdbcType=INTEGER},#{height,jdbcType=INTEGER},#{ratio,jdbcType=VARCHAR},#{withPromotionalMusic,jdbcType=BIT},#{withoutWatermark,jdbcType=BIT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
   </insert>
   <delete id="deleteByAwemeId" parameterType="java.lang.Long">
      delete from aweme_item
@@ -59,12 +64,13 @@
   <update id="updateByAwemeId">
      update aweme_item
      set
+       uid = #{awemeItem.uid,jdbcType=BIGINT},
        aweme_type = #{awemeItem.awemeType,jdbcType=INTEGER},
        bodydance_score = #{awemeItem.bodydanceScore,jdbcType=INTEGER},
        cmt_swt = #{awemeItem.cmtSwt,jdbcType=BIT},
        collect_stat = #{awemeItem.collectStat,jdbcType=INTEGER},
        create_time = #{awemeItem.createTime,jdbcType=BIGINT},
-       desc = #{awemeItem.desc,jdbcType=VARCHAR},
+       item_desc = #{awemeItem.itemDesc,jdbcType=VARCHAR},
        desc_language = #{awemeItem.descLanguage,jdbcType=VARCHAR},
        distribute_type = #{awemeItem.distributeType,jdbcType=INTEGER},
        duration = #{awemeItem.duration,jdbcType=INTEGER},
@@ -84,12 +90,16 @@
        item_duet = #{awemeItem.itemDuet,jdbcType=INTEGER},
        item_react = #{awemeItem.itemReact,jdbcType=INTEGER},
        item_stitch = #{awemeItem.itemStitch,jdbcType=INTEGER},
+       sticker_id = #{awemeItem.stickerId,jdbcType=INTEGER},
        mid = #{awemeItem.mid,jdbcType=BIGINT},
        mix_id = #{awemeItem.mixId,jdbcType=BIGINT},
        nearby_level = #{awemeItem.nearbyLevel,jdbcType=INTEGER},
        prevent_download = #{awemeItem.preventDownload,jdbcType=BIT},
        rate = #{awemeItem.rate,jdbcType=INTEGER},
        vr_type = #{awemeItem.vrType,jdbcType=INTEGER},
+       width = #{awemeItem.width,jdbcType=INTEGER},
+       height = #{awemeItem.height,jdbcType=INTEGER},
+       ratio = #{awemeItem.ratio,jdbcType=VARCHAR},
        with_promotional_music = #{awemeItem.withPromotionalMusic,jdbcType=BIT},
        without_watermark = #{awemeItem.withoutWatermark,jdbcType=BIT},
        first_fetch_time = #{awemeItem.firstFetchTime,jdbcType=BIGINT},
@@ -100,6 +110,9 @@
      update aweme_item
      set
         <trim suffixOverrides=",">
+     <if test="awemeItem.uid != null">
+       uid = #{awemeItem.uid,jdbcType=BIGINT},
+     </if>
      <if test="awemeItem.awemeType != null">
        aweme_type = #{awemeItem.awemeType,jdbcType=INTEGER},
      </if>
@@ -115,8 +128,8 @@
      <if test="awemeItem.createTime != null">
        create_time = #{awemeItem.createTime,jdbcType=BIGINT},
      </if>
-     <if test="awemeItem.desc != null">
-       desc = #{awemeItem.desc,jdbcType=VARCHAR},
+     <if test="awemeItem.itemDesc != null">
+       item_desc = #{awemeItem.itemDesc,jdbcType=VARCHAR},
      </if>
      <if test="awemeItem.descLanguage != null">
        desc_language = #{awemeItem.descLanguage,jdbcType=VARCHAR},
@@ -175,6 +188,9 @@
      <if test="awemeItem.itemStitch != null">
        item_stitch = #{awemeItem.itemStitch,jdbcType=INTEGER},
      </if>
+     <if test="awemeItem.stickerId != null">
+       sticker_id = #{awemeItem.stickerId,jdbcType=INTEGER},
+     </if>
      <if test="awemeItem.mid != null">
        mid = #{awemeItem.mid,jdbcType=BIGINT},
      </if>
@@ -192,6 +208,15 @@
      </if>
      <if test="awemeItem.vrType != null">
        vr_type = #{awemeItem.vrType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItem.width != null">
+       width = #{awemeItem.width,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItem.height != null">
+       height = #{awemeItem.height,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItem.ratio != null">
+       ratio = #{awemeItem.ratio,jdbcType=VARCHAR},
      </if>
      <if test="awemeItem.withPromotionalMusic != null">
        with_promotional_music = #{awemeItem.withPromotionalMusic,jdbcType=BIT},
@@ -212,6 +237,9 @@
      update aweme_item
      set
         <trim suffixOverrides=",">
+     <if test="awemeItem.uid != null">
+       uid = #{awemeItem.uid,jdbcType=BIGINT},
+     </if>
      <if test="awemeItem.awemeType != null">
        aweme_type = #{awemeItem.awemeType,jdbcType=INTEGER},
      </if>
@@ -227,8 +255,8 @@
      <if test="awemeItem.createTime != null">
        create_time = #{awemeItem.createTime,jdbcType=BIGINT},
      </if>
-     <if test="awemeItem.desc != null">
-       desc = #{awemeItem.desc,jdbcType=VARCHAR},
+     <if test="awemeItem.itemDesc != null">
+       item_desc = #{awemeItem.itemDesc,jdbcType=VARCHAR},
      </if>
      <if test="awemeItem.descLanguage != null">
        desc_language = #{awemeItem.descLanguage,jdbcType=VARCHAR},
@@ -287,6 +315,9 @@
      <if test="awemeItem.itemStitch != null">
        item_stitch = #{awemeItem.itemStitch,jdbcType=INTEGER},
      </if>
+     <if test="awemeItem.stickerId != null">
+       sticker_id = #{awemeItem.stickerId,jdbcType=INTEGER},
+     </if>
      <if test="awemeItem.mid != null">
        mid = #{awemeItem.mid,jdbcType=BIGINT},
      </if>
@@ -304,6 +335,15 @@
      </if>
      <if test="awemeItem.vrType != null">
        vr_type = #{awemeItem.vrType,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItem.width != null">
+       width = #{awemeItem.width,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItem.height != null">
+       height = #{awemeItem.height,jdbcType=INTEGER},
+     </if>
+     <if test="awemeItem.ratio != null">
+       ratio = #{awemeItem.ratio,jdbcType=VARCHAR},
      </if>
      <if test="awemeItem.withPromotionalMusic != null">
        with_promotional_music = #{awemeItem.withPromotionalMusic,jdbcType=BIT},
@@ -349,12 +389,13 @@
                 <if test="key != null and key != '' and key.trim() != '' and ((key.endsWith('_isn') or key.endsWith('_isnn')) or (!key.endsWith('_isn') and !key.endsWith('_isnn') and value != null and value != ''))">
                     <choose>
                         <when test="key == 'awemeId' or key.startsWith('awemeId_')">and aweme_id</when>
+                        <when test="key == 'uid' or key.startsWith('uid_')">and uid</when>
                         <when test="key == 'awemeType' or key.startsWith('awemeType_')">and aweme_type</when>
                         <when test="key == 'bodydanceScore' or key.startsWith('bodydanceScore_')">and bodydance_score</when>
                         <when test="key == 'cmtSwt' or key.startsWith('cmtSwt_')">and cmt_swt</when>
                         <when test="key == 'collectStat' or key.startsWith('collectStat_')">and collect_stat</when>
                         <when test="key == 'createTime' or key.startsWith('createTime_')">and create_time</when>
-                        <when test="key == 'desc' or key.startsWith('desc_')">and desc</when>
+                        <when test="key == 'itemDesc' or key.startsWith('itemDesc_')">and item_desc</when>
                         <when test="key == 'descLanguage' or key.startsWith('descLanguage_')">and desc_language</when>
                         <when test="key == 'distributeType' or key.startsWith('distributeType_')">and distribute_type</when>
                         <when test="key == 'duration' or key.startsWith('duration_')">and duration</when>
@@ -374,12 +415,16 @@
                         <when test="key == 'itemDuet' or key.startsWith('itemDuet_')">and item_duet</when>
                         <when test="key == 'itemReact' or key.startsWith('itemReact_')">and item_react</when>
                         <when test="key == 'itemStitch' or key.startsWith('itemStitch_')">and item_stitch</when>
+                        <when test="key == 'stickerId' or key.startsWith('stickerId_')">and sticker_id</when>
                         <when test="key == 'mid' or key.startsWith('mid_')">and mid</when>
                         <when test="key == 'mixId' or key.startsWith('mixId_')">and mix_id</when>
                         <when test="key == 'nearbyLevel' or key.startsWith('nearbyLevel_')">and nearby_level</when>
                         <when test="key == 'preventDownload' or key.startsWith('preventDownload_')">and prevent_download</when>
                         <when test="key == 'rate' or key.startsWith('rate_')">and rate</when>
                         <when test="key == 'vrType' or key.startsWith('vrType_')">and vr_type</when>
+                        <when test="key == 'width' or key.startsWith('width_')">and width</when>
+                        <when test="key == 'height' or key.startsWith('height_')">and height</when>
+                        <when test="key == 'ratio' or key.startsWith('ratio_')">and ratio</when>
                         <when test="key == 'withPromotionalMusic' or key.startsWith('withPromotionalMusic_')">and with_promotional_music</when>
                         <when test="key == 'withoutWatermark' or key.startsWith('withoutWatermark_')">and without_watermark</when>
                         <when test="key == 'firstFetchTime' or key.startsWith('firstFetchTime_')">and first_fetch_time</when>

@@ -3,7 +3,7 @@ package com.touchkiss.aweme.bean;
 import lombok.Data;
 
 /**
- * Created on 2020-12-07 22:32:21
+ * Created on 2020-12-09 23:38:23
  *
  * @author Touchkiss
  */

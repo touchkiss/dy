@@ -6,7 +6,8 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="effect_id" jdbcType="BIGINT" property="effectId" />
     <result column="icon_url" jdbcType="VARCHAR" property="iconUrl" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sticker_name" jdbcType="VARCHAR" property="stickerName" />
+    <result column="sticker_desc" jdbcType="VARCHAR" property="stickerDesc" />
     <result column="owner_id" jdbcType="BIGINT" property="ownerId" />
     <result column="owner_nickname" jdbcType="VARCHAR" property="ownerNickname" />
     <result column="user_count" jdbcType="INTEGER" property="userCount" />
@@ -15,12 +16,12 @@
     <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id,effect_id,icon_url,name,owner_id,owner_nickname,user_count,vv_count,first_fetch_time,last_fetch_time
+    id,effect_id,icon_url,sticker_name,sticker_desc,owner_id,owner_nickname,user_count,vv_count,first_fetch_time,last_fetch_time
   </sql>
   <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeStickerInfo">
      insert into aweme_sticker_info(<include refid="Base_Column_List"></include>)
      values (
-     #{id,jdbcType=BIGINT},#{effectId,jdbcType=BIGINT},#{iconUrl,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{ownerId,jdbcType=BIGINT},#{ownerNickname,jdbcType=VARCHAR},#{userCount,jdbcType=INTEGER},#{vvCount,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+     #{id,jdbcType=BIGINT},#{effectId,jdbcType=BIGINT},#{iconUrl,jdbcType=VARCHAR},#{stickerName,jdbcType=VARCHAR},#{stickerDesc,jdbcType=VARCHAR},#{ownerId,jdbcType=BIGINT},#{ownerNickname,jdbcType=VARCHAR},#{userCount,jdbcType=INTEGER},#{vvCount,jdbcType=BIGINT},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
   </insert>
   <delete id="deleteById" parameterType="java.lang.Long">
      delete from aweme_sticker_info
@@ -35,7 +36,8 @@
      set
        effect_id = #{awemeStickerInfo.effectId,jdbcType=BIGINT},
        icon_url = #{awemeStickerInfo.iconUrl,jdbcType=VARCHAR},
-       name = #{awemeStickerInfo.name,jdbcType=VARCHAR},
+       sticker_name = #{awemeStickerInfo.stickerName,jdbcType=VARCHAR},
+       sticker_desc = #{awemeStickerInfo.stickerDesc,jdbcType=VARCHAR},
        owner_id = #{awemeStickerInfo.ownerId,jdbcType=BIGINT},
        owner_nickname = #{awemeStickerInfo.ownerNickname,jdbcType=VARCHAR},
        user_count = #{awemeStickerInfo.userCount,jdbcType=INTEGER},
@@ -54,8 +56,11 @@
      <if test="awemeStickerInfo.iconUrl != null">
        icon_url = #{awemeStickerInfo.iconUrl,jdbcType=VARCHAR},
      </if>
-     <if test="awemeStickerInfo.name != null">
-       name = #{awemeStickerInfo.name,jdbcType=VARCHAR},
+     <if test="awemeStickerInfo.stickerName != null">
+       sticker_name = #{awemeStickerInfo.stickerName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.stickerDesc != null">
+       sticker_desc = #{awemeStickerInfo.stickerDesc,jdbcType=VARCHAR},
      </if>
      <if test="awemeStickerInfo.ownerId != null">
        owner_id = #{awemeStickerInfo.ownerId,jdbcType=BIGINT},
@@ -88,8 +93,11 @@
      <if test="awemeStickerInfo.iconUrl != null">
        icon_url = #{awemeStickerInfo.iconUrl,jdbcType=VARCHAR},
      </if>
-     <if test="awemeStickerInfo.name != null">
-       name = #{awemeStickerInfo.name,jdbcType=VARCHAR},
+     <if test="awemeStickerInfo.stickerName != null">
+       sticker_name = #{awemeStickerInfo.stickerName,jdbcType=VARCHAR},
+     </if>
+     <if test="awemeStickerInfo.stickerDesc != null">
+       sticker_desc = #{awemeStickerInfo.stickerDesc,jdbcType=VARCHAR},
      </if>
      <if test="awemeStickerInfo.ownerId != null">
        owner_id = #{awemeStickerInfo.ownerId,jdbcType=BIGINT},
@@ -143,7 +151,8 @@
                         <when test="key == 'id' or key.startsWith('id_')">and id</when>
                         <when test="key == 'effectId' or key.startsWith('effectId_')">and effect_id</when>
                         <when test="key == 'iconUrl' or key.startsWith('iconUrl_')">and icon_url</when>
-                        <when test="key == 'name' or key.startsWith('name_')">and name</when>
+                        <when test="key == 'stickerName' or key.startsWith('stickerName_')">and sticker_name</when>
+                        <when test="key == 'stickerDesc' or key.startsWith('stickerDesc_')">and sticker_desc</when>
                         <when test="key == 'ownerId' or key.startsWith('ownerId_')">and owner_id</when>
                         <when test="key == 'ownerNickname' or key.startsWith('ownerNickname_')">and owner_nickname</when>
                         <when test="key == 'userCount' or key.startsWith('userCount_')">and user_count</when>

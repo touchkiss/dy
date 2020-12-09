@@ -5,8 +5,8 @@
   <resultMap id="BaseResultMap" type="com.touchkiss.aweme.bean.AwemeChallengeInfo">
     <id column="cid" jdbcType="BIGINT" property="cid" />
     <result column="cha_name" jdbcType="VARCHAR" property="chaName" />
-    <result column="desc" jdbcType="VARCHAR" property="desc" />
-    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="cha_desc" jdbcType="VARCHAR" property="chaDesc" />
+    <result column="cha_type" jdbcType="INTEGER" property="chaType" />
     <result column="user_counr" jdbcType="INTEGER" property="userCounr" />
     <result column="view_count" jdbcType="BIGINT" property="viewCount" />
     <result column="sub_type" jdbcType="INTEGER" property="subType" />
@@ -16,12 +16,12 @@
     <result column="last_fetch_time" jdbcType="BIGINT" property="lastFetchTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    cid,cha_name,desc,type,user_counr,view_count,sub_type,uid,sec_uid,first_fetch_time,last_fetch_time
+    cid,cha_name,cha_desc,cha_type,user_counr,view_count,sub_type,uid,sec_uid,first_fetch_time,last_fetch_time
   </sql>
   <insert id="insert" parameterType="com.touchkiss.aweme.bean.AwemeChallengeInfo">
      insert into aweme_challenge_info(<include refid="Base_Column_List"></include>)
      values (
-     #{cid,jdbcType=BIGINT},#{chaName,jdbcType=VARCHAR},#{desc,jdbcType=VARCHAR},#{type,jdbcType=INTEGER},#{userCounr,jdbcType=INTEGER},#{viewCount,jdbcType=BIGINT},#{subType,jdbcType=INTEGER},#{uid,jdbcType=BIGINT},#{secUid,jdbcType=VARCHAR},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
+     #{cid,jdbcType=BIGINT},#{chaName,jdbcType=VARCHAR},#{chaDesc,jdbcType=VARCHAR},#{chaType,jdbcType=INTEGER},#{userCounr,jdbcType=INTEGER},#{viewCount,jdbcType=BIGINT},#{subType,jdbcType=INTEGER},#{uid,jdbcType=BIGINT},#{secUid,jdbcType=VARCHAR},#{firstFetchTime,jdbcType=BIGINT},#{lastFetchTime,jdbcType=BIGINT}) 
   </insert>
   <delete id="deleteByCid" parameterType="java.lang.Long">
      delete from aweme_challenge_info
@@ -35,8 +35,8 @@
      update aweme_challenge_info
      set
        cha_name = #{awemeChallengeInfo.chaName,jdbcType=VARCHAR},
-       desc = #{awemeChallengeInfo.desc,jdbcType=VARCHAR},
-       type = #{awemeChallengeInfo.type,jdbcType=INTEGER},
+       cha_desc = #{awemeChallengeInfo.chaDesc,jdbcType=VARCHAR},
+       cha_type = #{awemeChallengeInfo.chaType,jdbcType=INTEGER},
        user_counr = #{awemeChallengeInfo.userCounr,jdbcType=INTEGER},
        view_count = #{awemeChallengeInfo.viewCount,jdbcType=BIGINT},
        sub_type = #{awemeChallengeInfo.subType,jdbcType=INTEGER},
@@ -53,11 +53,11 @@
      <if test="awemeChallengeInfo.chaName != null">
        cha_name = #{awemeChallengeInfo.chaName,jdbcType=VARCHAR},
      </if>
-     <if test="awemeChallengeInfo.desc != null">
-       desc = #{awemeChallengeInfo.desc,jdbcType=VARCHAR},
+     <if test="awemeChallengeInfo.chaDesc != null">
+       cha_desc = #{awemeChallengeInfo.chaDesc,jdbcType=VARCHAR},
      </if>
-     <if test="awemeChallengeInfo.type != null">
-       type = #{awemeChallengeInfo.type,jdbcType=INTEGER},
+     <if test="awemeChallengeInfo.chaType != null">
+       cha_type = #{awemeChallengeInfo.chaType,jdbcType=INTEGER},
      </if>
      <if test="awemeChallengeInfo.userCounr != null">
        user_counr = #{awemeChallengeInfo.userCounr,jdbcType=INTEGER},
@@ -90,11 +90,11 @@
      <if test="awemeChallengeInfo.chaName != null">
        cha_name = #{awemeChallengeInfo.chaName,jdbcType=VARCHAR},
      </if>
-     <if test="awemeChallengeInfo.desc != null">
-       desc = #{awemeChallengeInfo.desc,jdbcType=VARCHAR},
+     <if test="awemeChallengeInfo.chaDesc != null">
+       cha_desc = #{awemeChallengeInfo.chaDesc,jdbcType=VARCHAR},
      </if>
-     <if test="awemeChallengeInfo.type != null">
-       type = #{awemeChallengeInfo.type,jdbcType=INTEGER},
+     <if test="awemeChallengeInfo.chaType != null">
+       cha_type = #{awemeChallengeInfo.chaType,jdbcType=INTEGER},
      </if>
      <if test="awemeChallengeInfo.userCounr != null">
        user_counr = #{awemeChallengeInfo.userCounr,jdbcType=INTEGER},
@@ -150,8 +150,8 @@
                     <choose>
                         <when test="key == 'cid' or key.startsWith('cid_')">and cid</when>
                         <when test="key == 'chaName' or key.startsWith('chaName_')">and cha_name</when>
-                        <when test="key == 'desc' or key.startsWith('desc_')">and desc</when>
-                        <when test="key == 'type' or key.startsWith('type_')">and type</when>
+                        <when test="key == 'chaDesc' or key.startsWith('chaDesc_')">and cha_desc</when>
+                        <when test="key == 'chaType' or key.startsWith('chaType_')">and cha_type</when>
                         <when test="key == 'userCounr' or key.startsWith('userCounr_')">and user_counr</when>
                         <when test="key == 'viewCount' or key.startsWith('viewCount_')">and view_count</when>
                         <when test="key == 'subType' or key.startsWith('subType_')">and sub_type</when>

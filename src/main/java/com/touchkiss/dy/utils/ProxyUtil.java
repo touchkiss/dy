@@ -25,7 +25,7 @@ public class ProxyUtil {
                 if (System.currentTimeMillis() > lastUpdate) {
                     proxy = null;
                     try {
-                        String response = HttpUtil.get("http://httpbapi.dobel.cn/User/getIp?account=DMQXRNZGjjN155ea&accountKey=j0UH3y34jnBL&num=1&cityId=all");
+                        String response = HttpUtil.get("http://httpbapi.dobel.cn/User/getIp?account=JQQEFAUSm9p11rCa&accountKey=C22aa9x0QTmA&num=1&cityId=all");
                         System.out.println(response);
                         if (StringUtils.isNotBlank(response)) {
                             ProxyResponse proxyResponse = new Gson().fromJson(response, ProxyResponse.class);

@@ -14,7 +14,7 @@ public class AwemeInfo {
     private long author_user_id;
 //    private AwemeControlBean aweme_control;
     private String aweme_id;
-    private Long aweme_type;
+    private Integer aweme_type;
     private Long bodydance_score;
     private List<ChaListBean> cha_list;
     private Object challenge_position;
@@ -30,7 +30,7 @@ public class AwemeInfo {
     private DescendantsBean descendants;
     private String distance;
     private Long distribute_type;
-    private Long duration;
+    private Integer duration;
     private Boolean  have_dashboard;
     private Boolean  has_vs_entry;
 //    private HotListBean hot_list;
@@ -43,7 +43,7 @@ public class AwemeInfo {
     private Boolean  is_fantasy;
     private Long is_hash_tag;
     private Boolean  is_pgcshow;
-    private Long is_preview;
+    private Integer is_preview;
     private Boolean  is_relieve;
     private Long is_story;
     private Long is_top;
@@ -109,12 +109,12 @@ public class AwemeInfo {
         private Long source_platform;
         private Long start_time;
         private Long end_time;
-        private Long duration;
+        private Integer duration;
         private String extra;
         private Long user_count;
         private Object position;
         private Long collect_stat;
-        private Long status;
+        private Integer status;
         private String offline_desc;
         private String owner_id;
         private String owner_nickname;
@@ -160,8 +160,8 @@ public class AwemeInfo {
     public static class VideoBean {
         private PlayAddrBean play_addr;
         private CoverBean cover;
-        private Long height;
-        private Long width;
+        private Integer height;
+        private Integer width;
         private CoverBean dynamic_cover;
         private CoverBean origin_cover;
         private String ratio;
