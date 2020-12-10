@@ -2,7 +2,6 @@ package com.touchkiss.dy.utils;
 
 import cn.hutool.http.HttpRequest;
 import com.douyin.aweme.v1.bean.StickerDetailResponse;
-import com.douyin.aweme.v2.bean.StickerListResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.Proxy;
@@ -23,16 +22,17 @@ public class HutoolHttpUtilWithProxy {
         if (proxy != null) {
             httpRequest.setProxy(proxy);
         }
-        httpRequest.header("User-Agent", USERAGENT);
-        log.info("正在访问：{}",url);
+        httpRequest.header("User-Agent", USERAGENT)
+                .timeout(5000);
+        log.info("正在访问：{}", url);
         return httpRequest.execute().body();
     }
 
     public static void main(String[] args) {
-        String url="https://www.iesdouyin.com/web/api/v2/sticker/detail/?sticker_ids=121,122,123,124,125,126,127,128,129";
+        String url = "https://www.iesdouyin.com/web/api/v2/sticker/detail/?sticker_ids=121,122,123,124,125,126,127,128,129";
         HttpRequest httpRequest = HttpRequest.get(url);
         httpRequest.header("User-Agent", USERAGENT);
-        log.info("正在访问：{}",url);
+        log.info("正在访问：{}", url);
         String body = httpRequest.execute().body();
         StickerDetailResponse stickerDetailResponse = GsonUtil.fromJson(body, StickerDetailResponse.class);
         System.out.println(stickerDetailResponse.getSticker_infos().size());
