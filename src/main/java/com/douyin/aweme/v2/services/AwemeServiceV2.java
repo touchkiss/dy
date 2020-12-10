@@ -38,7 +38,7 @@ public interface AwemeServiceV2 {
      * @param cursor
      * @return
      */
-    ChallengeAwemeResponse challengeAweme(String ch_id, int count, int cursor);
+    ChallengeAwemeResponse challengeAweme(long ch_id, int count, int cursor);
 
     /**
      * 网页获取话题详情
@@ -46,7 +46,7 @@ public interface AwemeServiceV2 {
      * @param ch_id
      * @return
      */
-    ChallengeDetailResponse challengeDetail(String ch_id);
+    ChallengeDetailResponse challengeDetail(long ch_id);
 
     /**
      * 网页获取贴纸详情

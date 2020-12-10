@@ -3,7 +3,7 @@ package com.touchkiss.aweme.bean;
 import lombok.Data;
 
 /**
- * Created on 2020-12-09 23:38:24
+ * Created on 2020-12-10 13:04:06
  *
  * @author Touchkiss
  */
@@ -13,7 +13,7 @@ public class AwemeChallengeInfo {
 	private String chaName; //
 	private String chaDesc; //
 	private Integer chaType; //
-	private Integer userCounr; //
+	private Integer userCount; //
 	private Long viewCount; //
 	private Integer subType; //
 	private Long uid; //

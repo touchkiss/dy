@@ -5,7 +5,7 @@ import lombok.Data;
 import java.sql.Date;
 
 /**
- * Created on 2020-12-09 23:38:23
+ * Created on 2020-12-10 13:04:06
  *
  * @author Touchkiss
  */
@@ -58,6 +58,7 @@ public class AwemeUserInfo {
 	private Integer gender; //
 	private Boolean hasActivityMedal; //
 	private Boolean hasInsights; //
+	private Boolean hasOrders; //
 	private Boolean hasStory; //
 	private Boolean hasUnreadStory; //
 	private Integer hideFollowingFollowerList; //隐藏关注、粉丝列表
@@ -82,6 +83,7 @@ public class AwemeUserInfo {
 	private Boolean preventDownload; //
 	private Integer profileTabType; //
 	private String province; //省
+	private Integer rate; //
 	private String recommendReasonRelation; //
 	private Integer recommendUserReasonSource; //
 	private String schoolName; //

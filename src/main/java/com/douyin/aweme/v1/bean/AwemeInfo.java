@@ -168,7 +168,7 @@ public class AwemeInfo {
         private PlayAddrBean download_addr;
         private Boolean  has_watermark;
         private PlayAddrBean play_addr_lowbr;
-        private Long duration;
+        private Integer duration;
         private PlayAddrBean download_suffix_logo_addr;
         private Boolean  has_download_suffix_logo_addr;
         private Long is_h265;
@@ -238,15 +238,15 @@ public class AwemeInfo {
          */
 
         private String aweme_id;
-        private Long comment_count;
-        private Long digg_count;
-        private Long download_count;
-        private Long play_count;
-        private Long share_count;
-        private Long forward_count;
-        private Long lose_count;
-        private Long lose_comment_count;
-        private Long whatsapp_share_count;
+        private Integer comment_count;
+        private Integer digg_count;
+        private Integer download_count;
+        private Integer play_count;
+        private Integer share_count;
+        private Integer forward_count;
+        private Integer lose_count;
+        private Integer lose_comment_count;
+        private Integer whatsapp_share_count;
     }
 
     @NoArgsConstructor

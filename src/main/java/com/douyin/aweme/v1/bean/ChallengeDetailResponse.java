@@ -24,16 +24,16 @@ public class ChallengeDetailResponse extends BaseResponse{
     public static class ChInfoBean {
         private String desc;
         private String schema;
-        private int user_count;
-        private int type;
+        private Integer user_count;
+        private Integer type;
         private String link_action;
         private boolean is_pgcshow;
         private String cid;
         private String cha_name;
-        private int is_challenge;
-        private int link_type;
+        private Integer is_challenge;
+        private Integer link_type;
         private String link_text;
-        private int collect_stat;
+        private Integer collect_stat;
         private long view_count;
         private boolean is_commerce;
         private String hashtag_profile;
@@ -42,11 +42,11 @@ public class ChallengeDetailResponse extends BaseResponse{
         private Object banner_list;
         private boolean is_strong_music;
         private Object show_items;
-        private int sub_type;
+        private Integer sub_type;
         private boolean allow_upload_cover;
         private ExtraAttrBean extra_attr;
         private Object cha_attrs;
-        private int has_related_poi;
+        private Integer has_related_poi;
         private List<?> connect_music;
 
         @NoArgsConstructor
@@ -66,7 +66,7 @@ public class ChallengeDetailResponse extends BaseResponse{
              * share_title : 我在抖音参加#整蛊
              */
 
-            private int bool_persist;
+            private Integer bool_persist;
             private String share_url;
             private String share_weibo_desc;
             private String share_title_myself;

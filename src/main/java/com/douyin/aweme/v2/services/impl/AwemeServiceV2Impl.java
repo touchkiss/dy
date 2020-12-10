@@ -27,12 +27,12 @@ public class AwemeServiceV2Impl implements AwemeServiceV2 {
     }
 
     @Override
-    public ChallengeAwemeResponse challengeAweme(String ch_id, int count, int cursor) {
+    public ChallengeAwemeResponse challengeAweme(long ch_id, int count, int cursor) {
         return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/v2/challenge/aweme/?ch_id=" + ch_id + "&count=" + count + "&cursor=" + cursor), ChallengeAwemeResponse.class);
     }
 
     @Override
-    public ChallengeDetailResponse challengeDetail(String ch_id) {
+    public ChallengeDetailResponse challengeDetail(long ch_id) {
         return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/v2/challenge/info/?ch_id=" + ch_id), ChallengeDetailResponse.class);
     }
 

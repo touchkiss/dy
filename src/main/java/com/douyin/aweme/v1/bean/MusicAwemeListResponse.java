@@ -13,5 +13,5 @@ import java.util.List;
 public class MusicAwemeListResponse extends BaseResponse{
     List<AwemeInfo> aweme_list;
     private int cursor;
-    private int has_more;
+//    private int has_more;
 }

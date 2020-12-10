@@ -13,6 +13,6 @@ import java.util.List;
 public class ChallengeAwemeResponse extends BaseResponse{
     private List<AwemeInfo>aweme_list;
     private int cursor;
-    private int has_more;
+//    private int has_more;
     private Object mix_list;
 }

@@ -8,6 +8,8 @@ package com.touchkiss.aweme.constant;
 public class RedisConstant {
     //    上一个抓取的抖音贴纸id
     public static final String LAST_STICKER_ID = "LAST_STICKER_ID";
+    //    待抓取的贴纸id set
+    public static final String READY_TO_FETCH_STICKER_IDS = "READY_TO_FETCH_STICKER_IDS";
     //    待抓取的话题id set
     public static final String READY_TO_FETCH_CHALLENGE_IDS = "READY_TO_FETCH_CHALLENGE_IDS";
     //    待抓取的音乐id set
