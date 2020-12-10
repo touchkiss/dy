@@ -15,6 +15,6 @@ import java.util.List;
 public class AwemePostResponse extends BaseResponse {
     private long min_cursor;
     private long max_cursor;
-    private Long has_more;
+//    private Long has_more;
     private List<AwemeInfo> aweme_list;
 }

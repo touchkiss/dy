@@ -32,7 +32,7 @@ public class ProxyUtil {
                             if (proxyResponse != null && !CollectionUtils.isEmpty(proxyResponse.getData())) {
                                 ProxyResponse.DataBean dataBean = proxyResponse.getData().get(0);
                                 proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(dataBean.getIp(), Integer.parseInt(dataBean.getPort())));
-                                lastUpdate = System.currentTimeMillis() + (Integer.parseInt(dataBean.getLeft_time().replace("s", "")) * 1000) - 1000;
+                                lastUpdate = System.currentTimeMillis() + (Integer.parseInt(dataBean.getLeft_time().replace("s", "")) * 1000) - 2000;
                             }
                         }
                     } catch (Exception e) {

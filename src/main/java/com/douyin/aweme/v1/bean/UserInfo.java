@@ -101,7 +101,7 @@ public class UserInfo {
     private String uid;
     private String unique_id;
     private UrgeDetailBean urge_detail;
-    private Long verification_type;
+    private Integer verification_type;
     private String verify_info;
     private CoverBean video_cover;
     private CoverBean video_icon;

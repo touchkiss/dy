@@ -22,6 +22,11 @@ public class AwemeServiceV2Impl implements AwemeServiceV2 {
     }
 
     @Override
+    public AwemePostResponse userPost(String sec_uid, int count, long max_cursor) {
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/v2/aweme/post/?sec_uid=" + sec_uid + "&count=" + count + "&max_cursor=" + max_cursor), AwemePostResponse.class);
+    }
+
+    @Override
     public AwemeIteminfoResponse awemeIteminfo(String item_ids) {
         return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids=" + item_ids), AwemeIteminfoResponse.class);
     }

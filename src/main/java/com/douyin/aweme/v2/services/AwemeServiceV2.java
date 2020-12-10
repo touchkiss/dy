@@ -12,6 +12,8 @@ import com.douyin.aweme.v2.bean.UserInfoResponse;
  */
 public interface AwemeServiceV2 {
     /**
+     * https://www.iesdouyin.com/share/user/82501595183?sec_uid=MS4wLjABAAAAmv7PMzILGRZ91a6JT3nptibV9WGWpHkb7JTsnuobKXQ
+     * <p>
      * 网页获取用户信息
      * 仅限sec_uid
      *
@@ -19,6 +21,16 @@ public interface AwemeServiceV2 {
      * @return
      */
     UserInfoResponse userInfo(String sec_uid);
+
+    /**
+     * 网页获取用户作品
+     *
+     * @param sec_uid
+     * @param count
+     * @param max_cursor
+     * @return
+     */
+    AwemePostResponse userPost(String sec_uid, int count, long max_cursor);
 
     /**
      * 网页获取视频信息

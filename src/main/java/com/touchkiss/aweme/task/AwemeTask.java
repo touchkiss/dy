@@ -2,6 +2,7 @@ package com.touchkiss.aweme.task;
 
 import com.douyin.aweme.v1.bean.*;
 import com.douyin.aweme.v2.bean.StickerListResponse;
+import com.douyin.aweme.v2.bean.UserInfoResponse;
 import com.douyin.aweme.v2.services.AwemeServiceV2;
 import com.douyin.aweme.web.services.AwemeWebService;
 import com.touchkiss.aweme.bean.*;
@@ -57,6 +58,7 @@ public class AwemeTask {
     private ExecutorService fetchStickerListThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private ExecutorService fetchMusicThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private ExecutorService fetchChallengeThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
+    private ExecutorService fetchUserThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private static volatile boolean stickerSpiderWorking = false;
     private static volatile boolean awemeItemSpiderWorking = false;
 
@@ -176,78 +178,7 @@ public class AwemeTask {
                         awemeUserInfo = new AwemeUserInfo();
                         shouldInsertUser = true;
                     }
-                    awemeUserInfo.setUid(uid);
-                    if (author.getRate() != null) {
-                        awemeUserInfo.setRate(author.getRate());
-                    }
-                    if (author.getWith_commerce_entry() != null) {
-                        awemeUserInfo.setWithCommerceEntry(author.getWith_commerce_entry());
-                    }
-                    if (author.getFollowing_count() != null && author.getFollowing_count() > 0) {
-                        awemeUserInfo.setFollowingCount(author.getFollowing_count());
-                    }
-                    if (author.getFavoriting_count() != null && author.getFavoriting_count() > 0) {
-                        awemeUserInfo.setFavoritingCount(author.getFavoriting_count());
-                    }
-                    if (author.getWith_shop_entry() != null) {
-                        awemeUserInfo.setWithShopEntry(author.getWith_shop_entry());
-                    }
-                    if (author.getWith_fusion_shop_entry() != null) {
-                        awemeUserInfo.setWithFusionShopEntry(author.getWith_fusion_shop_entry());
-                    }
-                    if (author.getFollower_count() != null && author.getFollower_count() > 0) {
-                        awemeUserInfo.setFollowerCount(author.getFollower_count());
-                    }
-                    if (author.getIs_ad_fake() != null) {
-                        awemeUserInfo.setIsAdFake(author.getIs_ad_fake());
-                    }
-                    if (author.getUser_canceled() != null) {
-                        awemeUserInfo.setUserCanceled(author.getUser_canceled());
-                    }
-                    if (author.getIs_gov_media_vip() != null) {
-                        awemeUserInfo.setIsGovMediaVip(author.getIs_gov_media_vip());
-                    }
-                    if (author.getHas_orders() != null) {
-                        awemeUserInfo.setHasOrders(author.getHas_orders());
-                    }
-                    if (author.getStory_open() != null) {
-                        awemeUserInfo.setStoryOpen(author.getStory_open());
-                    }
-                    if (StringUtils.isNotBlank(author.getRegion())) {
-                        awemeUserInfo.setRegion(author.getRegion());
-                    }
-                    if (author.getAweme_count() != null && author.getAweme_count() > 0) {
-                        awemeUserInfo.setAwemeCount(author.getAweme_count());
-                    }
-                    if (StringUtils.isNotBlank(author.getCustom_verify())) {
-                        awemeUserInfo.setCustomVerify(author.getCustom_verify());
-                    }
-                    if (author.getTotal_favorited() != null && author.getTotal_favorited() > 0) {
-                        awemeUserInfo.setTotalFavorited(author.getTotal_favorited());
-                    }
-                    if (StringUtils.isNotBlank(author.getEnterprise_verify_reason())) {
-                        awemeUserInfo.setEnterpriseVerifyReason(author.getEnterprise_verify_reason());
-                    }
-                    if (author.getSecret() != null) {
-                        awemeUserInfo.setSecret(author.getSecret());
-                    }
-                    if (StringUtils.isNotBlank(author.getSec_uid())) {
-                        awemeUserInfo.setSecUid(author.getSec_uid());
-                    }
-                    awemeUserInfo.setShortId(Long.parseLong(author.getShort_id()));
-                    awemeUserInfo.setNickname(author.getNickname());
-                    awemeUserInfo.setSignature(author.getSignature());
-                    awemeUserInfo.setUniqueId(author.getUnique_id());
-                    if (author.getAvatar_larger() != null && CollectionUtils.isNotEmpty(author.getAvatar_larger().getUrl_list())) {
-                        awemeUserInfo.setAvatarLarger(author.getAvatar_larger().getUrl_list().get(0));
-                    }
-                    awemeUserInfo.setLastFetchTime(System.currentTimeMillis());
-                    if (shouldInsertUser) {
-                        awemeUserInfo.setFirstFetchTime(System.currentTimeMillis());
-                        awemeUserInfoDaoService.insert(awemeUserInfo);
-                    } else {
-                        awemeUserInfoDaoService.updateSelectiveByUid(awemeUserInfo, uid);
-                    }
+                    saveUserInfo(author, uid, awemeUserInfo, shouldInsertUser);
                 } catch (Exception err1) {
                     log.error("保存用户信息失败：{}", author.getUid());
                     err1.printStackTrace();
@@ -294,6 +225,84 @@ public class AwemeTask {
         } catch (Exception ignore) {
             log.error("保存aweme信息出错：{}", awemeInfo.getAweme_id());
             ignore.printStackTrace();
+        }
+    }
+
+    private void saveUserInfo(UserInfo author, long uid, AwemeUserInfo awemeUserInfo, boolean shouldInsertUser) {
+        awemeUserInfo.setUid(uid);
+        if (author.getRate() != null) {
+            awemeUserInfo.setRate(author.getRate());
+        }
+        if (author.getWith_commerce_entry() != null) {
+            awemeUserInfo.setWithCommerceEntry(author.getWith_commerce_entry());
+        }
+        if (author.getFollowing_count() != null && author.getFollowing_count() > 0) {
+            awemeUserInfo.setFollowingCount(author.getFollowing_count());
+        }
+        if (author.getFavoriting_count() != null && author.getFavoriting_count() > 0) {
+            awemeUserInfo.setFavoritingCount(author.getFavoriting_count());
+        }
+        if (author.getWith_shop_entry() != null) {
+            awemeUserInfo.setWithShopEntry(author.getWith_shop_entry());
+        }
+        if (author.getWith_fusion_shop_entry() != null) {
+            awemeUserInfo.setWithFusionShopEntry(author.getWith_fusion_shop_entry());
+        }
+        if (author.getFollower_count() != null && author.getFollower_count() > 0) {
+            awemeUserInfo.setFollowerCount(author.getFollower_count());
+        }
+        if (author.getIs_ad_fake() != null) {
+            awemeUserInfo.setIsAdFake(author.getIs_ad_fake());
+        }
+        if (author.getUser_canceled() != null) {
+            awemeUserInfo.setUserCanceled(author.getUser_canceled());
+        }
+        if (author.getIs_gov_media_vip() != null) {
+            awemeUserInfo.setIsGovMediaVip(author.getIs_gov_media_vip());
+        }
+        if (author.getHas_orders() != null) {
+            awemeUserInfo.setHasOrders(author.getHas_orders());
+        }
+        if (author.getStory_open() != null) {
+            awemeUserInfo.setStoryOpen(author.getStory_open());
+        }
+        if (StringUtils.isNotBlank(author.getRegion())) {
+            awemeUserInfo.setRegion(author.getRegion());
+        }
+        if (author.getAweme_count() != null && author.getAweme_count() > 0) {
+            awemeUserInfo.setAwemeCount(author.getAweme_count());
+        }
+        if (StringUtils.isNotBlank(author.getCustom_verify())) {
+            awemeUserInfo.setCustomVerify(author.getCustom_verify());
+        }
+        if (author.getTotal_favorited() != null && author.getTotal_favorited() > 0) {
+            awemeUserInfo.setTotalFavorited(author.getTotal_favorited());
+        }
+        if (StringUtils.isNotBlank(author.getEnterprise_verify_reason())) {
+            awemeUserInfo.setEnterpriseVerifyReason(author.getEnterprise_verify_reason());
+        }
+        if (author.getSecret() != null) {
+            awemeUserInfo.setSecret(author.getSecret());
+        }
+        if (StringUtils.isNotBlank(author.getSec_uid())) {
+            awemeUserInfo.setSecUid(author.getSec_uid());
+        }
+        awemeUserInfo.setShortId(Long.parseLong(author.getShort_id()));
+        awemeUserInfo.setNickname(author.getNickname());
+        awemeUserInfo.setSignature(author.getSignature());
+        awemeUserInfo.setUniqueId(author.getUnique_id());
+        if (author.getAvatar_larger() != null && CollectionUtils.isNotEmpty(author.getAvatar_larger().getUrl_list())) {
+            awemeUserInfo.setAvatarLarger(author.getAvatar_larger().getUrl_list().get(0));
+        }
+        if (author.getVerification_type() != null) {
+            awemeUserInfo.setVerificationType(author.getVerification_type());
+        }
+        awemeUserInfo.setLastFetchTime(System.currentTimeMillis());
+        if (shouldInsertUser) {
+            awemeUserInfo.setFirstFetchTime(System.currentTimeMillis());
+            awemeUserInfoDaoService.insert(awemeUserInfo);
+        } else {
+            awemeUserInfoDaoService.updateSelectiveByUid(awemeUserInfo, uid);
         }
     }
 
@@ -447,12 +456,12 @@ public class AwemeTask {
 
 
     @Scheduled(cron = "*/2 * * * * ?")
-    public void fetchChallenge(){
+    public void fetchChallenge() {
 
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchChallengeThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS)) {
             for (int i = 0; i < 5; i++) {
-                fetchChallengeThreadPool.execute(()->{
+                fetchChallengeThreadPool.execute(() -> {
                     try {
                         String challengeId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS);
                         if (StringUtils.isNotBlank(challengeId)) {
@@ -462,10 +471,10 @@ public class AwemeTask {
                                 if (challengeDetailResponse != null && challengeDetailResponse.getCh_info() != null) {
                                     ChallengeDetailResponse.ChInfoBean ch_info = challengeDetailResponse.getCh_info();
                                     AwemeChallengeInfo awemeChallengeInfo = awemeChallengeInfoDaoService.selectByCid(cid);
-                                    boolean shouldInsertChallenge=false;
-                                    if (awemeChallengeInfo==null){
-                                        shouldInsertChallenge=true;
-                                        awemeChallengeInfo=new AwemeChallengeInfo();
+                                    boolean shouldInsertChallenge = false;
+                                    if (awemeChallengeInfo == null) {
+                                        shouldInsertChallenge = true;
+                                        awemeChallengeInfo = new AwemeChallengeInfo();
                                     }
                                     awemeChallengeInfo.setCid(cid);
                                     awemeChallengeInfo.setChaName(ch_info.getCha_name());
@@ -473,18 +482,18 @@ public class AwemeTask {
                                     awemeChallengeInfo.setChaType(ch_info.getType());
                                     awemeChallengeInfo.setUserCount(ch_info.getUser_count());
                                     awemeChallengeInfo.setViewCount(ch_info.getView_count());
-                                    if (ch_info.getSub_type()!=null){
+                                    if (ch_info.getSub_type() != null) {
                                         awemeChallengeInfo.setSubType(ch_info.getSub_type());
                                     }
-                                    if (ch_info.getAuthor()!=null&&StringUtils.isNotBlank(ch_info.getAuthor().getUid())){
+                                    if (ch_info.getAuthor() != null && StringUtils.isNotBlank(ch_info.getAuthor().getUid())) {
                                         awemeChallengeInfo.setUid(Long.parseLong(ch_info.getAuthor().getUid()));
                                     }
                                     awemeChallengeInfo.setLastFetchTime(System.currentTimeMillis());
-                                    if (shouldInsertChallenge){
+                                    if (shouldInsertChallenge) {
                                         awemeChallengeInfo.setFirstFetchTime(System.currentTimeMillis());
                                         awemeChallengeInfoDaoService.insert(awemeChallengeInfo);
-                                    }else{
-                                        awemeChallengeInfoDaoService.updateSelectiveByCid(awemeChallengeInfo,cid);
+                                    } else {
+                                        awemeChallengeInfoDaoService.updateSelectiveByCid(awemeChallengeInfo, cid);
                                     }
                                 }
                             } catch (Exception musicDetailErr) {
@@ -512,6 +521,49 @@ public class AwemeTask {
                     } catch (Exception err) {
                         log.error("抓取话题信息出错");
                         err.printStackTrace();
+                    }
+                });
+            }
+        }
+    }
+
+    @Scheduled(cron = "*/2 * * * * ?")
+    public void fetchUserPost() {
+        ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchUserThreadPool);
+        if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_USER_UIDS)) {
+            for (int i = 0; i < 5; i++) {
+                fetchUserThreadPool.execute(() -> {
+                    try {
+                        String userId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_USER_UIDS);
+                        if (StringUtils.isNotBlank(userId)) {
+                            long uid = Long.parseLong(userId);
+                            AwemeUserInfo awemeUserInfo = awemeUserInfoDaoService.selectByUid(uid);
+                            if (awemeUserInfo != null && StringUtils.isNotBlank(awemeUserInfo.getSecUid())) {
+                                String secUid = awemeUserInfo.getSecUid();
+                                UserInfoResponse userInfoResponse = awemeServiceV2.userInfo(secUid);
+                                if (userInfoResponse != null && userInfoResponse.getUser_info() != null) {
+                                    saveUserInfo(userInfoResponse.getUser_info(), uid, awemeUserInfo, false);
+                                }
+                                long max_cursor = 0l;
+                                int errtimes = 0;
+                                int maxRetryTimes = 5;
+                                while (errtimes < maxRetryTimes) {
+                                    for (errtimes = 0; errtimes < maxRetryTimes; errtimes++) {
+                                        AwemePostResponse awemePostResponse = awemeServiceV2.userPost(secUid, 15, max_cursor);
+                                        if (awemePostResponse != null && CollectionUtils.isNotEmpty(awemePostResponse.getAweme_list())) {
+                                            for (AwemeInfo awemeInfo : awemePostResponse.getAweme_list()) {
+                                                saveAwemeItem(null, null, awemeInfo);
+                                            }
+                                            max_cursor = awemePostResponse.getMax_cursor();
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Exception ignore) {
+                        log.error("抓取用户详情列表失败");
+                        ignore.printStackTrace();
                     }
                 });
             }
