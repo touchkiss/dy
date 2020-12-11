@@ -59,14 +59,15 @@ public class AwemeTask {
     private ExecutorService fetchMusicThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private ExecutorService fetchChallengeThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private ExecutorService fetchUserThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
+    private ExecutorService fetchStickerDetailThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private static volatile boolean stickerSpiderWorking = false;
     private static volatile boolean awemeItemSpiderWorking = false;
 
-    @Scheduled(cron = "* * * * * ?")
+    @Scheduled(cron = "*/2 * * * * ?")
     public void checkWorkingStickerThread() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchStickerListThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_STICKER_IDS)) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 fetchStickerListThreadPool.execute(() -> {
                     try {
                         String stickerId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_STICKER_IDS);
@@ -349,61 +350,58 @@ public class AwemeTask {
 
     @Scheduled(cron = "*/2 * * * * ?")
     public void fetchSticker() {
-        if (!stickerSpiderWorking) {
-            stickerSpiderWorking = true;
-            int sticker_id = 0;
-            if (stringRedisTemplate.hasKey(RedisConstant.LAST_STICKER_ID)) {
-                try {
-                    sticker_id = Integer.parseInt(stringRedisTemplate.opsForValue().get(RedisConstant.LAST_STICKER_ID));
-                } catch (Exception ignore) {
-                    log.error("读取LAST_STICKER_ID失败");
-                }
-            }
-            String sticker_ids = IntStream.range(sticker_id + 1, sticker_id + 10).mapToObj(Integer::toString).collect(Collectors.joining(","));
-            StickerDetailResponse stickerDetailResponse = awemeServiceV2.stickerDetail(sticker_ids);
-            if (stickerDetailResponse != null && CollectionUtils.isNotEmpty(stickerDetailResponse.getSticker_infos())) {
-                for (StickerDetailResponse.StickerInfosBean sticker_info : stickerDetailResponse.getSticker_infos()) {
-                    try {
-                        long id = Long.parseLong(sticker_info.getId());
-                        if (awemeStickerInfoDaoService.selectById(id) == null) {
-                            AwemeStickerInfo awemeStickerInfo = new AwemeStickerInfo();
-                            awemeStickerInfo.setId(id);
-                            awemeStickerInfo.setEffectId(StringUtils.isNotBlank(sticker_info.getEffect_id()) ? Long.parseLong(sticker_info.getEffect_id()) : null);
-                            awemeStickerInfo.setIconUrl((sticker_info.getIcon_url() != null && CollectionUtils.isNotEmpty(sticker_info.getIcon_url().getUrl_list())) ? sticker_info.getIcon_url().getUrl_list().get(0) : null);
-                            awemeStickerInfo.setStickerName(sticker_info.getName());
-                            awemeStickerInfo.setStickerDesc(sticker_info.getDesc());
-                            awemeStickerInfo.setOwnerId(StringUtils.isNotBlank(sticker_info.getOwner_id()) ? Long.parseLong(sticker_info.getOwner_id()) : null);
-                            awemeStickerInfo.setOwnerNickname(sticker_info.getOwner_nickname());
-                            awemeStickerInfo.setUserCount(sticker_info.getUser_count());
-                            awemeStickerInfo.setVvCount(Long.parseLong(String.valueOf(sticker_info.getVv_count())));
-                            awemeStickerInfo.setFirstFetchTime(System.currentTimeMillis());
-                            awemeStickerInfo.setLastFetchTime(System.currentTimeMillis());
-                            awemeStickerInfoDaoService.insert(awemeStickerInfo);
-                            if (CollectionUtils.isNotEmpty(sticker_info.getTags())) {
-                                for (String tag : sticker_info.getTags()) {
-                                    if (tag.startsWith("challenge:")) {
-                                        try {
-                                            long challengeId = Long.parseLong(tag.substring(10));
-                                            if (awemeChallengeInfoDaoService.selectByCid(challengeId) == null) {
-                                                stringRedisTemplate.opsForSet().add(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS, String.valueOf(challengeId));
+
+        ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchStickerDetailThreadPool);
+        if (tpe.getActiveCount() < 5 && stringRedisTemplate.hasKey(RedisConstant.LAST_STICKER_ID)) {
+            for (int i = 0; i < 5; i++) {
+                int sticker_id = Integer.parseInt(stringRedisTemplate.opsForValue().get(RedisConstant.LAST_STICKER_ID));
+                String sticker_ids = IntStream.range(sticker_id + 1, sticker_id + 10).mapToObj(Integer::toString).collect(Collectors.joining(","));
+                stringRedisTemplate.opsForValue().set(RedisConstant.LAST_STICKER_ID, String.valueOf(sticker_id + 10));
+                fetchStickerDetailThreadPool.execute(() -> {
+                    StickerDetailResponse stickerDetailResponse = awemeServiceV2.stickerDetail(sticker_ids);
+                    if (stickerDetailResponse != null && CollectionUtils.isNotEmpty(stickerDetailResponse.getSticker_infos())) {
+                        for (StickerDetailResponse.StickerInfosBean sticker_info : stickerDetailResponse.getSticker_infos()) {
+                            try {
+                                long id = Long.parseLong(sticker_info.getId());
+                                if (awemeStickerInfoDaoService.selectById(id) == null) {
+                                    AwemeStickerInfo awemeStickerInfo = new AwemeStickerInfo();
+                                    awemeStickerInfo.setId(id);
+                                    awemeStickerInfo.setEffectId(StringUtils.isNotBlank(sticker_info.getEffect_id()) ? Long.parseLong(sticker_info.getEffect_id()) : null);
+                                    awemeStickerInfo.setIconUrl((sticker_info.getIcon_url() != null && CollectionUtils.isNotEmpty(sticker_info.getIcon_url().getUrl_list())) ? sticker_info.getIcon_url().getUrl_list().get(0) : null);
+                                    awemeStickerInfo.setStickerName(sticker_info.getName());
+                                    awemeStickerInfo.setStickerDesc(sticker_info.getDesc());
+                                    awemeStickerInfo.setOwnerId(StringUtils.isNotBlank(sticker_info.getOwner_id()) ? Long.parseLong(sticker_info.getOwner_id()) : null);
+                                    awemeStickerInfo.setOwnerNickname(sticker_info.getOwner_nickname());
+                                    awemeStickerInfo.setUserCount(sticker_info.getUser_count());
+                                    awemeStickerInfo.setVvCount(Long.parseLong(String.valueOf(sticker_info.getVv_count())));
+                                    awemeStickerInfo.setFirstFetchTime(System.currentTimeMillis());
+                                    awemeStickerInfo.setLastFetchTime(System.currentTimeMillis());
+                                    awemeStickerInfoDaoService.insert(awemeStickerInfo);
+                                    if (CollectionUtils.isNotEmpty(sticker_info.getTags())) {
+                                        for (String tag : sticker_info.getTags()) {
+                                            if (tag.startsWith("challenge:")) {
+                                                try {
+                                                    long challengeId = Long.parseLong(tag.substring(10));
+                                                    if (awemeChallengeInfoDaoService.selectByCid(challengeId) == null) {
+                                                        stringRedisTemplate.opsForSet().add(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS, String.valueOf(challengeId));
+                                                    }
+                                                } catch (Exception ignore) {
+                                                    log.error("待抓取话题信息出错:tag:{}", tag);
+                                                    ignore.printStackTrace();
+                                                }
                                             }
-                                        } catch (Exception ignore) {
-                                            log.error("待抓取话题信息出错:tag:{}", tag);
-                                            ignore.printStackTrace();
                                         }
                                     }
                                 }
+                                stringRedisTemplate.opsForSet().add(RedisConstant.READY_TO_FETCH_STICKER_IDS, sticker_info.getId());
+                            } catch (Exception err) {
+                                log.error("保存贴纸信息出错sticker_id:{}", sticker_info.getId());
+                                err.printStackTrace();
                             }
                         }
-                        stringRedisTemplate.opsForSet().add(RedisConstant.READY_TO_FETCH_STICKER_IDS, sticker_info.getId());
-                    } catch (Exception err) {
-                        log.error("保存贴纸信息出错sticker_id:{}", sticker_info.getId());
-                        err.printStackTrace();
                     }
-                }
+                });
             }
-            stringRedisTemplate.opsForValue().set(RedisConstant.LAST_STICKER_ID, String.valueOf(sticker_id + 10));
-            stickerSpiderWorking = false;
         }
     }
 
@@ -411,7 +409,7 @@ public class AwemeTask {
     public void fetchMusic() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchMusicThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_MUSIC_IDS)) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 fetchMusicThreadPool.execute(() -> {
                     try {
                         String musicId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_MUSIC_IDS);
@@ -460,7 +458,7 @@ public class AwemeTask {
 
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchChallengeThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS)) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 fetchChallengeThreadPool.execute(() -> {
                     try {
                         String challengeId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS);
@@ -527,7 +525,7 @@ public class AwemeTask {
         }
     }
 
-    @Scheduled(cron = "*/2 * * * * ?")
+//    @Scheduled(cron = "*/2 * * * * ?")
     public void fetchUserPost() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchUserThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_USER_UIDS)) {

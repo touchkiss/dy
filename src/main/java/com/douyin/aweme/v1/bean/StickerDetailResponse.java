@@ -56,7 +56,7 @@ public class StickerDetailResponse extends BaseResponse{
         private String sec_uid;
         private CoverBean icon_url;
         private String owner_id;
-        private int vv_count;
+        private Long vv_count;
         private CoverBean avatar_large;
         private String extraX;
         private int EffectType;
