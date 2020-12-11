@@ -355,7 +355,10 @@ public class AwemeTask {
         if (tpe.getActiveCount() < 5 && stringRedisTemplate.hasKey(RedisConstant.LAST_STICKER_ID)) {
             for (int i = 0; i < 5; i++) {
                 int sticker_id = Integer.parseInt(stringRedisTemplate.opsForValue().get(RedisConstant.LAST_STICKER_ID));
-                String sticker_ids = IntStream.range(sticker_id + 1, sticker_id + 10).mapToObj(Integer::toString).collect(Collectors.joining(","));
+                if (sticker_id>700000){
+                    return;
+                }
+                String sticker_ids = IntStream.range(sticker_id + 1, sticker_id + 11).mapToObj(Integer::toString).collect(Collectors.joining(","));
                 stringRedisTemplate.opsForValue().set(RedisConstant.LAST_STICKER_ID, String.valueOf(sticker_id + 10));
                 fetchStickerDetailThreadPool.execute(() -> {
                     StickerDetailResponse stickerDetailResponse = awemeServiceV2.stickerDetail(sticker_ids);
