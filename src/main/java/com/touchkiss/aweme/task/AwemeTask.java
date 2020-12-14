@@ -56,14 +56,14 @@ public class AwemeTask {
     //    正在抓贴纸列表的线程数
     private static volatile int fetchStickerListThreadWorking = 0;
     private ExecutorService fetchStickerListThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
-    private ExecutorService fetchMusicThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
-    private ExecutorService fetchChallengeThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
+    private ExecutorService fetchMusicThreadPool = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(300));
+    private ExecutorService fetchChallengeThreadPool = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(300));
     private ExecutorService fetchUserThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private ExecutorService fetchStickerDetailThreadPool = new ThreadPoolExecutor(5, 10, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(100));
     private static volatile boolean stickerSpiderWorking = false;
     private static volatile boolean awemeItemSpiderWorking = false;
 
-    @Scheduled(cron = "*/2 * * * * ?")
+//    @Scheduled(cron = "*/2 * * * * ?")
     public void checkWorkingStickerThread() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchStickerListThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_STICKER_IDS)) {
@@ -411,8 +411,8 @@ public class AwemeTask {
     @Scheduled(cron = "*/2 * * * * ?")
     public void fetchMusic() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchMusicThreadPool);
-        if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_MUSIC_IDS)) {
-            for (int i = 0; i < 10; i++) {
+        if (tpe.getActiveCount() < 100 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_MUSIC_IDS)) {
+            for (int i = 0; i < 100; i++) {
                 fetchMusicThreadPool.execute(() -> {
                     try {
                         String musicId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_MUSIC_IDS);
@@ -460,8 +460,8 @@ public class AwemeTask {
     public void fetchChallenge() {
 
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchChallengeThreadPool);
-        if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS)) {
-            for (int i = 0; i < 10; i++) {
+        if (tpe.getActiveCount() < 100 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS)) {
+            for (int i = 0; i < 100; i++) {
                 fetchChallengeThreadPool.execute(() -> {
                     try {
                         String challengeId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_CHALLENGE_IDS);
@@ -528,7 +528,7 @@ public class AwemeTask {
         }
     }
 
-    @Scheduled(cron = "* * * * * ?")
+//    @Scheduled(cron = "* * * * * ?")
     public void fetchUserPost() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchUserThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_USER_UIDS)) {
