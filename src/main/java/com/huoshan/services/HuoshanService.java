@@ -1,8 +1,10 @@
 package com.huoshan.services;
 
-import cn.hutool.http.HttpUtil;
 import com.huoshan.bean.response.ItemInfoResponse;
+import com.huoshan.bean.response.UserInfoResponse;
+import com.huoshan.bean.response.UserVideoResponse;
 import com.touchkiss.dy.utils.GsonUtil;
+import com.touchkiss.dy.utils.HutoolHttpUtilWithProxy;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,6 +22,14 @@ public class HuoshanService {
      * @return
      */
     public ItemInfoResponse itemInfo(String item_id) {
-        return GsonUtil.fromJson(HttpUtil.get("https://share.huoshan.com/api/item/info?item_id=" + item_id), ItemInfoResponse.class);
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://share.huoshan.com/api/item/info?item_id=" + item_id), ItemInfoResponse.class);
+    }
+
+    public UserVideoResponse userVideo(String sec_uid, int offset, int count) {
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://share.huoshan.com/api/user/video?encrypted_id=" + sec_uid + "&offset=" + offset + "&count=" + count), UserVideoResponse.class);
+    }
+
+    public UserInfoResponse userInfo(String sec_uid) {
+        return GsonUtil.fromJson(HutoolHttpUtilWithProxy.get("https://share.huoshan.com/api/user/info?encrypted_id" + sec_uid), UserInfoResponse.class);
     }
 }

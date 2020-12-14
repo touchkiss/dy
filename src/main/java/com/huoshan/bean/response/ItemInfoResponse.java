@@ -12,9 +12,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class ItemInfoResponse {
-    private Integer status_code;
-    private DataBean data;
+public class ItemInfoResponse extends BaseResponse<ItemInfoResponse.DataBean> {
 
     @NoArgsConstructor
     @Data

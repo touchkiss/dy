@@ -348,7 +348,7 @@ public class AwemeTask {
         }
     }
 
-    @Scheduled(cron = "*/2 * * * * ?")
+//    @Scheduled(cron = "*/2 * * * * ?")
     public void fetchSticker() {
 
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchStickerDetailThreadPool);
@@ -528,11 +528,11 @@ public class AwemeTask {
         }
     }
 
-//    @Scheduled(cron = "*/2 * * * * ?")
+    @Scheduled(cron = "* * * * * ?")
     public void fetchUserPost() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchUserThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_USER_UIDS)) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 fetchUserThreadPool.execute(() -> {
                     try {
                         String userId = stringRedisTemplate.opsForSet().pop(RedisConstant.READY_TO_FETCH_USER_UIDS);
@@ -544,21 +544,6 @@ public class AwemeTask {
                                 UserInfoResponse userInfoResponse = awemeServiceV2.userInfo(secUid);
                                 if (userInfoResponse != null && userInfoResponse.getUser_info() != null) {
                                     saveUserInfo(userInfoResponse.getUser_info(), uid, awemeUserInfo, false);
-                                }
-                                long max_cursor = 0l;
-                                int errtimes = 0;
-                                int maxRetryTimes = 5;
-                                while (errtimes < maxRetryTimes) {
-                                    for (errtimes = 0; errtimes < maxRetryTimes; errtimes++) {
-                                        AwemePostResponse awemePostResponse = awemeServiceV2.userPost(secUid, 15, max_cursor);
-                                        if (awemePostResponse != null && CollectionUtils.isNotEmpty(awemePostResponse.getAweme_list())) {
-                                            for (AwemeInfo awemeInfo : awemePostResponse.getAweme_list()) {
-                                                saveAwemeItem(null, null, awemeInfo);
-                                            }
-                                            max_cursor = awemePostResponse.getMax_cursor();
-                                            break;
-                                        }
-                                    }
                                 }
                             }
                         }
