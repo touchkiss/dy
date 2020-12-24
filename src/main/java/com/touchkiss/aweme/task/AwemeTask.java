@@ -5,6 +5,7 @@ import com.douyin.aweme.v2.bean.StickerListResponse;
 import com.douyin.aweme.v2.bean.UserInfoResponse;
 import com.douyin.aweme.v2.services.AwemeServiceV2;
 import com.douyin.aweme.web.services.AwemeWebService;
+import com.github.pagehelper.Page;
 import com.touchkiss.aweme.bean.*;
 import com.touchkiss.aweme.constant.RedisConstant;
 import com.touchkiss.aweme.services.*;
@@ -12,12 +13,15 @@ import com.touchkiss.dy.utils.GsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.redisson.api.RBloomFilter;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -33,6 +37,8 @@ import java.util.stream.IntStream;
 @Service
 @Slf4j
 public class AwemeTask {
+    @Autowired
+    private RedissonClient redissonClient;
     @Autowired
     private AwemeWebService awemeWebService;
     @Autowired
@@ -63,7 +69,42 @@ public class AwemeTask {
     private static volatile boolean stickerSpiderWorking = false;
     private static volatile boolean awemeItemSpiderWorking = false;
 
-    @Scheduled(cron = "*/2 * * * * ?")
+    public void saveToRedisson(){
+        RBloomFilter<Long> fetchedIds = redissonClient.getBloomFilter(RedisConstant.FECTHED_IDS);
+        fetchedIds.tryInit(404967294L,0.01);
+
+//        awemeItem
+        int pagesize=100000;
+        int page=1;
+        while (true){
+            log.info("准备查询：{}",System.currentTimeMillis());
+            HashMap<String,String> where = new HashMap() {{
+                put("columns", "aweme_id");
+                put("ordering", "order by aweme_id desc");
+            }};
+            if (page==1){
+                where.put("limit","limit "+pagesize);
+            }else{
+                where.put("limit","limit "+((page-1)*pagesize)+","+pagesize);
+            }
+            List<AwemeItem> result = awemeItemDaoService.queryAwemeItemList(where);
+            log.info("完成查询：{}",System.currentTimeMillis());
+            if(CollectionUtils.isNotEmpty(result)){
+                result.stream().map(AwemeItem::getAwemeId).forEach(fetchedIds::add);
+                log.info("第{}页，将{}条记录插入布隆过滤器",page,result.size());
+                log.info("插入完成：{}",System.currentTimeMillis());
+                if (result.size()<pagesize){
+                    break;
+                }
+                page++;
+                continue;
+            }
+            break;
+        }
+
+    }
+
+//    @Scheduled(cron = "*/2 * * * * ?")
     public void checkWorkingStickerThread() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchStickerListThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_STICKER_IDS)) {
@@ -408,7 +449,7 @@ public class AwemeTask {
         }
     }
 
-    @Scheduled(cron = "*/2 * * * * ?")
+//    @Scheduled(cron = "*/2 * * * * ?")
     public void fetchMusic() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchMusicThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_MUSIC_IDS)) {
@@ -456,7 +497,7 @@ public class AwemeTask {
     }
 
 
-    @Scheduled(cron = "*/2 * * * * ?")
+//    @Scheduled(cron = "*/2 * * * * ?")
     public void fetchChallenge() {
 
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchChallengeThreadPool);
@@ -528,7 +569,7 @@ public class AwemeTask {
         }
     }
 
-    @Scheduled(cron = "* * * * * ?")
+//    @Scheduled(cron = "* * * * * ?")
     public void fetchUserPost() {
         ThreadPoolExecutor tpe = ((ThreadPoolExecutor) fetchUserThreadPool);
         if (tpe.getActiveCount() < 10 && stringRedisTemplate.hasKey(RedisConstant.READY_TO_FETCH_USER_UIDS)) {

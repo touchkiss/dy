@@ -19,4 +19,8 @@ public class RedisConstant {
     //    待抓取的aweme set
     public static final String READY_TO_FETCH_AWEME_IDS = "READY_TO_FETCH_AWEME_IDS";
 
+    //用于布隆过滤器
+    public static final String FECTHED_IDS = "FECTHED_IDS";
+
+
 }

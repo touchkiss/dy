@@ -1,9 +1,13 @@
 package com.touchkiss.aweme.controller;
 
 import com.touchkiss.aweme.bean.AwemeItem;
+import com.touchkiss.aweme.constant.RedisConstant;
 import com.touchkiss.aweme.services.AwemeItemDaoService;
+import com.touchkiss.aweme.task.AwemeTask;
 import com.touchkiss.common.PageResult;
 import com.touchkiss.common.BaseController;
+import org.redisson.api.RBloomFilter;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +23,23 @@ import java.util.HashMap;
 @RequestMapping("aweme")
 public class AwemeItemController implements BaseController {
     @Autowired
+    private RedissonClient redissonClient;
+    @Autowired
     private AwemeItemDaoService awemeItemDaoService;
+    @Autowired
+    private AwemeTask awemeTask;
+    @RequestMapping("saveToRedisson")
+    public void saveToRedisson(){
+        new Thread(()->{
+            awemeTask.saveToRedisson();
+        }).start();
+    }
+
+    @RequestMapping("isInBloomFilter")
+    public boolean isInBloomFilter(long id){
+        RBloomFilter<Long> fetchedIds = redissonClient.getBloomFilter(RedisConstant.FECTHED_IDS);
+        return fetchedIds.contains(id);
+    }
 
     @GetMapping("awemeItem")
     public PageResult list(HttpServletRequest request, Integer p, Integer pagesize) {

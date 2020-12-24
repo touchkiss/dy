@@ -127,7 +127,14 @@
      where cid = #{cid,jdbcType=BIGINT}
   </select>
   <select id="queryAwemeChallengeInfoList" parameterType="java.util.HashMap"  resultMap="BaseResultMap">
-     select * FROM  aweme_challenge_info  <include refid="whereSql"></include>
+     select 
+             <if test="wheres.get('columns')!=null and wheres.get('columns')!='' ">
+                 ${wheres.get('columns')}
+             </if>
+             <if test="wheres.get('columns')==null or wheres.get('columns')==''">
+                 <include refid="Base_Column_List"/>
+             </if>
+     FROM  aweme_challenge_info  <include refid="whereSql"></include>
      <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
          ${wheres.get('datatableorderby')}
      </if>
@@ -136,7 +143,14 @@
      </if>
   </select>
   <select id="findByPage" parameterType="java.util.HashMap"  resultMap="BaseResultMap" useCache="false">
-     select * FROM  aweme_challenge_info  <include refid="whereSql"></include>
+     select 
+             <if test="wheres.get('columns')!=null and wheres.get('columns')!='' ">
+                 ${wheres.get('columns')}
+             </if>
+             <if test="wheres.get('columns')==null or wheres.get('columns')==''">
+                 <include refid="Base_Column_List"/>
+             </if>
+     FROM  aweme_challenge_info  <include refid="whereSql"></include>
      <if test="wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' ">
          ${wheres.get('datatableorderby')}
      </if>

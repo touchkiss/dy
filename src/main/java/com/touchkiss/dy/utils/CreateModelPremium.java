@@ -53,16 +53,16 @@ public class CreateModelPremium {
         String filepath = "D:\\aweme";
         List<TableInfo> tableInfoList = new ArrayList<>();
         tableInfoList.add(new TableInfo("AwemeUserInfo", "aweme_user_info", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeUserFollowersDetail", "aweme_user_followers_detail", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeStickerInfo", "aweme_sticker_info", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeMusicInfo", "aweme_music_info", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeMixInfo", "aweme_mix_info", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeItemStatus", "aweme_item_status", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeItemStatistics", "aweme_item_statistics", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeItemStatistics", "aweme_item_statistics", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeItemComment", "aweme_item_comment", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeItemChallenge", "aweme_item_challenge", "aweme", "aweme"));
-//        tableInfoList.add(new TableInfo("AwemeItem", "aweme_item", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeUserFollowersDetail", "aweme_user_followers_detail", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeStickerInfo", "aweme_sticker_info", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeMusicInfo", "aweme_music_info", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeMixInfo", "aweme_mix_info", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeItemStatus", "aweme_item_status", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeItemStatistics", "aweme_item_statistics", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeItemStatistics", "aweme_item_statistics", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeItemComment", "aweme_item_comment", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeItemChallenge", "aweme_item_challenge", "aweme", "aweme"));
+        tableInfoList.add(new TableInfo("AwemeItem", "aweme_item", "aweme", "aweme"));
         tableInfoList.add(new TableInfo("AwemeChallengeInfo", "aweme_challenge_info", "aweme", "aweme"));
 
         DruidPooledConnection con = ctfile.getConnect();
@@ -1103,7 +1103,14 @@ public class CreateModelPremium {
         myFile.println("  </select>");
         //查询列表
         myFile.println("  <select id=\"query" + bean + "List\" parameterType=\"java.util.HashMap\"  resultMap=\"BaseResultMap\">");
-        myFile.println("     select * FROM  " + tab + "  <include refid=\"whereSql\"></include>");
+        myFile.println("     select ");
+        myFile.println("             <if test=\"wheres.get('columns')!=null and wheres.get('columns')!='' \">");
+        myFile.println("                 ${wheres.get('columns')}");
+        myFile.println("             </if>");
+        myFile.println("             <if test=\"wheres.get('columns')==null or wheres.get('columns')==''\">");
+        myFile.println("                 <include refid=\"Base_Column_List\"/>");
+        myFile.println("             </if>");
+        myFile.println("     FROM  " + tab + "  <include refid=\"whereSql\"></include>");
         myFile.println("     <if test=\"wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' \">");
         myFile.println("         ${wheres.get('datatableorderby')}");
         myFile.println("     </if>");
@@ -1113,7 +1120,14 @@ public class CreateModelPremium {
         myFile.println("  </select>");
         //查询列表(分页)
         myFile.println("  <select id=\"findByPage\" parameterType=\"java.util.HashMap\"  resultMap=\"BaseResultMap\" useCache=\"false\">");
-        myFile.println("     select * FROM  " + tab + "  <include refid=\"whereSql\"></include>");
+        myFile.println("     select ");
+        myFile.println("             <if test=\"wheres.get('columns')!=null and wheres.get('columns')!='' \">");
+        myFile.println("                 ${wheres.get('columns')}");
+        myFile.println("             </if>");
+        myFile.println("             <if test=\"wheres.get('columns')==null or wheres.get('columns')==''\">");
+        myFile.println("                 <include refid=\"Base_Column_List\"/>");
+        myFile.println("             </if>");
+        myFile.println("     FROM  " + tab + "  <include refid=\"whereSql\"></include>");
         myFile.println("     <if test=\"wheres.get('datatableorderby')!=null and wheres.get('datatableorderby')!='' \">");
         myFile.println("         ${wheres.get('datatableorderby')}");
         myFile.println("     </if>");
