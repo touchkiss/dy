@@ -23,7 +23,7 @@ public class HutoolHttpUtilWithProxy {
             httpRequest.setProxy(proxy);
         }
         httpRequest.header("User-Agent", USERAGENT)
-                .timeout(5000);
+                .timeout(20000);
         log.info("正在访问：{}", url);
         return httpRequest.execute().body();
     }
