@@ -9,6 +9,7 @@ import com.touchkiss.common.BaseController;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,8 @@ public class AwemeItemController implements BaseController {
     @Autowired
     private RedissonClient redissonClient;
     @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+    @Autowired
     private AwemeItemDaoService awemeItemDaoService;
     @Autowired
     private AwemeTask awemeTask;
@@ -36,9 +39,8 @@ public class AwemeItemController implements BaseController {
     }
 
     @RequestMapping("isInBloomFilter")
-    public boolean isInBloomFilter(long id){
-        RBloomFilter<Long> fetchedIds = redissonClient.getBloomFilter(RedisConstant.FECTHED_IDS);
-        return fetchedIds.contains(id);
+    public boolean isInBloomFilter(Long id){
+        return stringRedisTemplate.opsForValue().getBit(RedisConstant.FECTHED_IDS, id.hashCode()& Integer.MAX_VALUE);
     }
 
     @GetMapping("awemeItem")
