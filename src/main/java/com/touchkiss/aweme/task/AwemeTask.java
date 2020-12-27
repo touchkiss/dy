@@ -78,19 +78,42 @@ public class AwemeTask {
         int page=1;
         while (true){
             log.info("准备查询：{}",System.currentTimeMillis());
+//            HashMap<String,String> where = new HashMap() {{
+//                put("columns", "aweme_id");
+//                put("datatableorderby", "order by aweme_id desc");
+//            }};
+//            if (page==1){
+//                where.put("limit","limit "+pagesize);
+//            }else{
+//                where.put("limit","limit "+((page-1)*pagesize)+","+pagesize);
+//            }
+//            List<AwemeItem> result = awemeItemDaoService.queryAwemeItemList(where);
+//            log.info("完成查询：{}",System.currentTimeMillis());
+//            if(CollectionUtils.isNotEmpty(result)){
+//                result.stream().map(AwemeItem::getAwemeId).forEach(id-> stringRedisTemplate.opsForValue().setBit(RedisConstant.FECTHED_IDS,id.hashCode()& Integer.MAX_VALUE,true));
+//                log.info("第{}页，将{}条记录插入布隆过滤器",page,result.size());
+//                log.info("插入完成：{}",System.currentTimeMillis());
+//                if (result.size()<pagesize){
+//                    break;
+//                }
+//                page++;
+//                continue;
+//            }
+//            break;
+
             HashMap<String,String> where = new HashMap() {{
-                put("columns", "aweme_id");
-                put("datatableorderby", "order by aweme_id desc");
+                put("columns", "uid");
+                put("datatableorderby", "order by uid desc");
             }};
             if (page==1){
                 where.put("limit","limit "+pagesize);
             }else{
                 where.put("limit","limit "+((page-1)*pagesize)+","+pagesize);
             }
-            List<AwemeItem> result = awemeItemDaoService.queryAwemeItemList(where);
+            List<AwemeUserInfo> result = awemeUserInfoDaoService.queryAwemeUserInfoList(where);
             log.info("完成查询：{}",System.currentTimeMillis());
             if(CollectionUtils.isNotEmpty(result)){
-                result.stream().map(AwemeItem::getAwemeId).forEach(id-> stringRedisTemplate.opsForValue().setBit(RedisConstant.FECTHED_IDS,id.hashCode()& Integer.MAX_VALUE,true));
+                result.stream().map(AwemeUserInfo::getUid).forEach(id-> stringRedisTemplate.opsForValue().setBit(RedisConstant.FECTHED_IDS,id.hashCode()& Integer.MAX_VALUE,true));
                 log.info("第{}页，将{}条记录插入布隆过滤器",page,result.size());
                 log.info("插入完成：{}",System.currentTimeMillis());
                 if (result.size()<pagesize){
