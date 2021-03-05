@@ -1,13 +1,9 @@
 package com.touchkiss.dy.utils;
 
-import cn.hutool.http.HttpRequest;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.Header;
-import org.apache.http.message.BasicHeader;
 import org.apache.http.util.TextUtils;
 
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created on 2020/11/28 9:50
@@ -201,94 +197,5 @@ public class XGorgonUtil_V036 {
             }
         }
         return xGorgonStr.toString();
-    }
-
-    public static void main(String[] args) throws IOException {
-        userInfo();
-    }
-    public static void test1() throws IOException {
-        long time = System.currentTimeMillis();
-        int ts = (int) (time / 1000);
-        String _rticket = time + "";
-        String sessionid = "";
-        String url = "https://aweme.snssdk.com/aweme/v1/aweme/post/?source=0&max_cursor=0&sec_user_id=MS4wLjABAAAA07Z6fx4H67g7rmBuEuwm22zLnyT3J0MaSEQBWETiHQY&count=20&manifest_version_code=960&_rticket=" + time + "&app_type=normal&iid=3781959390083272&channel=ame_xiaomi2020_960_yz1&device_type=Redmi%20Note%208%20Pro&language=zh&resolution=1080*2134&openudid=ce348c6bf7df0427&update_version_code=9603&cdid=e1e64752-cc73-46a6-8970-737a9de1ac2d&os_api=29&dpi=440&oaid=6292668db7e5f1fc&ac=wifi&device_id=1213500227850904&mcc_mnc=46001&os_version=10&version_code=960&app_name=aweme&version_name=9.6.0&device_brand=Redmi&ssmix=a&device_platform=android&aid=1128&ts=" + ts;
-        String params = url.substring(url.indexOf("?") + 1);
-        //String STUB = encryption(k).toUpperCase();
-        String STUB = "";
-        String cookies = "install_id=3781959390083272; ttreq=1$b2365398a1b270726a7449a9e5726fb77b3a933b; passport_csrf_token=4ca844986452ffb906378e1f7f64d859; tt_webid=7e2f785ca563711a4a18b9276a3f7995; d_ticket=1328caa6b68eef3234a4d4e414961c054b35e; odin_tt=58f8443fd9b8a8aea36060d16afd68c65408ee8869594cc678371ba82274678d2dbb09b025fb1dc71d62e4c163a802bc; n_mh=PjgrtMhiMQmV7JQBs0RKGVADgQNqOE32NJPwi5Si1Bs; sid_guard=6d0a78a13a0df1a6a40dbc0f3ac4c38c%7C1606459653%7C5184000%7CTue%2C+26-Jan-2021+06%3A47%3A33+GMT; uid_tt=9a6548a5904f3c302966550eea0389a3; uid_tt_ss=9a6548a5904f3c302966550eea0389a3; sid_tt=6d0a78a13a0df1a6a40dbc0f3ac4c38c; sessionid=6d0a78a13a0df1a6a40dbc0f3ac4c38c; sessionid_ss=6d0a78a13a0df1a6a40dbc0f3ac4c38c";
-//        String Gorgon = xGorgon(ts,params, STUB, cookies);
-        String Gorgon = xGorgon(ts, params, STUB, cookies);
-//        String Gorgon = "0361411080008910015cb51fbeced734655bb996c44540b7c705";
-        System.err.println("Gorgon=" + Gorgon);
-        System.err.println(url);
-
-        long ticket = time;
-        System.err.println("ts             =" + ts);
-        System.err.println("time           =" + time);
-        System.err.println("X-SS-REQ-TICKET=" + time);
-        System.err.println("X-Khronos      =" + ts);
-        String body = "keyword=%E7%AE%B1%E5%AD%90%E7%B2%BE%E9%80%89%E7%94%B5%E5%BD%B1&offset=0&count=20&is_pull_refresh=0&search_source=search_history&hot_search=0&latitude=31.247221&longitude=121.492479&search_id=&query_correct_type=1&mac_address=d6%3Af5%3A35%3A8d%3A46%3A4e&is_filter_search=0&sort_type=0&publish_time=0&disable_synthesis=0&multi_mod=0&single_filter_aladdin=0";
-        List<Header> headers = new ArrayList<>();
-        headers.add(new BasicHeader("X-Gorgon", Gorgon));
-        headers.add(new BasicHeader("X-Khronos", String.valueOf(ts)));
-        headers.add(new BasicHeader("sdk-version", "1"));
-        headers.add(new BasicHeader("Accept-Encoding", "gzip"));
-//        headers.add(new BasicHeader("X-SS-REQ-TICKET",String.valueOf(time)));
-        String md5 = MD5Util.MD5(body);
-        System.out.println(md5);
-//        headers.add(new BasicHeader("X-SS-STUB", md5));
-        headers.add(new BasicHeader("User-Agent", "ttnet okhttp/3.10.0.2"));
-        headers.add(new BasicHeader("Host", "aweme-lq.snssdk.com"));
-        headers.add(new BasicHeader("Cookie", cookies));
-        headers.add(new BasicHeader("Connection", "Keep-Alive"));
-//
-        String json = HttpUtil.get(url, HttpUtil.DEFAULT_CONNECT_TIMEOUT, HttpUtil.DEFAULT_SOCKET_TIMEOUT, "UTF-8", headers);
-        System.err.println(json);
-        System.out.println(Gorgon);
-    }
-    public static void hutool() {
-        long time = System.currentTimeMillis();
-        long ts = time / 1000;
-        String url="https://aweme.snssdk.com/aweme/v1/user/profile/other/?sec_user_id=MS4wLjABAAAAp7gY2-GV8dVp-lC0_1ZVOlw-d0HE5vM9cPgXVZVqQp8&address_book_access=1&from=0&manifest_version_code=960&_rticket="+System.currentTimeMillis()+"&app_type=normal&iid=3781959390083272&channel=ame_xiaomi2020_960_yz1&device_type=Redmi%20Note%208%20Pro&language=zh&resolution=1080*2134&openudid=ce348c6bf7df0427&update_version_code=9603&cdid=e1e64752-cc73-46a6-8970-737a9de1ac2d&os_api=29&dpi=440&oaid=6292668db7e5f1fc&ac=wifi&device_id=1213500227850904&mcc_mnc=46001&os_version=10&version_code=960&app_name=aweme&version_name=9.6.0&device_brand=Redmi&ssmix=a&device_platform=android&aid=1128&ts="+System.currentTimeMillis()/1000;
-        String cookie = "install_id=3781959390083272; ttreq=1$b2365398a1b270726a7449a9e5726fb77b3a933b; passport_csrf_token=4ca844986452ffb906378e1f7f64d859; tt_webid=7e2f785ca563711a4a18b9276a3f7995; d_ticket=1328caa6b68eef3234a4d4e414961c054b35e; odin_tt=58f8443fd9b8a8aea36060d16afd68c65408ee8869594cc678371ba82274678d2dbb09b025fb1dc71d62e4c163a802bc; n_mh=PjgrtMhiMQmV7JQBs0RKGVADgQNqOE32NJPwi5Si1Bs; sid_guard=6d0a78a13a0df1a6a40dbc0f3ac4c38c%7C1606459653%7C5184000%7CTue%2C+26-Jan-2021+06%3A47%3A33+GMT; uid_tt=9a6548a5904f3c302966550eea0389a3; uid_tt_ss=9a6548a5904f3c302966550eea0389a3; sid_tt=6d0a78a13a0df1a6a40dbc0f3ac4c38c; sessionid=6d0a78a13a0df1a6a40dbc0f3ac4c38c; sessionid_ss=6d0a78a13a0df1a6a40dbc0f3ac4c38c";
-        Map<String, List<String>> headers=new HashMap<>();
-        headers.put("Accept-Encoding", Collections.singletonList("gzip"));
-        headers.put("X-SS-REQ-TICKET", Collections.singletonList(String.valueOf(System.currentTimeMillis())));
-        headers.put("sdk-version", Collections.singletonList("1"));
-        headers.put("x-tt-token", Collections.singletonList("006d0a78a13a0df1a6a40dbc0f3ac4c38c041994ea3850b92a09b3f58c4d0349186c3571b048c53f38c7d1d73df817033fd812dfa945afa9c170acf5cf073cfb71f07a3053b76c41146b29f1e40a5ac274001"));
-        headers.put("X-Khronos", Collections.singletonList(String.valueOf(System.currentTimeMillis()/1000)));
-        String xGorgon = xGorgon(System.currentTimeMillis() / 1000, url.substring(url.indexOf("?") + 1), "", cookie);
-        System.out.println(xGorgon);
-        headers.put("X-Gorgon", Collections.singletonList(xGorgon));
-        headers.put("User-Agent", Collections.singletonList("okhttp/3.10.0.1"));
-        headers.put("Host", Collections.singletonList("aweme.snssdk.com"));
-        headers.put("Connection", Collections.singletonList("Keep-Alive"));
-        HttpRequest get = cn.hutool.http.HttpUtil.createGet(url)
-                .cookie(cookie)
-                .header(headers,true);
-        System.out.println(get.execute().body());
-    }
-    public static void userInfo() {
-        long time = System.currentTimeMillis();
-        long ts = time / 1000;
-//        String url="https://aweme-eagle.snssdk.com/aweme/v1/user/?user_id=58814164483&retry_type=no_retry&mcc_mnc=46001&iid=175561601975351&device_id=1213500227850904&ac=wifi&channel=tianzhuo_dy_wifi1&aid=1128&app_name=aweme&version_code=421&version_name=4.2.1&device_platform=android&ssmix=a&device_type=Redmi+Note+8+Pro&device_brand=Redmi&language=zh&os_api=29&os_version=10&openudid=ce348c6bf7df0427&manifest_version_code=421&resolution=1080*2134&dpi=440&update_version_code=4212&_rticket="+time+"&ts="+ts+"&js_sdk_version=1.9.1&as=a1c5deec6b51cfbfe18444&cp=e51efe50bb17ccfae1_mMq&mas=012c4c4b856c5f4a202df3a753ff7508ef2c2c2c1c8ca6664666c6";
-        String url="https://aweme-eagle.snssdk.com/aweme/v1/user/?sec_user_id=MS4wLjABAAAAT_y6U7R-QeZ4C2tpyzFHaUlwoKmZQGg0x9YCW15soh4&retry_type=no_retry&mcc_mnc=46001&iid=175561601975351&device_id=1213500227850904&ac=wifi&channel=tianzhuo_dy_wifi1&aid=1128&app_name=aweme&version_code=421&version_name=4.2.1&device_platform=android&ssmix=a&device_type=Redmi+Note+8+Pro&device_brand=Redmi&language=zh&os_api=29&os_version=10&openudid=ce348c6bf7df0427&manifest_version_code=421&resolution=1080*2134&dpi=440&update_version_code=4212&_rticket="+time+"&ts="+ts+"&js_sdk_version=1.9.1";
-        String cookie = "install_id=175561601975351; ttreq=1$b58700d61faec314340a870b0ec82de5f1a0a4fa; odin_tt=a2a7581df5326b17c71dd091826bf564f05f91b5dafd4f08e4a7c0e7c8d7a3bacf410a5ff548cd09567c3703463a195bd90a2f0f51b9bd422caefbd362ec7eaa";
-        Map<String, List<String>> headers=new HashMap<>();
-        headers.put("Accept-Encoding", Collections.singletonList("gzip"));
-        headers.put("X-SS-REQ-TICKET", Collections.singletonList(String.valueOf(System.currentTimeMillis())));
-        headers.put("sdk-version", Collections.singletonList("1"));
-//        headers.put("x-tt-token", Collections.singletonList("006d0a78a13a0df1a6a40dbc0f3ac4c38c041994ea3850b92a09b3f58c4d0349186c3571b048c53f38c7d1d73df817033fd812dfa945afa9c170acf5cf073cfb71f07a3053b76c41146b29f1e40a5ac274001"));
-        headers.put("X-Khronos", Collections.singletonList(String.valueOf(System.currentTimeMillis()/1000)));
-        String xGorgon = xGorgon(System.currentTimeMillis() / 1000, url.substring(url.indexOf("?") + 1), "", cookie);
-        System.out.println(xGorgon);
-        headers.put("X-Gorgon", Collections.singletonList(xGorgon));
-        headers.put("User-Agent", Collections.singletonList("okhttp/3.10.0.1"));
-        headers.put("Host", Collections.singletonList("aweme.snssdk.com"));
-        headers.put("Connection", Collections.singletonList("Keep-Alive"));
-        HttpRequest get = cn.hutool.http.HttpUtil.createGet(url)
-                .cookie(cookie)
-                .header(headers,true);
-        System.out.println(get.execute().body());
     }
 }
