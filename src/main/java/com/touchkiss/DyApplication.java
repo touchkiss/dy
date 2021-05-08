@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication(scanBasePackages = {"com.touchkiss", "com.douyin", "com.huoshan"})
-@EnableScheduling
+//@EnableScheduling
 public class DyApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
