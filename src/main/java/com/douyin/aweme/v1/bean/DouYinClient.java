@@ -189,11 +189,11 @@ public class DouYinClient {
 
     public static void main(String[] args) throws Exception {
 
-//        UserRequest userInfoRequest = new UserRequest();
-//        userInfoRequest.setSec_user_id("MS4wLjABAAAABH2Akgc8-8YwPbS9WclwU2B4_dHpVlovgopgJyoHyGc");
-////        userInfoRequest.setUser_id("58814164483");
-//        UserResponse userProfileResponse = getInstance().doAction(userInfoRequest);
-//        System.out.println(GsonUtil.toJson(userProfileResponse));
+        UserRequest userInfoRequest = new UserRequest();
+        userInfoRequest.setSec_user_id("MS4wLjABAAAAY1jwiMWneNkXcflxlw9vPUW1ZvG71QSuLhFIsJo7GovhjYWXw8mpUwJlUKloDEUZ");
+//        userInfoRequest.setUser_id("58814164483");
+        UserResponse userProfileResponse = getInstance().doAction(userInfoRequest);
+        System.out.println(GsonUtil.toJson(userProfileResponse));
 
 //        AwemePostRequest awemePostRequest = new AwemePostRequest();
 //        awemePostRequest.setMax_cursor(0);
@@ -369,9 +369,9 @@ public class DouYinClient {
 //        System.out.println(GsonUtil.toJson(getInstance().doAction(mixListRequest)));
 
 
-        OriginalMusicListRequest originalMusicListRequest = new OriginalMusicListRequest();
-        originalMusicListRequest.setUser_id(80430828164L);
-        originalMusicListRequest.setSec_user_id("MS4wLjABAAAAcZGzyELZy3zQ9m3XBFl9rq3Z9_mlEDfrQTxE7Lxuz2o");
-        System.out.println(GsonUtil.toJson(getInstance().doAction(originalMusicListRequest)));
+//        OriginalMusicListRequest originalMusicListRequest = new OriginalMusicListRequest();
+//        originalMusicListRequest.setUser_id(80430828164L);
+//        originalMusicListRequest.setSec_user_id("MS4wLjABAAAAcZGzyELZy3zQ9m3XBFl9rq3Z9_mlEDfrQTxE7Lxuz2o");
+//        System.out.println(GsonUtil.toJson(getInstance().doAction(originalMusicListRequest)));
     }
 }
